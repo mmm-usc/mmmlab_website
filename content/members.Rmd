@@ -1,0 +1,36 @@
+---
+title: Members
+author: ''
+date: '2020-05-28'
+slug: members
+categories: []
+tags: []
+---
+
+
+#### Principal Investigator
+
+**Hok Chio (Mark) Lai**
+
+I am an Assistant Professor of Psychology (Quantitative Methods) in the Department of Psychology at the University of Southern California. I received my Ph.D. in Educational Psychology at Texas A&M University, and worked as an Assistant Professor at the University of Cincinnati prior to joining USC.
+
+#### Graduate Students
+
+**Winnie Wing-Yee Tse**
+
+- Advsior: Hok Chio (Mark) Lai
+- Research Interests: Statistical models within the framework of the structural equation modeling, measurement invariance, multilevel modeling
+- Email: wingyeet@usc.edu
+
+**Yichi Zhang**
+
+- Advsior: Hok Chio (Mark) Lai, Rand Wilcox     
+- Research Interests: Measurement invariance, equivalence testing, robust methods
+- Email:  yzhang97@usc.edu
+
+**Jimmy Zhang**
+
+#### Undergraduate Students
+
+**Hailin Yue**
+

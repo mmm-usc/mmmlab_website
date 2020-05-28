@@ -1,0 +1,20 @@
+---
+title: Publications
+author: ''
+date: '2020-05-28'
+slug: publications
+categories: []
+tags: []
+---
+
+### In Press
+
+### 2020
+
+**Lai, M. H. C.** (2020 April 20). Composite reliability of multilevel data: It's about observed
+scores and construct meanings. Psychological Methods. Manuscript accepted for
+publication.
+
+**Lai, M. H. C.** (2020). Bootstrap confidence interval for multilevel standardized effect size.
+Multivariate Behavioral Research. Advance online publication.
+https://doi.org/10.1080/00273171.2020.1746902

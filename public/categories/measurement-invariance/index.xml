@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>measurement invariance on MMM</title>
+    <link>/categories/measurement-invariance/</link>
+    <description>Recent content in measurement invariance on MMM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/measurement-invariance/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MI Categorial</title>
+      <link>/research/mi-categorial/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/research/mi-categorial/</guid>
+      <description>Measurement invariance with ordered-categorical indicators</description>
+    </item>
+    
+  </channel>
+</rss>

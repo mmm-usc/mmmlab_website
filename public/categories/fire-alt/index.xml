@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fire Alt on MMM</title>
+    <link>/categories/fire-alt/</link>
+    <description>Recent content in Fire Alt on MMM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Mar 2020 15:05:56 +0530</lastBuildDate>
+    
+	<atom:link href="/categories/fire-alt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fire Nation - Code Blocks?</title>
+      <link>/post/code-blocks/</link>
+      <pubDate>Sun, 22 Mar 2020 15:05:56 +0530</pubDate>
+      
+      <guid>/post/code-blocks/</guid>
+      <description>Tuta et oras femina unda pennisque vicina Lorem markdownum tollere distincta figitur utere rarus infans mille; prima sitim mea conveniunt cessit; mihi.</description>
+    </item>
+    
+  </channel>
+</rss>
