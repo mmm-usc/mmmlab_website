@@ -11,6 +11,7 @@ paginate = 5
 # disqusShortname = "yourdiscussshortname"
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+enableEmoji = true
 
 [params]
 favicon = "images/favicon.png"
@@ -24,12 +25,12 @@ herolinktext = "Latest Publications"
 [menu]
     [[menu.nav]]
         name    = "about"
-        pre = "<i class='fas fa-home'></i>"
+        pre = "<i class='fas fa-bookmark'></i>"
         url     = "about"
         weight  = -1
     [[menu.nav]]
         name    = "members"
-        pre = "<i class='fas fa-home'></i>"
+        pre = "<i class='fas fa-user-friends'></i>"
         url     = "members"
         weight  = -2
     #[[menu.nav]]
@@ -39,13 +40,13 @@ herolinktext = "Latest Publications"
     #    weight  = -3
     [[menu.nav]]
         name    = "publications"
-        pre = "<i class='fas fa-list'></i>"
+        pre = "<i class='fas fa-book'></i>"
         url     = "publications"
         weight  = -4
     [[menu.nav]]
         name    = "research"
-        pre = "<i class='fas fa-list'></i>"
-        url     = "post"
+        pre = "<i class='fas fa-chalkboard'></i>"
+        url     = "research"
         weight  = -5
     #[[menu.nav]]
     #    name    = "contact"

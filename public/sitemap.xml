@@ -13,12 +13,22 @@
   </url>
   
   <url>
+    <loc>/categories/measurement-invariance/</loc>
+    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/members/</loc>
     <lastmod>2020-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/mi-categorial/</loc>
+    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/research/mi-categorial/</loc>
     <lastmod>2020-05-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -39,6 +49,11 @@
   
   <url>
     <loc>/categories/research/</loc>
+    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/research/</loc>
     <lastmod>2020-05-28T00:00:00+00:00</lastmod>
   </url>
   
