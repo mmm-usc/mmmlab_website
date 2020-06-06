@@ -7,24 +7,33 @@ categories: []
 tags: []
 ---
 
+(Please add your bios, pictures, and CVs if you'd like!)
 
 #### Principal Investigator
 
 **Hok Chio (Mark) Lai**
 
+![](https://dornsife.usc.edu/tools/mytools/PersonnelInfoSystem/DOC/Faculty/PSYC/photo_1085621.jpg)
+
 I am an Assistant Professor of Psychology (Quantitative Methods) in the Department of Psychology at the University of Southern California. I received my Ph.D. in Educational Psychology at Texas A&M University, and worked as an Assistant Professor at the University of Cincinnati prior to joining USC.
+
+[CV](http://quantscience.rbind.io/files/Vita_Lai.pdf)
+
+hokchiol@usc.edu
 
 #### Graduate Students
 
 **Winnie Wing-Yee Tse**
 
-- Advsior: Hok Chio (Mark) Lai
+![](https://dornsife.usc.edu/assets/img/content/258061/wizard/ereropim.jpg)
+
 - Research Interests: Statistical models within the framework of the structural equation modeling, measurement invariance, multilevel modeling
 - Email: wingyeet@usc.edu
 
 **Yichi Zhang**
 
-- Advsior: Hok Chio (Mark) Lai, Rand Wilcox     
+![](https://dornsife.usc.edu/assets/img/content/258061/wizard/ulocikyq.jpg)
+
 - Research Interests: Measurement invariance, equivalence testing, robust methods
 - Email:  yzhang97@usc.edu
 
@@ -33,4 +42,10 @@ I am an Assistant Professor of Psychology (Quantitative Methods) in the Departme
 #### Undergraduate Students
 
 **Hailin Yue**
+
+#### Collaborators
+
+[Hio Wa (Grace) Mak (U Southern Califnoria)](https://hiowamak.weebly.com/)
+
+[George Richardson (U Cincinnati)](https://researchdirectory.uc.edu/p/richargg)
 
