@@ -33,23 +33,23 @@ herolinktext = "Latest Publications"
         pre = "<i class='fas fa-user-friends'></i>"
         url     = "members"
         weight  = -2
-    #[[menu.nav]]
-    #    name    = "research"
-    #    pre = "<i class='fas fa-list'></i>"
-    #    url     = "/research"
-    #    weight  = -3
+    [[menu.nav]]
+        name    = "research"
+        pre = "<i class='fas fa-chalkboard'></i>"
+        url     = "research"
+        weight  = -3
     [[menu.nav]]
         name    = "publications"
         pre = "<i class='fas fa-book'></i>"
         url     = "publications"
         weight  = -4
-    [[menu.nav]]
-        name    = "research"
-        pre = "<i class='fas fa-chalkboard'></i>"
-        url     = "research"
-        weight  = -5
-    #[[menu.nav]]
-    #    name    = "contact"
-    #    pre = "<i class='fas fa-envelope'></i>"
-    #    url     = "contact"
-    #    weight  = -6
+    # [[menu.nav]]
+    #     name    = "blog"
+    #     pre = "<i class='fas fa-list'></i>"
+    #     url     = "post"
+    #     weight  = -5
+    # [[menu.nav]]
+    #     name    = "contact"
+    #     pre = "<i class='fas fa-envelope'></i>"
+    #     url     = "contact"
+    #     weight  = -6
