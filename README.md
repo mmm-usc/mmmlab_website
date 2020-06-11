@@ -45,7 +45,7 @@ Under "Addins" (try to look for it on the top bar), there are multiple addins th
     - Title: title of the post
     - Author: your name
     - Date: date when you create the post/publish the post, a choice of yours
-    - Subdirectory: if you want your post to be shown under a subpage (e.g. research), put in the name of the subpage (i.e. research). 
+    - Subdirectory: if you want your post to be shown under a subpage (e.g., research), put in the name of the subpage (i.e., research). 
         - Beware of case-sensitivity!
     - Tags: add a tag on your post such that posts under the same tag are gathered together on our lab website for easier nevigations
     - Filename: it should be automatically generated after you put in details of above from the detail `post/YYYY-mm-dd-newfile.rmd`. 
@@ -54,7 +54,7 @@ Under "Addins" (try to look for it on the top bar), there are multiple addins th
         
 2. To edit a post, look for the file under "content" and its corresponding files or folders. Start editing! Remember to always pull first before editing, and commit and push after editing. 
 
-3. To preview your post, select "Serve Site" under "Addins". You can see a mobile version of it in "Viewer" (usually on the bottom-left of your Rstudio). Technically a webpage will pop up on your browser where you can nevigate our website (but sometimes it does not automatically show; try a few more times to trigger it if you want to). 
+3. Every time after you save your file (e.g., using Ctrl + S), a mobile version of your post will be automatically updated under "Viewer" (usually on the bottom-left of your Rstudio). To preview the desktop version of your post, select "Serve Site" under "Addins". Our website will pop up on your browser where you can navigate (sometimes it does not automatically work; try a few more times to trigger it if you want to). 
 
 3. You are now good to go!
 
