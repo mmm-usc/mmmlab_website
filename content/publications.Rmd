@@ -1,5 +1,5 @@
 ---
-title: Publications
+title: Selected Publications
 author: ''
 date: '2020-05-28'
 slug: publications
@@ -7,14 +7,22 @@ categories: []
 tags: []
 ---
 
-### In Press
+### Conference Presentations
 
-### 2020
+(Please add in your presentations!)
 
-**Lai, M. H. C.** (2020 April 20). Composite reliability of multilevel data: It's about observed
-scores and construct meanings. Psychological Methods. Manuscript accepted for
-publication.
+Peer-Reviewed Articles
 
-**Lai, M. H. C.** (2020). Bootstrap confidence interval for multilevel standardized effect size.
-Multivariate Behavioral Research. Advance online publication.
-https://doi.org/10.1080/00273171.2020.1746902
+In Press
+
+- **Lai, M. H. C.** (2020 April 20). Composite reliability of multilevel data: It's about observed scores and construct meanings. *Psychological Methods.* Manuscript accepted for publication.
+
+2020
+
+- **Lai, M. H. C.** (2020). Bootstrap confidence interval for multilevel standardized effect size. *Multivariate Behavioral Research.* Advance online publication. https://doi.org/10.1080/00273171.2020.1746902
+
+2019
+
+- **Lai, M. H. C.** (2019). Correcting fixed effect standard errors when a crossed random effect was ignored for balanced and unbalanced data. *Journal of Educational and Behavioral Statistics, 44*, 448-472. https://doi.org/10.3102/1076998619843168
+- **Lai, M. H. C.** (2019). Quantifying the impact of partial measurement invariance in diagnostic research: An application to addiction research. *Addictive Behaviors, 94*, 50-56. https://doi.org/10.1016/j.addbeh.2018.11.029
+
