@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Research</title>
+      <link>/research/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/research/</guid>
+      <description>Measurement Measurement is the foundation of quantitative science, and it’s especially important in psychological and social sciences. If a variable was not measured with good precision and validity, any research results based on it is like picking out patterns from random noise, or even highly misleading when systematic biases are present.</description>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
@@ -26,7 +35,8 @@
       <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/members/</guid>
-      <description>Principal Investigator Hok Chio (Mark) Lai
+      <description>(Please add your bios, pictures, and CVs if you’d like!)
+Principal Investigator Hok Chio (Mark) Lai
 I am an Assistant Professor of Psychology (Quantitative Methods) in the Department of Psychology at the University of Southern California.</description>
     </item>
     
@@ -49,12 +59,15 @@ I am an Assistant Professor of Psychology (Quantitative Methods) in the Departme
     </item>
     
     <item>
-      <title>Publications</title>
+      <title>Selected Publications</title>
       <link>/publications/</link>
       <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/publications/</guid>
-      <description>In Press  2020 Lai, M. H. C. (2020 April 20). Composite reliability of multilevel data: It’s about observed scores and construct meanings.</description>
+      <description>Conference Presentations (Please add in your presentations!)
+Peer-Reviewed Articles
+In Press
+ Lai, M. H. C. (2020 April 20).</description>
     </item>
     
     <item>
