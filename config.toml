@@ -1,7 +1,7 @@
 theme = "hugo-sugoi"
 baseURL = "https://mmmlab.com"
 languageCode = "en-us"
-title = "MMM"
+title = "Measurement & Multilevel Modeling Lab"
 summaryLength = 20
 paginate = 5
 # Google Analytics ID, Uncomment below line to enable
@@ -43,11 +43,11 @@ herolinktext = "Latest Publications"
         pre = "<i class='fas fa-book'></i>"
         url     = "publications"
         weight  = -4
-    # [[menu.nav]]
-    #     name    = "blog"
-    #     pre = "<i class='fas fa-list'></i>"
-    #     url     = "post"
-    #     weight  = -5
+    [[menu.nav]]
+        name    = "blog"
+        pre = "<i class='fas fa-list'></i>"
+        url     = "post"
+        weight  = -5
     # [[menu.nav]]
     #     name    = "contact"
     #     pre = "<i class='fas fa-envelope'></i>"
