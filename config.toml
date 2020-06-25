@@ -48,7 +48,7 @@ herolinktext = "Latest Publications"
         pre = "<i class='fas fa-list'></i>"
         url     = "post"
         weight  = -5
-    # [[menu.nav]]
+     [[menu.nav]]
     #     name    = "contact"
     #     pre = "<i class='fas fa-envelope'></i>"
     #     url     = "contact"
