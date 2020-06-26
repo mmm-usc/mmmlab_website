@@ -14,7 +14,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 enableEmoji = true
 
 [params]
-favicon = "images/favicon.png"
+favicon = "images/mmm_black_transparent.png"
 herotitle = "Measurement & Multilevel Modeling Lab"
 herolink = "publications"
 herolinktext = "Latest Publications"
@@ -23,11 +23,11 @@ herolinktext = "Latest Publications"
 [hero]
 
 [menu]
-    [[menu.nav]]
-        name    = "about"
-        pre = "<i class='fas fa-bookmark'></i>"
-        url     = "about"
-        weight  = -1
+    #[[menu.nav]]
+    #    name    = "about"
+    #    pre = "<i class='fas fa-bookmark'></i>"
+    #    url     = "about"
+    #    weight  = -1
     [[menu.nav]]
         name    = "members"
         pre = "<i class='fas fa-user-friends'></i>"

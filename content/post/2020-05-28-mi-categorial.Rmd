@@ -7,4 +7,9 @@ categories: ["measurement invariance"]
 tags: []
 ---
 
+testing
+
+<!--more-->
+
+
 Measurement invariance with ordered-categorical indicators
