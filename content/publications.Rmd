@@ -7,7 +7,7 @@ categories: []
 tags: []
 ---
 
-## Peer-Reviewed Articles
+## Peer-Reviewed Articles (Selected)
 
 ### In Press
 
@@ -28,6 +28,7 @@ tags: []
 
 ### 2020
 
+- Lai, M. H. C. (2020, July). Multilevel bootstrap confidence intervals for standardized effect size [paper session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States.
 - Tse, W. W. & Lai, M. H. C. (2020, July 14-17). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance
 for Valid Group Comparisons* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States.
 - Zhang, Y. & Lai, M. H. C. (2020, July 14-17). *A Bayesian framework for establishing measurement
