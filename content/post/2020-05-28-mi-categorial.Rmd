@@ -7,7 +7,7 @@ categories: ["measurement invariance"]
 tags: []
 ---
 
-testing
+testing.
 
 <!--more-->
 

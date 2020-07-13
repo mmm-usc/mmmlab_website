@@ -5,50 +5,78 @@ date: '2020-05-28'
 slug: members
 categories: []
 tags: []
-output:
-  blogdown::html_page:
-    toc: true
 ---
 
-(Please add your bios, pictures, and CVs if you'd like!)
+## Principal Investigator
 
-#### Principal Investigator
-
+<table>
+<tr>
+<td>![](https://dornsife.usc.edu/tools/mytools/PersonnelInfoSystem/DOC/Faculty/PSYC/photo_1085621.jpg)</td>
+<td>
 **Hok Chio (Mark) Lai**
 
-![](https://dornsife.usc.edu/tools/mytools/PersonnelInfoSystem/DOC/Faculty/PSYC/photo_1085621.jpg)
+I am an Assistant Professor of Psychology (Quantitative Methods) in the Department of Psychology at the University of Southern California. I am from Macau and speaks Cantonese as my native language. Mathematics has always been a favorite subject to me, but my growing interest in understanding the human mind lead me to pursue a bachelor degree in Psychology at the University of Macau, where I discovered that a career of developing and applying quantitative methods in the social sciences would be a very good fit to me.
 
-I am an Assistant Professor of Psychology (Quantitative Methods) in the Department of Psychology at the University of Southern California. I received my Ph.D. in Educational Psychology at Texas A&M University, and worked as an Assistant Professor at the University of Cincinnati prior to joining USC.
+I am interested in all kinds of statistical methods, but currently my research areas include multilevel modeling, structural equation modeling, effect size statistics, and measurement invariance. I also have collaborations on projects studying the prevalence, antecedents and consequences of gambling disorder, and in other areas such as evolutionary psychology, social psychology, developmental sciences, health sciences, etc.
 
-[CV](http://quantscience.rbind.io/files/Vita_Lai.pdf)
+- [CV](http://quantscience.rbind.io/files/Vita_Lai.pdf)
+- hokchiol@usc.edu
+</tr>
+</table>
 
-hokchiol@usc.edu
+## Graduate Students
 
-#### Graduate Students
-
+<table>
+<tr>
+<td>![](https://dornsife.usc.edu/assets/img/content/258061/wizard/ereropim.jpg)</td>
+<td>
 **Winnie Wing-Yee Tse**
 
-![](https://dornsife.usc.edu/assets/img/content/258061/wizard/ereropim.jpg)
+I am a Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. My main research interest is on statistical models within the framework of structural equation modeling, particularly with dichotomous and polytomous variables. My current project focuses on demonstrating the necessity of strict factorial invariance prior to mean comparisons across groups with ordered-categorical variables. 
 
-- Research Interests: Statistical models within the framework of the structural equation modeling, measurement invariance, multilevel modeling
-- Email: wingyeet@usc.edu
+In my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, and video gameplays (basically anything with a good storyline!). 
 
+- Email: wingyeet@usc.edu</td>
+</tr>
+
+<tr>
+<td>![](https://dornsife.usc.edu/assets/img/content/258061/wizard/ulocikyq.jpg)</td>
+<td>
 **Yichi Zhang**
 
-![](https://dornsife.usc.edu/assets/img/content/258061/wizard/ulocikyq.jpg)
+Research Interests: Measurement invariance, equivalence testing, robust methods
 
-- Research Interests: Measurement invariance, equivalence testing, robust methods
 - Email:  yzhang97@usc.edu
+</tr>
 
+<tr>
+<td>
 **Jimmy Zhang**
+</td>
+</tr>
 
-#### Undergraduate Students
+</table>
 
-**Hailin Yue**
 
-#### Collaborators
+## Undergraduate Students
 
-[Hio Wa (Grace) Mak (U Southern Califnoria)](https://hiowamak.weebly.com/)
+<table>
+<tr>
+<td>
+**Hailin Yue (Haley)**
 
-[George Richardson (U Cincinnati)](https://researchdirectory.uc.edu/p/richargg)
+I am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.
+</tr>
+</table>
+
+## Collaborators
+
+<table>
+<tr> 
+<td>[Hio Wa (Grace) Mak (U Southern Califnoria)](https://hiowamak.weebly.com/)</td>
+</tr>
+<tr>
+<td>[George Richardson (U Cincinnati)](https://researchdirectory.uc.edu/p/richargg)</td>
+</tr>
+</table>
 

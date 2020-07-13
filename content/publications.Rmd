@@ -7,22 +7,35 @@ categories: []
 tags: []
 ---
 
-### Conference Presentations
+## Peer-Reviewed Articles
 
-(Please add in your presentations!)
+### In Press
 
-Peer-Reviewed Articles
+- Lai, M. H. C. (2020 April 20). Composite reliability of multilevel data: It's about observed scores and construct meanings. *Psychological Methods.* Manuscript accepted for publication.
 
-In Press
+### 2020
 
-- **Lai, M. H. C.** (2020 April 20). Composite reliability of multilevel data: It's about observed scores and construct meanings. *Psychological Methods.* Manuscript accepted for publication.
+- Lai, M. H. C. (2020). Bootstrap confidence interval for multilevel standardized effect size. *Multivariate Behavioral Research.* Advance online publication. https://doi.org/10.1080/00273171.2020.1746902
 
-2020
+### 2019
 
-- **Lai, M. H. C.** (2020). Bootstrap confidence interval for multilevel standardized effect size. *Multivariate Behavioral Research.* Advance online publication. https://doi.org/10.1080/00273171.2020.1746902
+- Lai, M. H. C. (2019). Correcting fixed effect standard errors when a crossed random effect was ignored for balanced and unbalanced data. *Journal of Educational and Behavioral Statistics, 44*, 448-472. https://doi.org/10.3102/1076998619843168
+- Lai, M. H. C. (2019). Quantifying the impact of partial measurement invariance in diagnostic research: An application to addiction research. *Addictive Behaviors, 94*, 50-56. https://doi.org/10.1016/j.addbeh.2018.11.029
 
-2019
+<hr>
 
-- **Lai, M. H. C.** (2019). Correcting fixed effect standard errors when a crossed random effect was ignored for balanced and unbalanced data. *Journal of Educational and Behavioral Statistics, 44*, 448-472. https://doi.org/10.3102/1076998619843168
-- **Lai, M. H. C.** (2019). Quantifying the impact of partial measurement invariance in diagnostic research: An application to addiction research. *Addictive Behaviors, 94*, 50-56. https://doi.org/10.1016/j.addbeh.2018.11.029
+## Conference Presentations
 
+### 2020
+
+- Tse, W. W. & Lai, M. H. C. (2020, July 14-17). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance
+for Valid Group Comparisons* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States.
+- Zhang, Y. & Lai, M. H. C. (2020, July 14-17). *A Bayesian framework for establishing measurement
+invariance for observed test scores* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States.  
+- Tse, W. W. & Lai, M. H. C. (2020, June 25-26). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Conference Session]. A Meeting of Methodologies (AMOM), Vancouver, BC, Canada. 
+- Lai, M. H. C. (2020, June 2-3). *Constructing bootstrap confidence intervals for standardized
+effect size in cluster-randomized trials* [Paper Session]. Modern Modeling Methods Conference, Storrs, CT, United States. (Conference canceled)
+- Tse, W. W. & Lai, M. H. C. (2020, June 2-3). *Path to valid means comparisons: The necessity of
+strict measurement invariance for ordered categorical variables* [Poster Session]. Modern Modeling Methods Conference, Storrs, CT, United States. (Conference canceled)
+- Zhang, Y. & Lai, M. H. C. (2020, June 2-3). *A Bayesian framework for establishing measurement
+invariance for observed test scores* [Poster Session]. Modern Modeling Methods Conference, Storrs, CT, United States. (Conference canceled)

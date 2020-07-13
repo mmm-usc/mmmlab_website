@@ -262,7 +262,11 @@ nav ul li>a:only-child::after {
 .hero {
   padding: 8rem 0 7rem;
   background: #222;
-  background-size: 100%;
+  background-image: url("/images/mmm_white_transparent_alpha20.png");
+  background-size: 50%;
+  background-position: 4% 20%;
+  /*background-size: 215px;
+  background-position: 15% 10px;*/
   background-repeat: no-repeat;
   height: 100px;
   color: #eeeeee;
@@ -274,7 +278,6 @@ nav ul li>a:only-child::after {
 @media (min-width: 550px) {
   .hero {
     height: 150px;
-
   }
 }
 
@@ -283,10 +286,17 @@ nav ul li>a:only-child::after {
   margin-top: -70px;
 }
 
+@media (min-width: 400px) {
+  .row.content {
+    padding: 45px;
+    margin-top: 35px;
+  }
+}
+
 @media (min-width: 550px) {
   .row.content {
-    padding: 75px;
-    margin-top: -75px;
+    padding: 55px;
+    margin-top: -65px;
   }
 }
 
@@ -299,5 +309,10 @@ nav ul li>a:only-child::after {
 }
 
 footer {
+  padding: 30px;
   text-align: center;
+  background-image: url(/images/mmm_black_transparent_labname.png);
+  background-size: 140px;
+  background-position: 95% center;
+  background-repeat: no-repeat;
 }
