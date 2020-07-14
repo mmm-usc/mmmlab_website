@@ -32,12 +32,12 @@ herolinktext = "Latest Publications"
         name    = "members"
         pre = "<i class='fas fa-user-friends'></i>"
         url     = "members"
-        weight  = -2
+        weight  = -3
     [[menu.nav]]
         name    = "research"
         pre = "<i class='fas fa-chalkboard'></i>"
         url     = "research"
-        weight  = -3
+        weight  = -2
     [[menu.nav]]
         name    = "publications"
         pre = "<i class='fas fa-book'></i>"

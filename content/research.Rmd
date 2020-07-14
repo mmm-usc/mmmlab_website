@@ -1,13 +1,13 @@
 ---
 title: Research
-author: ''
+author: 'MMM'
 date: '2020-06-05'
 slug: research
 categories: []
 tags: []
 ---
 
-### Measurement
+## Measurement
 
 Measurement is the foundation of quantitative science, and it's especially important in psychological and social sciences. If a variable was not measured with good precision and validity, any research results based on it is like picking out patterns from random noise, or even highly misleading when systematic biases are present. 
 
@@ -21,7 +21,9 @@ Some current directions that we're working on include:
 - Developing a Multidimensional Psychometric Framework on the Impact of Item Bias on Classification (Contract to begin with Army Research Institute)
 <!-- - Summative index for systematic and random measurement errors -->
 
-### Multilevel Modeling
+<hr>
+
+## Multilevel Modeling
 
 Multilevel modeling, also called mixed-effect models, is an extremely powerful framework with very broad applications for quantitative science. It makes efficient use of data by adaptively pooling information across clusters (i.e., schools, states, companies, persons, or any continuous groups, including continuous ones). 
 

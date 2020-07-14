@@ -1,6 +1,6 @@
 ---
 title: Selected Publications
-author: ''
+author: 'MMM'
 date: '2020-05-28'
 slug: publications
 categories: []
@@ -28,15 +28,18 @@ tags: []
 
 ### 2020
 
-- Lai, M. H. C. (2020, July). Multilevel bootstrap confidence intervals for standardized effect size [paper session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States.
-- Tse, W. W. & Lai, M. H. C. (2020, July 14-17). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance
-for Valid Group Comparisons* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States.
-- Zhang, Y. & Lai, M. H. C. (2020, July 14-17). *A Bayesian framework for establishing measurement
-invariance for observed test scores* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States.  
-- Tse, W. W. & Lai, M. H. C. (2020, June 25-26). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Conference Session]. A Meeting of Methodologies (AMOM), Vancouver, BC, Canada. 
-- Lai, M. H. C. (2020, June 2-3). *Constructing bootstrap confidence intervals for standardized
-effect size in cluster-randomized trials* [Paper Session]. Modern Modeling Methods Conference, Storrs, CT, United States. (Conference canceled)
-- Tse, W. W. & Lai, M. H. C. (2020, June 2-3). *Path to valid means comparisons: The necessity of
-strict measurement invariance for ordered categorical variables* [Poster Session]. Modern Modeling Methods Conference, Storrs, CT, United States. (Conference canceled)
-- Zhang, Y. & Lai, M. H. C. (2020, June 2-3). *A Bayesian framework for establishing measurement
-invariance for observed test scores* [Poster Session]. Modern Modeling Methods Conference, Storrs, CT, United States. (Conference canceled)
+<p>
+- Lai, M. H. C. (2020, July). *Multilevel bootstrap confidence intervals for standardized effect size* [Paper Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842
+- Tse, W. W. & Lai, M. H. C. (2020, July 14-17). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842
+- Zhang, Y. & Lai, M. H. C. (2020, July 14-17). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842
+</p>
+
+<p>
+- Tse, W. W. & Lai, M. H. C. (2020, June 25-26). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Conference Session]. A Meeting of Methodologies (AMOM), Vancouver, BC, Canada. https://mfr.ca-1.osf.io/render?url=https://osf.io/qcfpg/?direct%26mode=render%26action=download%26mode=render
+</p>
+
+<p>
+- Lai, M. H. C. (2020, June 2-3). *Constructing bootstrap confidence intervals for standardized effect size in cluster-randomized trials* [Paper Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
+- Tse, W. W. & Lai, M. H. C. (2020, June 2-3). *Path to valid means comparisons: The necessity of strict measurement invariance for ordered categorical variables* [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
+- Zhang, Y. & Lai, M. H. C. (2020, June 2-3). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
+</p>

@@ -1,5 +1,5 @@
 a {
-  color: #111;
+  color: #089dd8;
   text-decoration: none;
   font-weight: 500;
 }
@@ -283,19 +283,19 @@ nav ul li>a:only-child::after {
 
 .row.content {
   padding: 30px;
-  margin-top: -70px;
+  margin-top: 30px;
 }
 
-@media (min-width: 400px) {
+@media (max-width: 400px) {
   .row.content {
-    padding: 45px;
+    padding: 30px;
     margin-top: 35px;
   }
 }
 
 @media (min-width: 550px) {
   .row.content {
-    padding: 55px;
+    padding: 50px;
     margin-top: -65px;
   }
 }
@@ -308,11 +308,18 @@ nav ul li>a:only-child::after {
   margin-right: 3px;
 }
 
+.portriat {
+  display: block;
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 15px;
+}
+
 footer {
   padding: 30px;
   text-align: center;
-  background-image: url(/images/mmm_black_transparent_labname.png);
+  /*background-image: url(/images/mmm_black_transparent_labname.png);
   background-size: 140px;
   background-position: 95% center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;*/
 }
