@@ -29,13 +29,13 @@ tags: []
 ### 2020
 
 <p>
-- Lai, M. H. C. (2020, July). *Multilevel bootstrap confidence intervals for standardized effect size* [Paper Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842
-- Tse, W. W. & Lai, M. H. C. (2020, July 14-17). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842
-- Zhang, Y. & Lai, M. H. C. (2020, July 14-17). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842
+- Lai, M. H. C. (2020, July). *Multilevel bootstrap confidence intervals for standardized effect size* [Paper Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
+- Tse, W. W. & Lai, M. H. C. (2020, July 14-17). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
+- Zhang, Y. & Lai, M. H. C. (2020, July 14-17). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
 </p>
 
 <p>
-- Tse, W. W. & Lai, M. H. C. (2020, June 25-26). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Conference Session]. A Meeting of Methodologies (AMOM), Vancouver, BC, Canada. https://mfr.ca-1.osf.io/render?url=https://osf.io/qcfpg/?direct%26mode=render%26action=download%26mode=render
+- Tse, W. W. & Lai, M. H. C. (2020, June 25-26). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Conference Session]. A Meeting of Methodologies (AMOM), Vancouver, BC, Canada. [Powerpoint slides](https://mfr.ca-1.osf.io/render?url=https://osf.io/qcfpg/?direct%26mode=render%26action=download%26mode=render)
 </p>
 
 <p>
