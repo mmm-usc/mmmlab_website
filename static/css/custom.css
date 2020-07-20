@@ -1,5 +1,5 @@
 a {
-  color: #111;
+  color: #089dd8;
   text-decoration: none;
   font-weight: 500;
 }
@@ -123,7 +123,7 @@ nav ul li>a:only-child::after {
     color: #ffffff;
     display: block;
     font-size: 22px;
-    padding: 10px 10px;
+    padding: 20px 10px;
     text-decoration: none;
     text-align: left;
     cursor: pointer;
@@ -155,7 +155,7 @@ nav ul li>a:only-child::after {
   nav ul ul ul a {
     background-color: #222;
     text-decoration: none;
-    width: 100%;
+    width: 93%;
     text-align: left;
 
   }
@@ -251,7 +251,7 @@ nav ul li>a:only-child::after {
 
 
 .section {
-  padding: 8rem 0 7rem;
+  padding: 0rem 0 0rem;
 }
 
 .section-heading,
@@ -260,8 +260,13 @@ nav ul li>a:only-child::after {
 }
 
 .hero {
+  padding: 8rem 0 7rem;
   background: #222;
-  background-size: 100%;
+  background-image: url("/images/mmm_white_transparent_alpha20.png");
+  background-size: 50%;
+  background-position: 4% 20%;
+  /*background-size: 215px;
+  background-position: 15% 10px;*/
   background-repeat: no-repeat;
   height: 100px;
   color: #eeeeee;
@@ -270,22 +275,45 @@ nav ul li>a:only-child::after {
   text-align: center;
 }
 
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 8rem 0 7rem;
+    background: #222;
+    background-image: url("/images/mmm_white_transparent_alpha20.png");
+    background-size: 70%;
+    background-position: 0% 20%;
+    background-repeat: no-repeat;
+    height: 100px;
+    color: #eeeeee;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 @media (min-width: 550px) {
   .hero {
     height: 150px;
-
   }
 }
 
 .row.content {
-  padding: 30px;
-  margin-top: -70px;
+  padding: 45px;
+  margin-top: 45px;
+}
+
+@media (max-width: 480px) {
+  .row.content {
+    padding: 40px;
+    margin-top: 75px;
+  }
 }
 
 @media (min-width: 550px) {
   .row.content {
-    padding: 75px;
-    margin-top: -75px;
+    padding: 60px;
+    margin-top: -65px;
   }
 }
 
@@ -297,6 +325,42 @@ nav ul li>a:only-child::after {
   margin-right: 3px;
 }
 
+.portriat {
+  display: block;
+  margin-right: 30px;
+  margin-bottom: 15px;
+}
+
+/*.profile {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: row;
+}*/
+
+@media (min-width: 550px) {
+  .profile {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 900px) {
+  .profile {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
 footer {
+  padding: 30px;
   text-align: center;
+  /*background-image: url(/images/mmm_black_transparent_labname.png);
+  background-size: 140px;
+  background-position: 95% center;
+  background-repeat: no-repeat;*/
 }
