@@ -11,16 +11,12 @@
 
 <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-<link href="themes/hugo-sugoi/static/css/normalize.css" rel="stylesheet">
-<link href="themes/hugo-sugoi/static/css/skeleton.css" rel="stylesheet">
-<link href="themes/hugo-sugoi/static/css/custom.css" rel="stylesheet">
-
-<!--{{ $css := "css/normalize.css" | absURL }}
+{{ $css := "css/normalize.css" | relURL }}
 <link rel="stylesheet" href="{{ $css }}">
-{{ $css := "css/skeleton.css" | absURL }}
+{{ $css := "css/skeleton.css" | relURL }}
 <link rel="stylesheet" href="{{ $css }}">
-{{ $css := "css/custom.css" | absURL }}
-<link rel="stylesheet" href="{{ $css }}">-->
+{{ $css := "css/custom.css" | relURL }}
+<link rel="stylesheet" href="{{ $css }}">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 
