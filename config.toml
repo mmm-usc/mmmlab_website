@@ -1,5 +1,5 @@
 theme = "hugo-sugoi"
-baseURL = "https://mmmlab.com"
+baseURL = "https://www.mmmlab.com"
 languageCode = "en-us"
 title = "Measurement & Multilevel Modeling Lab"
 summaryLength = 20
