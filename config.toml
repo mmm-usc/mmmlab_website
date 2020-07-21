@@ -1,4 +1,4 @@
-baseURL = "http://www.mmmlab.org/"
+baseURL = "http://www.mmmlab.com/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "hugo-theme-dimension"
