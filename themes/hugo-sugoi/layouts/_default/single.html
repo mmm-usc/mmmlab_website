@@ -8,8 +8,7 @@
         {{ else }}
         {{ .Scratch.Set "readingTime" "minute" }}
         {{ end }}
-        <i class="far fa-edit"></i> Written By: {{ with .Params.author }}{{ . }}{{ end }}, &nbsp
-        <i class="far fa-calendar"></i> Published On: {{.Date.Format "2006-01-02"}}, &nbsp
+        <i class="far fa-calendar"></i> Published On: {{.Date.Format "2006-01-02"}},
         <i class="far fa-clock"></i> Reading Time: {{ .ReadingTime }} {{ .Scratch.Get "readingTime" }}
         </h6>
     </div>
