@@ -1,4 +1,55 @@
-baseURL = "http://www.mmmlab.com/"
+theme = "hugo-sugoi"
+baseURL = "http://www.mmmlab.com"
 languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "hugo-theme-dimension"
+title = "Measurement & Multilevel Modeling Lab"
+summaryLength = 20
+paginate = 5
+# Google Analytics ID, Uncomment below line to enable
+# googleAnalytics = "UA-123-45"
+
+# Enter your disqus Shortname and uncomment below line to enable
+# disqusShortname = "yourdiscussshortname"
+
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+enableEmoji = true
+
+[params]
+favicon = "images/mmm_black_transparent.png"
+herotitle = "Measurement & Multilevel Modeling Lab"
+herolink = "publications"
+herolinktext = "Latest Publications"
+#contact = "Send me a message and I will get back as soon as possible."
+
+[hero]
+
+[menu]
+    #[[menu.nav]]
+    #    name    = "about"
+    #    pre = "<i class='fas fa-bookmark'></i>"
+    #    url     = "about"
+    #    weight  = -1
+    [[menu.nav]]
+        name    = "members"
+        pre = "<i class='fas fa-user-friends'></i>"
+        url     = "members"
+        weight  = -3
+    [[menu.nav]]
+        name    = "research"
+        pre = "<i class='fas fa-chalkboard'></i>"
+        url     = "research"
+        weight  = -2
+    [[menu.nav]]
+        name    = "publications"
+        pre = "<i class='fas fa-book'></i>"
+        url     = "publications"
+        weight  = -4
+    [[menu.nav]]
+        name    = "blog"
+        pre = "<i class='fas fa-list'></i>"
+        url     = "post"
+        weight  = -5
+     [[menu.nav]]
+    #     name    = "contact"
+    #     pre = "<i class='fas fa-envelope'></i>"
+    #     url     = "contact"
+    #     weight  = -6
