@@ -1,5 +1,5 @@
 theme = "hugo-sugoi"
-baseURL = "https://www.mmmlab.com"
+baseURL = "//mmmlab.com"
 languageCode = "en-us"
 title = "Measurement & Multilevel Modeling Lab"
 summaryLength = 20
@@ -12,10 +12,6 @@ paginate = 5
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 enableEmoji = true
-
-[build]
-  useResourceCacheWhen = "fallback"
-  writeStats = false
 
 [params]
 favicon = "images/mmm_black_transparent.png"
