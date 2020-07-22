@@ -1,5 +1,5 @@
 theme = "hugo-sugoi"
-baseURL = "http://www.mmmlab.com"
+baseURL = "https://mmmlab.netlify.app"
 languageCode = "en-us"
 title = "Measurement & Multilevel Modeling Lab"
 summaryLength = 20
