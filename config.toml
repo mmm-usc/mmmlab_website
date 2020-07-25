@@ -1,5 +1,5 @@
 theme = "hugo-sugoi"
-baseURL = "http://mmmlab.rbind.io"
+baseURL = "https://mmmlab.rbind.io"
 languageCode = "en-us"
 title = "Measurement & Multilevel Modeling Lab"
 summaryLength = 20
