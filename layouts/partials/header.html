@@ -1,14 +1,14 @@
 <nav>
-    <label for="drop" class="toggle"><i class="fas fa-bars u-pull-right" aria-hidden="true"></i> <span><img src="/images/mmm_white_transparent_labname.png" alt="lab logo" height=43px>
+    <label for="drop" class="toggle"><i class="fas fa-bars u-pull-right" aria-hidden="true"></i> <span><img src="/images/mmm_white_transparent.png" alt="lab logo" height=43px>
             </span></label>
     <input type="checkbox" id="drop" />
     <ul class="menu">
-        <li><a href="{{ .Site.BaseURL }}"><span><img src="/images/mmm_white_transparent_labname.png" alt="lab logo" height=43px>
+        <li><a href="{{ .Site.BaseURL }}"><span><img src="/images/mmm_white_transparent_labname.png" alt="lab logo" height=75px>
                     </span></a></li>
         {{ range .Site.Menus.nav }}
         <li class="u-pull-right">
             <a href="{{ .URL | absLangURL }}" class="Members">
-                <span>{{ .Pre }} {{ .Name }}</span>
+                <span><h5>{{ .Pre }} {{ .Name }}</h5></span>
             </a>
         </li>
         {{ end }}

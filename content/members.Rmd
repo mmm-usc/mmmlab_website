@@ -13,7 +13,7 @@ tags: []
 
 <section class="profile">
 
-<p><img class="portriat" src="https://dornsife.usc.edu/tools/mytools/PersonnelInfoSystem/DOC/Faculty/PSYC/photo_1085621.jpg" alt = "Hok Chio (Mark) Lai" width=250px></p>
+<p><img class="portrait" src="https://dornsife.usc.edu/tools/mytools/PersonnelInfoSystem/DOC/Faculty/PSYC/photo_1085621.jpg" alt = "Hok Chio (Mark) Lai" width=250px></p>
 
 <section class="bio">
 
@@ -21,15 +21,14 @@ I am an Assistant Professor of Psychology (Quantitative Methods) in the Departme
 
 I am interested in all kinds of statistical methods, but currently my research areas include multilevel modeling, structural equation modeling, effect size statistics, and measurement invariance. I also have collaborations on projects studying the prevalence, antecedents and consequences of gambling disorder, and in other areas such as evolutionary psychology, social psychology, developmental sciences, health sciences, etc.
 
-
-  - [CV](https://quantscience.rbind.io/files/Vita_Lai.pdf)
-  - [Personal website](https://quantscience.rbind.io)
-  - Email: hokchiol@usc.edu
+- [CV](https://quantscience.rbind.io/files/Vita_Lai.pdf)
+- [Personal website](https://quantscience.rbind.io)
+- Email: hokchiol@usc.edu
   
 </section>
 </section>
 
-<hr>
+***
 
 ## Graduate Students
 
@@ -37,7 +36,7 @@ I am interested in all kinds of statistical methods, but currently my research a
 
 <section class="profile">
 
-<p><img class="portriat" src="https://dornsife.usc.edu/assets/img/content/258061/wizard/ereropim.jpg" alt = "Winnie Wing-Yee Tse"></p>
+<p><img class="portrait" src="https://dornsife.usc.edu/assets/img/content/258061/wizard/ereropim.jpg" alt = "Winnie Wing-Yee Tse"></p>
 
 <section class="bio">
 
@@ -54,23 +53,20 @@ In my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, a
 
 <section class="profile">
 
-<p><img class="portriat" src="https://dornsife.usc.edu/assets/img/content/258061/wizard/ulocikyq.jpg" alt = "Yichi Zhang"></p>
+<p><img class="portrait" src="https://dornsife.usc.edu/assets/img/content/258061/wizard/ulocikyq.jpg" alt = "Yichi Zhang"></p>
 
 <section class="bio">
 
 Hello! I am a rising second year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
 
-- Email:  yzhang97@usc.edu
-</article>
+- Email: yzhang97@usc.edu
 
 </section>
 </section>
 
 **Jimmy Zhang**
 
-<hr>
-
-<div class="row content">
+***
 
 ## Undergraduate Students
 
@@ -80,15 +76,14 @@ Hello! I am a rising second year Ph.D. student in quantitative psychology. I am 
 
 I am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.
 
-</setcion>
+</section>
+
+***
 
 ## Collaborators
-
 
 [Hio Wa (Grace) Mak (U Southern Califnoria)](https://hiowamak.weebly.com/)
 
 [George Richardson (U Cincinnati)](https://researchdirectory.uc.edu/p/richargg)
 
-[Yu-Yu Hsiao (U New Mexico)]()
-
-</div>
+[Yu-Yu Hsiao (U New Mexico)](#)
