@@ -62,13 +62,13 @@
   .one.column,
   .one.columns                    { width: 4.66666666667%; }
   .two.columns                    { width: 13.3333333333%; }
-  .three.columns                  { width: 22%;            }
+  .three.columns                  { width: 26%;            }
   .four.columns                   { width: 30.6666666667%; }
   .five.columns                   { width: 39.3333333333%; }
   .six.columns                    { width: 48%;            }
   .seven.columns                  { width: 56.6666666667%; }
   .eight.columns                  { width: 65.3333333333%; }
-  .nine.columns                   { width: 74.0%;          }
+  .nine.columns                   { width: 68.0%;          }
   .ten.columns                    { width: 82.6666666667%; }
   .eleven.columns                 { width: 91.3333333333%; }
   .twelve.columns                 { width: 100%; margin-left: 0; }
@@ -121,7 +121,7 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 body {
-  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  font-size: 1.6em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -144,12 +144,21 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 
 /* Larger than phablet */
 @media (min-width: 550px) {
-  h1 { font-size: 5.0rem; }
-  h2 { font-size: 4.2rem; }
-  h3 { font-size: 3.6rem; }
-  h4 { font-size: 3.0rem; }
-  h5 { font-size: 2.4rem; }
+  h1 { font-size: 4.0rem; }
+  h2 { font-size: 3.8rem; }
+  h3 { font-size: 2.8rem; }
+  h4 { font-size: 2.5rem; }
+  h5 { font-size: 1.8rem; }
   h6 { font-size: 1.5rem; }
+}
+
+@media (max-width: 550px) {
+  h1 { font-size: 3.7rem; }
+  h2 { font-size: 3.4rem; }
+  h3 { font-size: 2.8rem; }
+  h4 { font-size: 2.5rem; }
+  h5 { font-size: 1.7rem; }
+  h6 { font-size: 1.6rem; }
 }
 
 p {
@@ -318,7 +327,9 @@ code {
 pre > code {
   display: block;
   padding: 1rem 1.5rem;
-  white-space: pre; }
+  white-space: pre; 
+  overflow: scroll;
+}
 
 
 /* Tables

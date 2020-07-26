@@ -109,7 +109,7 @@ nav ul li>a:only-child::after {
   content: "";
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1000px) {
   nav {
     margin: 0;
   }
@@ -313,7 +313,7 @@ nav ul li>a:only-child::after {
   }
 }
 
-@media (min-width: 550px) {
+@media (min-width: 900px) {
   .row.content {
     padding: 60px;
     margin-top: -65px;

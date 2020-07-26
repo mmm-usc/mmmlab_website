@@ -7,12 +7,41 @@ output:
   blogdown::html_page:
     toc: true
     number_sections: yes
+    includes:
+      in_header: toggle_r.html
 categories: []
 tags:
   - coivd
 ---
 
+<!--more-->
+
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script type="text/javascript">
+
+
+function toggle_R() {
+  var x = document.getElementsByClassName('r');
+  if (x.length == 0) return;
+  function toggle_vis(o) {
+    var d = o.style.display;
+    o.style.display = (d == 'block' || d == '') ? 'none':'block';
+  }
+
+  for (i = 0; i < x.length; i++) {
+    var y = x[i];
+    if (y.tagName.toLowerCase() === 'pre') toggle_vis(y);
+  }
+
+    var elem = document.getElementById("myButton1");
+    if (elem.value === "Hide Codes") elem.value = "Show Codes";
+    else elem.value = "Hide Codes";
+}
+
+document.write('<input onclick="toggle_R();" type="button" value="Hide Codes" id="myButton1" style="position: absolute; top: 10%; right: 2%; z-index: 200"></input>')
+
+</script>
+
 
 <div id="TOC">
 <ul>
