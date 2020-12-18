@@ -14,6 +14,8 @@ navbar:
       href: about.html
     - text: "Members"
       href: members.html
+    - text: "Research"
+      href: research.html
     - text: "Publications"
       href: publications.html
 output: distill::distill_article

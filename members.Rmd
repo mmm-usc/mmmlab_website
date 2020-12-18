@@ -25,8 +25,6 @@ I am interested in all kinds of statistical methods, but currently my research a
 - [Personal website](https://quantscience.rbind.io)
 - Email: hokchiol@usc.edu
 
-***
-
 ## Graduate Students
 
 ### Winnie Wing-Yee Tse
@@ -66,8 +64,6 @@ Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 ### Hailin Yue (Haley)
 
 I am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.
-
-***
 
 ## Collaborators
 
