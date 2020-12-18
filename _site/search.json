@@ -1,0 +1,42 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this blog",
+      "description": "About us",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2020-12-17T21:03:47-08:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Measurement & Multilevel Modeling Lab",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2020-12-17T21:03:48-08:00"
+    },
+    {
+      "path": "members.html",
+      "title": "Lab Members",
+      "description": "MMM Lab Members",
+      "author": [],
+      "contents": "\nPrincipal Investigator\nHok Chio (Mark) Lai\n\n\n\nI am an Assistant Professor of Psychology (Quantitative Methods) in the Department of Psychology at the University of Southern California. I am from Macau and speaks Cantonese as my native language. Mathematics has always been a favorite subject to me, but my growing interest in understanding the human mind lead me to pursue a bachelor degree in Psychology at the University of Macau, where I discovered that a career of developing and applying quantitative methods in the social sciences would be a very good fit to me.\nI am interested in all kinds of statistical methods, but currently my research areas include multilevel modeling, structural equation modeling, effect size statistics, and measurement invariance. I also have collaborations on projects studying the prevalence, antecedents and consequences of gambling disorder, and in other areas such as evolutionary psychology, social psychology, developmental sciences, health sciences, etc.\nCV\nPersonal website\nEmail: hokchiol@usc.edu\nGraduate Students\nWinnie Wing-Yee Tse\n\n\n\nI am a rising second year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. My main research interest is on statistical models within the framework of structural equation modeling, particularly with dichotomous and polytomous variables. My current project focuses on demonstrating the necessity of strict factorial invariance prior to mean comparisons across groups with ordered-categorical variables.\nIn my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, and video gameplays (basically anything with a good storyline!).\nEmail: wingyeet@usc.edu\nYichi Zhang\n\n\n\nHello! I am a rising second year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.\nEmail: yzhang97@usc.edu\nJimmy Zhang\n\n\n\nResearch Interests: Factor Analysis, Measurement Invariance, Meta-analysis\nUndergraduate Students\nHailin Yue (Haley)\nI am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.\nCollaborators\nHio Wa (Grace) Mak (U Southern Califnoria)\nGeorge Richardson (U Cincinnati)\nYu-Yu Hsiao (U New Mexico)\n\n\n\n",
+      "last_modified": "2020-12-17T21:03:48-08:00"
+    },
+    {
+      "path": "publications.html",
+      "title": "Publications",
+      "description": "Recent publications",
+      "author": [],
+      "contents": "\nPeer-Reviewed Articles (Selected)\n2020\n\nHsiao, Y., O. Kwok, and M. H. C. Lai (2020). “Modeling Measurement Errors of the Exogenous Composites From Congeneric Measures in Interaction Models”. In: Structural Equation Modeling: A Multidisciplinary Journal, pp. 1-11. DOI: 10.1080/10705511.2020.1782206.\nLai, M. H. C. (2020a). “Bootstrap Confidence Intervals for Multilevel Standardized Effect Size”. In: Multivariate Behavioral Research, pp. 1-21. DOI: 10.1080/00273171.2020.1746902.\nLai, M. H. C. (2020b). “Composite reliability of multilevel data: It’s about observed scores and construct meanings.” In: Psychological Methods. DOI: 10.1037/met0000287.\n\n2019\n\nLai, M. H. C. (2019). “Correcting Fixed Effect Standard Errors When a Crossed Random Effect Was Ignored for Balanced and Unbalanced Designs”. In: Journal of Educational and Behavioral Statistics 44.4, pp. 448-472. DOI: 10.3102/1076998619843168.\nLai, M. H., G. B. Richardson, and H. W. Mak (2019). “Quantifying the impact of partial measurement invariance in diagnostic research: An application to addiction research”. In: Addictive Behaviors 94, pp. 50-56. DOI: 10.1016/j.addbeh.2018.11.029.\n\nConference Presentations\n2020\nLai, M. H. C. (2020, July). Multilevel bootstrap confidence intervals for standardized effect size [Paper Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. Schedule\nTse, W. W. & Lai, M. H. C. (2020, July 14-17). Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. Schedule\nZhang, Y. & Lai, M. H. C. (2020, July 14-17). A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. Schedule\nTse, W. W. & Lai, M. H. C. (2020, June 25-26). Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons [Conference Session]. A Meeting of Methodologies (AMOM), Vancouver, BC, Canada. Powerpoint slides\nLai, M. H. C. (2020, June 2-3). Constructing bootstrap confidence intervals for standardized effect size in cluster-randomized trials [Paper Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)\nTse, W. W. & Lai, M. H. C. (2020, June 2-3). Path to valid means comparisons: The necessity of strict measurement invariance for ordered categorical variables [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)\nZhang, Y. & Lai, M. H. C. (2020, June 2-3). A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)\n\n\n\n",
+      "last_modified": "2020-12-17T21:03:52-08:00"
+    },
+    {
+      "path": "README.html",
+      "author": [],
+      "contents": "\nmmmlab_website\nThis is the distill version of the website for the Measurement & Multilevel Modeling Lab.\n\n\n",
+      "last_modified": "2020-12-17T21:03:52-08:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}

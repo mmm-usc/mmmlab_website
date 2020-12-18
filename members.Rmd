@@ -1,0 +1,78 @@
+---
+title: "Lab Members"
+description: |
+  MMM Lab Members
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      out.width = "250px")
+```
+
+## Principal Investigator
+
+### Hok Chio (Mark) Lai
+
+```{r}
+knitr::include_graphics("https://quantscience.rbind.io/author/hok-chio-mark-lai-%E9%BB%8E%E5%AD%B8%E6%98%AD/avatar_hu5fee5d8532847d51fbb6966683aaaac0_71984_270x270_fill_q90_lanczos_center.jpg")
+```
+
+I am an Assistant Professor of Psychology (Quantitative Methods) in the Department of Psychology at the University of Southern California. I am from Macau and speaks Cantonese as my native language. Mathematics has always been a favorite subject to me, but my growing interest in understanding the human mind lead me to pursue a bachelor degree in Psychology at the University of Macau, where I discovered that a career of developing and applying quantitative methods in the social sciences would be a very good fit to me.
+
+I am interested in all kinds of statistical methods, but currently my research areas include multilevel modeling, structural equation modeling, effect size statistics, and measurement invariance. I also have collaborations on projects studying the prevalence, antecedents and consequences of gambling disorder, and in other areas such as evolutionary psychology, social psychology, developmental sciences, health sciences, etc.
+
+- [CV](https://quantscience.rbind.io/files/Vita_Lai.pdf)
+- [Personal website](https://quantscience.rbind.io)
+- Email: hokchiol@usc.edu
+
+***
+
+## Graduate Students
+
+### Winnie Wing-Yee Tse
+
+```{r}
+knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/xizebuje.jpg")
+```
+
+I am a rising second year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. My main research interest is on statistical models within the framework of structural equation modeling, particularly with dichotomous and polytomous variables. My current project focuses on demonstrating the necessity of strict factorial invariance prior to mean comparisons across groups with ordered-categorical variables. 
+
+In my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, and video gameplays (basically anything with a good storyline!). 
+
+- Email: wingyeet@usc.edu
+
+### Yichi Zhang
+
+```{r}
+knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/esolehek.jpg")
+```
+
+Hello! I am a rising second year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
+
+- Email: yzhang97@usc.edu
+
+### Jimmy Zhang
+
+```{r}
+knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/nojaqado.jpg")
+```
+
+Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
+
+***
+
+## Undergraduate Students
+
+### Hailin Yue (Haley)
+
+I am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.
+
+***
+
+## Collaborators
+
+[Hio Wa (Grace) Mak (U Southern Califnoria)](https://hiowamak.weebly.com/)
+
+[George Richardson (U Cincinnati)](https://researchdirectory.uc.edu/p/richargg)
+
+[Yu-Yu Hsiao (U New Mexico)](#)
