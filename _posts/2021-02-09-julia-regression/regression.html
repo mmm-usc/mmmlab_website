@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Regression with Julia!</title>
+
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-02-11"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-02-11"/>
+  <meta name="article:author" content="Winnie Wing-Yee Tse"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Regression with Julia!"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Regression with Julia!"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Regression with Julia!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Winnie Wing-Yee Tse"]}]}]},{"type":"character","attributes":{},"value":["02-11-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Julia","Regression","Visualization"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["figures/regression_29_1.png","figures/regression_30_1.png","regression_files/anchor-4.2.2/anchor.min.js","regression_files/bowser-1.9.3/bowser.min.js","regression_files/distill-2.2.21/template.v2.js","regression_files/header-attrs-2.6/header-attrs.js","regression_files/jquery-1.11.3/jquery.min.js","regression_files/popper-2.6.0/popper.min.js","regression_files/tippy-6.2.7/tippy-bundle.umd.min.js","regression_files/tippy-6.2.7/tippy-light-border.css","regression_files/tippy-6.2.7/tippy.css","regression_files/tippy-6.2.7/tippy.umd.min.js","regression_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="regression_files/header-attrs-2.6/header-attrs.js"></script>
+  <script src="regression_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="regression_files/popper-2.6.0/popper.min.js"></script>
+  <link href="regression_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="regression_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="regression_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="regression_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="regression_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="regression_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="regression_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Regression with Julia!","authors":[{"author":"Winnie Wing-Yee Tse","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-11T00:00:00.000-08:00","citationText":"Tse, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Regression with Julia!</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">Julia</div>
+<div class="dt=tag">Regression</div>
+<div class="dt=tag">Visualization</div>
+</div>
+<!--/radix_placeholder_categories-->
+
+</div>
+
+<div class="d-byline">
+  Winnie Wing-Yee Tse  
+  
+<br/>02-11-2021
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#setup">Setup</a>
+<ul>
+<li><a href="#brief-introduction-to-the-package-pipe">Brief Introduction to the Package <code>Pipe</code></a></li>
+<li><a href="#brief-introduction-to-the-package-rdatasets">Brief Introduction to the Package <code>RDatasets</code></a></li>
+<li><a href="#brief-introduction-to-the-package-dataframes">Brief Introduction to the Package <code>DataFrames</code></a></li>
+</ul></li>
+<li><a href="#linear-regression">Linear Regression</a>
+<ul>
+<li><a href="#extracting-model-information">Extracting Model Information</a></li>
+</ul></li>
+<li><a href="#multiple-regression">Multiple Regression</a></li>
+<li><a href="#probit-regression">Probit Regression</a></li>
+<li><a href="#logistic-regression">Logistic Regression</a></li>
+<li><a href="#visualization">Visualization</a></li>
+</ul>
+</nav>
+</div>
+<h1 id="setup">Setup</h1>
+<p>Before we start, I encourage you to uncomment the codes below and install the required packages that you do not have for this tutorial.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Plots<span class="op">,</span> StatsPlots</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#= uncomment below to install packages</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">using Pkg</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Pkg.add([&quot;RDatasets&quot;, &quot;Pipe&quot;, &quot;DataFrames&quot;, &quot;GLM&quot;,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;Plots&quot;, &quot;StatPlots&quot;])</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">=#</span></span></code></pre></div>
+<p>Prior to running regression analyses, let me briefly go over three essential packages, <code>Pipe</code>, <code>RDatasets</code>, <code>DataFrames</code>, in handling data frames in Julia.</p>
+<h3 id="brief-introduction-to-the-package-pipe">Brief Introduction to the Package <code>Pipe</code></h3>
+<p>The package <code>Pipe</code> improves the base pipe operator (<code>|&gt;</code>) in Julia. It allows you to represent the object that is piped from with an underscore <code>_</code> in the functions that follow. For example, <code>sqrt(sum([1, 2, 3]))</code> involve two commands – one applied to <code>[1, 2, 3]</code> and the other one applied to <code>sum([1, 2, 3])</code>. We can pipe these commands, stemming from the <code>[1, 2, 3]</code> object, using <code>@pipe</code> together with <code>|&gt;</code>, as illustrated below.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Pipe</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@pipe</span> [<span class="fl">1</span><span class="op">,</span> <span class="fl">2</span><span class="op">,</span> <span class="fl">3</span>] <span class="op">|&gt;</span> sum(_) <span class="op">|&gt;</span> sqrt(_)</span></code></pre></div>
+<pre><code>2.449489742783178</code></pre>
+<p>The above code might have overkilled this simple task of taking a sqaure root of a sum, but piping will become very useful in handling a long series of commands. For more details of <code>Pipe</code>, please read the julia tutorial on [pipe] (<a href="https://syl1.gitbook.io/julia-language-a-concise-tutorial/useful-packages/pipe" class="uri">https://syl1.gitbook.io/julia-language-a-concise-tutorial/useful-packages/pipe</a>).</p>
+<h3 id="brief-introduction-to-the-package-rdatasets">Brief Introduction to the Package <code>RDatasets</code></h3>
+<p>The package <a href="https://github.com/JuliaStats/RDatasets.jl"><code>RDatasets</code></a> provides most of the base R datasets for Julia users to play around. We will be using the dataset <code>bfi</code> from the R package <code>psych</code> in this tutorial to explore regression analyses in Julia.</p>
+<p>Let’s read in the dataset <code>bfi</code> and drop out missing values.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> RDatasets</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># show(RDatasets.datasets(&quot;psych&quot;), allrows=true)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>bfi <span class="op">=</span> <span class="pp">@pipe</span> dataset(<span class="st">&quot;psych&quot;</span><span class="op">,</span> <span class="st">&quot;bfi&quot;</span>) <span class="op">|&gt;</span> dropmissing(_)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>println(names(bfi))</span></code></pre></div>
+<pre><code>[&quot;Variable&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;, &quot;A5&quot;, &quot;C1&quot;, &quot;C2&quot;, &quot;C3&quot;, &quot;C4&quot;, &quot;C5&quot;, &quot;E
+1&quot;, &quot;E2&quot;, &quot;E3&quot;, &quot;E4&quot;, &quot;E5&quot;, &quot;N1&quot;, &quot;N2&quot;, &quot;N3&quot;, &quot;N4&quot;, &quot;N5&quot;, &quot;O1&quot;, &quot;O2&quot;, &quot;O3&quot;,
+ &quot;O4&quot;, &quot;O5&quot;, &quot;Gender&quot;, &quot;Education&quot;, &quot;Age&quot;]</code></pre>
+<p>For a complete R documentation of this dataset, please refer to [this] (<a href="https://www.personality-project.org/r/html/bfi.html" class="uri">https://www.personality-project.org/r/html/bfi.html</a>).</p>
+<h3 id="brief-introduction-to-the-package-dataframes">Brief Introduction to the Package <code>DataFrames</code></h3>
+<p>For simplicity, let’s wrangle our data and sum over the scores on the columns for agreeableness (<code>A1</code> to <code>A5</code>) and for contienciousness (<code>C1</code> to <code>C5</code>). <code>Gender</code> is a numeric variable in the original dataset, while it should better be treated as a binary variable. Let’s also convert it into a categorical array using <code>categorical</code>.</p>
+<p><code>transform()</code> has similar function as <code>mutate()</code> in R, with which we can transform a column and save it into a new column in a dataframe. The operator <code>=&gt;</code> is pretty intuitive. In the first transform statment down below, we are basically asking Julia to take the columns between <code>A1</code> and <code>A5</code> in <code>bfi</code>, transform them by summing scores on the same row (<code>=&gt; ByRow(+)</code>), and then save these transformed data into a new column called <code>Asum</code>.</p>
+<p>Note that to call a column in a dataframe, we need to place an colon <code>:</code> before the column name.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> DataFrames</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>bfi <span class="op">=</span> <span class="pp">@pipe</span> bfi <span class="op">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            transform(_<span class="op">,</span> Between(<span class="op">:</span>A1<span class="op">,</span> <span class="op">:</span>A5) <span class="op">=&gt;</span> ByRow(<span class="op">+</span>) <span class="op">=&gt;</span> <span class="op">:</span>Asum) <span class="op">|&gt;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            transform(_<span class="op">,</span> Between(<span class="op">:</span>C1<span class="op">,</span> <span class="op">:</span>C5) <span class="op">=&gt;</span> ByRow(<span class="op">+</span>) <span class="op">=&gt;</span> <span class="op">:</span>Csum) <span class="op">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            transform(_<span class="op">,</span> <span class="op">:</span>Gender <span class="op">=&gt;</span> categorical <span class="op">=&gt;</span> <span class="op">:</span>Gender_bin)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>describe(select(bfi<span class="op">,</span> Between(<span class="op">:</span>Asum<span class="op">,</span> <span class="op">:</span>Gender_bin)))</span></code></pre></div>
+<pre><code>3×7 DataFrame
+ Row │ variable    mean     min  median  max  nmissing  eltype             
+    ⋯
+     │ Symbol      Union…   Any  Union…  Any  Int64     DataType           
+    ⋯
+─────┼─────────────────────────────────────────────────────────────────────
+─────
+   1 │ Asum        21.1632  5    22.0    30          0  Int64              
+    ⋯
+   2 │ Csum        19.0501  5    19.0    30          0  Int64
+   3 │ Gender_bin           1            2           0  CategoricalValue{In
+t64
+                                                                1 column om
+itted</code></pre>
+<p><code>describe()</code> provides summary statistics of the selected columns of our newly created variables from <code>Asum</code> to <code>Gender_bin</code>. As can be seen in the summary table, <code>Gender_bin</code> has a data type of <code>CategoricalValue{Int64,UInt32}</code>. Through that way in our following regression analysis, gender will be treated as a categorical variable and automatically dummy coded.</p>
+<p>For data wrangling in Julia using the package <code>Dataframes</code>, a [cheatsheet] (<a href="https://ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v0.22_rev1.pdf" class="uri">https://ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v0.22_rev1.pdf</a>) may come in handy here. I am a beginner Julia and <code>Dataframes</code> user. If you have a better way to optimize my codes, please let me know and I will be more than happy to learn it!</p>
+<hr />
+<h1 id="linear-regression">Linear Regression</h1>
+<p>Below are some summary statistics and a snapshot of the variables of interest for the following analyses.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>describe(select(bfi<span class="op">,</span> Between(<span class="op">:</span>Education<span class="op">,</span> <span class="op">:</span>Gender_bin)))</span></code></pre></div>
+<pre><code>5×7 DataFrame
+ Row │ variable    mean     min  median  max  nmissing  eltype             
+    ⋯
+     │ Symbol      Union…   Any  Union…  Any  Int64     DataType           
+    ⋯
+─────┼─────────────────────────────────────────────────────────────────────
+─────
+   1 │ Education   3.19141  1    3.0     5           0  Int64              
+    ⋯
+   2 │ Age         29.5103  3    26.0    86          0  Int64
+   3 │ Asum        21.1632  5    22.0    30          0  Int64
+   4 │ Csum        19.0501  5    19.0    30          0  Int64
+   5 │ Gender_bin           1            2           0  CategoricalValue{In
+t64 ⋯
+                                                                1 column om
+itted</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>first(select(bfi<span class="op">,</span> Between(<span class="op">:</span>Education<span class="op">,</span> <span class="op">:</span>Gender_bin))<span class="op">,</span> <span class="fl">5</span>)</span></code></pre></div>
+<pre><code>5×5 DataFrame
+ Row │ Education  Age    Asum   Csum   Gender_bin
+     │ Int64      Int64  Int64  Int64  Cat…
+─────┼────────────────────────────────────────────
+   1 │         3     21     28     22  2
+   2 │         2     19     14     15  1
+   3 │         1     21     24     17  1
+   4 │         1     17     14     19  1
+   5 │         5     68     23     18  1</code></pre>
+<p>In our sample, do older people tend to be more agreeable than younger people? We can fit a linear model with <code>Age</code> as the predictor and <code>Asum</code>, the sum scores of agreeableness, as the outcome variable, and determine whether there is a positive association between these two variables.</p>
+<p>The package <a href="https://juliastats.org/GLM.jl/stable/"><code>GLM</code></a> provides convenient ways that are analogous to the R functions <code>lm()</code> and <code>glm()</code> to specify linear models in Julia.</p>
+<p>To build a linear model, we use <code>lm()</code>, specify the model equation within <code>@formula()</code>, and indicate the dataset after the formula.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> GLM</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>lm1 <span class="op">=</span> lm(<span class="pp">@formula</span>(Asum <span class="op">~</span> Age)<span class="op">,</span> bfi)</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
+}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
+}}}},Array{Float64,2}}
+
+Asum ~ 1 + Age
+
+Coefficients:
+───────────────────────────────────────────────────────────────────────────
+                  Coef.  Std. Error      t  Pr(&gt;|t|)  Lower 95%   Upper 95%
+───────────────────────────────────────────────────────────────────────────
+(Intercept)  20.4382     0.225823    90.51    &lt;1e-99  19.9954    20.8811
+Age           0.0245685  0.00719702   3.41    0.0007   0.010455   0.0386821
+───────────────────────────────────────────────────────────────────────────</code></pre>
+<p>Unlike R, we do not need to additionally summarize <code>lm1</code> to get a summary table of the outputs.</p>
+<p>Equivalent to <code>lm()</code>, we can use the <code>fit()</code> function with the <code>LinearModel</code> argument.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fit1 <span class="op">=</span> fit(LinearModel<span class="op">,</span> <span class="pp">@formula</span>(Asum <span class="op">~</span> Age)<span class="op">,</span> bfi)</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
+}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
+}}}},Array{Float64,2}}
+
+Asum ~ 1 + Age
+
+Coefficients:
+───────────────────────────────────────────────────────────────────────────
+                  Coef.  Std. Error      t  Pr(&gt;|t|)  Lower 95%   Upper 95%
+───────────────────────────────────────────────────────────────────────────
+(Intercept)  20.4382     0.225823    90.51    &lt;1e-99  19.9954    20.8811
+Age           0.0245685  0.00719702   3.41    0.0007   0.010455   0.0386821
+───────────────────────────────────────────────────────────────────────────</code></pre>
+<p><code>lm(...)</code> and <code>fit(LinearModel, ...)</code> do not differ in their type, output, and functionality. A quick check on their type:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>typeof(lm1)</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
+}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
+}}}},Array{Float64,2}}</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>typeof(fit1)</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
+}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
+}}}},Array{Float64,2}}</code></pre>
+<p>which are essentially the same.</p>
+<h2 id="extracting-model-information">Extracting Model Information</h2>
+<p>We can use <code>coef()</code>, <code>stderror()</code>, and <code>vcov()</code> to extract coefficient estimates and standard errors of the coefficents, and the estimated variance-covariance matrix of the coefficient estimates, respectively.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>coef(lm1)</span></code></pre></div>
+<pre><code>2-element Array{Float64,1}:
+ 20.43821402633636
+  0.024568514618654096</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>stderror(lm1)</span></code></pre></div>
+<pre><code>2-element Array{Float64,1}:
+ 0.22582269777999403
+ 0.007197020298763872</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>vcov(lm1)</span></code></pre></div>
+<pre><code>2×2 Array{Float64,2}:
+  0.0509959   -0.00152855
+ -0.00152855   5.17971e-5</code></pre>
+<p>To obtain statistics for model fit, we can use <code>r2</code> for <code>R^2</code> and <code>deviance()</code> for the weighted residual sum of squares.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>r2(lm1)</span></code></pre></div>
+<pre><code>0.005189310057134855</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>deviance(lm1)</span></code></pre></div>
+<pre><code>29411.99403563621</code></pre>
+<p><code>predict()</code> computes the predicted values of each individual in our sample.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>predict(lm1)</span></code></pre></div>
+<pre><code>2236-element Array{Float64,1}:
+ 20.9541528333281
+ 20.905015804090787
+ 20.9541528333281
+ 20.85587877485348
+ 22.10887302040484
+ 21.10156392104002
+ 20.880447289472134
+ 20.92958431870944
+ 21.69120827188772
+ 21.248975008751945
+  ⋮
+ 21.15070095027733
+ 21.248975008751945
+ 21.003289862565406
+ 20.978721347946752
+ 20.978721347946752
+ 21.02785837718406
+ 21.15070095027733
+ 21.199837979514637
+ 21.666639757269067</code></pre>
+<p>!!! note “Follow-up Practice (1)” Let’s try to run a linear model to investigate whether contiouenciousness is predicted by education. How much variance is explained by this model?</p>
+<hr />
+<h1 id="multiple-regression">Multiple Regression</h1>
+<p>We may suspect that the difference in agreeableness over years of age depend on someone’s education level. To investigate this, we can add an interation between <code>Age</code> and <code>Education</code> on <code>Asum</code> by <code>Age &amp; Education</code>. Typically when we add an interaction term to a model, we include also the main effects of the variables. A shorthand of specifying both the main effects and interaction between the variables is <code>Age * Education</code>.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the models below are equivalent</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>lm(<span class="pp">@formula</span>(Asum <span class="op">~</span> Age <span class="op">+</span> Education <span class="op">+</span> Age <span class="op">&amp;</span> Education)<span class="op">,</span> bfi)</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
+}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
+}}}},Array{Float64,2}}
+
+Asum ~ 1 + Age + Education + Age &amp; Education
+
+Coefficients:
+───────────────────────────────────────────────────────────────────────────
+──────
+                      Coef.  Std. Error      t  Pr(&gt;|t|)   Lower 95%    Upp
+er 95%
+───────────────────────────────────────────────────────────────────────────
+──────
+(Intercept)      19.4241      0.651563   29.81    &lt;1e-99  18.1463     20.70
+18
+Age               0.0831532   0.0211002   3.94    &lt;1e-4    0.0417752   0.12
+4531
+Education         0.273547    0.200684    1.36    0.1730  -0.119999    0.66
+7093
+Age &amp; Education  -0.016346    0.0061294  -2.67    0.0077  -0.0283659  -0.00
+432607
+───────────────────────────────────────────────────────────────────────────
+──────</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lm(<span class="pp">@formula</span>(Asum <span class="op">~</span> Age <span class="op">*</span> Education)<span class="op">,</span> bfi)</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
+}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
+}}}},Array{Float64,2}}
+
+Asum ~ 1 + Age + Education + Age &amp; Education
+
+Coefficients:
+───────────────────────────────────────────────────────────────────────────
+──────
+                      Coef.  Std. Error      t  Pr(&gt;|t|)   Lower 95%    Upp
+er 95%
+───────────────────────────────────────────────────────────────────────────
+──────
+(Intercept)      19.4241      0.651563   29.81    &lt;1e-99  18.1463     20.70
+18
+Age               0.0831532   0.0211002   3.94    &lt;1e-4    0.0417752   0.12
+4531
+Education         0.273547    0.200684    1.36    0.1730  -0.119999    0.66
+7093
+Age &amp; Education  -0.016346    0.0061294  -2.67    0.0077  -0.0283659  -0.00
+432607
+───────────────────────────────────────────────────────────────────────────
+──────</code></pre>
+<p>!!! note “Follow-up Practice (2)” Let’s fit a model to explore whether there is an interaction between education and gender (<code>Gender_bin</code>) on contienciousness. How much did the variance explained by the model increasecompared to the model without the interaction (in reference to Practice (1)) increase?</p>
+<hr />
+<h1 id="probit-regression">Probit Regression</h1>
+<p>For the illustrative purpose, I arbitrarily define that a sum score above 20 out of 25 is a high score of agreeableness and dichotomize <code>Asum</code> to 1 or 0 accordingly.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>bfi <span class="op">=</span> <span class="pp">@pipe</span> transform(bfi<span class="op">,</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                      <span class="op">:</span>Asum <span class="op">=&gt;</span> ByRow(<span class="kw">function</span>(x) </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                                        <span class="kw">if</span> x <span class="op">&gt;=</span> <span class="fl">20</span> <span class="fl">1</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="kw">else</span> <span class="fl">0</span> </span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="kw">end</span> </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>                                     <span class="kw">end</span>) </span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>                               <span class="op">=&gt;</span> <span class="op">:</span>Abin)<span class="op">;</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>describe(select(bfi<span class="op">,</span> <span class="op">:</span>Abin))</span></code></pre></div>
+<pre><code>1×7 DataFrame
+ Row │ variable  mean     min    median   max    nmissing  eltype
+     │ Symbol    Float64  Int64  Float64  Int64  Int64     DataType
+─────┼──────────────────────────────────────────────────────────────
+   1 │ Abin      0.70975      0      1.0      1         0  Int64</code></pre>
+<p>Now because our outcome variable is a binary variable, it is more appropriate to model it with a binomial distribution and a probit link.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>lm_probit <span class="op">=</span> glm(<span class="pp">@formula</span>(Abin <span class="op">~</span> Age)<span class="op">,</span> bfi<span class="op">,</span> Binomial()<span class="op">,</span> ProbitLink())</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.GeneralizedLinearModel{GLM.GlmResp{Arr
+ay{Float64,1},Distributions.Binomial{Float64},GLM.ProbitLink},GLM.DensePred
+Chol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float
+64,2}}
+
+Abin ~ 1 + Age
+
+Coefficients:
+──────────────────────────────────────────────────────────────────────────
+                  Coef.  Std. Error     z  Pr(&gt;|z|)   Lower 95%  Upper 95%
+──────────────────────────────────────────────────────────────────────────
+(Intercept)  0.319024    0.0832706   3.83    0.0001  0.155816    0.482231
+Age          0.00798517  0.00269249  2.97    0.0030  0.00270799  0.0132623
+──────────────────────────────────────────────────────────────────────────</code></pre>
+<p>An equivalent way to specify this probit model is</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fit(GeneralizedLinearModel<span class="op">,</span> <span class="pp">@formula</span>(Abin <span class="op">~</span> Age)<span class="op">,</span> bfi<span class="op">,</span> Binomial()<span class="op">,</span> ProbitLink())</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.GeneralizedLinearModel{GLM.GlmResp{Arr
+ay{Float64,1},Distributions.Binomial{Float64},GLM.ProbitLink},GLM.DensePred
+Chol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float
+64,2}}
+
+Abin ~ 1 + Age
+
+Coefficients:
+──────────────────────────────────────────────────────────────────────────
+                  Coef.  Std. Error     z  Pr(&gt;|z|)   Lower 95%  Upper 95%
+──────────────────────────────────────────────────────────────────────────
+(Intercept)  0.319024    0.0832706   3.83    0.0001  0.155816    0.482231
+Age          0.00798517  0.00269249  2.97    0.0030  0.00270799  0.0132623
+──────────────────────────────────────────────────────────────────────────</code></pre>
+<p>Our probit model is as follows. <span class="math display">\[
+\Phi^{-1}(\text{High_Agreeableness}) = 0.319 + 0.008 \text{Age}
+\]</span></p>
+<p>For a person of age 20, the predicted probit of scoring high on agreeableness is 0.479.</p>
+<p>Note that the coefficients are probability z-scores and the prediction is a probit. To translate a probit back to a probability, we could use <code>cdf()</code> in the <code>Distributions</code> package.</p>
+<p><code>Normal()</code> by default specifies a normal distribution with a mean of 0 and a standard deviation of 1.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Distributions</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>cdf(Normal()<span class="op">,</span> <span class="fl">.479</span>)</span></code></pre></div>
+<pre><code>0.6840306856730872</code></pre>
+<p>The predicted probability of someone at age 20 scoring high on agreeablness is 68.4%.</p>
+<hr />
+<h1 id="logistic-regression">Logistic Regression</h1>
+<p>An alternative way to handle binary outcome variables is through logistic regression.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>lm_logit <span class="op">=</span> glm(<span class="pp">@formula</span>(Abin <span class="op">~</span> Age)<span class="op">,</span> bfi<span class="op">,</span> Binomial()<span class="op">,</span> LogitLink())</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.GeneralizedLinearModel{GLM.GlmResp{Arr
+ay{Float64,1},Distributions.Binomial{Float64},GLM.LogitLink},GLM.DensePredC
+hol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float6
+4,2}}
+
+Abin ~ 1 + Age
+
+Coefficients:
+─────────────────────────────────────────────────────────────────────────
+                 Coef.  Std. Error     z  Pr(&gt;|z|)   Lower 95%  Upper 95%
+─────────────────────────────────────────────────────────────────────────
+(Intercept)  0.497558   0.139339    3.57    0.0004  0.224458    0.770657
+Age          0.0135925  0.00455195  2.99    0.0028  0.00467084  0.0225141
+─────────────────────────────────────────────────────────────────────────</code></pre>
+<p>Similarly, an equivalent way to specify this logistic model is</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fit(GeneralizedLinearModel<span class="op">,</span> <span class="pp">@formula</span>(Abin <span class="op">~</span> Age)<span class="op">,</span> bfi<span class="op">,</span> Binomial()<span class="op">,</span> LogitLink())</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.GeneralizedLinearModel{GLM.GlmResp{Arr
+ay{Float64,1},Distributions.Binomial{Float64},GLM.LogitLink},GLM.DensePredC
+hol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float6
+4,2}}
+
+Abin ~ 1 + Age
+
+Coefficients:
+─────────────────────────────────────────────────────────────────────────
+                 Coef.  Std. Error     z  Pr(&gt;|z|)   Lower 95%  Upper 95%
+─────────────────────────────────────────────────────────────────────────
+(Intercept)  0.497558   0.139339    3.57    0.0004  0.224458    0.770657
+Age          0.0135925  0.00455195  2.99    0.0028  0.00467084  0.0225141
+─────────────────────────────────────────────────────────────────────────</code></pre>
+<p>Now our logistic model is as follows. <span class="math display">\[
+logit(\text{High_Agreeableness}) = 0.498 + 0.014 \text{Age}
+\]</span></p>
+<p>For a person of age 20, the predicted logit of scoring high on agreeableness is 0.778. Now the prediction is represented in terms of logit. To make it more interpretable, we can simply exponentiate the logit to get the odds ratio, or use the following formula to get the probability:</p>
+<p><span class="math display">\[
+\hat{\pi} = \frac{exp(0.498 + 0.014)}{1 + exp(0.498 + 0.014)}
+\]</span></p>
+<p>where <code>\hat{\pi}</code> is the predicted probability of someone scoring high on agreeableness.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>exp(<span class="fl">.778</span>)<span class="op">/</span>(<span class="fl">1</span> <span class="op">+</span> exp(<span class="fl">.778</span>))</span></code></pre></div>
+<pre><code>0.6852489081587367</code></pre>
+<p>Consistent with the result from probit regression, the predicted probability of someone at age 20 scoring high on agreeablness is 68.5%.</p>
+<hr />
+<h1 id="visualization">Visualization</h1>
+<p>Let’s cover the answers of Follow-up Practice (1) and (2) here.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Practice (1)</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>lm3 <span class="op">=</span> fit(LinearModel<span class="op">,</span> <span class="pp">@formula</span>(Csum <span class="op">~</span> Education)<span class="op">,</span> bfi)</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
+}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
+}}}},Array{Float64,2}}
+
+Csum ~ 1 + Education
+
+Coefficients:
+──────────────────────────────────────────────────────────────────────────
+                Coef.  Std. Error       t  Pr(&gt;|t|)   Lower 95%  Upper 95%
+──────────────────────────────────────────────────────────────────────────
+(Intercept)  18.5942    0.176512   105.34    &lt;1e-99  18.2481     18.9403
+Education     0.14285   0.0522318    2.73    0.0063   0.0404219   0.245278
+──────────────────────────────────────────────────────────────────────────</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Practice (2)</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>lm4 <span class="op">=</span> fit(LinearModel<span class="op">,</span> <span class="pp">@formula</span>(Csum <span class="op">~</span> Education<span class="op">*</span>Gender_bin)<span class="op">,</span> bfi)</span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
+}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
+}}}},Array{Float64,2}}
+
+Csum ~ 1 + Education + Gender_bin + Education &amp; Gender_bin
+
+Coefficients:
+───────────────────────────────────────────────────────────────────────────
+──────────────
+                                Coef.  Std. Error      t  Pr(&gt;|t|)   Lower 
+95%  Upper 95%
+───────────────────────────────────────────────────────────────────────────
+──────────────
+(Intercept)                18.9793      0.287144   66.10    &lt;1e-99  18.4162
+     19.5424
+Education                   0.0693464   0.0844421   0.82    0.4116  -0.0962
+469   0.23494
+Gender_bin: 2              -0.607298    0.364028   -1.67    0.0954  -1.3211
+7     0.106571
+Education &amp; Gender_bin: 2   0.119855    0.10743     1.12    0.2647  -0.0908
+195   0.330529
+───────────────────────────────────────────────────────────────────────────
+──────────────</code></pre>
+<p>Note that <code>Gender_bin</code> is dummy coded with male (1) as 0 and female (2) as 1. The default in <code>GLM</code> is dummy coding, but we can specify a different contrast coding. More details on contrast coding can be found [here] (<a href="https://juliastats.org/StatsModels.jl/stable/contrasts/" class="uri">https://juliastats.org/StatsModels.jl/stable/contrasts/</a>).</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting coefficients</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>lm3_b0<span class="op">,</span> lm3_b1 <span class="op">=</span> coef(lm3)<span class="op">;</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>lm4_b0<span class="op">,</span> lm4_b1<span class="op">,</span> lm4_b2<span class="op">,</span> lm4_b3 <span class="op">=</span> coef(lm4)<span class="op">;</span></span></code></pre></div>
+<p>We will use the package <a href="http://docs.juliaplots.org/latest/"><code>Plots</code></a> for visualizing the relationship between variables in the fitted models. The package <a href="http://docs.juliaplots.org/latest/contributing/#StatsPlots"><code>StatsPlots</code></a> is an extension of <code>Plots</code> that supports plotting with <code>DataFrame</code> objects.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@df</span> bfi scatter(</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Education<span class="op">,</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Csum<span class="op">,</span> </span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    group <span class="op">=</span> <span class="op">:</span>Gender<span class="op">,</span> </span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>    legend <span class="op">=</span> <span class="op">:</span>bottomright<span class="op">,</span> </span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> [<span class="st">&quot;Male&quot;</span> <span class="st">&quot;Female&quot;</span>]<span class="op">,</span> </span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">&quot;Education&quot;</span><span class="op">,</span> </span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>    ylabel <span class="op">=</span> <span class="st">&quot;Contientiousness&quot;</span>) </span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>plot<span class="op">!</span>((x) <span class="op">-&gt;</span> lm3_b0 <span class="op">+</span> lm3_b1 <span class="op">*</span> x<span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">5</span><span class="op">,</span> label <span class="op">=</span> <span class="st">&quot;Linear Model&quot;</span>)</span></code></pre></div>
+<p><img src="figures/regression_29_1.png" /></p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@df</span> bfi scatter(</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Education<span class="op">,</span> </span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Csum<span class="op">,</span> </span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    group <span class="op">=</span> <span class="op">:</span>Gender<span class="op">,</span> </span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    legend <span class="op">=</span> <span class="op">:</span>bottomright<span class="op">,</span> </span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> [<span class="st">&quot;Male&quot;</span> <span class="st">&quot;Female&quot;</span>]<span class="op">,</span> </span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">&quot;Education&quot;</span><span class="op">,</span> </span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>    ylabel <span class="op">=</span> <span class="st">&quot;Contienciousness&quot;</span><span class="op">,</span> </span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="fl">690</span><span class="op">,</span><span class="fl">460</span>)) </span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>plot<span class="op">!</span>((x) <span class="op">-&gt;</span> lm4_b0 <span class="op">+</span> lm4_b1 <span class="op">*</span> x <span class="op">+</span> lm4_b2 <span class="op">*</span> <span class="fl">0</span> <span class="op">+</span> lm4_b2 <span class="op">*</span> x <span class="op">*</span> <span class="fl">0</span><span class="op">,</span> </span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>      <span class="fl">1</span><span class="op">,</span> <span class="fl">5</span><span class="op">,</span> label <span class="op">=</span> <span class="st">&quot;Male&quot;</span><span class="op">,</span> linecolor <span class="op">=</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>plot<span class="op">!</span>((x) <span class="op">-&gt;</span> lm4_b0 <span class="op">+</span> lm4_b1 <span class="op">*</span> x <span class="op">+</span> lm4_b2 <span class="op">*</span> <span class="fl">1</span> <span class="op">+</span> lm4_b2 <span class="op">*</span> x <span class="op">*</span> <span class="fl">1</span><span class="op">,</span> </span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>      <span class="fl">1</span><span class="op">,</span> <span class="fl">5</span><span class="op">,</span> label <span class="op">=</span> <span class="st">&quot;Female&quot;</span><span class="op">,</span> linecolor <span class="op">=</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="figures/regression_30_1.png" /></p>
+<p>I also made reference to this <a href="https://nextjournal.com/DeepLearningNotes/Ch03LinearRegression">webpage</a> to create the plots above.</p>
+<p>Perhaps because the “research questions” I posed here were not so interesting, there was not much interesting to observe from the analysis outputs and the plots. But I hope you enjoy this tutorial in doing regression analyses with Julia :)</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
