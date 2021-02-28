@@ -33,7 +33,7 @@ I am interested in all kinds of statistical methods, but currently my research a
 knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/xizebuje.jpg")
 ```
 
-I am a rising second year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. My main research interest is on statistical models within the framework of structural equation modeling, particularly with dichotomous and polytomous variables. My current project focuses on demonstrating the necessity of strict factorial invariance prior to mean comparisons across groups with ordered-categorical variables. 
+I am a second year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. My main research interest is on statistical models within the framework of structural equation modeling, particularly with dichotomous and polytomous variables. My current project focuses on demonstrating the necessity of strict factorial invariance prior to mean comparisons across groups with ordered-categorical variables. 
 
 In my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, and video gameplays (basically anything with a good storyline!). 
 
@@ -45,7 +45,7 @@ In my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, a
 knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/esolehek.jpg")
 ```
 
-Hello! I am a rising second year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
+Hello! I am a second year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
 
 - Email: yzhang97@usc.edu
 

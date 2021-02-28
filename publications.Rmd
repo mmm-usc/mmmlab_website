@@ -8,7 +8,7 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r, load_refs, include = FALSE, cache = FALSE}
+```{r write_refs, include = FALSE, cache = FALSE}
 library(RefManageR)
 # Grab bibTeX using DOIs, and save to pubs.bib
 RefManageR::GetBibEntryWithDOI(
@@ -21,6 +21,27 @@ RefManageR::GetBibEntryWithDOI(
   ), 
   temp.file = "pubs.bib", 
   delete.file = FALSE)
+# Manual bibTeX for articles without DOIs
+ref <- c(
+  BibEntry(
+    bibtype = "unpublished", 
+    key = "lai2021", 
+    title = "Adjusting for partial invariance in latent parameter estimation: Comparing forward specification search and approximate invariance methods", 
+    author = "Lai, Mark H. C. and Liu, Yuanfang and Tse, Winnie Wing-Yee", 
+    year = "2021", 
+    journal = "Behavior Research Methods", 
+    date = "2021-02-05", 
+    pubstate = "Manuscript accepted for publication"
+  )
+)
+WriteBib(bib = ref, 
+         file = "pubs.bib", 
+         append = TRUE)
+```
+
+```{r, load_refs, include = FALSE, cache = FALSE}
+library(RefManageR)
+# Grab bibTeX using DOIs, and save to pubs.bib
 BibOptions(check.entries = FALSE,
            bib.style = "authoryear",
            cite.style = "alphabetic",
@@ -32,6 +53,12 @@ myBib <- ReadBib(here::here("pubs.bib"), check = FALSE)
 ```
 
 ## Peer-Reviewed Articles (Selected)
+
+### 2021
+
+```{r, results = "asis"}
+myBib[date = "2021"]
+```
 
 ### 2020
 
