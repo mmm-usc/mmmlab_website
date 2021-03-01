@@ -86,18 +86,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-<title>Measurement &amp; Multilevel Modeling Lab: test</title>
+<title>Measurement &amp; Multilevel Modeling Lab: Multilevel Models in Julia</title>
 
 <meta property="description" itemprop="description" content="A short description of the post."/>
 
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2021-02-27"/>
-<meta property="article:created" itemprop="dateCreated" content="2021-02-27"/>
-<meta name="article:author" content="Winnie Wing-Yee Tse"/>
+<meta property="article:published" itemprop="datePublished" content="2021-02-23"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-02-23"/>
+<meta name="article:author" content="Yichi Zhang"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: test"/>
+<meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Multilevel Models in Julia"/>
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="A short description of the post."/>
 <meta property="og:locale" content="en_US"/>
@@ -105,19 +105,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: test"/>
+<meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Multilevel Models in Julia"/>
 <meta property="twitter:description" content="A short description of the post."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["test"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Winnie Wing-Yee Tse"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["02-27-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Multilevel Models in Julia"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Yichi Zhang"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["02-23-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["test_files/anchor-4.2.2/anchor.min.js","test_files/bowser-1.9.3/bowser.min.js","test_files/distill-2.2.21/template.v2.js","test_files/jquery-1.11.3/jquery.min.js","test_files/popper-2.6.0/popper.min.js","test_files/tippy-6.2.7/tippy-bundle.umd.min.js","test_files/tippy-6.2.7/tippy-light-border.css","test_files/tippy-6.2.7/tippy.css","test_files/tippy-6.2.7/tippy.umd.min.js","test_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["figures/Multilevel Models with Julia_5_1.png","test_files/anchor-4.2.2/anchor.min.js","test_files/bowser-1.9.3/bowser.min.js","test_files/distill-2.2.21/template.v2.js","test_files/jquery-1.11.3/jquery.min.js","test_files/popper-2.6.0/popper.min.js","test_files/tippy-6.2.7/tippy-bundle.umd.min.js","test_files/tippy-6.2.7/tippy-light-border.css","test_files/tippy-6.2.7/tippy.css","test_files/tippy-6.2.7/tippy.umd.min.js","test_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2061,7 +2061,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"test","description":"A short description of the post.","authors":[{"author":"Winnie Wing-Yee Tse","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-27T00:00:00.000+00:00","citationText":"Tse, 2021"}
+{"title":"Multilevel Models in Julia","description":"A short description of the post.","authors":[{"author":"Yichi Zhang","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-23T00:00:00.000+00:00","citationText":"Zhang, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2090,197 +2090,285 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>test</h1>
+<h1>Multilevel Models in Julia</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 <p><p>A short description of the post.</p></p>
 </div>
 
 <div class="d-byline">
-  Winnie Wing-Yee Tse true 
+  Yichi Zhang true 
   
-<br/>02-27-2021
+<br/>02-23-2021
 </div>
 
 <div class="d-article">
-<h1 id="setup">Setup</h1>
-<p>Before we start, I encourage you to uncomment the codes below and install the required packages that you do not have for this tutorial.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># uncomment below to install packages</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#=using Pkg</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>Pkg.add([<span class="st">&quot;RDatasets&quot;</span>, <span class="st">&quot;Pipe&quot;</span>, <span class="st">&quot;DataFrames&quot;</span>, <span class="st">&quot;GLM&quot;</span>,</span>
-<span id="cb1-4"><a href="#cb1-4"></a>        <span class="st">&quot;Plots&quot;</span>, <span class="st">&quot;StatPlots&quot;</span>])</span>
-<span id="cb1-5"><a href="#cb1-5"></a>=<span class="co">#</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>  <span class="fl">1</span>+<span class="fl">1</span></span></code></pre></div>
-<pre><code>2</code></pre>
-</div>
-<p>Prior to running regression analyses, let me briefly go over three essential packages, <code>Pipe</code>, <code>RDatasets</code>, <code>DataFrames</code>, in handling data frames in Julia.</p>
-<h3 id="brief-introduction-to-the-package-pipe">Brief Introduction to the Package <code>Pipe</code></h3>
-<p>The package <code>Pipe</code> improves the base pipe operator (<code>|&gt;</code>) in Julia. It allows you to represent the object that is piped from with an underscore <code>_</code> in the functions that follow. For example, <code>sqrt(sum([1, 2, 3]))</code> involve two commands – one applied to <code>[1, 2, 3]</code> and the other one applied to <code>sum([1, 2, 3])</code>. We can pipe these commands, stemming from the <code>[1, 2, 3]</code> object, using <code>@pipe</code> together with <code>|&gt;</code>, as illustrated below.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb3"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1"></a>using Pipe</span>
-<span id="cb3-2"><a href="#cb3-2"></a>@pipe [<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>] |&gt; sum(_) |&gt; sqrt(_)</span></code></pre></div>
-<pre><code>2.449489742783178</code></pre>
-</div>
-<p>The above code might have overkilled this simple task of taking a sqaure root of a sum, but piping will become very useful in handling a long series of commands. For more details of <code>Pipe</code>, please read the julia tutorial on [pipe] (<a href="https://syl1.gitbook.io/julia-language-a-concise-tutorial/useful-packages/pipe" class="uri">https://syl1.gitbook.io/julia-language-a-concise-tutorial/useful-packages/pipe</a>).</p>
-<h3 id="brief-introduction-to-the-package-rdatasets">Brief Introduction to the Package <code>RDatasets</code></h3>
-<p>The package <a href="https://github.com/JuliaStats/RDatasets.jl"><code>RDatasets</code></a> provides most of the base R datasets for Julia users to play around. We will be using the dataset <code>bfi</code> from the R package <code>psych</code> in this tutorial to explore regression analyses in Julia.</p>
-<p>Let’s read in the dataset <code>bfi</code> and drop out missing values.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb5"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1"></a>using RDatasets</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># show(RDatasets.datasets(&quot;psych&quot;), allrows=true)</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>bfi = @pipe dataset(<span class="st">&quot;psych&quot;</span>, <span class="st">&quot;bfi&quot;</span>) |&gt; dropmissing(_)</span></code></pre></div>
-<pre><code>2236×29 DataFrame
-  Row │ Variable  A1     A2     A3     A4     A5     C1     C2     C3     C4   ⋯
-      │ Int64     Int64  Int64  Int64  Int64  Int64  Int64  Int64  Int64  Int6 ⋯
-──────┼─────────────────────────────────────────────────────────────────────────
-    1 │    61623      6      6      5      6      5      6      6  6      1    ⋯
-    2 │    61629      4      3      1      5      1      3      2  4      2
-    3 │    61634      4      4      5      6      5      4      3  5      3
-    4 │    61640      4      5      2      2      1      5      5  5      2
-    5 │    61661      1      5      6      5      6      4      3  2      4    ⋯
-    6 │    61664      2      6      5      6      5      3      5  6      3
-    7 │    61667      4      5      5      6      5      5      5  4      1
-    8 │    61668      1      6      6      1      6      5      2  5      1
-  ⋮   │    ⋮        ⋮      ⋮      ⋮      ⋮      ⋮      ⋮      ⋮      ⋮      ⋮  ⋱
- 2230 │    67540      2      5      3      5      4      5      4  3      4    ⋯
- 2231 │    67541      4      4      5      1      2      3      5  3      6
- 2232 │    67544      5      5      5      6      5      6      6  2      4
- 2233 │    67547      3      4      3      1      3      5      4  5      3
- 2234 │    67556      2      3      5      2      5      5      5  5      1    ⋯
- 2235 │    67559      5      2      2      4      4      5      5  5      2
- 2236 │    67560      2      3      1      4      2      5      5  3      3
-                                                20 columns and 2221 rows omitted</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1"></a>println(names(bfi))</span></code></pre></div>
-<pre><code>[&quot;Variable&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;, &quot;A5&quot;, &quot;C1&quot;, &quot;C2&quot;, &quot;C3&quot;, &quot;C4&quot;, &quot;C5&quot;, &quot;E1&quot;, &quot;E2&quot;, &quot;E3&quot;, &quot;E4&quot;, &quot;E5&quot;, &quot;N1&quot;, &quot;N2&quot;, &quot;N3&quot;, &quot;N4&quot;, &quot;N5&quot;, &quot;O1&quot;, &quot;O2&quot;, &quot;O3&quot;, &quot;O4&quot;, &quot;O5&quot;, &quot;Gender&quot;, &quot;Education&quot;, &quot;Age&quot;]</code></pre>
-</div>
-<p>For a complete R documentation of this dataset, please refer to [this] (<a href="https://www.personality-project.org/r/html/bfi.html" class="uri">https://www.personality-project.org/r/html/bfi.html</a>).</p>
-<h3 id="brief-introduction-to-the-package-dataframes">Brief Introduction to the Package <code>DataFrames</code></h3>
-<p>For simplicity, let’s wrangle our data and sum over the scores on the columns for agreeableness (<code>A1</code> to <code>A5</code>) and for contienciousness (<code>C1</code> to <code>C5</code>). <code>Gender</code> is a numeric variable in the original dataset, while it should better be treated as a binary variable. Let’s also convert it into a categorical array using <code>categorical</code>.</p>
-<p><code>transform()</code> has similar function as <code>mutate()</code> in R, with which we can transform a column and save it into a new column in a dataframe. The operator <code>=&gt;</code> is pretty intuitive. In the first transform statment down below, we are basically asking Julia to take the columns between <code>A1</code> and <code>A5</code> in <code>bfi</code>, transform them by summing scores on the same row (<code>=&gt; ByRow(+)</code>), and then save these transformed data into a new column called <code>Asum</code>.</p>
-<p>Note that to call a column in a dataframe, we need to place an colon <code>:</code> before the column name.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1"></a>using DataFrames</span>
-<span id="cb9-2"><a href="#cb9-2"></a>bfi = @pipe bfi |&gt; </span>
-<span id="cb9-3"><a href="#cb9-3"></a>            transform(_, Between(:A1, :A5) =&gt; ByRow(+) =&gt; :Asum) |&gt; </span>
-<span id="cb9-4"><a href="#cb9-4"></a>            transform(_, Between(:C1, :C5) =&gt; ByRow(+) =&gt; :Csum) |&gt;</span>
-<span id="cb9-5"><a href="#cb9-5"></a>            transform(_, :Gender =&gt; categorical =&gt; :Gender_bin)</span>
-<span id="cb9-6"><a href="#cb9-6"></a>describe(select(bfi, Between(:Asum, :Gender_bin)))</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1"></a>@pipe bfi |&gt;</span>
-<span id="cb10-2"><a href="#cb10-2"></a>      select(_, Between(:Asum, :Gender_bin)) |&gt;</span>
-<span id="cb10-3"><a href="#cb10-3"></a>      describe(_)</span></code></pre></div>
-<p><code>describe()</code> provides summary statistics of the selected columns of our newly created variables from <code>Asum</code> to <code>Gender_bin</code>. As can be seen in the summary table, <code>Gender_bin</code> has a data type of <code>CategoricalValue{Int64,UInt32}</code>. Through that way in our following regression analysis, gender will be treated as a categorical variable and automatically dummy coded.</p>
-<p>For data wrangling in Julia using the package <code>Dataframes</code>, a [cheatsheet] (<a href="https://ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v0.22_rev1.pdf" class="uri">https://ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v0.22_rev1.pdf</a>) may come in handy here. I am a beginner Julia and <code>Dataframes</code> user. If you have a better way to optimize my codes, please let me know and I will be more than happy to learn it!</p>
-<hr />
-<h1 id="linear-regression">Linear Regression</h1>
-<p>Below are some summary statistics and a snapshot of the variables of interest for the following analyses.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1"></a>describe(select(bfi, Between(:Education, :Gender_bin)))</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1"></a>first(select(bfi, Between(:Education, :Gender_bin)), <span class="fl">5</span>)</span></code></pre></div>
-<p>In our sample, do older people tend to be more agreeable than younger people? We can fit a linear model with <code>Age</code> as the predictor and <code>Asum</code>, the sum scores of agreeableness, as the outcome variable, and determine whether there is a positive association between these two variables.</p>
-<p>The package <a href="https://juliastats.org/GLM.jl/stable/"><code>GLM</code></a> provides convenient ways that are analogous to the R functions <code>lm()</code> and <code>glm()</code> to specify linear models in Julia.</p>
-<p>To build a linear model, we use <code>lm()</code>, specify the model equation within <code>@formula()</code>, and indicate the dataset after the formula.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1"></a>using GLM</span>
-<span id="cb13-2"><a href="#cb13-2"></a>lm1 = lm(@formula(Asum ~ Age), bfi)</span></code></pre></div>
-<p>Unlike R, we do not need to additionally summarize <code>lm1</code> to get a summary table of the outputs.</p>
-<p>Equivalent to <code>lm()</code>, we can use the <code>fit()</code> function with the <code>LinearModel</code> argument.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1"></a>fit1 = fit(LinearModel, @formula(Asum ~ Age), bfi)</span></code></pre></div>
-<p><code>lm(...)</code> and <code>fit(LinearModel, ...)</code> do not differ in their type, output, and functionality. A quick check on their type:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1"></a>typeof(lm1)</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1"></a>typeof(fit1)</span></code></pre></div>
-<p>which are essentially the same.</p>
-<h2 id="extracting-model-information">Extracting Model Information</h2>
-<p>We can use <code>coef()</code>, <code>stderror()</code>, and <code>vcov()</code> to extract coefficient estimates and standard errors of the coefficents, and the estimated variance-covariance matrix of the coefficient estimates, respectively.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1"></a>coef(lm1)</span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1"></a>stderror(lm1)</span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1"></a>vcov(lm1)</span></code></pre></div>
-<p>To obtain statistics for model fit, we can use <code>r2</code> for <code>R^2</code> and <code>deviance()</code> for the weighted residual sum of squares.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1"></a>r2(lm1)</span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1"></a>deviance(lm1)</span></code></pre></div>
-<p><code>predict()</code> computes the predicted values of each individual in our sample.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1"></a>predict(lm1)</span></code></pre></div>
-<p>!!! note “Follow-up Practice (1)” Let’s try to run a linear model to investigate whether contiouenciousness is predicted by education. How much variance is explained by this model?</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1"></a>lm3 = fit(LinearModel, @formula(Csum ~ Education), bfi)</span>
-<span id="cb23-2"><a href="#cb23-2"></a>r2(lm3)</span></code></pre></div>
-<hr />
-<h1 id="multiple-regression">Multiple Regression</h1>
-<p>We may suspect that the difference in agreeableness over years of age depend on someone’s education level. To investigate this, we can add an interation between <code>Age</code> and <code>Education</code> on <code>Asum</code> by <code>Age &amp; Education</code>. Typically when we add an interaction term to a model, we include also the main effects of the variables. A shorthand of specifying both the main effects and interaction between the variables is <code>Age * Education</code>.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># the models below are equivalent</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>lm2a = lm(@formula(Asum ~ Age + Education + Age &amp; Education), bfi)</span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1"></a>lm2b = lm(@formula(Asum ~ Age * Education), bfi)</span></code></pre></div>
-<p>!!! note “Follow-up Practice (2)” Let’s fit a model to explore whether there is an interaction between education and gender (<code>Gender_bin</code>) on contienciousness. How much did the variance explained by the model increasecompared to the model without the interaction (in reference to Practice (1)) increase?</p>
-<hr />
-<h1 id="probit-regression">Probit Regression</h1>
-<p>For the illustrative purpose, I arbitrarily define that a sum score above 20 out of 30 is a high score of agreeableness and dichotomize <code>Asum</code> to 1 or 0 accordingly.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1"></a>bfi = @pipe transform(bfi, </span>
-<span id="cb26-2"><a href="#cb26-2"></a>                      :Asum =&gt; ByRow(<span class="kw">function</span>(x) </span>
-<span id="cb26-3"><a href="#cb26-3"></a>                                        <span class="kw">if</span> x &gt;= <span class="fl">20</span> <span class="fl">1</span> </span>
-<span id="cb26-4"><a href="#cb26-4"></a>                                        <span class="kw">else</span> <span class="fl">0</span> </span>
-<span id="cb26-5"><a href="#cb26-5"></a>                                        <span class="kw">end</span> </span>
-<span id="cb26-6"><a href="#cb26-6"></a>                                     <span class="kw">end</span>) </span>
-<span id="cb26-7"><a href="#cb26-7"></a>                               =&gt; :Abin);</span>
-<span id="cb26-8"><a href="#cb26-8"></a>describe(select(bfi, :Abin))</span></code></pre></div>
-<p>Now because our outcome variable is a binary variable, it is more appropriate to model it with a binomial distribution and a probit link.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1"></a>lm_probit = glm(@formula(Abin ~ Age), bfi, Binomial(), ProbitLink())</span></code></pre></div>
-<p>An equivalent way to specify this probit model is</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1"></a>fit(GeneralizedLinearModel, @formula(Abin ~ Age), bfi, Binomial(), ProbitLink())</span></code></pre></div>
-<p>Our probit model is as follows.</p>
-<pre class="math"><code>\Phi^{-1}(\text{High_Agreeableness}) = 0.319 + 0.008 \text{Age}</code></pre>
-<p>For a person of age 20, the predicted probit of scoring high on agreeableness is 0.479.</p>
-<p>Note that the coefficients are probability z-scores and the prediction is a probit. To translate a probit back to a probability, we could use <code>cdf()</code> in the <code>Distributions</code> package.</p>
-<p><code>Normal()</code> by default specifies a normal distribution with a mean of 0 and a standard deviation of 1.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1"></a>using Distributions</span>
-<span id="cb30-2"><a href="#cb30-2"></a>cdf(Normal(), <span class="fl">.479</span>)</span></code></pre></div>
-<p>The predicted probability of someone at age 20 scoring high on agreeablness is 68.4%.</p>
-<hr />
-<h1 id="logistic-regression">Logistic Regression</h1>
-<p>An alternative way to handle binary outcome variables is through logistic regression.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1"></a>lm_logit = glm(@formula(Abin ~ Age), bfi, Binomial(), LogitLink())</span></code></pre></div>
-<p>Similarly, an equivalent way to specify this logistic model is</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1"></a>fit(GeneralizedLinearModel, @formula(Abin ~ Age), bfi, Binomial(), LogitLink())</span></code></pre></div>
-<p>Now our logistic model is as follows.</p>
-<pre class="math"><code>logit(\text{High_Agreeableness}) = 0.498 + 0.014 \text{Age}</code></pre>
-<p>For a person of age 20, the predicted logit of scoring high on agreeableness is 0.778. Now the prediction is represented in terms of logit. To make it more interpretable, we can simply exponentiate the logit to get the odds ratio, or use the following formula to get the probability:</p>
-<pre class="math"><code>\hat{\pi} = \frac{exp(0.498 + 0.014)}{1 + exp(0.498 + 0.014)}</code></pre>
-<p>where <code>\hat{\pi}</code> is the predicted probability of someone scoring high on agreeableness.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb35-1"><a href="#cb35-1"></a>exp(<span class="fl">.778</span>)/(<span class="fl">1</span> + exp(<span class="fl">.778</span>))</span></code></pre></div>
-<p>Consistent with the result from probit regression, the predicted probability of someone at age 20 scoring high on agreeablness is 68.5%.</p>
-<hr />
-<h1 id="visualization">Visualization</h1>
-<p>Let’s cover the answers of Follow-up Practice (1) and (2) here.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Practice (1)</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a>lm3 = fit(LinearModel, @formula(Csum ~ Education), bfi)</span></code></pre></div>
-<div class="sourceCode" id="cb37"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Practice (2)</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>lm4 = fit(LinearModel, @formula(Csum ~ Education*Gender_bin), bfi)</span></code></pre></div>
-<p>Note that <code>Gender_bin</code> is dummy coded with male (1) as 0 and female (2) as 1. The default in <code>GLM</code> is dummy coding, but we can specify a different contrast coding. More details on contrast coding can be found [here] (<a href="https://juliastats.org/StatsModels.jl/stable/contrasts/" class="uri">https://juliastats.org/StatsModels.jl/stable/contrasts/</a>).</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># extracting coefficients</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a>lm3_b0, lm3_b1 = coef(lm3);</span>
-<span id="cb38-3"><a href="#cb38-3"></a>lm4_b0, lm4_b1, lm4_b2, lm4_b3 = coef(lm4);</span></code></pre></div>
-<p>We will use the package <a href="http://docs.juliaplots.org/latest/"><code>Plots</code></a> for visualizing the relationship between variables in the fitted models. The package <a href="http://docs.juliaplots.org/latest/contributing/#StatsPlots"><code>StatsPlots</code></a> is an extension of <code>Plots</code> that supports plotting with <code>DataFrame</code> objects.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb39-1"><a href="#cb39-1"></a>using Plots, StatsPlots</span>
-<span id="cb39-2"><a href="#cb39-2"></a>@df bfi scatter(</span>
-<span id="cb39-3"><a href="#cb39-3"></a>    :Education, </span>
-<span id="cb39-4"><a href="#cb39-4"></a>    :Csum, </span>
-<span id="cb39-5"><a href="#cb39-5"></a>    group = :Gender, </span>
-<span id="cb39-6"><a href="#cb39-6"></a>    legend = :bottomright, </span>
-<span id="cb39-7"><a href="#cb39-7"></a>    label = [<span class="st">&quot;Male&quot;</span> <span class="st">&quot;Female&quot;</span>], </span>
-<span id="cb39-8"><a href="#cb39-8"></a>    xlabel = <span class="st">&quot;Education&quot;</span>, </span>
-<span id="cb39-9"><a href="#cb39-9"></a>    ylabel = <span class="st">&quot;Contientiousness&quot;</span>) </span>
-<span id="cb39-10"><a href="#cb39-10"></a>plot!((x) -&gt; lm3_b0 + lm3_b1 * x, <span class="fl">1</span>, <span class="fl">5</span>, label = <span class="st">&quot;Linear Model&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1"></a>@df bfi scatter(</span>
-<span id="cb40-2"><a href="#cb40-2"></a>    :Education, </span>
-<span id="cb40-3"><a href="#cb40-3"></a>    :Csum, </span>
-<span id="cb40-4"><a href="#cb40-4"></a>    group = :Gender, </span>
-<span id="cb40-5"><a href="#cb40-5"></a>    legend = :bottomright, </span>
-<span id="cb40-6"><a href="#cb40-6"></a>    label = [<span class="st">&quot;Male&quot;</span> <span class="st">&quot;Female&quot;</span>], </span>
-<span id="cb40-7"><a href="#cb40-7"></a>    xlabel = <span class="st">&quot;Education&quot;</span>, </span>
-<span id="cb40-8"><a href="#cb40-8"></a>    ylabel = <span class="st">&quot;Contienciousness&quot;</span>, </span>
-<span id="cb40-9"><a href="#cb40-9"></a>    size = (<span class="fl">690</span>,<span class="fl">460</span>)) </span>
-<span id="cb40-10"><a href="#cb40-10"></a>plot!((x) -&gt; lm4_b0 + lm4_b1 * x + lm4_b2 * <span class="fl">0</span> + lm4_b2 * x * <span class="fl">0</span>, </span>
-<span id="cb40-11"><a href="#cb40-11"></a>      <span class="fl">1</span>, <span class="fl">5</span>, label = <span class="st">&quot;Male&quot;</span>, linecolor = <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb40-12"><a href="#cb40-12"></a>plot!((x) -&gt; lm4_b0 + lm4_b1 * x + lm4_b2 * <span class="fl">1</span> + lm4_b2 * x * <span class="fl">1</span>, </span>
-<span id="cb40-13"><a href="#cb40-13"></a>      <span class="fl">1</span>, <span class="fl">5</span>, label = <span class="st">&quot;Female&quot;</span>, linecolor = <span class="st">&quot;red&quot;</span>)   </span></code></pre></div>
-<p>I also made reference to this <a href="https://nextjournal.com/DeepLearningNotes/Ch03LinearRegression">webpage</a> to create the plots above.</p>
-<p>Perhaps because the “research questions” I posed here were not so interesting, there was not much interesting to observe from the analysis outputs and the plots. But I hope you enjoy this tutorial in doing regression analyses with Julia :)</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Today We will have a fun session doing regression and multilevel models(MLMs) using Julia. First, we will have a small exercise fitting a linear regression model to a sample dataset, and then we will fit the MLM to the same dataset and compare the difference in results. Can’t wait? Let’s get started! Yay!</p>
+<h1 id="set-up">Set up</h1>
+<h2 id="install-packages">Install Packages</h2>
+<p>In Julia, we can add package by typing “]” in the Terminal to enter the <code>Pkg</code> mode and exit using <code>Ctrl + C</code>. Or, we can use [<code>Pkg</code>] package and add multiple packages at once.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#= uncomment below to install packages</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>using Pkg</span>
+<span id="cb1-3"><a href="#cb1-3"></a>Pkg.add([<span class="st">&quot;Pipe&quot;</span>, <span class="st">&quot;DataFrames&quot;</span>, <span class="st">&quot;StatFiles&quot;</span>, <span class="st">&quot;GLM&quot;</span>,<span class="st">&quot;MixedModels&quot;</span>,<span class="st">&quot;Plots&quot;</span>, <span class="st">&quot;StatsPlots&quot;</span>])</span>
+<span id="cb1-4"><a href="#cb1-4"></a>=<span class="co">#</span></span></code></pre></div>
+<h2 id="using-packages">Using Packages</h2>
+<p>Just like we use <code>library</code> to load packages in R, we use <code>using</code> in Julia. It’s better to have a separate session in the beginning of the file to load all packages you will need in the analysis. Otherwise it will take a long time to precompile each time.</p>
+<p><code>Pipe</code> for pipe operator. <code>DataFrames</code> for working with dataframes. <code>StatFiles</code> for reading datasets from Stata, SPSS and SAS. If you have a txt file, can try CSV.read function from package <code>CSV</code>. <code>GLM</code> for linear regression. <code>MixedModels</code> for working with multilevel models. Similar to lme4. <code>Plots</code> for making graphs. <code>StatsPlots</code> for making graphs.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1"></a>using Pipe, DataFrames, StatFiles, GLM, MixedModels, Plots, StatsPlots, Statistics</span></code></pre></div>
+<h2 id="dataset">Dataset</h2>
+<p>Today we are going to use the dataset from the World Value Survey-1990-93 data (World Values Study Group, 1994). There are five variables in the data set:</p>
+<p><code>CountryID</code>: CountryID<br />
+<code>country</code>: Country’s name<br />
+<code>gm_GNP</code>: Grand-mean centered Gross National Product<br />
+<code>income</code>: Income level(0-least income to 9-most income)<br />
+<code>happy</code>:Feel happy(1-not happy to 4-very happy)</p>
+<p>This data set and set of practice problem come from Mark’s Multilvel Modeling class, so thanks Mark!</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1"></a>data_happy = DataFrame(load(<span class="st">&quot;../mlm/happy_combined.sav&quot;</span>))</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#= Or we can use pipe operator</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>data_happy = load(<span class="st">&quot;happy_combined.sav&quot;</span>) |&gt; DataFrame</span>
+<span id="cb3-4"><a href="#cb3-4"></a>=<span class="co">#</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>data_happy = dropmissing(data_happy)</span></code></pre></div>
+<pre><code>5926×5 DataFrame
+  Row │ CountryID  country  income   happy    gm_GNP
+      │ Float64    String   Float64  Float64  Float64
+──────┼───────────────────────────────────────────────
+    1 │       1.0  France       1.0      4.0   0.8794
+    2 │       1.0  France       2.0      2.0   0.8794
+    3 │       1.0  France       2.0      4.0   0.8794
+    4 │       1.0  France       5.0      3.0   0.8794
+    5 │       1.0  France       4.0      3.0   0.8794
+    6 │       1.0  France       2.0      3.0   0.8794
+    7 │       1.0  France       3.0      2.0   0.8794
+    8 │       1.0  France       6.0      4.0   0.8794
+  ⋮   │     ⋮         ⋮        ⋮        ⋮        ⋮
+ 5920 │      50.0  Russia       8.0      3.0  -0.7476
+ 5921 │      50.0  Russia       6.0      3.0  -0.7476
+ 5922 │      50.0  Russia       8.0      3.0  -0.7476
+ 5923 │      50.0  Russia       9.0      3.0  -0.7476
+ 5924 │      50.0  Russia       6.0      3.0  -0.7476
+ 5925 │      50.0  Russia       3.0      2.0  -0.7476
+ 5926 │      50.0  Russia       1.0      2.0  -0.7476
+                                     5911 rows omitted</code></pre>
+<h1 id="research-questions">Research Questions</h1>
+<p>Are people with higher individual level income happier? Is the relation similar across countries? How is the result of linear regression different from the result of multilevel models?</p>
+<h2 id="descriptive-analysis">Descriptive Analysis</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## Summary of all variables in the dataset</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>describe(data_happy)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">## list first five rows of data</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>first(data_happy,<span class="fl">5</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">## list names of all variables</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>names(data_happy)</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">## get size of the data set</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>size(data_happy)</span>
+<span id="cb5-9"><a href="#cb5-9"></a>size(data_happy,<span class="fl">1</span>) <span class="co"># nrow</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>size(data_happy,<span class="fl">2</span>) <span class="co"># ncol</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">## check a specific column </span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>data_happy[:,<span class="st">&quot;country&quot;</span>]</span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co"># data_happy[!,:2]; data_happy[:,2] also work for extracting the second columns</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co"># data_happy[2,:] can extract the second row, data_happy[2:5,:] extract the second to fifth row.</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="co">## to get the number of groups</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a>unique(data_happy[:, <span class="st">&quot;country&quot;</span>])</span></code></pre></div>
+<pre><code>38-element Array{String,1}:
+ &quot;France&quot;
+ &quot;Uk&quot;
+ &quot;W. Germany&quot;
+ &quot;Italy&quot;
+ &quot;Netherlands&quot;
+ &quot;Denmark&quot;
+ &quot;Belgium&quot;
+ &quot;Spain&quot;
+ &quot;Ireland&quot;
+ &quot;N. Ireland&quot;
+ ⋮
+ &quot;Romania&quot;
+ &quot;China&quot;
+ &quot;Portugal&quot;
+ &quot;Austria&quot;
+ &quot;Turkey&quot;
+ &quot;Moscow&quot;
+ &quot;Latvia&quot;
+ &quot;Estonia&quot;
+ &quot;Russia&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1"></a>@df data_happy scatter(</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    :country, </span>
+<span id="cb7-3"><a href="#cb7-3"></a>    :happy,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    group = :country)</span></code></pre></div>
+<p><img src="figures/Multilevel%20Models%20with%20Julia_5_1.png" /></p>
+<h2 id="linear-regression">Linear Regression</h2>
+<p>???Exercise Time: We are familiar with our dataset, so let’s do some exercise! Recall Winnie did a great presentation last time on linear regression, so please go ahead to fit a linear regression model and write out the equation.</p>
+<p>DV: happy IV: gm_GNP</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1"></a>lm1 = lm(@formula(happy ~ gm_GNP), data_happy) <span class="co"># answer down below</span></span></code></pre></div>
+<pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
+}},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
+}}}},Array{Float64,2}}
+
+happy ~ 1 + gm_GNP
+
+Coefficients:
+─────────────────────────────────────────────────────────────────────────
+                Coef.  Std. Error       t  Pr(&gt;|t|)  Lower 95%  Upper 95%
+─────────────────────────────────────────────────────────────────────────
+(Intercept)  2.99189   0.00934189  320.27    &lt;1e-99   2.97358    3.01021
+gm_GNP       0.174553  0.0101888    17.13    &lt;1e-63   0.154579   0.194527
+─────────────────────────────────────────────────────────────────────────</code></pre>
+<p>Hint: Model_name = lm(<span class="citation" data-cites="formula">@formula</span>(DV ~ IV), data_set)</p>
+<h3 id="fitting-the-linear-regression-model">Fitting the linear regression model</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1"></a>lm1 = lm(@formula(happy~ gm_GNP),data_happy)</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># extract coefficients</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>coef(lm1)</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># extract standard errors</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>stderror(lm1)</span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co"># extract variance covariance matrix</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>vcov(lm1)</span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co"># obtain R^2</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a>r2(lm1)</span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># get the deviance </span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>deviance(lm1)</span></code></pre></div>
+<pre><code>3051.8666777811054</code></pre>
+<p>This model explains 4.72% of variance in <code>happy</code>. Note the standard error estimates for <code>gm_GNP</code> is 0.010, t =17.13, 95% CI [0.155 0.195], p &lt; 0.0001.</p>
+<h3 id="equations">Equations</h3>
+<pre class="math"><code>\text{happy} = 2.992 + 0.175 \text{gm_GNP}</code></pre>
+<h2 id="multilevel-modeling">Multilevel Modeling</h2>
+<h3 id="random-intercept-model">Random Intercept Model</h3>
+<p>We first fit a random intercept model and calculate the intraclass correlation. Recall</p>
+<h4 id="equations-1">Equations</h4>
+<p>Level 1:</p>
+<pre class="math"><code>\text{happy}_{ij} = \beta_{0j} + e_{ij}</code></pre>
+<p>Level 2:</p>
+<pre class="math"><code>\beta_{0j} = \gamma_{00} + u_{0j}</code></pre>
+<pre class="math"><code>\text{ICC} = \frac{\tau_0^2}{\tau_0^2 + \sigma^2}</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">## Fitting MLMs</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>mm1 = fit(LinearMixedModel, @formula(happy ~ (<span class="fl">1</span>|country)), data_happy)</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co">## Create a vector and store the model fit statistics</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>model_fit= <span class="dt">Vector</span>{<span class="dt">Float64</span>}()</span>
+<span id="cb16-5"><a href="#cb16-5"></a>push!(model_fit,aic(mm1))</span></code></pre></div>
+<pre><code>1-element Array{Float64,1}:
+ 12639.70521706601</code></pre>
+<p>??? Exercise Time: What is the value of ICC?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1"></a><span class="fl">.064937</span>/(<span class="fl">.064937</span>+<span class="fl">.484223</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>VarCorr(mm1).σρ[<span class="fl">1</span>][<span class="fl">1</span>][<span class="fl">1</span>]</span>
+<span id="cb18-3"><a href="#cb18-3"></a>dump(VarCorr(mm1))</span>
+<span id="cb18-4"><a href="#cb18-4"></a>VarCorr(mm1).σρ[:country, ]</span></code></pre></div>
+<pre><code>MixedModels.VarCorr
+  σρ: NamedTuple{(:country,),Tuple{NamedTuple{(:σ, :ρ),Tuple{NamedTuple{(Sy
+mbol(&quot;(Intercept)&quot;),),Tuple{Float64}},Tuple{}}}}}
+    country: NamedTuple{(:σ, :ρ),Tuple{NamedTuple{(Symbol(&quot;(Intercept)&quot;),),
+Tuple{Float64}},Tuple{}}}
+      σ: NamedTuple{(Symbol(&quot;(Intercept)&quot;),),Tuple{Float64}}
+        (Intercept): Float64 0.2548280714152219
+      ρ: Tuple{} ()
+  s: Float64 0.6958614455760557
+(σ = ((Intercept) = 0.2548280714152219,), ρ = ())</code></pre>
+<p>The first part of the result prints out estimation method and the model fit statistics, such as AIC,BIC, etc. The second part is the table of estimates of parameters associated with the random effects. The third part is the fixed effects point estimates and standard errors.</p>
+<p>ICC = 0.0649/(0.0649 + 0.4842) = 0.118, so there is evidence that people’s happiness level varies across countries. Variability at the country level accounts for 11.8% of the total variability of happiness level.</p>
+<p>Design effect = 1 +(average cluster size - 1) x ICC. We have 5926 observations and 38 groups, so design effect = 1 + (5926/38 -1) x 0.118 = 19.28.</p>
+<h3 id="add-level-2-predictor">Add Level 2 Predictor</h3>
+<p>It is reasonable to think <code>gm_GNP</code> is a cluster level predictor, so let’s add it to our model.</p>
+<h4 id="equations-2">Equations</h4>
+<p>Level 1:</p>
+<pre class="math"><code>\text{happy}_{ij} = \beta_{0j} + e_{ij}</code></pre>
+<p>Level 2:</p>
+<pre class="math"><code>\beta_{0j} = \gamma_{00} + \gamma_{01} \text{gm_GNP}_{j} + u_{0j}\\</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">## Fitting MLMs</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>mm2 = fit(LinearMixedModel, @formula(happy ~ gm_GNP + (<span class="fl">1</span>|country)), data_happy)</span>
+<span id="cb22-3"><a href="#cb22-3"></a>push!(model_fit, aic(mm2))</span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># extract log likelihood</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>loglikelihood(mm2)</span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="co"># extract Akaike&#39;s Information Criterion</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a>aic(mm2)</span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="co"># extract Bayesian Information Criterion</span></span>
+<span id="cb22-9"><a href="#cb22-9"></a>bic(mm2)</span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="co"># extract degrees of freedom</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a>dof(mm2)</span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="co"># extract coefficient</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a>coef(mm2)</span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="co"># extract fixed effects</span></span>
+<span id="cb22-15"><a href="#cb22-15"></a>fixef(mm2)</span>
+<span id="cb22-16"><a href="#cb22-16"></a>vcov(mm2)</span>
+<span id="cb22-17"><a href="#cb22-17"></a>stderror(mm2)</span>
+<span id="cb22-18"><a href="#cb22-18"></a><span class="co"># extract coefficients table</span></span>
+<span id="cb22-19"><a href="#cb22-19"></a>coeftable(mm2)</span>
+<span id="cb22-20"><a href="#cb22-20"></a><span class="co"># extract variance components</span></span>
+<span id="cb22-21"><a href="#cb22-21"></a>VarCorr(mm2)</span>
+<span id="cb22-22"><a href="#cb22-22"></a><span class="co"># return sigma^2</span></span>
+<span id="cb22-23"><a href="#cb22-23"></a>varest(mm2)</span>
+<span id="cb22-24"><a href="#cb22-24"></a><span class="co"># return sigma</span></span>
+<span id="cb22-25"><a href="#cb22-25"></a>sdest(mm2)</span>
+<span id="cb22-26"><a href="#cb22-26"></a><span class="co"># extract random effects</span></span>
+<span id="cb22-27"><a href="#cb22-27"></a>ranef(mm2)</span></code></pre></div>
+<pre><code>1-element Array{Array{Float64,2},1}:
+ [0.10089771142674672 0.10460335136824787 … 0.16578537872607363 -0.18088459
+89646895]</code></pre>
+<p>Note that the result is slightly different from the R output, it’s because the default estimation method in [<code>MixedModels</code>] in Julia is maximum likelihood estimation, whereas the default estimation method for [<code>lme4</code>] in R is Restricted maximum likelihood method.</p>
+<p>This time standard error estimates for <code>gm_GNP</code> is 0.0337, z = 5.33, p &lt; 0.0001. The SE for OLS is smaller than the SE for MLM, indicating OLS underestimates the SE.</p>
+<p>reml (for small sample sizes) – default in lme4 vs ml – default in MixedModels</p>
+<h2 id="add-level-1-predictor">Add Level 1 predictor</h2>
+<p>Because relationships at one level are not necessarily the same at the other level, we need to be careful adding the level 1 predictor. Two approaches to decompose the impact of level 1 predictor on outcome variables: cluter mean centering + cluster mean and the raw predictor + clutster mean. Here we will use the first approach.</p>
+<h4 id="equations-3">Equations</h4>
+<p>Level 1:</p>
+<pre class="math"><code>\text{happy}_{ij} = \beta_{0j} + \beta_{1j} \text{income_cmc}_{ij} + e_{ij}</code></pre>
+<p>Level 2:</p>
+<pre class="math"><code>\beta_{0j} = \gamma_{00} + \gamma_{01} \text{income_mean}_{j} + u_{0j}\\
+\beta_{1j} = \gamma_{10} + u_{1j} </code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1"></a><span class="co">## Cluster mean centering</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>data_happy2 = @pipe data_happy |&gt; </span>
+<span id="cb26-3"><a href="#cb26-3"></a>            groupby(_,:country) |&gt; <span class="co"># group by country</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>            transform(_, :income =&gt; mean =&gt; :income_mean)|&gt; <span class="co"># add a new variable income_mean</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>            transform(_, [:income, :income_mean]=&gt; ByRow(-) =&gt; :income_cmc) <span class="co"># add a new variable the centered variable</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="co">## Fitting MLMs</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a>mm3 = fit(LinearMixedModel, @formula(happy ~ income_cmc + income_mean + (income_cmc|country)), data_happy2)</span>
+<span id="cb26-9"><a href="#cb26-9"></a>push!(model_fit, aic(mm3))</span></code></pre></div>
+<pre><code>3-element Array{Float64,1}:
+ 12639.70521706601
+ 12620.520747678449
+ 12441.89124874441</code></pre>
+<p>Both <code>income_cmc</code> and <code>income</code> are significant predictors of happiness level. For a person from a country with <code>income_mean</code> = 0 and this person has average country level income, the predicted happiness level is 2.66, SE = 0.16. The average within country slope is 0.047(SE = 0.008), meaning a one unit increase in <code>income_cmc</code> is associated with a 0.047 unit increase in happiness. This slope varies across countries, with a standard deviation of 0.38. The average between country level slope is 0.08, SE = 0.04, suggesting a one unit increase in <code>income_mean</code> is associated with a 0.08 unit increase in the average happiness level.</p>
+<h2 id="cross-level-interaction">Cross level Interaction</h2>
+<p>Is the relation between <code>happy</code> and <code>income</code> moderated by <code>gm_GNP</code>? We can answer this question by adding <code>gm_GNP</code> to the above model.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1"></a>mm4 = fit(LinearMixedModel, @formula(happy ~ income_cmc * gm_GNP + income_mean + (income_cmc|country)), data_happy2)</span>
+<span id="cb28-2"><a href="#cb28-2"></a>push!(model_fit, aic(mm4))</span></code></pre></div>
+<pre><code>4-element Array{Float64,1}:
+ 12639.70521706601
+ 12620.520747678449
+ 12441.89124874441
+ 12425.031231147315</code></pre>
+<p>After adding <code>gm_GNP</code>, the impact of <code>income_mean</code> on <code>happy</code> is not significant.</p>
+<h4 id="equations-4">Equations</h4>
+<p>Level 1:</p>
+<pre class="math"><code>\text{happy}_{ij} = \beta_{0j} + \beta_{1j} \text{income_cmc}_{ij} + e_{ij}</code></pre>
+<p>Level 2:</p>
+<pre class="math"><code>\beta_{0j} = \gamma_{00} + \gamma_{01} \text{income_mean}_{j} + \gamma_{02} \text{gm_GNP}_{j} + u_{0j}\\
+\beta_{1j} = \gamma_{10} + \gamma_{11} \text{gm_GNP}_{j} + u_{1j} </code></pre>
+<p>??? Exercise time: 1. Which model fits data better?</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># print out the AIC</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>print(model_fit)</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="co"># Likelihood Ratio Test</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>MixedModels.likelihoodratiotest(mm1,mm2,mm3,mm4)</span></code></pre></div>
+<pre><code>[12639.70521706601, 12620.520747678449, 12441.89124874441, 12425.0312311473
+15]Model Formulae
+1: happy ~ 1 + (1 | country)
+2: happy ~ 1 + gm_GNP + (1 | country)
+3: happy ~ 1 + income_cmc + income_mean + (1 + income_cmc | country)
+4: happy ~ 1 + income_cmc + gm_GNP + income_mean + income_cmc &amp; gm_GNP + (1
+ + income_cmc | country)
+────────────────────────────────────────────────────
+     model-dof    deviance        χ²  χ²-dof  P(&gt;χ²)
+────────────────────────────────────────────────────
+[1]          3  12633.7052                          
+[2]          4  12612.5207   21.1845       1   &lt;1e-5
+[3]          7  12427.8912  184.6295       3  &lt;1e-39
+[4]          9  12407.0312   20.8600       2   &lt;1e-4
+────────────────────────────────────────────────────</code></pre>
+<h1 id="conclusion">Conclusion</h1>
+<p>The results of [<code>MixedModels</code>] in Julia and [<code>lme4</code>] are slightly different due to the estimation methods that are used. The cross-level interaction model fits best to our data, suggesting the country level GNP <code>gm_GNP</code> moderated the relation between individual’s happiness level <code>happy</code> and income <code>income</code>.</p>
+<h1 id="resources">Resources</h1>
+<p>Mark’s MLM class and HW</p>
+<p>DataFrames package <a href="https://dataframes.juliadata.org/v0.14.0/index.html" class="uri">https://dataframes.juliadata.org/v0.14.0/index.html</a></p>
+<p>MixedModels Package (similar to lme4 in R) documentation <a href="https://juliastats.org/MixedModels.jl/v1.0/index.html" class="uri">https://juliastats.org/MixedModels.jl/v1.0/index.html</a></p>
+<p>Maybe useful for plotting week:</p>
+<p>Gadfly Package (similar to ggplot in R) documentation <a href="https://juliastats.org/MixedModels.jl/v1.0/index.html" class="uri">https://juliastats.org/MixedModels.jl/v1.0/index.html</a></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
