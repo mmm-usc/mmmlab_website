@@ -1,7 +1,7 @@
 ---
 title: "About Us"
 description: |
-  <img src="static/images/mmm_white_usc_reguse_black.png" alt="mmm lab at unversity of southern california">
+  <img src="static/images/mmm_black_transparent_labname.png" alt="mmm lab log" height="100px">
 ---
 
 ```{r setup, include=FALSE}
