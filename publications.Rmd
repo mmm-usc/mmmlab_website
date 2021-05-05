@@ -1,0 +1,86 @@
+---
+title: "Publications"
+description: |
+  Recent publications and conference presentations. 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r write_refs, include = FALSE, cache = FALSE}
+library(RefManageR)
+# Grab bibTeX using DOIs, and save to pubs.bib
+RefManageR::GetBibEntryWithDOI(
+  unique(
+    c("10.1080/10705511.2020.1782206", 
+      "10.1037/met0000287", 
+      "10.1080/00273171.2020.1746902", 
+      "10.3102/1076998619843168", 
+      "10.1016/j.addbeh.2018.11.029")
+  ), 
+  temp.file = "pubs.bib", 
+  delete.file = FALSE)
+# Manual bibTeX for articles without DOIs
+ref <- c(
+  BibEntry(
+    bibtype = "unpublished", 
+    key = "lai2021", 
+    title = "Adjusting for partial invariance in latent parameter estimation: Comparing forward specification search and approximate invariance methods", 
+    author = "Lai, Mark H. C. and Liu, Yuanfang and Tse, Winnie Wing-Yee", 
+    year = "2021", 
+    journal = "Behavior Research Methods", 
+    date = "2021-02-05", 
+    pubstate = "Manuscript accepted for publication"
+  )
+)
+WriteBib(bib = ref, 
+         file = "pubs.bib", 
+         append = TRUE)
+```
+
+```{r, load_refs, include = FALSE, cache = FALSE}
+library(RefManageR)
+# Grab bibTeX using DOIs, and save to pubs.bib
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "alphabetic",
+           style = "markdown",
+           hyperlink = FALSE,
+           dashed = FALSE, 
+           no.print.fields = "url")
+myBib <- ReadBib(here::here("pubs.bib"), check = FALSE)
+```
+
+## Peer-Reviewed Articles (Selected)
+
+### 2021
+
+```{r, results = "asis"}
+myBib[date = "2021"]
+```
+
+### 2020
+
+```{r, results = "asis"}
+myBib[date = "2020"]
+```
+
+
+### 2019
+
+```{r, results = "asis"}
+myBib[date = "2019"]
+```
+
+## Conference Presentations
+
+### 2020
+
+- Lai, M. H. C. (2020, July). *Multilevel bootstrap confidence intervals for standardized effect size* [Paper Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
+- Tse, W. W. & Lai, M. H. C. (2020, July 14-17). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
+- Zhang, Y. & Lai, M. H. C. (2020, July 14-17). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
+- Tse, W. W. & Lai, M. H. C. (2020, June 25-26). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Conference Session]. A Meeting of Methodologies (AMOM), Vancouver, BC, Canada. [Powerpoint slides](https://mfr.ca-1.osf.io/render?url=https://osf.io/qcfpg/?direct%26mode=render%26action=download%26mode=render)
+- Lai, M. H. C. (2020, June 2-3). *Constructing bootstrap confidence intervals for standardized effect size in cluster-randomized trials* [Paper Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
+- Tse, W. W. & Lai, M. H. C. (2020, June 2-3). *Path to valid means comparisons: The necessity of strict measurement invariance for ordered categorical variables* [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
+- Zhang, Y. & Lai, M. H. C. (2020, June 2-3). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)

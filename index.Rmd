@@ -1,3 +1,5 @@
 ---
-site: blogdown:::blogdown_site
+title: "Measurement & Multilevel Modeling Lab"
+site: distill::distill_website
+listing: posts
 ---

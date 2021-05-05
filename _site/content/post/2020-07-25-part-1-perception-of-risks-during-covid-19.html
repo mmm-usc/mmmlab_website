@@ -1,0 +1,679 @@
+---
+title: 'Part 1: Perception of Risks During Covid-19'
+author: Hailin Yue
+date: '2020-07-25'
+slug: part-1-perception-of-risks-during-covid-19
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: yes
+    includes:
+      in_header: toggle_r.html
+categories: []
+tags:
+  - coivd
+---
+
+<!--more-->
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script type="text/javascript">
+
+
+function toggle_R() {
+  var x = document.getElementsByClassName('r');
+  if (x.length == 0) return;
+  function toggle_vis(o) {
+    var d = o.style.display;
+    o.style.display = (d == 'block' || d == '') ? 'none':'block';
+  }
+
+  for (i = 0; i < x.length; i++) {
+    var y = x[i];
+    if (y.tagName.toLowerCase() === 'pre') toggle_vis(y);
+  }
+
+    var elem = document.getElementById("myButton1");
+    if (elem.value === "Hide Codes") elem.value = "Show Codes";
+    else elem.value = "Hide Codes";
+}
+
+document.write('<input onclick="toggle_R();" type="button" value="Hide Codes" id="myButton1" style="position: absolute; top: 10%; right: 2%; z-index: 200"></input>')
+
+</script>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#part-1-data-exploration-demography-and-risk-items"><span class="toc-section-number">1</span> Part 1: Data exploration (Demography and Risk Items)</a>
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1.1</span> Introduction</a></li>
+<li><a href="#data-preparation"><span class="toc-section-number">1.2</span> Data preparation</a>
+<ul>
+<li><a href="#loading-libraries"><span class="toc-section-number">1.2.1</span> Loading libraries</a></li>
+<li><a href="#loading-data-using-here-package"><span class="toc-section-number">1.2.2</span> Loading data using <code>here</code> package</a></li>
+<li><a href="#data-transformation"><span class="toc-section-number">1.2.3</span> Data transformation</a></li>
+</ul></li>
+<li><a href="#gender"><span class="toc-section-number">1.3</span> Gender</a></li>
+<li><a href="#age"><span class="toc-section-number">1.4</span> Age</a></li>
+<li><a href="#residence"><span class="toc-section-number">1.5</span> Residence</a></li>
+<li><a href="#education"><span class="toc-section-number">1.6</span> Education</a></li>
+<li><a href="#income"><span class="toc-section-number">1.7</span> Income</a></li>
+<li><a href="#race"><span class="toc-section-number">1.8</span> Race</a></li>
+<li><a href="#time"><span class="toc-section-number">1.9</span> Time</a></li>
+<li><a href="#summary"><span class="toc-section-number">1.10</span> Summary</a></li>
+<li><a href="#publication-statement"><span class="toc-section-number">1.11</span> Publication Statement</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>[Edit by ML: The <a href="https://styler.r-lib.org/">styler</a> package was used to style the code. ]</p>
+<div id="part-1-data-exploration-demography-and-risk-items" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Part 1: Data exploration (Demography and Risk Items)</h1>
+<p>Analyze Covid-19 survey data collected by USC during 10 March,2020 - 31 March,2020.
+* Data can be accessed (<a href="https://uasdata.usc.edu/index.php" class="uri">https://uasdata.usc.edu/index.php</a>).</p>
+<div id="introduction" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Introduction</h2>
+<p>As people in the US learned about the COVID-19 pandemic, their perceived risks related to infection, unemployment, and other risk factors have changed during the early month of the outbreak. In this post, we are interpreting a survey published by the University of Southern California to analyze and compare some key features related to risk factors.</p>
+</div>
+<div id="data-preparation" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Data preparation</h2>
+<div id="loading-libraries" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Loading libraries</h3>
+</div>
+<div id="loading-data-using-here-package" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Loading data using <code>here</code> package</h3>
+<pre class="r"><code># Imported the second wave of UAS230 Covid Survey Data.
+covid19 &lt;- readr::read_csv(here::here(&quot;data&quot;, &quot;uas230_march_31_2020.csv&quot;))
+# The data was collected from a national survey during 10 March,2020 - 31 March,2020.</code></pre>
+</div>
+<div id="data-transformation" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Data transformation</h3>
+<pre class="r"><code># Create a new dataframe contains only key demographic information and risk items
+demo &lt;- covid19 %&gt;%
+  select(
+    statereside, gender, end_date, age, education, hhincome, race,
+    cr005, cr009, cr006, cr008a, end_date
+  )
+
+demo &lt;- na_if(demo, &quot;.a&quot;) # question never seen by the respondents. S/he may skip over the question, or never view the question due to survey broke off.
+demo &lt;- na_if(demo, &quot;.e&quot;) # .e -&gt; questions that were asked but not answered
+demo &lt;- na_if(demo, &quot;.c&quot;) # .c -&gt; if respondent did not complete the survey
+
+demo &lt;- mutate_at(
+  demo, # convert data type to numeric data
+  vars(cr006, cr005, cr009, cr008a, age),
+  as.numeric
+)
+demo &lt;- na.omit(demo)</code></pre>
+</div>
+</div>
+<div id="gender" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Gender</h2>
+<ul>
+<li>58.6% of the respondents are female.</li>
+<li>Male and Female have a similar belief in how infectious Coronavirus is.</li>
+<li>More male respondents are very optimistic about the risks related to Coronavirus.</li>
+</ul>
+<pre class="r"><code>gen &lt;- demo %&gt;%
+  group_by(gender) %&gt;%
+  dplyr::summarise(g = n())
+
+ggplot(gen, aes(x = gender, y = g, fill = gender)) + # Barplot of gender distribution with annotation
+  geom_col() +
+  geom_label(aes(label = g)) +
+  labs(x = &quot;Gender&quot;, y = &quot;Count&quot;) +
+  scale_fill_jco() + # jco palette
+  coord_flip() +
+  theme_bw() +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/gender-1.png" width="672" /></p>
+<pre class="r"><code>gender_inf &lt;- demo %&gt;% # Plot perceived infection risk
+  select(gender, cr005) %&gt;%
+  ggplot(aes(x = cr005, color = gender, fill = gender)) +
+  geom_density(alpha = 0.5) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10)) +
+  labs(x = &quot;Perceived risk of infection&quot;)
+
+
+gender_death &lt;- demo %&gt;% # Plot perceived risk of death
+  select(gender, cr006) %&gt;%
+  ggplot(aes(x = cr006, color = gender, fill = gender)) +
+  geom_density(alpha = 0.5) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10)) +
+  labs(x = &quot;Perceived risk of death&quot;, y = &quot;&quot;)
+
+
+gender_unemploy &lt;- demo %&gt;% # Plot perceived unemployment risk
+  select(gender, cr008a) %&gt;%
+  ggplot(aes(x = cr008a, color = gender, fill = gender)) +
+  geom_density(alpha = 0.5) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10)) +
+  labs(x = &quot;Perceived unemployment risk&quot;, y = &quot;&quot;)
+
+
+gender_finance &lt;- demo %&gt;% # Plott perceived risk of running out of money
+  select(gender, cr009) %&gt;%
+  ggplot(aes(x = cr009, color = gender, fill = gender)) +
+  geom_density(alpha = 0.5) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10)) +
+  labs(x = &quot;Perceived risk of running out of money&quot;)
+
+
+ggarrange(gender_inf, gender_death, gender_finance, gender_unemploy + rremove(&quot;x.text&quot;), # Combining gender and risk items in one plot
+  common.legend = TRUE, legend = &quot;right&quot;,
+  ncol = 2, nrow = 2
+)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/gender-2.png" width="672" /></p>
+</div>
+<div id="age" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Age</h2>
+<ul>
+<li>Most respondents are between age 30 to age 60.</li>
+<li>Younger respondents have a higher estimate chance of infection, but a lower estimate chance of death related to Coronavirus.</li>
+<li>Elderly respondents have a lower perceived unemployment risk and financial risk related to Coronavirus.</li>
+</ul>
+<p>[Two graphs below are edited by ML]</p>
+<pre class="r"><code>ggplot(demo, aes(x = age)) +
+  geom_histogram(binwidth = 10, alpha = 0.85, fill = &quot;deepskyblue3&quot;, color = &quot;white&quot;) +
+  theme_minimal() +
+  labs(x = &quot;Age&quot;, y = &quot;Count&quot;) +
+  scale_x_continuous(breaks = seq(0, 100, by = 10)) +
+  scale_y_continuous(breaks = seq(0, 1400, by = 200))</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/age-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = demo) + # combined plot 1
+  geom_point(
+    mapping = aes(x = age, y = cr005, color = &quot;Perceived Risk of Infection&quot;),
+    alpha = 0.1, size = 0.5
+  ) +
+  geom_point(
+    mapping = aes(x = age, y = cr006, color = &quot;Perceived Risk of Death&quot;),
+    alpha = 0.1, size = 0.5
+  ) +
+  geom_smooth(mapping = aes(x = age, y = cr005, color = &quot;Perceived Risk of Infection&quot;)) +
+  geom_smooth(mapping = aes(x = age, y = cr006, color = &quot;Perceived Risk of Death&quot;)) +
+  labs(y = &quot;Perceived Risk (%)&quot;, x = &quot;Age&quot;) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10)) +
+  scale_x_continuous(breaks = seq(0, 100, by = 10))</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/age-2.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = demo) + # combined plot 2
+  geom_point(
+    mapping = aes(x = age, y = cr008a, color = &quot;Perceived Unemployment Risk&quot;),
+    alpha = 0.1, size = 0.5
+  ) +
+  geom_point(
+    mapping = aes(x = age, y = cr009, color = &quot;Perceived Financial Risk&quot;),
+    alpha = 0.1, size = 0.5
+  ) +
+  geom_smooth(mapping = aes(x = age, y = cr008a, color = &quot;Perceived Unemployment Risk&quot;)) +
+  geom_smooth(mapping = aes(x = age, y = cr009, color = &quot;Perceived Financial Risk&quot;)) +
+  labs(y = &quot;Perceived Risk (%)&quot;, x = &quot;Age&quot;) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10)) +
+  scale_x_continuous(breaks = seq(15, 95, by = 10))</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/age-3.png" width="672" /></p>
+</div>
+<div id="residence" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Residence</h2>
+<ul>
+<li>The number of respondents from California is significantly higher than number of respondents from any other states.</li>
+<li>Respondents in New York, Pennsylvania, and Michigan report a lower perceived fianancial risk related to Coronavirus.</li>
+<li>While respondents in California, Illnois, and Texas report a higher perceived unemployment risk and financial risk related to Coronavirus.</li>
+</ul>
+<p>[ML: Interestingly, it looks like Californian perceived higher risks consistently than those in other states.]</p>
+<pre class="r"><code>demo_state &lt;- demo %&gt;% # add counts for each state:
+  add_count(statereside, name = &quot;n&quot;) %&gt;% # use New York as cutline, filter out 8 states with n &gt;= 115
+  filter(n &gt;= 115)
+
+
+reside &lt;- demo_state %&gt;%
+  group_by(statereside) %&gt;%
+  dplyr::summarise(re = n())
+
+ggplot(reside, aes(x = statereside, y = re, fill = statereside)) + # Barplot of gender distribution with annotation
+  geom_col() +
+  geom_label(aes(label = re), fill = &quot;white&quot;) +
+  labs(x = &quot;State Reside&quot;, y = &quot;Count&quot;) +
+  scale_fill_jco() +
+  coord_flip() +
+  theme_bw() +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/residence-1.png" width="672" /></p>
+<pre class="r"><code>death_state &lt;- ggplot(demo_state, aes(x = cr006, fill = statereside)) + # Plot perceived risk of death
+  geom_density(alpha = 0.3) +
+  theme_minimal() +
+  labs(y = &quot;&quot;, x = &quot;Perceived risk of death&quot;) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10))
+
+inf_state &lt;- ggplot(demo_state, aes(x = cr005, fill = statereside)) + # Plot perceived risk of infection
+  geom_density(alpha = 0.3) +
+  theme_minimal() +
+  labs(x = &quot;Perceived risk of infection&quot;) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10))
+
+finance_state &lt;- ggplot(demo_state, aes(x = cr009, fill = statereside)) + # Plot perceived financial risk
+  geom_density(alpha = 0.3) +
+  theme_minimal() +
+  labs(y = &quot;&quot;, x = &quot;Perceived financial risk&quot;) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10))
+
+
+unemploy_state &lt;- ggplot(demo_state, aes(x = cr008a, fill = statereside)) + # Plot perceived unemployment risk
+  geom_density(alpha = 0.3) +
+  theme_minimal() +
+  labs(x = &quot;Perceived unemployment risk&quot;) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10))
+
+
+ggarrange(inf_state, death_state, finance_state, unemploy_state, # combine the plots
+  common.legend = TRUE, legend = &quot;right&quot;,
+  ncol = 2, nrow = 2
+)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/residence-2.png" width="672" /></p>
+<pre class="r"><code>finance_state_stat &lt;- desc_statby(demo_state, measure.var = &quot;cr009&quot;, grps = &quot;statereside&quot;) # Summary table for perceived risk of financial hardship by states
+finance_state_stat &lt;- finance_state_stat[, c(&quot;statereside&quot;, &quot;length&quot;, &quot;mean&quot;, &quot;sd&quot;)] %&gt;%
+  arrange(-mean) # sort by mean in decending order
+
+finance_state_stat$mean &lt;- round(finance_state_stat$mean, 2) # round to 2 decimal places
+finance_state_stat$sd &lt;- round(finance_state_stat$sd, 2)
+
+
+finance_state_stat &lt;- ggtexttable(finance_state_stat,
+  rows = NULL,
+  theme = ttheme(&quot;mOrange&quot;)
+) # Summary table plot, medium orange theme
+
+
+unemploy_state_stat &lt;- desc_statby(demo_state, measure.var = &quot;cr008a&quot;, grps = &quot;statereside&quot;) # Summary table for perceived risk of unemployment by states
+unemploy_state_stat &lt;- unemploy_state_stat[, c(&quot;statereside&quot;, &quot;length&quot;, &quot;mean&quot;, &quot;sd&quot;)] %&gt;%
+  arrange(-mean)
+
+unemploy_state_stat$mean &lt;- round(unemploy_state_stat$mean, 2) # round to 2 decimal places
+unemploy_state_stat$sd &lt;- round(unemploy_state_stat$sd, 2)
+
+unemploy_state_stat &lt;- ggtexttable(unemploy_state_stat,
+  rows = NULL,
+  theme = ttheme(&quot;mOrange&quot;)
+)
+
+text_2 &lt;- paste(&quot;Perceived risk of unemployment&quot;, sep = &quot; &quot;) # Create text to annotate summary tables
+text_1 &lt;- paste(&quot;Perceived risk of financial hardship&quot;, sep = &quot; &quot;)
+text.p1 &lt;- ggparagraph(text = text_1, face = &quot;italic&quot;, size = 11, color = &quot;black&quot;)
+text.p2 &lt;- ggparagraph(text = text_2, face = &quot;italic&quot;, size = 11, color = &quot;black&quot;)
+
+ggarrange(text.p1, text.p2, finance_state_stat, unemploy_state_stat, # combine the plots
+  heights = c(0.1, 2),
+  ncol = 2, nrow = 2
+)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/residence-3.png" width="672" /></p>
+</div>
+<div id="education" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Education</h2>
+<ul>
+<li>Respondents with a higher education degree report a higher perceived risk of infection, but a lower perceived risk of death.</li>
+<li>Respondents with a lower educaton degree report a higher perceived unemployment risk and financial risk.</li>
+</ul>
+<pre class="r"><code>demo &lt;- demo %&gt;% # recode education level into more organzied groups
+  mutate(tidyEdu = recode(education,
+    `1 Less than 1st grade` = &quot;Less than HS&quot;,
+    `10 Some college-no degree` = &quot;Some College&quot;,
+    `11 Assoc. college degree-occ/voc prog` = &quot;Associate&quot;,
+    `12 Assoc. college degree-academic prog` = &quot;Associate&quot;,
+    `13 Bachelor&#39;s degree` = &quot;College/professional&quot;,
+    `14 Master&#39;s degree` = &quot;Master/PhD&quot;,
+    `15 Professional school degree` = &quot;College/professional&quot;,
+    `16 Doctorate degree` = &quot;Master/PhD&quot;,
+    `2 Up to 4th grade` = &quot;Less than HS&quot;,
+    `3 5th or 6th grade` = &quot;Less than HS&quot;,
+    `4 7th or 8th grade` = &quot;Less than HS&quot;,
+    `5 9th grade` = &quot;Less than HS&quot;,
+    `6 10th grade` = &quot;Less than HS&quot;,
+    `7 11th grade` = &quot;Less than HS&quot;,
+    `8 12th grade-no diploma` = &quot;Less than HS&quot;,
+    `9 High school graduate or GED` = &quot;HS&quot;
+  ))
+
+
+edu &lt;- demo %&gt;%
+  group_by(tidyEdu) %&gt;%
+  dplyr::summarise(e = n())
+
+ggplot(edu, aes(x = tidyEdu, y = e, fill = tidyEdu)) + # Barplot of education distribution with annotation
+  geom_col() +
+  geom_label(aes(label = e), fill = &quot;white&quot;) +
+  labs(x = &quot;Education&quot;, y = &quot;Count&quot;) +
+  scale_fill_jco() +
+  coord_flip() +
+  theme_bw() +
+  theme(legend.position = &quot;none&quot;) +
+  scale_x_discrete(limits = c(&quot;Less than HS&quot;, &quot;HS&quot;, &quot;Some College&quot;, &quot;Associate&quot;, &quot;College/professional&quot;, &quot;Master/PhD&quot;)) # fixed order</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/education-1.png" width="672" /></p>
+<pre class="r"><code># summarize basic statistic using Rmisc package
+vis_death &lt;- summarySE(demo, measurevar = &quot;cr006&quot;, groupvars = c(&quot;tidyEdu&quot;))
+
+edu_2 &lt;- ggplot(vis_death, aes(x = tidyEdu, y = cr006, fill = tidyEdu)) + # Plot Perceived risk of death
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  scale_fill_jco() +
+  theme_minimal() +
+  coord_flip() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of death (%)&quot;) +
+  scale_x_discrete(limits = c(&quot;Less than HS&quot;, &quot;HS&quot;, &quot;Some College&quot;, &quot;Associate&quot;, &quot;College/professional&quot;, &quot;Master/PhD&quot;)) +
+  scale_y_continuous(breaks = seq(0, 30, by = 5))
+
+
+vis_inf &lt;- summarySE(demo, measurevar = &quot;cr005&quot;, groupvars = c(&quot;tidyEdu&quot;)) # Plot Perceived risk of infection
+
+edu_1 &lt;- ggplot(vis_inf, aes(x = tidyEdu, y = cr005, fill = tidyEdu)) +
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  theme_minimal() +
+  scale_fill_jco() +
+  coord_flip() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of infection (%)&quot;) +
+  scale_x_discrete(limits = c(&quot;Less than HS&quot;, &quot;HS&quot;, &quot;Some College&quot;, &quot;Associate&quot;, &quot;College/professional&quot;, &quot;Master/PhD&quot;)) +
+  scale_y_continuous(breaks = seq(0, 30, by = 5))
+
+# Perceived unemployment risk (cr008a) by education
+vis_umemploy &lt;- summarySE(demo, measurevar = &quot;cr008a&quot;, groupvars = c(&quot;tidyEdu&quot;))
+
+edu_4 &lt;- ggplot(vis_umemploy, aes(x = tidyEdu, y = cr008a, fill = tidyEdu)) + # Plot Perceived risk of unemployment
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  coord_flip() +
+  scale_fill_jco() +
+  theme_minimal() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of unemployment (%)&quot;) +
+  scale_x_discrete(limits = c(&quot;Less than HS&quot;, &quot;HS&quot;, &quot;Some College&quot;, &quot;Associate&quot;, &quot;College/professional&quot;, &quot;Master/PhD&quot;)) +
+  scale_y_continuous(breaks = seq(0, 30, by = 5))
+
+# Perceived financial risk (cr009) by education
+vis_financial &lt;- summarySE(demo, measurevar = &quot;cr009&quot;, groupvars = c(&quot;tidyEdu&quot;))
+
+edu_3 &lt;- ggplot(vis_financial, aes(x = tidyEdu, y = cr009, fill = tidyEdu)) + # Plot Perceived risk of running out of money
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  coord_flip() +
+  scale_fill_jco() +
+  theme_minimal() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of running out of money (%)&quot;) +
+  scale_x_discrete(limits = c(&quot;Less than HS&quot;, &quot;HS&quot;, &quot;Some College&quot;, &quot;Associate&quot;, &quot;College/professional&quot;, &quot;Master/PhD&quot;)) +
+  scale_y_continuous(breaks = seq(0, 30, by = 5))
+
+ggarrange(edu_1, edu_2, edu_3, edu_4, # Combine plots
+  common.legend = TRUE, legend = &quot;none&quot;,
+  ncol = 2, nrow = 2
+)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/education-2.png" width="672" /></p>
+</div>
+<div id="income" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Income</h2>
+<ul>
+<li>High income respondents reported a higher perceived risk of infection, but a lower perceived risk of death.</li>
+<li>Low income respondents reported a higher perceived unemployment risk and financial risk.</li>
+</ul>
+<pre class="r"><code>demo &lt;- demo %&gt;%
+  mutate(incomeTidy = recode(hhincome,
+    `1 Less than $5,000` = &quot;under 20k&quot;,
+    `3 7,500 to 9,999` = &quot;under 20k&quot;,
+    `2 5,000 to 7,499` = &quot;under 20k&quot;,
+    `4 10,000 to 12,499` = &quot;under 20k&quot;,
+    `5 12,500 to 14,999` = &quot;under 20k&quot;,
+    `6 15,000 to 19,999` = &quot;under 20k&quot;,
+    `7 20,000 to 24,999` = &quot;20-39k&quot;,
+    `8 25,000 to 29,999` = &quot;20-39k&quot;,
+    `9 30,000 to 34,999` = &quot;20-39k&quot;,
+    `10 35,000 to 39,999` = &quot;20-39k&quot;,
+    `11 40,000 to 49,999` = &quot;40-59k&quot;,
+    `12 50,000 to 59,999` = &quot;40-59k&quot;,
+    `13 60,000 to 74,999` = &quot;60-74k&quot;,
+    `14 75,000 to 99,999` = &quot;75-99k&quot;,
+    `15 100,000 to 149,999` = &quot;100-149k&quot;,
+    `16 150,000 or more` = &quot;150k plus&quot;
+  ))
+
+temp_inc &lt;- demo %&gt;%
+  select(incomeTidy) %&gt;%
+  group_by(incomeTidy) %&gt;%
+  dplyr::summarise(cnt = n())
+
+ggplot(temp_inc, aes(x = incomeTidy, y = cnt, fill = incomeTidy)) +
+  geom_col() +
+  geom_label(aes(label = cnt), fill = &quot;white&quot;) +
+  labs(x = &quot;Income&quot;, y = &quot;Count&quot;) +
+  scale_fill_jco() +
+  theme_bw() +
+  coord_flip() +
+  theme(legend.position = &quot;none&quot;) +
+  scale_x_discrete(limits = c(&quot;under 20k&quot;, &quot;20-39k&quot;, &quot;40-59k&quot;, &quot;60-74k&quot;, &quot;75-99k&quot;, &quot;100-149k&quot;, &quot;150k plus&quot;))</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/income-1.png" width="672" /></p>
+<pre class="r"><code># Perceived risk of infection (cr005) by Income
+inc_infection &lt;- summarySE(demo, measurevar = &quot;cr005&quot;, groupvars = c(&quot;incomeTidy&quot;))
+
+inc_1 &lt;- ggplot(inc_infection, aes(x = incomeTidy, y = cr005, fill = incomeTidy)) +
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  theme_minimal() +
+  scale_fill_jco() +
+  coord_flip() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of infection (%)&quot;) +
+  scale_x_discrete(limits = c(&quot;under 20k&quot;, &quot;20-39k&quot;, &quot;40-59k&quot;, &quot;60-74k&quot;, &quot;75-99k&quot;, &quot;100-149k&quot;, &quot;150k plus&quot;))
+
+# Perceived risk of death (cr006) by Education
+inc_death &lt;- summarySE(demo, measurevar = &quot;cr006&quot;, groupvars = c(&quot;incomeTidy&quot;))
+
+inc_2 &lt;- ggplot(inc_death, aes(x = incomeTidy, y = cr006, fill = incomeTidy)) +
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  theme_minimal() +
+  coord_flip() +
+  scale_fill_jco() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of death (%)&quot;) +
+  scale_x_discrete(limits = c(&quot;under 20k&quot;, &quot;20-39k&quot;, &quot;40-59k&quot;, &quot;60-74k&quot;, &quot;75-99k&quot;, &quot;100-149k&quot;, &quot;150k plus&quot;))
+
+# Perceived unemployment risk (cr008a) by Income
+inc_unemploy &lt;- summarySE(demo, measurevar = &quot;cr008a&quot;, groupvars = c(&quot;incomeTidy&quot;))
+
+inc_4 &lt;- ggplot(inc_unemploy, aes(x = incomeTidy, y = cr008a, fill = incomeTidy)) +
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  theme_minimal() +
+  coord_flip() +
+  scale_fill_jco() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of unemployment (%)&quot;) +
+  scale_x_discrete(limits = c(&quot;under 20k&quot;, &quot;20-39k&quot;, &quot;40-59k&quot;, &quot;60-74k&quot;, &quot;75-99k&quot;, &quot;100-149k&quot;, &quot;150k plus&quot;))
+
+# Perceived financial risk (cr009) by Income
+inc_unemploy &lt;- summarySE(demo, measurevar = &quot;cr009&quot;, groupvars = c(&quot;incomeTidy&quot;))
+
+# Create visualization, order the bar by education level
+inc_3 &lt;- ggplot(inc_unemploy, aes(x = incomeTidy, y = cr009, fill = incomeTidy)) +
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  theme_minimal() +
+  coord_flip() +
+  scale_fill_jco() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of running out of money (%)&quot;) +
+  scale_x_discrete(limits = c(&quot;under 20k&quot;, &quot;20-39k&quot;, &quot;40-59k&quot;, &quot;60-74k&quot;, &quot;75-99k&quot;, &quot;100-149k&quot;, &quot;150k plus&quot;))
+
+ggarrange(inc_1, inc_2, inc_3, inc_4,
+  common.legend = TRUE, legend = &quot;none&quot;,
+  ncol = 2, nrow = 2
+)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/income-2.png" width="672" /></p>
+</div>
+<div id="race" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Race</h2>
+<ul>
+<li>Compare to other races, Black American reported a lower perceived risk of infection, but a higher perceived financial risk, and perceived risk of death.</li>
+</ul>
+<pre class="r"><code>race_total &lt;- demo %&gt;%
+  select(race) %&gt;%
+  group_by(race) %&gt;%
+  filter(race %in% c(&quot;1 White Only&quot;, &quot;2 Black Only&quot;, &quot;4 Asian Only&quot;, &quot;6 Mixed&quot;)) %&gt;%
+  dplyr::summarise(r = n())
+
+# Plot race distribution with annotation
+ggplot(race_total, aes(x = race, y = r, fill = race)) +
+  geom_col() +
+  geom_label(aes(label = r), fill = &quot;white&quot;) +
+  labs(x = &quot;Race&quot;, y = &quot;Count&quot;) +
+  scale_fill_jco() +
+  coord_flip() +
+  theme_bw() +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/race-1.png" width="672" /></p>
+<pre class="r"><code># filter out the racial groups n &gt;200
+demo_race &lt;- demo %&gt;%
+  select(race, cr005, cr006, cr008a, cr009) %&gt;%
+  filter(race %in% c(&quot;1 White Only&quot;, &quot;2 Black Only&quot;, &quot;4 Asian Only&quot;, &quot;6 Mixed&quot;))
+
+# Perceived risk of infection (cr005) by Race
+race_infection &lt;- summarySE(demo_race, measurevar = &quot;cr005&quot;, groupvars = c(&quot;race&quot;))
+
+race_1 &lt;- ggplot(race_infection, aes(x = race, y = cr005, fill = race)) +
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  theme_minimal() +
+  coord_flip() +
+  scale_fill_jco() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of infection (%)&quot;)
+
+# Perceived risk of death (cr006) by Race
+race_death &lt;- summarySE(demo_race, measurevar = &quot;cr006&quot;, groupvars = c(&quot;race&quot;))
+
+race_2 &lt;- ggplot(race_death, aes(x = race, y = cr006, fill = race)) +
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  theme_minimal() +
+  coord_flip() +
+  scale_fill_jco() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of death (%)&quot;)
+
+# Perceived unemployment risk (cr008a) by Race
+race_unemploy &lt;- summarySE(demo_race, measurevar = &quot;cr008a&quot;, groupvars = c(&quot;race&quot;))
+
+race_4 &lt;- ggplot(race_unemploy, aes(x = race, y = cr008a, fill = race)) +
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  theme_minimal() +
+  coord_flip() +
+  scale_fill_jco() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of unemployment (%)&quot;)
+
+# Perceived financial risk (cr009) by Race
+race_finance &lt;- summarySE(demo_race, measurevar = &quot;cr009&quot;, groupvars = c(&quot;race&quot;))
+
+race_3 &lt;- ggplot(race_finance, aes(x = race, y = cr009, fill = race)) +
+  geom_bar(stat = &quot;identity&quot;, width = .5) +
+  theme_minimal() +
+  coord_flip() +
+  scale_fill_jco() +
+  labs(x = &quot;&quot;, y = &quot;Perceived risk of running out of money (%)&quot;)
+
+ggarrange(race_1, race_2, race_3, race_4,
+  common.legend = TRUE, legend = &quot;none&quot;,
+  ncol = 2, nrow = 2
+)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/race-2.png" width="672" /></p>
+</div>
+<div id="time" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Time</h2>
+<ul>
+<li>Perceived financial risk and unemployment risk appear to peak at the late March, within the timeframe of this survey.</li>
+<li>An increasing perceived risk of infection and death related to Coronavirus were noted during March, 2020.</li>
+</ul>
+<pre class="r"><code>demo$end_date &lt;- as.Date(demo$end_date, format = &quot;%d%b%Y&quot;) # convert date to the right format
+
+time_stat &lt;- demo %&gt;% # Calculate daily average value for each risk items to create line chart
+  select(cr005, cr006, cr009, cr008a, end_date) %&gt;%
+  group_by(end_date) %&gt;%
+  dplyr::summarise(n = n(), infection = mean(cr005), death = mean(cr006), unemployment = mean(cr008a), financial = mean(cr009))
+
+t1 &lt;- ggplot(data = time_stat) + # Line chart 1
+  geom_line(aes(end_date, infection, color = &quot;Perceived risk of infection&quot;)) +
+  geom_line(aes(end_date, death, color = &quot;Perceived risk of death&quot;)) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10)) + # hide legend text, and adjust legend font size
+  labs(y = &quot;Perceived Risk (%)&quot;, x = &quot;Survey Date&quot;)
+
+
+t2 &lt;- ggplot(data = time_stat) +
+  geom_line(aes(end_date, financial, color = &quot;Perceived financial risk&quot;)) + # Line chart2
+  geom_line(aes(end_date, unemployment, color = &quot;Perceived unemployment risk&quot;)) +
+  theme_bw() +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10)) +
+  labs(y = &quot;Perceived Risk (%)&quot;, x = &quot;Survey Date&quot;)
+
+
+t3 &lt;- ggplot(demo) +
+  geom_smooth(aes(end_date, cr005, color = &quot;Perceived financial risk&quot;)) + # geom_smooth plot 1
+  geom_smooth(aes(end_date, cr006, color = &quot;Perceived risk of death&quot;)) +
+  theme_bw() +
+  labs(y = &quot;&quot;, x = &quot;Survey Date&quot;)
+
+t4 &lt;- ggplot(demo) +
+  geom_smooth(aes(end_date, cr008a, color = &quot;Perceived unemployment risk&quot;)) + # geom_smooth plot 1
+  geom_smooth(aes(end_date, cr009, color = &quot;Perceived financial risk&quot;)) +
+  theme(legend.title = element_blank(), legend.text = element_text(size = 10)) +
+  theme_bw() +
+  labs(y = &quot;&quot;, x = &quot;Survey Date&quot;)
+
+
+t5 &lt;- ggplot(demo, aes(end_date, cr005)) +
+  geom_jitter(size = 1) +
+  theme_bw() +
+  geom_smooth() +
+  labs(x = &quot;&quot;)
+
+t6 &lt;- ggplot(demo, aes(end_date, cr006)) +
+  geom_jitter(size = 1) +
+  theme_bw() +
+  geom_smooth() +
+  labs(x = &quot;&quot;)
+
+t7 &lt;- ggplot(demo, aes(end_date, cr008a)) +
+  geom_jitter(size = 1) +
+  theme_bw() +
+  geom_smooth()
+
+t8 &lt;- ggplot(demo, aes(end_date, cr009)) +
+  geom_jitter(size = 1) +
+  theme_bw() +
+  geom_smooth()
+
+
+ggarrange(t1, t3,
+  ncol = 2, nrow = 1,
+  common.legend = TRUE, legend = &quot;top&quot;
+)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/time-1.png" width="672" /></p>
+<pre class="r"><code>ggarrange(t2, t4,
+  ncol = 2, nrow = 1,
+  common.legend = TRUE, legend = &quot;top&quot;
+)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/time-2.png" width="672" /></p>
+<pre class="r"><code># ggarrange(t5, t6,t7, t8,
+#           ncol = 2, nrow = 2,
+#           common.legend = TRUE, legend = &quot;top&quot;)</code></pre>
+<p>[The graph below is added by ML]</p>
+<pre class="r"><code># Edit by ML: Showing the variability in responses across time
+ggplot(
+  demo,
+  aes(end_date, cr008a)
+) +
+  geom_jitter(width = 0.1, height = 0.5, alpha = 0.1, size = 0.5) +
+  stat_summary(fun = mean, geom = &quot;line&quot;) +
+  theme_bw() +
+  geom_smooth(linetype = &quot;dotted&quot;) +
+  labs(y = &quot;Perceived Financial Risk (%)&quot;)</code></pre>
+<p><img src="/post/2020-07-25-part-1-perception-of-risks-during-covid-19_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="summary" class="section level2" number="1.10">
+<h2><span class="header-section-number">1.10</span> Summary</h2>
+<p>The survey was conducted in the early month of the COVID-19 outbreak in the US. There was a large variation in how people evaluate risks related to Coronavirus, but the findings suggested that people perception of risks experienced a significant increase compare to the beginning of the survey.</p>
+</div>
+<div id="publication-statement" class="section level2" number="1.11">
+<h2><span class="header-section-number">1.11</span> Publication Statement</h2>
+<p>The analysis described in this page relies on data from survey(s) administered by the
+Understanding America Study, which is maintained by the Center for Economic and Social Research (CESR) at the University of Southern California. The content of this page is solely the responsibility of the authors and does not necessarily represent the official views of USC or UAS. Journalists and other reporters must refer readers to methodology information available at uasdata.usc.edu or election.uas.edu as appropriate.</p>
+</div>
+</div>
