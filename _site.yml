@@ -7,6 +7,7 @@ exclude: ["layouts", "resources", "themes", "config.toml", "README.md"]
 navbar:
   logo:
     image: static/images/mmm_white_transparent.png
+  search: true
   right:
     - text: "Home"
       href: index.html
