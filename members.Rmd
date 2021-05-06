@@ -57,6 +57,8 @@ knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wiza
 
 Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 
+- Email: gengruiz@usc.edu
+
 ***
 
 ## Undergraduate Students
@@ -65,9 +67,15 @@ Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 
 I am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.
 
+- Email: hailinyu@usc.edu
+
 ### Alyssa Delarosa
 
+- Email: alyssad1@usc.edu
+
 ### Clay Cantrell
+
+- Email: cacantre@usc.edu
 
 ## Collaborators
 
