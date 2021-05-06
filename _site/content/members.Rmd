@@ -74,7 +74,7 @@ Hello! I am a rising second year Ph.D. student in quantitative psychology. I am 
 
 <section class="profile">
 
-I am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.
+I am a fourth-year undergraduate majoring in economics, with minors in psychology and data analytics. I am interested in applying a quantitative approach to study psychiatric disorders, and to optimize business decision. After graduation, I want to work as a consultant before going into grad school. In my leisure time, I enjoy music, fashion, painting, interior design, and watching tv dramas.
 
 </section>
 

@@ -37,16 +37,16 @@ I am a second year Ph.D. quantitative psychology student, working under the supe
 
 In my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, and video gameplays (basically anything with a good storyline!). 
 
+- [CV](static/cv/WinnieTse_CV_20210302.pdf)
 - Email: wingyeet@usc.edu
 
 ### Yichi Zhang
 
-```{r}
-knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/esolehek.jpg")
-```
+![](static/images/YichiZhang_image_20210326.jpg){width=50%}
 
 Hello! I am a second year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
 
+- [CV](static/cv/YichiZhang_CV_20210326.pdf)
 - Email: yzhang97@usc.edu
 
 ### Jimmy Zhang

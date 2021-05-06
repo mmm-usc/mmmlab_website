@@ -75,12 +75,22 @@ myBib[date = "2019"]
 
 ## Conference Presentations
 
+### 2021
+
+Lai, M. H. C. & Hsiao, Y. (2021, April). *Two-stage path analysis with definition variables: A general framework for modeling with categorical indicators* [Structured Poster Session]. AERA Annual Meeting, Orlando, FL, United States. 
+
 ### 2020
 
-- Lai, M. H. C. (2020, July). *Multilevel bootstrap confidence intervals for standardized effect size* [Paper Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
-- Tse, W. W. & Lai, M. H. C. (2020, July 14-17). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
-- Zhang, Y. & Lai, M. H. C. (2020, July 14-17). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
-- Tse, W. W. & Lai, M. H. C. (2020, June 25-26). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Conference Session]. A Meeting of Methodologies (AMOM), Vancouver, BC, Canada. [Powerpoint slides](https://mfr.ca-1.osf.io/render?url=https://osf.io/qcfpg/?direct%26mode=render%26action=download%26mode=render)
-- Lai, M. H. C. (2020, June 2-3). *Constructing bootstrap confidence intervals for standardized effect size in cluster-randomized trials* [Paper Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
-- Tse, W. W. & Lai, M. H. C. (2020, June 2-3). *Path to valid means comparisons: The necessity of strict measurement invariance for ordered categorical variables* [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
-- Zhang, Y. & Lai, M. H. C. (2020, June 2-3). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
+Lai, M. H. C. (2020, July). *Multilevel bootstrap confidence intervals for standardized effect size* [Paper Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
+
+Tse, W. W. & Lai, M. H. C. (2020, July 14-17). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
+
+Zhang, Y. & Lai, M. H. C. (2020, July 14-17). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. [Schedule](https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842)
+
+Tse, W. W. & Lai, M. H. C. (2020, June 25-26). *Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons* [Conference Session]. A Meeting of Methodologies (AMOM), Vancouver, BC, Canada. [Powerpoint slides](https://mfr.ca-1.osf.io/render?url=https://osf.io/qcfpg/?direct%26mode=render%26action=download%26mode=render)
+
+Lai, M. H. C. (2020, June 2-3). *Constructing bootstrap confidence intervals for standardized effect size in cluster-randomized trials* [Paper Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
+
+Tse, W. W. & Lai, M. H. C. (2020, June 2-3). *Path to valid means comparisons: The necessity of strict measurement invariance for ordered categorical variables* [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
+
+Zhang, Y. & Lai, M. H. C. (2020, June 2-3). *A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance* [Poster Session]. Modern Modeling Methods Conference (MMM), Storrs, CT, United States. (Conference canceled)
