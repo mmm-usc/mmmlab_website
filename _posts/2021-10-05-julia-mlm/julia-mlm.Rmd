@@ -1,0 +1,329 @@
+---
+title: "Multilevel Models in Julia"
+description: |
+author:
+  - name: Yichi Zhang
+    url: {}
+date: 05-11-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+categories:
+  - Julia
+  - Multilevel Modeling
+---
+
+
+Today We will have a fun session doing regression and multilevel models(MLMs) using Julia. First, we will have a small 
+exercise fitting a linear regression model to a sample dataset, and then we will fit the MLM to the same dataset and 
+compare the difference in results. Please note the examples come from Dr.Mark Lai's multilevel modeling course, which 
+can be assessed at https://quantscience.rbind.io/courses/psyc575/homework-3/. Can't wait? Let's get started! Yay!
+
+# Set up
+
+## Install Packages 
+
+In Julia, we can add package by typing "]" in the Terminal to enter the `Pkg` mode and exit using `Ctrl + C`. Or, we 
+can use [`Pkg`] package and add multiple packages at once.
+
+```julia
+#= uncomment below to install packages
+using Pkg
+Pkg.add(["Pipe", "DataFrames", "StatFiles", "GLM","MixedModels","Plots", "StatsPlots"])
+=#
+```
+
+## Using Packages
+
+Just like we use `library` to load packages in R, we use `using` in Julia. It's better to have a separate session 
+in the beginning of the file to load all packages you will need in the analysis. Otherwise it will take a long time 
+to precompile each time.
+
+`Pipe` for pipe operator.
+`DataFrames` for working with dataframes.
+`StatFiles` for reading datasets from Stata, SPSS and SAS. If you have a txt file, can try CSV.read function from package `CSV`.
+`GLM` for linear regression.
+`MixedModels` for working with multilevel models. Similar to lme4.
+`Plots` for making graphs.
+`StatsPlots` for making graphs. 
+
+```julia
+using Pipe, DataFrames, StatFiles, GLM, MixedModels, Plots, StatsPlots, Statistics
+```
+
+## Dataset
+
+Today we are going to use the dataset from the World Value Survey-1990-93 data (World Values Study Group, 1994). There 
+are five variables in the data set:
+
+`CountryID`: CountryID \
+`country`: Country's name \
+`gm_GNP`: Grand-mean centered Gross National Product \
+`income`: Income level(0-least income to 9-most income)\
+`happy`:Feel happy(1-not happy to 4-very happy)
+
+This data set and set of practice problem come from Mark's Multilvel Modeling class, so thanks Mark!
+
+```julia
+data_happy = DataFrame(load("happy_combined.sav"))
+#= Or we can use pipe operator
+data_happy = load("happy_combined.sav") |> DataFrame
+=#
+data_happy = dropmissing(data_happy)
+```
+
+# Research Questions
+
+Are people with higher individual level income happier? Is the relation similar across countries? How is the result
+of linear regression different from the result of multilevel models?
+
+## Descriptive Analysis
+
+```julia
+## Summary of all variables in the dataset
+describe(data_happy)
+## list first five rows of data
+first(data_happy,5)
+## list names of all variables
+names(data_happy)
+## get size of the data set
+size(data_happy)
+size(data_happy,1)
+size(data_happy,2)
+## check a specific column 
+data_happy[:,"country"]
+unique(data_happy[:,"country"])
+# data_happy[!,:2]; data_happy[:,2] also work for extracting the second columns
+# data_happy[2,:] can extract the second row, data_happy[2:5,:] extract the second to fifth row.
+```
+```julia
+@df data_happy scatter(
+    :country, 
+    :happy,
+    group = :country)
+```
+
+## Linear Regression
+
+???Exercise Time: We are familiar with our dataset, so let's do some exercise! Recall Winnie did a great presentation last time on linear
+regression, so please go ahead to fit a linear regression model and write out the equation. 
+
+Hint: Model_name = lm(@formula(DV ~ IV), data_set)
+
+### Fitting the linear regression model
+
+```julia
+lm1 = lm(@formula(happy~ gm_GNP),data_happy)
+# extract coefficients
+coef(lm1)
+# extract standard errors
+stderror(lm1)
+# extract variance covariance matrix
+vcov(lm1)
+# obtain R^2
+r2(lm1)
+# get the deviance 
+deviance(lm1)
+```
+This model explains 4.72% of variance in `happy`. Note the standard error estimates for `gm_GNP` is 0.010, t =17.13,
+95% CI [0.155 0.195], p < 0.0001. 
+
+### Equations
+
+```math
+\text{happy} = 2.992 + 0.175 \text{gm_GNP}
+```
+
+## Multilevel Modeling
+
+### Random Intercept Model
+
+We first fit a random intercept model and calculate the intraclass correlation. Recall 
+
+#### Equations
+
+Level 1:
+
+```math
+\text{happy}_{ij} = \beta_{0j} + e_{ij}
+```
+Level 2:
+
+```math
+\beta_{0j} = \gamma_{00} + u_{0j}
+```
+
+```math
+\text{ICC} = \frac{\tau_0^2}{\tau_0^2 + \sigma^2}
+```
+```julia
+## Fitting MLMs
+mm1 = fit(LinearMixedModel, @formula(happy ~ (1|country)), data_happy)
+## Create a vector and store the model fit statistics
+model_fit= Vector{Float64}()
+push!(model_fit,aic(mm1))
+```
+??? Exercise Time: What is the value of ICC?
+
+The first part of the result prints out estimation method and the model fit statistics, such as AIC,BIC, etc. The second 
+part is the table of estimates of parameters associated with the random effects. The third part is the fixed effects 
+point estimates and standard errors.
+
+ICC = 0.0649/(0.0649 + 0.4842) = 0.118, so there is evidence that people's happiness level varies across countries.
+Variability at the country level accounts for 11.8% of the total variability of happiness level.
+
+Design effect = 1 +(average cluster size - 1) x ICC. We have 5926 observations and 38 groups, so 
+design effect = 1 + (5926/38 -1) x 0.118 = 19.28.  
+
+### Add Level 2 Predictor
+
+It is reasonable to think `gm_GNP` is a cluster level predictor, so let's add it to our model.
+
+#### Equations
+
+Level 1:
+
+```math
+\text{happy}_{ij} = \beta_{0j} + e_{ij}
+```
+Level 2:
+
+```math
+\beta_{0j} = \gamma_{00} + \gamma_{01} \text{gm_GNP}_{j} + u_{0j}\\
+```
+
+```julia
+## Fitting MLMs
+mm2 = fit(LinearMixedModel, @formula(happy ~ gm_GNP + (1|country)), data_happy)
+push!(model_fit, aic(mm2))
+# extract log likelihood
+loglikelihood(mm2)
+# extract Akaike's Information Criterion
+aic(mm2)
+# extract Bayesian Information Criterion
+bic(mm2)
+# extract degrees of freedom
+dof(mm2)
+# extract coefficient
+coef(mm2)
+# extract fixed effects
+fixef(mm2)
+vcov(mm2)
+stderror(mm2)
+# extract coefficients table
+coeftable(mm2)
+# extract variance components
+VarCorr(mm2)
+# return sigma^2
+varest(mm2)
+# return tau
+VarCorr(mm2).σρ[1][1][1]
+# return elements in the components
+dump(VarCorr(mm1))
+# return sigma
+sdest(mm2)
+# extract random effects
+ranef(mm2)
+```
+
+Note that the result is slightly different from the R output, it's because the default estimation method in
+[`MixedModels`] in Julia is maximum likelihood estimation, whereas the default estimation method for [`lme4`] in R is 
+Restricted maximum likelihood method.
+
+This time standard error estimates for `gm_GNP` is 0.0337, z = 5.33, p < 0.0001. The SE for OLS is smaller than 
+the SE for MLM, indicating OLS underestimates the SE. 
+
+## Add Level 1 predictor
+
+Because relationships at one level are not necessarily the same at the other level, we need to be careful adding 
+the level 1 predictor. Two approaches to decompose the impact of level 1 predictor on outcome variables:
+cluter mean centering + cluster mean and the raw predictor + clutster mean. Here we will use the first approach.
+
+#### Equations
+
+Level 1:
+
+```math
+\text{happy}_{ij} = \beta_{0j} + \beta_{1j} \text{income_cmc}_{ij} + e_{ij}
+```
+Level 2:
+
+```math
+\beta_{0j} = \gamma_{00} + \gamma_{01} \text{income_mean}_{j} + u_{0j}\\
+\beta_{1j} = \gamma_{10} + u_{1j} 
+```
+
+```julia
+## Cluster mean centering
+data_happy2 = @pipe data_happy |> 
+            groupby(_,:country) |> # group by country
+            transform(_, :income => mean => :income_mean)|> # add a new variable income_mean
+            transform(_, [:income, :income_mean]=> ByRow(-) => :income_cmc) # add a new variable the centered variable
+
+## Fitting MLMs
+mm3 = fit(LinearMixedModel, @formula(happy ~ income_cmc + income_mean + (income_cmc|country)), data_happy2)
+push!(model_fit, aic(mm3))
+```
+Both `income_cmc` and `income` are significant predictors of happiness level. For a person from a country with 
+`income_mean` = 0 and this person has average country level income, the predicted happiness level is 2.66, SE = 0.16. 
+The average within country slope is 0.047(SE = 0.008), meaning a one unit increase in `income_cmc` is associated with a 
+0.047 unit increase in happiness. This slope varies across countries, with a standard deviation of 0.38. The average between
+country level slope is 0.08, SE = 0.04, suggesting a one unit increase in `income_mean` is associated with a 0.08 unit 
+increase in the average happiness level.
+
+
+## Cross level Interaction
+
+Is the relation between `happy` and `income` moderated by `gm_GNP`? We can answer this question by adding `gm_GNP` to 
+the above model.
+
+```julia
+mm4 = fit(LinearMixedModel, @formula(happy ~ income_cmc * gm_GNP + income_mean + (income_cmc|country)), data_happy2)
+push!(model_fit, aic(mm4))
+```
+After adding `gm_GNP`, the impact of `income_mean` on `happy` is not significant. 
+
+#### Equations
+
+Level 1:
+
+```math
+\text{happy}_{ij} = \beta_{0j} + \beta_{1j} \text{income_cmc}_{ij} + e_{ij}
+```
+Level 2:
+
+```math
+\beta_{0j} = \gamma_{00} + \gamma_{01} \text{income_mean}_{j} + \gamma_{02} \text{gm_GNP}_{j} + u_{0j}\\
+\beta_{1j} = \gamma_{10} + \gamma_{11} \text{gm_GNP}_{j} + u_{1j} 
+```
+
+??? Exercise time: 1. Which model fits data better?
+
+```julia
+# print out the AIC
+print(model_fit)
+# Likelihood Ratio Test
+MixedModels.likelihoodratiotest(mm1,mm2,mm3,mm4)
+```
+# Conclusion
+
+The results of [`MixedModels`] in Julia and [`lme4`] are slightly different due to the estimation methods that are used. 
+The cross-level interaction model fits best to our data, suggesting the country level GNP `gm_GNP` moderated the relation
+between individual's happiness level `happy` and income `income`. 
+
+# Resources
+
+Mark's MLM class and HW
+
+DataFrames package
+https://dataframes.juliadata.org/v0.14.0/index.html
+
+MixedModels Package (similar to lme4 in R) documentation 
+https://juliastats.org/MixedModels.jl/v1.0/index.html
+
+Maybe useful for plotting week:
+
+Gadfly Package (similar to ggplot in R) documentation 
+https://juliastats.org/MixedModels.jl/v1.0/index.html
+
