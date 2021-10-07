@@ -33,7 +33,7 @@ I am interested in all kinds of statistical methods, but currently my research a
 knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/xizebuje.jpg")
 ```
 
-I am a second year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. My main research interest is on statistical models within the framework of structural equation modeling, particularly with dichotomous and polytomous variables. My current project focuses on demonstrating the necessity of strict factorial invariance prior to mean comparisons across groups with ordered-categorical variables. 
+I am a third-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. My main research interest is on statistical models within the framework of structural equation modeling, particularly with dichotomous and polytomous variables. My current project focuses on demonstrating the necessity of strict factorial invariance prior to mean comparisons across groups with ordered-categorical variables. 
 
 In my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, and video gameplays (basically anything with a good storyline!). 
 
@@ -44,7 +44,7 @@ In my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, a
 
 ![](static/images/YichiZhang_image_20210326.jpg){width=50%}
 
-Hello! I am a second year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
+Hello! I am a third-year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
 
 - [CV](static/cv/YichiZhang_CV_20210326.pdf)
 - Email: yzhang97@usc.edu
@@ -63,7 +63,7 @@ Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 
 ![](static/images/MeltemOzcan_imgage_20210512.jpg){width=50%}
 
-I am an incoming Ph.D. student in quantitative & computational psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the development and application of advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and more specifically, my research interests include measurement, Bayesian statistics, and psychometrics. My current research at UC Santa Cruz, where I’m wrapping up my M.S. in statistics, examines the performance of the cumulative sum test for determining changepoints in time series under various correlation structures through a series of simulation experiments. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics such as politics, linguistic patterns in trauma narratives, and light therapy for PTSD. I enjoy hiking, road trips, horror movies, reading, learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
+I am a first-year Ph.D. student in quantitative & computational psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the development and application of advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and more specifically, my research interests include measurement, Bayesian statistics, and psychometrics. My current research at UC Santa Cruz, where I’m wrapping up my M.S. in statistics, examines the performance of the cumulative sum test for determining changepoints in time series under various correlation structures through a series of simulation experiments. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics such as politics, linguistic patterns in trauma narratives, and light therapy for PTSD. I enjoy hiking, road trips, horror movies, reading, learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
 
 - Email: ozcan@usc.edu
 - Personal website: https://www.linkedin.com/in/meltemozcan/ 
