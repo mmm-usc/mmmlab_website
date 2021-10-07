@@ -59,6 +59,15 @@ Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 
 - Email: gengruiz@usc.edu
 
+### Meltem Ozcan
+
+![](static/images/MeltemOzcan_imgage_20210512.jpg){width=50%}
+
+I am an incoming Ph.D. student in quantitative & computational psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the development and application of advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and more specifically, my research interests include measurement, Bayesian statistics, and psychometrics. My current research at UC Santa Cruz, where I’m wrapping up my M.S. in statistics, examines the performance of the cumulative sum test for determining changepoints in time series under various correlation structures through a series of simulation experiments. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics such as politics, linguistic patterns in trauma narratives, and light therapy for PTSD. I enjoy hiking, road trips, horror movies, reading, learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
+
+- Email: ozcan@usc.edu
+- Personal website: https://www.linkedin.com/in/meltemozcan/ 
+
 ***
 
 ## Undergraduate Students
@@ -68,6 +77,13 @@ Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 I am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.
 
 - Email: hailinyu@usc.edu
+
+
+### Clay Cantrell
+
+I am a fourth year undergraduate student studying Cognitive Science with a minor in Computer Programming at USC. My academic interests include computer-human interaction and social learning. When I'm not in front of a computer my hobbies include mountain bike riding, backpacking, and getting some fresh air.
+ 
+- Email: cacantre@usc.edu
 
 ### Alyssa Delarosa
 
