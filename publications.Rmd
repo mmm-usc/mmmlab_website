@@ -13,27 +13,12 @@ library(RefManageR)
 # Grab bibTeX using DOIs, and save to pubs.bib
 RefManageR::GetBibEntryWithDOI(
   unique(
-    c("10.1080/10705511.2020.1782206", 
-      "10.1037/met0000287", 
-      "10.1080/00273171.2020.1746902", 
-      "10.3102/1076998619843168", 
-      "10.1016/j.addbeh.2018.11.029")
+    c(readLines("pub_doi.txt"))
   ), 
   temp.file = "pubs.bib", 
   delete.file = FALSE)
 # Manual bibTeX for articles without DOIs
-ref <- c(
-  BibEntry(
-    bibtype = "unpublished", 
-    key = "lai2021", 
-    title = "Adjusting for partial invariance in latent parameter estimation: Comparing forward specification search and approximate invariance methods", 
-    author = "Lai, Mark H. C. and Liu, Yuanfang and Tse, Winnie Wing-Yee", 
-    year = "2021", 
-    journal = "Behavior Research Methods", 
-    date = "2021-02-05", 
-    pubstate = "Manuscript accepted for publication"
-  )
-)
+ref <- RefManageR::ReadBib("pub_nodoi.bib")
 WriteBib(bib = ref, 
          file = "pubs.bib", 
          append = TRUE)
@@ -41,7 +26,7 @@ WriteBib(bib = ref,
 
 ```{r, load_refs, include = FALSE, cache = FALSE}
 library(RefManageR)
-# Grab bibTeX using DOIs, and save to pubs.bib
+# Read "pubs.bib"
 BibOptions(check.entries = FALSE,
            bib.style = "authoryear",
            cite.style = "alphabetic",
@@ -77,7 +62,19 @@ myBib[date = "2019"]
 
 ### 2021
 
+Zhang, G., Yue, H., & Lai, M. H. C. (2021, July 19-23). *A systematic review of measurement invariance research of the CES-D across gender* [Poster presentation]. Virtual conference of the Psychometric Society (IMPS) due to covid-19. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf
+
+Zhang, Y. & Lai, M. H. C. (2021, July 19-23). *Classification Accuracy of multidimensional tests: Quantifying the impact of noninvariance* [Oral presentation]. Virtual conference of the Psychometric Society (IMPS) due to covid-19. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf
+
+Tse, W. W. & Lai, M. H. C. (2021, July 19-23). *Incorporating uncertainty in design parameters: A hybrid classical-Bayesian power analysis approach for two-level cluster randomized trials* [Oral presentation]. Virtual conference of the Psychometric Society (IMPS) due to covid-19. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf
+
+Lai, M. H. C., Ji, F., & Chen, S. (2021, July 19-23). *Obtaining reliability for daily diary data using multilevel factor analysis* [Oral presentation]. Virtual conference of the Psychometric Society (IMPS) due to covid-19. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf
+
+Hsiao, Y., Kwok, O., & Lai, M. H. C. (2021, April 8-12). *Improving estimation accuracy of the tnteraction effects in models with composite scores* [Structured poster session]. AERA Annual Meeting, Orlando, FL, United States. https://convention2.allacademic.com/one/aera/aera21
+
 Lai, M. H. C. & Hsiao, Y. (2021, April). *Two-stage path analysis with definition variables: A general framework for modeling with categorical indicators* [Structured Poster Session]. AERA Annual Meeting, Orlando, FL, United States. 
+
+Wen, L., & Lai, M. H. C. (2021, April 8-12). *A multilevel weighted bootstrap procedure to handle sampling weights* [Paper session]. AERA Annual Meeting, Orlando, FL, United States. https://convention2.allacademic.com/one/aera/aera21
 
 ### 2020
 
