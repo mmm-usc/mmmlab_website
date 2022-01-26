@@ -39,23 +39,11 @@ myBib <- ReadBib(here::here("pubs.bib"), check = FALSE)
 
 ## Peer-Reviewed Articles (Selected)
 
-### 2021
-
 ```{r, results = "asis"}
-myBib[date = "2021"]
-```
-
-### 2020
-
-```{r, results = "asis"}
-myBib[date = "2020"]
-```
-
-
-### 2019
-
-```{r, results = "asis"}
-myBib[date = "2019"]
+for (yeari in as.character(2022:2019)) {
+  cat(paste("\n###", yeari), "\n")
+  print(myBib[date = yeari])
+}
 ```
 
 ## Conference Presentations
