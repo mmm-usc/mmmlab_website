@@ -39,6 +39,12 @@ myBib <- ReadBib(here::here("pubs.bib"), check = FALSE)
 
 ## Peer-Reviewed Articles (Selected)
 
+### 2022
+
+```{r, results = "asis"}
+myBib[date = "2022"]
+```
+
 ### 2021
 
 ```{r, results = "asis"}

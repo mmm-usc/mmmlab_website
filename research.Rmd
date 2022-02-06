@@ -16,7 +16,7 @@ Measurement is the foundation of quantitative science, and it's especially impor
 - Measurement invariance with categorical data (Winnie Tse)
 - Quantifying measurement noninvariance in a meaningful way (Yichi Zhang)
 - Bias-correction methods for heterogeneous measurement errors (Mark Lai)
-- Developing a Multidimensional Psychometric Framework on the Impact of Item Bias on Classification (Mark Lai & Yichi Zhang, Contract with Army Research Institute)
+- Developing a Multidimensional Psychometric Framework on the Impact of Item Bias on Classification (Mark Lai & Yichi Zhang & Meltem Ozcan, Contract with Army Research Institute)
 - Synthesis of invariance research (Jimmy Zhang & Haley Yue)
 
 ## Multilevel Modeling
