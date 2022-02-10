@@ -1,12 +1,31 @@
 ---
 title: "Lab Members"
 description: |
-  MMM Lab Members
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       out.width = "250px")
+```
+
+```{r}
+paths <- c('static/images/slickr_files/MidAutumnPicnic21.jpg',
+           'static/images/slickr_files/PointDumeHike21_1.jpg',
+          'static/images/slickr_files/ThanksgivingPicnic21.jpg',
+          'static/images/slickr_files/FirstLabMeetingofFall21.jpg',
+          'static/images/slickr_files/PointDumeHike21_2.jpg',
+          'static/images/slickr_files/Summer21.jpg')
+alt_text <- c('Mid-Autumn Picnic 2021',
+              'Point Dume Hike 2021-1', 
+              'Thanksgiving picnic 2021',
+              'FirstLabMeetingofFall2021', 
+              'Point Dume Hike 2021-2', 
+              'Summer21')
+img_h <- 400
+paths_w_alt_text <- mapply(function(x,txt,h){
+  htmltools::tags$img(src = x, title = txt, height=h)},
+  x = paths, txt = alt_text, h=img_h, SIMPLIFY = FALSE)
+slickR::slickR(obj = paths_w_alt_text, height = 400) + slickR::settings(autoplay = TRUE, autoplaySpeed = 4000)
 ```
 
 ## Principal Investigator
@@ -46,7 +65,7 @@ In my leisure time, I enjoy watching fantasy/mystery/horror movies, TV series, a
 
 Hello! I am a third-year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
 
-- [CV](static/cv/YichiZhang_CV_20210326.pdf)
+- [CV](static/cv/YichiZhang_CV_20220206.pdf)
 - Email: yzhang97@usc.edu
 
 ### Jimmy Zhang
@@ -63,7 +82,7 @@ Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 
 ![](static/images/MeltemOzcan_imgage_20210512.jpg){width=50%}
 
-I am a first-year Ph.D. student in quantitative & computational psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the development and application of advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and more specifically, my research interests include measurement, Bayesian statistics, and psychometrics. My current research at UC Santa Cruz, where I’m wrapping up my M.S. in statistics, examines the performance of the cumulative sum test for determining changepoints in time series under various correlation structures through a series of simulation experiments. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics such as politics, linguistic patterns in trauma narratives, and light therapy for PTSD. I enjoy hiking, road trips, horror movies, reading, learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
+I am a first-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the development and application of advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and more specifically, my research interests include measurement bias, Bayesian statistics, and psychometrics. At UC Santa Cruz, where I completed my M.S. in statistics, my research looked at the performance of the cumulative sum test for determining changepoints in time series under various correlation structures through a series of simulation experiments. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics such as politics, linguistic patterns in trauma narratives, and light therapy for PTSD. I enjoy hiking, road trips, horror movies, reading, learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
 
 - Email: ozcan@usc.edu
 - Personal website: https://www.linkedin.com/in/meltemozcan/ 
