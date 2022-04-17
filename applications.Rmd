@@ -1,0 +1,15 @@
+---
+title: "Applications"
+description: |
+  Shiny apps from MMM lab
+author:
+  - name: MMM lab
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    self_contained: true
+---
+
+<iframe src="https://winnie-wy-tse.shinyapps.io/hcb_shiny/" height="1000px"></iframe>
+<iframe src="https://partinvmmm.shinyapps.io/partinvshinyui/" height="1000px"></iframe>
+<iframe src="https://uncover-data-stories.shinyapps.io/shinyapp/" height="1000px"></iframe>
