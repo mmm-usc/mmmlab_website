@@ -112,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Confidence Intervals for Multilevel R-Squared"]},{"type":"character","attributes":{},"value":["A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Hok Chio (Mark) Lai"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["https://quantscience.rbind.io"]}},"value":[{"type":"NULL"}]}]}]},{"type":"character","attributes":{},"value":["2022-05-10"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Confidence Intervals for Multilevel R-Squared"]},{"type":"character","attributes":{},"value":["A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Hok Chio (Mark) Lai"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["https://quantscience.rbind.io"]}},"value":[{"type":"NULL"}]}]}]},{"type":"character","attributes":{},"value":["2022-05-10"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Bootstrap","Multilevel Modeling","Statistics"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1471,6 +1471,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-title">
 <h1>Confidence Intervals for Multilevel R-Squared</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">Bootstrap</div>
+<div class="dt=tag">Multilevel Modeling</div>
+<div class="dt=tag">Statistics</div>
+</div>
 <!--/radix_placeholder_categories-->
 <p><p>A demonstration of obtaining confidence intervals for multilevel
 R-squared effect size using parametric and residual multilevel
@@ -1484,6 +1489,37 @@ bootstrapping.</p></p>
 </div>
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#load-packages">Load Packages</a></li>
+<li><a href="#an-example-multilevel-model">An Example Multilevel
+Model</a>
+<ul>
+<li><a
+href="#nakagawa-johnson-schielzeth-r2">Nakagawa-Johnson-Schielzeth <span
+class="math inline">\(R^2\)</span></a></li>
+<li><a href="#right-sterba-r2">Right-Sterba <span
+class="math inline">\(R^2\)</span></a></li>
+</ul></li>
+<li><a href="#confidence-intervals-for-r2">Confidence Intervals for
+<span class="math inline">\(R^2\)</span></a></li>
+<li><a href="#parametric-bootstrap">Parametric Bootstrap</a>
+<ul>
+<li><a href="#bias-corrected-estimate">Bias-corrected estimate</a></li>
+<li><a href="#confidence-intervals">Confidence intervals</a></li>
+</ul></li>
+<li><a href="#residual-bootstrap">Residual Bootstrap</a>
+<ul>
+<li><a href="#confidence-intervals-1">Confidence Intervals</a></li>
+</ul></li>
+<li><a href="#bootstrap-ci-with-transformation">Bootstrap CI With
+Transformation</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+</div>
 <h2 id="load-packages">Load Packages</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">

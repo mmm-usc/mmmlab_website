@@ -9,6 +9,11 @@ date: 2022-05-10
 output:
   distill::distill_article:
     self_contained: false
+    toc: true
+categories:
+  - Bootstrap
+  - Multilevel Modeling
+  - Statistics
 ---
 
 
