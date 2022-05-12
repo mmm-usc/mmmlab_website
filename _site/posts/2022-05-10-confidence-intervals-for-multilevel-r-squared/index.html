@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -55,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -76,7 +77,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -84,39 +85,40 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
-  <!--radix_placeholder_meta_tags-->
-<title>Measurement &amp; Multilevel Modeling Lab: Welcome to Measurement &amp; Multilevel Modeling Lab</title>
 
-<meta property="description" itemprop="description" content="Welcome to our blog. We hope you enjoy &#10;reading what we have to say!"/>
+  <!--radix_placeholder_meta_tags-->
+<title>Measurement &amp; Multilevel Modeling Lab: Confidence Intervals for Multilevel R-Squared</title>
+
+<meta property="description" itemprop="description" content="A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping."/>
 
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2020-12-17"/>
-<meta property="article:created" itemprop="dateCreated" content="2020-12-17"/>
-<meta name="article:author" content="MMM Lab"/>
+<meta property="article:published" itemprop="datePublished" content="2022-05-10"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-05-10"/>
+<meta name="article:author" content="Hok Chio (Mark) Lai"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Welcome to Measurement &amp; Multilevel Modeling Lab"/>
+<meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Confidence Intervals for Multilevel R-Squared"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Welcome to our blog. We hope you enjoy &#10;reading what we have to say!"/>
+<meta property="og:description" content="A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Measurement &amp; Multilevel Modeling Lab"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Welcome to Measurement &amp; Multilevel Modeling Lab"/>
-<meta property="twitter:description" content="Welcome to our blog. We hope you enjoy &#10;reading what we have to say!"/>
+<meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Confidence Intervals for Multilevel R-Squared"/>
+<meta property="twitter:description" content="A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Welcome to Measurement & Multilevel Modeling Lab"]},{"type":"character","attributes":{},"value":["Welcome to our blog. We hope you enjoy \nreading what we have to say!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["MMM Lab"]},{"type":"character","attributes":{},"value":["University of Southern California"]}]}]},{"type":"character","attributes":{},"value":["12-17-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Confidence Intervals for Multilevel R-Squared"]},{"type":"character","attributes":{},"value":["A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Hok Chio (Mark) Lai"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["https://quantscience.rbind.io"]}},"value":[{"type":"NULL"}]}]}]},{"type":"character","attributes":{},"value":["2022-05-10"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["welcome_files/anchor-4.2.2/anchor.min.js","welcome_files/bowser-1.9.3/bowser.min.js","welcome_files/distill-2.2.21/template.v2.js","welcome_files/header-attrs-2.6/header-attrs.js","welcome_files/jquery-1.11.3/jquery.min.js","welcome_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["confidence-intervals-for-multilevel-r-squared_files/anchor-4.2.2/anchor.min.js","confidence-intervals-for-multilevel-r-squared_files/bowser-1.9.3/bowser.min.js","confidence-intervals-for-multilevel-r-squared_files/distill-2.2.21/template.v2.js","confidence-intervals-for-multilevel-r-squared_files/figure-html5/hist-boo01-1.png","confidence-intervals-for-multilevel-r-squared_files/figure-html5/r2mlm-fm1-1.png","confidence-intervals-for-multilevel-r-squared_files/header-attrs-2.14/header-attrs.js","confidence-intervals-for-multilevel-r-squared_files/jquery-3.6.0/jquery-3.6.0.js","confidence-intervals-for-multilevel-r-squared_files/jquery-3.6.0/jquery-3.6.0.min.js","confidence-intervals-for-multilevel-r-squared_files/jquery-3.6.0/jquery-3.6.0.min.map","confidence-intervals-for-multilevel-r-squared_files/popper-2.6.0/popper.min.js","confidence-intervals-for-multilevel-r-squared_files/tippy-6.2.7/tippy-bundle.umd.min.js","confidence-intervals-for-multilevel-r-squared_files/tippy-6.2.7/tippy-light-border.css","confidence-intervals-for-multilevel-r-squared_files/tippy-6.2.7/tippy.css","confidence-intervals-for-multilevel-r-squared_files/tippy-6.2.7/tippy.umd.min.js","confidence-intervals-for-multilevel-r-squared_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2043,8 +2045,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -2060,7 +2066,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Welcome to Measurement & Multilevel Modeling Lab","description":"Welcome to our blog. We hope you enjoy \nreading what we have to say!","authors":[{"author":"MMM Lab","authorURL":"#","affiliation":"University of Southern California","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-12-17T00:00:00.000-08:00","citationText":"Lab, 2020"}
+{"title":"Confidence Intervals for Multilevel R-Squared","description":"A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping.","authors":[{"author":"Hok Chio (Mark) Lai","authorURL":{"https://quantscience.rbind.io":{}},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-05-10T00:00:00.000-07:00","citationText":"Lai, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2103,20 +2109,410 @@ Applications
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Welcome to Measurement &amp; Multilevel Modeling Lab</h1>
+<h1>Confidence Intervals for Multilevel R-Squared</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Welcome to our blog. We hope you enjoy reading what we have to say!</p></p>
+<p><p>A demonstration of obtaining confidence intervals for multilevel
+R-squared effect size using parametric and residual multilevel
+bootstrapping.</p></p>
 </div>
 
 <div class="d-byline">
-  MMM Lab  (University of Southern California)
+  Hok Chio (Mark) Lai true 
   
-<br/>12-17-2020
+<br/>2022-05-10
 </div>
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="load-packages">Load Packages</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/lme4/lme4/'>lme4</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>MuMIn</span><span class='op'>)</span>  <span class='co'># for computing multilevel R-squared</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mkshaw/r2mlm'>r2mlm</a></span><span class='op'>)</span>  <span class='co'># another package for R-squared</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>bootmlm</span><span class='op'>)</span>  <span class='co'># for multilevel bootstrapping</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>boot</span><span class='op'>)</span>  <span class='co'># for bootstrap CIs</span>
+</code></pre>
+</div>
+</div>
+<h2 id="an-example-multilevel-model">An Example Multilevel Model</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>fm1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/lmer.html'>lmer</a></span><span class='op'>(</span><span class='va'>Reaction</span> <span class='op'>~</span> <span class='va'>Days</span> <span class='op'>+</span> <span class='op'>(</span><span class='va'>Days</span> <span class='op'>|</span> <span class='va'>Subject</span><span class='op'>)</span>, <span class='va'>sleepstudy</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="nakagawa-johnson-schielzeth-r2">Nakagawa-Johnson-Schielzeth
+<span class="math inline">\(R^2\)</span></h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/MuMIn/man/r.squaredGLMM.html'>r.squaredGLMM</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>           R2m       R2c
+[1,] 0.2786511 0.7992199</code></pre>
+</div>
+<p>The marginal <span class="math inline">\(R^2\)</span> considers the
+total variance accounted for due to the fixed effect associated with the
+predictors (<code>Days</code> in this example). See <a
+href="https://doi.org/10.1098/rsif.2017.0213">Nakagawa, Johnson, &amp;
+Schielzeth (2017)</a> for more information.</p>
+<h3 id="right-sterba-r2">Right-Sterba <span
+class="math inline">\(R^2\)</span></h3>
+<p>More fine-grained partitioning</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/r2mlm/man/r2mlm.html'>r2mlm</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="confidence-intervals-for-multilevel-r-squared_files/figure-html5/r2mlm-fm1-1.png" width="624" /></p>
+<pre><code>$Decompositions
+                     total
+fixed           0.27851304
+slope variation 0.08915267
+mean variation  0.43165365
+sigma2          0.20068063
+
+$R2s
+         total
+f   0.27851304
+v   0.08915267
+m   0.43165365
+fv  0.36766572
+fvm 0.79931937</code></pre>
+</div>
+<p>The <code>fixed</code> part is the same as the marginal <span
+class="math inline">\(R^2\)</span>.</p>
+<h2 id="confidence-intervals-for-r2">Confidence Intervals for <span
+class="math inline">\(R^2\)</span></h2>
+<p>Neither <code>MuMIn::r.squaredGLMM()</code> nor
+<code>r2mlm::r2mlm()</code> provided confidence intervals (CIs) for the
+<span class="math inline">\(R^2\)</span>, but general guidelines for
+effect size reporting would suggest always reporting CIs for point
+estimates of effect size, just like for any point estimates in
+statistics. We can use multilevel bootstrapping to get CIs.</p>
+<p>To do bootstrap, first defines an R function that gives the target
+<span class="math inline">\(R^2\)</span> statistics. We can do it for
+the marginal <span class="math inline">\(R^2\)</span>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marginal_r2</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/MuMIn/man/r.squaredGLMM.html'>r.squaredGLMM</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+<span class='op'>}</span>
+<span class='fu'>marginal_r2</span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.2786511</code></pre>
+</div>
+<h2 id="parametric-bootstrap">Parametric Bootstrap</h2>
+<p>The <code>lme4::bootMer()</code> supports basic parametric multilevel
+bootstrapping</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># This takes about 30 sec on my computer</span>
+<span class='va'>boo01</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/bootMer.html'>bootMer</a></span><span class='op'>(</span><span class='va'>fm1</span>, FUN <span class='op'>=</span> <span class='va'>marginal_r2</span>, nsim <span class='op'>=</span> <span class='fl'>999</span><span class='op'>)</span>
+<span class='va'>boo01</span>
+</code></pre>
+</div>
+<pre><code>
+PARAMETRIC BOOTSTRAP
+
+
+Call:
+bootMer(x = fm1, FUN = marginal_r2, nsim = 999)
+
+
+Bootstrap Statistics :
+     original      bias    std. error
+t1* 0.2786511 0.005759548  0.07545455</code></pre>
+</div>
+<p>Here is the bootstrap distribution</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>boo01</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="confidence-intervals-for-multilevel-r-squared_files/figure-html5/hist-boo01-1.png" width="624" /></p>
+</div>
+<h3 id="bias-corrected-estimate">Bias-corrected estimate</h3>
+<p>The above shows that the sample estimate of <span
+class="math inline">\(R^2\)</span> was upwardly biased. To correct for
+the bias, we can use the bootstrap bias-corrected estimate</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>2</span> <span class='op'>*</span> <span class='va'>boo01</span><span class='op'>$</span><span class='va'>t0</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>boo01</span><span class='op'>$</span><span class='va'>t</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.2728915</code></pre>
+</div>
+<h3 id="confidence-intervals">Confidence intervals</h3>
+<p>You can get three types of bootstrap CIs (<code>"norm"</code>,
+<code>"basic"</code>, <code>"perc"</code>) with
+<code>bootMer</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>boot</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/boot/man/boot.ci.html'>boot.ci</a></span><span class='op'>(</span><span class='va'>boo01</span>, index <span class='op'>=</span> <span class='fl'>1</span>, type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"norm"</span>, <span class='st'>"basic"</span>, <span class='st'>"perc"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 999 bootstrap replicates
+
+CALL : 
+boot::boot.ci(boot.out = boo01, type = c(&quot;norm&quot;, &quot;basic&quot;, &quot;perc&quot;), 
+    index = 1)
+
+Intervals : 
+Level      Normal              Basic              Percentile     
+95%   ( 0.1250,  0.4208 )   ( 0.1088,  0.4114 )   ( 0.1460,  0.4485 )  
+Calculations and Intervals on Original Scale</code></pre>
+</div>
+<h2 id="residual-bootstrap">Residual Bootstrap</h2>
+<p>The <code>bootmlm::bootstrap_mer()</code> implements the residual
+bootstrap, which is robust to non-normality.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># This takes about 30 sec on my computer</span>
+<span class='va'>boo02</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/bootstrap_mer.html'>bootstrap_mer</a></span><span class='op'>(</span><span class='va'>fm1</span>, FUN <span class='op'>=</span> <span class='va'>marginal_r2</span>, nsim <span class='op'>=</span> <span class='fl'>999</span>, type <span class='op'>=</span> <span class='st'>"residual"</span><span class='op'>)</span>
+<span class='va'>boo02</span>
+</code></pre>
+</div>
+<pre><code>
+ORDINARY NONPARAMETRIC BOOTSTRAP
+
+
+Call:
+bootstrap_mer(x = fm1, FUN = marginal_r2, nsim = 999, type = &quot;residual&quot;)
+
+
+Bootstrap Statistics :
+     original      bias    std. error
+t1* 0.2786511 0.005397786  0.08418536</code></pre>
+</div>
+<p>In this example, the results are similar. The boostrap bias-corrected
+estimate of <span class="math inline">\(R^2\)</span>, and the three
+basic CIs, can similarly be computed as in parametric bootstrap.</p>
+<h3 id="confidence-intervals-1">Confidence Intervals</h3>
+<p>In addition to the three CIs previously discussed, which are
+first-order accurate, we can also obtain CIs that are second-order
+accurate: (a) bias-corrected and accelerated (BCa) CI and (b)
+studentized CI (also called the bootstrap-<span
+class="math inline">\(t\)</span> CI). For (a), it requires the influence
+value of the <span class="math inline">\(R^2\)</span> function, whereas
+for (b), it requires an estimate of the sampling variance of the <span
+class="math inline">\(R^2\)</span> estimate.</p>
+<h4 id="influence-value">Influence value</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Based on the group jackknife</span>
+<span class='va'>inf_val</span> <span class='op'>&lt;-</span> <span class='fu'>bootmlm</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/empinf_mer.html'>empinf_mer</a></span><span class='op'>(</span><span class='va'>fm1</span>, <span class='va'>marginal_r2</span>, index <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h4 id="sampling-variance-with-the-numerical-delta-method">Sampling
+variance with the numerical <a
+href="https://en.wikipedia.org/wiki/Delta_method">delta method</a></h4>
+<blockquote>
+<p>This part is a bit more technical; skip this if you’re not interested
+in the studentized CI.</p>
+</blockquote>
+<p>To obtain an approximate sampling variance of the <span
+class="math inline">\(R^2\)</span>, it would be easier to use the
+<code>r2mlm::r2mlm_manual()</code> function to compute <span
+class="math inline">\(R^2\)</span>. We first write a function that
+computes <span class="math inline">\(R^2\)</span> using input of the
+fixed and random effects:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>manual_r2</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>theta</span>, <span class='va'>data</span>,
+                      <span class='co'># The following are model-specific</span>
+                      <span class='va'>wc</span> <span class='op'>=</span> <span class='fl'>2</span>, <span class='va'>bc</span> <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>rc</span> <span class='op'>=</span> <span class='fl'>2</span>,
+                      <span class='va'>cmc</span> <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>n_wc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>wc</span><span class='op'>)</span>
+  <span class='va'>n_bc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>bc</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span>
+  <span class='va'>dim_rc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>rc</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span>
+  <span class='va'>n_rc</span> <span class='op'>&lt;-</span> <span class='va'>dim_rc</span> <span class='op'>*</span> <span class='op'>(</span><span class='va'>dim_rc</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>/</span> <span class='fl'>2</span>
+  <span class='va'>gam_w</span> <span class='op'>&lt;-</span> <span class='va'>theta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>n_wc</span><span class='op'>)</span><span class='op'>]</span>
+  <span class='va'>gam_b</span> <span class='op'>&lt;-</span> <span class='va'>theta</span><span class='op'>[</span><span class='va'>n_wc</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>n_bc</span><span class='op'>)</span><span class='op'>]</span>
+  <span class='va'>tau</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='cn'>NA</span>, nrow <span class='op'>=</span> <span class='va'>dim_rc</span>, ncol <span class='op'>=</span> <span class='va'>dim_rc</span><span class='op'>)</span>
+  <span class='va'>tau</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/lower.tri.html'>lower.tri</a></span><span class='op'>(</span><span class='va'>tau</span>, diag <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>theta</span><span class='op'>[</span><span class='va'>n_wc</span> <span class='op'>+</span> <span class='va'>n_bc</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>n_rc</span><span class='op'>)</span><span class='op'>]</span>
+  <span class='va'>tau2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='va'>tau</span><span class='op'>)</span>
+  <span class='va'>tau2</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/lower.tri.html'>lower.tri</a></span><span class='op'>(</span><span class='va'>tau2</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>tau</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/lower.tri.html'>lower.tri</a></span><span class='op'>(</span><span class='va'>tau</span><span class='op'>)</span><span class='op'>]</span>
+  <span class='va'>s2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span><span class='op'>(</span><span class='va'>theta</span>, n <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/r2mlm/man/r2mlm_manual.html'>r2mlm_manual</a></span><span class='op'>(</span><span class='va'>data</span>,
+               within_covs <span class='op'>=</span> <span class='va'>wc</span>,
+               between_covs <span class='op'>=</span> <span class='va'>bc</span>,
+               random_covs <span class='op'>=</span> <span class='fl'>2</span>,
+               gamma_w <span class='op'>=</span> <span class='va'>gam_w</span>,
+               gamma_b <span class='op'>=</span> <span class='va'>gam_b</span>,
+               Tau <span class='op'>=</span> <span class='va'>tau2</span>,
+               sigma2 <span class='op'>=</span> <span class='va'>s2</span>,
+               clustermeancentered <span class='op'>=</span> <span class='va'>cmc</span>,
+               bargraph <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>$</span><span class='va'>R2s</span><span class='op'>[</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>]</span>
+<span class='op'>}</span>
+<span class='va'>theta_fm1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/lme4/man/fixef.html'>fixef</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>, <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/fixef.html'>fixef</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>,
+               <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/VarCorr.html'>VarCorr</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>4</span><span class='op'>)</span><span class='op'>]</span>, <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/sigma.html'>sigma</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
+<span class='fu'>manual_r2</span><span class='op'>(</span><span class='va'>theta_fm1</span>, data <span class='op'>=</span> <span class='va'>fm1</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.278513</code></pre>
+</div>
+<p>Now computes the numerical gradient</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>grad_fm1</span> <span class='op'>&lt;-</span> <span class='fu'>numDeriv</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/numDeriv/man/grad.html'>grad</a></span><span class='op'>(</span><span class='va'>manual_r2</span>, x <span class='op'>=</span> <span class='va'>theta_fm1</span>, data <span class='op'>=</span> <span class='va'>fm1</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>We also need the asymptotic covariance matrix of the fixed and random
+effects</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>vcov_fixed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
+<span class='va'>vcov_random</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/vcov_vc.html'>vcov_vc</a></span><span class='op'>(</span><span class='va'>fm1</span>, sd_cor <span class='op'>=</span> <span class='cn'>FALSE</span>, print_names <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='va'>vcov_fm1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Matrix/man/bdiag.html'>bdiag</a></span><span class='op'>(</span><span class='va'>vcov_fixed</span>, <span class='va'>vcov_random</span><span class='op'>)</span>
+<span class='co'># Need to re-arrange the first two columns</span>
+<span class='va'>vcov_fm1</span> <span class='op'>&lt;-</span> <span class='va'>vcov_fm1</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>:</span><span class='fl'>6</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>:</span><span class='fl'>6</span><span class='op'>)</span><span class='op'>]</span>
+</code></pre>
+</div>
+</div>
+<p>Now apply the multivariate delta method</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/Matrix/man/matrix-products.html'>crossprod</a></span><span class='op'>(</span><span class='va'>grad_fm1</span>, <span class='va'>vcov_fm1</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/Matrix/man/matrix-products.html'>%*%</a></span> <span class='va'>grad_fm1</span>
+</code></pre>
+</div>
+<pre><code>1 x 1 Matrix of class &quot;dgeMatrix&quot;
+            [,1]
+[1,] 0.005919918</code></pre>
+</div>
+<p>We now need a function that computes both <span
+class="math inline">\(R^2\)</span> and the asymptotic sampling variance
+of it.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marginal_r2_with_var</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>object</span>,
+                                 <span class='va'>wc</span> <span class='op'>=</span> <span class='fl'>2</span>, <span class='va'>bc</span> <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>rc</span> <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>dim_rc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>rc</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span>
+  <span class='va'>vc_mat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>dim_rc</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>, nrow <span class='op'>=</span> <span class='va'>dim_rc</span>, ncol <span class='op'>=</span> <span class='va'>dim_rc</span><span class='op'>)</span>
+  <span class='va'>vc_index</span> <span class='op'>&lt;-</span> <span class='va'>vc_mat</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/lower.tri.html'>lower.tri</a></span><span class='op'>(</span><span class='va'>vc_mat</span>, diag <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>]</span>
+  <span class='va'>theta_obj</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/lme4/man/fixef.html'>fixef</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='va'>wc</span><span class='op'>]</span>, <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/fixef.html'>fixef</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='va'>bc</span><span class='op'>)</span><span class='op'>]</span>,
+                 <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/VarCorr.html'>VarCorr</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[</span><span class='va'>vc_index</span><span class='op'>]</span>, <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/sigma.html'>sigma</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
+  <span class='va'>r2</span> <span class='op'>&lt;-</span> <span class='fu'>manual_r2</span><span class='op'>(</span><span class='va'>theta_obj</span>, data <span class='op'>=</span> <span class='va'>object</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span>
+  <span class='va'>grad_obj</span> <span class='op'>&lt;-</span> <span class='fu'>numDeriv</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/numDeriv/man/grad.html'>grad</a></span><span class='op'>(</span><span class='va'>manual_r2</span>, x <span class='op'>=</span> <span class='va'>theta_obj</span>, data <span class='op'>=</span> <span class='va'>object</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span>
+  <span class='co'># Need to re-arrange the order of the fixed effects</span>
+  <span class='va'>names_wc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span><span class='op'>[</span><span class='va'>wc</span><span class='op'>]</span>
+  <span class='va'>names_bc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"(Intercept)"</span>, <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span><span class='op'>[</span><span class='va'>bc</span><span class='op'>]</span><span class='op'>)</span>
+  <span class='va'>vcov_fixed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>names_wc</span>, <span class='va'>names_bc</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>names_wc</span>, <span class='va'>names_bc</span><span class='op'>)</span><span class='op'>]</span>
+  <span class='va'>vcov_random</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/vcov_vc.html'>vcov_vc</a></span><span class='op'>(</span><span class='va'>object</span>, sd_cor <span class='op'>=</span> <span class='cn'>FALSE</span>, print_names <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+  <span class='va'>vcov_obj</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Matrix/man/bdiag.html'>bdiag</a></span><span class='op'>(</span><span class='va'>vcov_fixed</span>, <span class='va'>vcov_random</span><span class='op'>)</span>
+  <span class='va'>v_r2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Matrix/man/matrix-products.html'>crossprod</a></span><span class='op'>(</span><span class='va'>grad_obj</span>, <span class='va'>vcov_obj</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/Matrix/man/matrix-products.html'>%*%</a></span> <span class='va'>grad_obj</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>r2</span>, <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>v_r2</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='fu'>marginal_r2_with_var</span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.278513044 0.005919918</code></pre>
+</div>
+<h4 id="five-bootstrap-cis">Five Bootstrap CIs</h4>
+<p>Now, we can do bootstrap again, using the new function that computes
+both the estimate and the asymptotic sampling variance</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># This takes quite a bit longer due to the need to compute variances</span>
+<span class='va'>boo03</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/bootstrap_mer.html'>bootstrap_mer</a></span><span class='op'>(</span><span class='va'>fm1</span>, FUN <span class='op'>=</span> <span class='va'>marginal_r2_with_var</span>, nsim <span class='op'>=</span> <span class='fl'>999</span>,
+                       type <span class='op'>=</span> <span class='st'>"residual"</span><span class='op'>)</span>
+<span class='va'>boo03</span>
+</code></pre>
+</div>
+<pre><code>
+ORDINARY NONPARAMETRIC BOOTSTRAP
+
+
+Call:
+bootstrap_mer(x = fm1, FUN = marginal_r2_with_var, nsim = 999, 
+    type = &quot;residual&quot;)
+
+
+Bootstrap Statistics :
+       original        bias    std. error
+t1* 0.278513044  0.0100127766 0.083704256
+t2* 0.005919918 -0.0002646922 0.001150678</code></pre>
+</div>
+<p>And then obtain five types of CIs</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>boot</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/boot/man/boot.ci.html'>boot.ci</a></span><span class='op'>(</span><span class='va'>boo03</span>, L <span class='op'>=</span> <span class='va'>inf_val</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 998 bootstrap replicates
+
+CALL : 
+boot::boot.ci(boot.out = boo03, L = inf_val)
+
+Intervals : 
+Level      Normal              Basic             Studentized     
+95%   ( 0.1044,  0.4326 )   ( 0.0890,  0.4067 )   ( 0.0822,  0.4385 )  
+
+Level     Percentile            BCa          
+95%   ( 0.1503,  0.4680 )   ( 0.1408,  0.4466 )  
+Calculations and Intervals on Original Scale</code></pre>
+</div>
+<h2 id="bootstrap-ci-with-transformation">Bootstrap CI With
+Transformation</h2>
+<p>Given that <span class="math inline">\(R^2\)</span> is bounded, it
+may be more accurate to first transform the <span
+class="math inline">\(R^2\)</span> estimates to an unbounded scale,
+obtain the CIs on the transformed scale, and then back transform it to
+between 0 and 1. This can be done in <code>boot::boot.ci()</code> as
+well with the logistic transformation:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>boot</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/boot/man/boot.ci.html'>boot.ci</a></span><span class='op'>(</span><span class='va'>boo03</span>, L <span class='op'>=</span> <span class='va'>inf_val</span>, h <span class='op'>=</span> <span class='va'>qlogis</span>,
+              <span class='co'># Need the derivative of the transformation</span>
+              hdot <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fl'>1</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>x</span> <span class='op'>-</span> <span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>,
+              hinv <span class='op'>=</span> <span class='va'>plogis</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 998 bootstrap replicates
+
+CALL : 
+boot::boot.ci(boot.out = boo03, L = inf_val, h = qlogis, hdot = function(x) 1/(x - 
+    x^2), hinv = plogis)
+
+Intervals : 
+Level      Normal              Basic             Studentized     
+95%   ( 0.1440,  0.4629 )   ( 0.1449,  0.4572 )   ( 0.1184,  0.4187 )  
+
+Level     Percentile            BCa          
+95%   ( 0.1503,  0.4680 )   ( 0.1408,  0.4466 )  
+Calculations on Transformed Scale;  Intervals on Original Scale</code></pre>
+</div>
+<p>Note that the transformation only affects the Normal, Basic, and
+Studentized CIs.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This post demonstrates how to use multilevel bootstrapping to obtain
+CIs for <span class="math inline">\(R^2\)</span>. The post only focuses
+on marginal <span class="math inline">\(R^2\)</span>, but CIs for other
+<span class="math inline">\(R^2\)</span> measures can be similarly
+obtained. The studentized CI is the most complex as it requires
+obtaining the sampling variance of <span
+class="math inline">\(R^2\)</span> for each bootstrap sample. So far, to
+my knowledge, there has not been studies on which CI(s) perform best, so
+simulation studies are needed.</p>
+<p>Further readings on multilevel bootstrap:</p>
+<ul>
+<li><a
+href="https://link.springer.com/chapter/10.1007/978-0-387-73186-5_11">Chapter
+by van der Leeden et al.</a></li>
+<li><a href="https://doi.org/10.1080/00273171.2020.1746902">Paper by
+Lai</a></li>
+<li><a href="https://doi.org/10.1017/CBO9780511802843">Book by Davison
+&amp; Hinkley</a></li>
+</ul>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2124,6 +2520,15 @@ Applications
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
