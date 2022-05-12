@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+  <url>
+    <loc>https://mmmlab.rbind.io/about.html</loc>
+    <lastmod>2022-05-11T21:39:02-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/</loc>
+    <lastmod>2022-05-12T14:18:19-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/members.html</loc>
+    <lastmod>2022-05-12T14:15:06-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/publications.html</loc>
+    <lastmod>2022-05-11T21:39:02-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/README.html</loc>
+    <lastmod>2021-05-05T16:42:46-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/research.html</loc>
+    <lastmod>2022-05-11T21:39:02-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/</loc>
+    <lastmod>2022-05-12T14:47:59-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/</loc>
+    <lastmod>2022-05-12T14:32:51-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/</loc>
+    <lastmod>2022-05-12T14:33:46-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/posts/welcome/</loc>
+    <lastmod>2021-05-05T16:42:46-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/posts/2020-07-25-part-1-covid-19/</loc>
+    <lastmod>2021-05-05T16:42:46-07:00</lastmod>
+  </url>
+</urlset>

@@ -1,5 +1,7 @@
 ---
 title: "Regression with Julia!"
+description: |
+  Running regression with GLM.jl in Julia
 author:
   - name: "Winnie Wing-Yee Tse"
 date: 02-11-2021

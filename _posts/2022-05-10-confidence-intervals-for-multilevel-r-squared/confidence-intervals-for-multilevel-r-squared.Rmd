@@ -4,7 +4,7 @@ description: |
   A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping.
 author:
   - name: Hok Chio (Mark) Lai
-    url: {https://quantscience.rbind.io}
+    url: https://quantscience.rbind.io
 date: 2022-05-10
 output:
   distill::distill_article:
@@ -48,7 +48,7 @@ The marginal $R^2$ considers the total variance accounted for due to the fixed e
 
 ### Right-Sterba $R^2$
 
-More fine-grained partitioning
+More fine-grained partitioning, as described in [Rights & Sterba (2019)](https://doi.org/10.1037/met0000184)
 
 ```{r r2mlm-fm1}
 r2mlm(fm1)

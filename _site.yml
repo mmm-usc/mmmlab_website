@@ -4,6 +4,7 @@ description: |
   Measurement & Multilevel Modeling Lab
 output_dir: "_site"
 exclude: ["instructions", "data", "layouts", "resources", "themes", "config.toml", "README.md", "pub_doi.txt", "pubs.bib", "pub_nodoi.bib"]
+base_url: https://mmmlab.rbind.io
 navbar:
   logo:
     image: static/images/mmm_white_transparent.png

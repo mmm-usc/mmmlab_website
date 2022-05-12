@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Measurement &amp; Multilevel Modeling Lab</title>
+    <link>https://mmmlab.rbind.io</link>
+    <atom:link href="https://mmmlab.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Measurement &amp; Multilevel Modeling Lab
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Confidence Intervals for Multilevel R-Squared</title>
+      <dc:creator>Hok Chio (Mark) Lai</dc:creator>
+      <link>https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared</link>
+      <description>A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping.</description>
+      <category>Bootstrap</category>
+      <category>Multilevel Modeling</category>
+      <category>Statistics</category>
+      <guid>https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared</guid>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/confidence-intervals-for-multilevel-r-squared_files/figure-html5/r2mlm-fm1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Maximum Likelihood Estimation with Julia</title>
+      <dc:creator>Hok Chio (Mark) Lai</dc:creator>
+      <link>https://mmmlab.rbind.io/posts/2021-03-09-julia-mle</link>
+      <description>A demonstration of doing maximum likelihood estimation using Julia</description>
+      <category>Julia</category>
+      <category>Statistics</category>
+      <guid>https://mmmlab.rbind.io/posts/2021-03-09-julia-mle</guid>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Regression with Julia!</title>
+      <dc:creator>Winnie Wing-Yee Tse</dc:creator>
+      <link>https://mmmlab.rbind.io/posts/2021-02-09-julia-regression</link>
+      <description>Running regression with GLM.jl in Julia</description>
+      <category>Julia</category>
+      <category>Regression</category>
+      <category>Visualization</category>
+      <guid>https://mmmlab.rbind.io/posts/2021-02-09-julia-regression</guid>
+      <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Welcome to Measurement &amp; Multilevel Modeling Lab</title>
+      <dc:creator>MMM Lab</dc:creator>
+      <link>https://mmmlab.rbind.io/posts/welcome</link>
+      <description>Welcome to our blog. We hope you enjoy 
+reading what we have to say!</description>
+      <guid>https://mmmlab.rbind.io/posts/welcome</guid>
+      <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Exploring the UAS Survey Part 1: Data exploration (Demography and Risk Items)</title>
+      <dc:creator>Haley</dc:creator>
+      <link>https://mmmlab.rbind.io/posts/2020-07-25-part-1-covid-19</link>
+      <description>Analyze Covid-19 survey conducted by USC in March, 2020.</description>
+      <category>COVID</category>
+      <category>Visualization</category>
+      <category>Exploratory Data Analysis</category>
+      <category>Applied</category>
+      <guid>https://mmmlab.rbind.io/posts/2020-07-25-part-1-covid-19</guid>
+      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://mmmlab.rbind.io/posts/2020-07-25-part-1-covid-19/covid_p1_files/figure-html5/gender-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+  </channel>
+</rss>

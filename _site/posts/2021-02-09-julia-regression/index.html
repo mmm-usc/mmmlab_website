@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,7 +77,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -85,10 +85,13 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
+
   <!--radix_placeholder_meta_tags-->
 <title>Measurement &amp; Multilevel Modeling Lab: Regression with Julia!</title>
 
+<meta property="description" itemprop="description" content="Running regression with GLM.jl in Julia"/>
 
+<link rel="canonical" href="https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/"/>
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2021-02-11"/>
@@ -98,18 +101,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Regression with Julia!"/>
 <meta property="og:type" content="article"/>
+<meta property="og:description" content="Running regression with GLM.jl in Julia"/>
+<meta property="og:url" content="https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Measurement &amp; Multilevel Modeling Lab"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Regression with Julia!"/>
+<meta property="twitter:description" content="Running regression with GLM.jl in Julia"/>
+<meta property="twitter:url" content="https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/"/>
 
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Measurement &amp; Multilevel Modeling Lab: Regression with Julia!"/>
+<meta name="citation_fulltext_html_url" content="https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/"/>
+<meta name="citation_online_date" content="2021/02/11"/>
+<meta name="citation_publication_date" content="2021/02/11"/>
+<meta name="citation_author" content="Winnie Wing-Yee Tse"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Regression with Julia!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Winnie Wing-Yee Tse"]}]}]},{"type":"character","attributes":{},"value":["02-11-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Julia","Regression","Visualization"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Regression with Julia!"]},{"type":"character","attributes":{},"value":["Running regression with GLM.jl in Julia"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Winnie Wing-Yee Tse"]}]}]},{"type":"character","attributes":{},"value":["02-11-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Julia","Regression","Visualization"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2041,8 +2054,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2062,7 +2075,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Regression with Julia!","authors":[{"author":"Winnie Wing-Yee Tse","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-11T00:00:00.000-08:00","citationText":"Tse, 2021"}
+{"title":"Regression with Julia!","description":"Running regression with GLM.jl in Julia","authors":[{"author":"Winnie Wing-Yee Tse","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-11T00:00:00.000-08:00","citationText":"Tse, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2113,7 +2126,7 @@ Applications
   <a href="../../index.html#category:Visualization" class="dt-tag">Visualization</a>
 </div>
 <!--/radix_placeholder_categories-->
-
+<p><p>Running regression with GLM.jl in Julia</p></p>
 </div>
 
 <div class="d-byline">
@@ -2129,13 +2142,17 @@ Applications
 <ul>
 <li><a href="#setup">Setup</a>
 <ul>
-<li><a href="#brief-introduction-to-the-package-pipe">Brief Introduction to the Package <code>Pipe</code></a></li>
-<li><a href="#brief-introduction-to-the-package-rdatasets">Brief Introduction to the Package <code>RDatasets</code></a></li>
-<li><a href="#brief-introduction-to-the-package-dataframes">Brief Introduction to the Package <code>DataFrames</code></a></li>
+<li><a href="#brief-introduction-to-the-package-pipe">Brief Introduction
+to the Package <code>Pipe</code></a></li>
+<li><a href="#brief-introduction-to-the-package-rdatasets">Brief
+Introduction to the Package <code>RDatasets</code></a></li>
+<li><a href="#brief-introduction-to-the-package-dataframes">Brief
+Introduction to the Package <code>DataFrames</code></a></li>
 </ul></li>
 <li><a href="#linear-regression">Linear Regression</a>
 <ul>
-<li><a href="#extracting-model-information">Extracting Model Information</a></li>
+<li><a href="#extracting-model-information">Extracting Model
+Information</a></li>
 </ul></li>
 <li><a href="#multiple-regression">Multiple Regression</a></li>
 <li><a href="#probit-regression">Probit Regression</a></li>
@@ -2145,41 +2162,87 @@ Applications
 </nav>
 </div>
 <h1 id="setup">Setup</h1>
-<p>Before we start, I encourage you to uncomment the codes below and install the required packages that you do not have for this tutorial.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Plots<span class="op">,</span> StatsPlots</span>
+<p>Before we start, I encourage you to uncomment the codes below and
+install the required packages that you do not have for this
+tutorial.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span>, <span class="bu">StatsPlots</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#= uncomment below to install packages</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">using Pkg</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Pkg.add([&quot;RDatasets&quot;, &quot;Pipe&quot;, &quot;DataFrames&quot;, &quot;GLM&quot;,</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;Plots&quot;, &quot;StatPlots&quot;])</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">=#</span></span></code></pre></div>
-<p>Prior to running regression analyses, let me briefly go over three essential packages, <code>Pipe</code>, <code>RDatasets</code>, <code>DataFrames</code>, in handling data frames in Julia.</p>
-<h3 id="brief-introduction-to-the-package-pipe">Brief Introduction to the Package <code>Pipe</code></h3>
-<p>The package <code>Pipe</code> improves the base pipe operator (<code>|&gt;</code>) in Julia. It allows you to represent the object that is piped from with an underscore <code>_</code> in the functions that follow. For example, <code>sqrt(sum([1, 2, 3]))</code> involve two commands – one applied to <code>[1, 2, 3]</code> and the other one applied to <code>sum([1, 2, 3])</code>. We can pipe these commands, stemming from the <code>[1, 2, 3]</code> object, using <code>@pipe</code> together with <code>|&gt;</code>, as illustrated below.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Pipe</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@pipe</span> [<span class="fl">1</span><span class="op">,</span> <span class="fl">2</span><span class="op">,</span> <span class="fl">3</span>] <span class="op">|&gt;</span> sum(_) <span class="op">|&gt;</span> sqrt(_)</span></code></pre></div>
+<p>Prior to running regression analyses, let me briefly go over three
+essential packages, <code>Pipe</code>, <code>RDatasets</code>,
+<code>DataFrames</code>, in handling data frames in Julia.</p>
+<h3 id="brief-introduction-to-the-package-pipe">Brief Introduction to
+the Package <code>Pipe</code></h3>
+<p>The package <code>Pipe</code> improves the base pipe operator
+(<code>|&gt;</code>) in Julia. It allows you to represent the object
+that is piped from with an underscore <code>_</code> in the functions
+that follow. For example, <code>sqrt(sum([1, 2, 3]))</code> involve two
+commands – one applied to <code>[1, 2, 3]</code> and the other one
+applied to <code>sum([1, 2, 3])</code>. We can pipe these commands,
+stemming from the <code>[1, 2, 3]</code> object, using
+<code>@pipe</code> together with <code>|&gt;</code>, as illustrated
+below.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pipe</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@pipe</span> [<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>] <span class="op">|&gt;</span> <span class="fu">sum</span>(_) <span class="op">|&gt;</span> <span class="fu">sqrt</span>(_)</span></code></pre></div>
 <pre><code>2.449489742783178</code></pre>
-<p>The above code might have overkilled this simple task of taking a sqaure root of a sum, but piping will become very useful in handling a long series of commands. For more details of <code>Pipe</code>, please read the julia tutorial on [pipe] (<a href="https://syl1.gitbook.io/julia-language-a-concise-tutorial/useful-packages/pipe" class="uri">https://syl1.gitbook.io/julia-language-a-concise-tutorial/useful-packages/pipe</a>).</p>
-<h3 id="brief-introduction-to-the-package-rdatasets">Brief Introduction to the Package <code>RDatasets</code></h3>
-<p>The package <a href="https://github.com/JuliaStats/RDatasets.jl"><code>RDatasets</code></a> provides most of the base R datasets for Julia users to play around. We will be using the dataset <code>bfi</code> from the R package <code>psych</code> in this tutorial to explore regression analyses in Julia.</p>
-<p>Let’s read in the dataset <code>bfi</code> and drop out missing values.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> RDatasets</span>
+<p>The above code might have overkilled this simple task of taking a
+sqaure root of a sum, but piping will become very useful in handling a
+long series of commands. For more details of <code>Pipe</code>, please
+read the julia tutorial on [pipe] (<a
+href="https://syl1.gitbook.io/julia-language-a-concise-tutorial/useful-packages/pipe"
+class="uri">https://syl1.gitbook.io/julia-language-a-concise-tutorial/useful-packages/pipe</a>).</p>
+<h3 id="brief-introduction-to-the-package-rdatasets">Brief Introduction
+to the Package <code>RDatasets</code></h3>
+<p>The package <a
+href="https://github.com/JuliaStats/RDatasets.jl"><code>RDatasets</code></a>
+provides most of the base R datasets for Julia users to play around. We
+will be using the dataset <code>bfi</code> from the R package
+<code>psych</code> in this tutorial to explore regression analyses in
+Julia.</p>
+<p>Let’s read in the dataset <code>bfi</code> and drop out missing
+values.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">RDatasets</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># show(RDatasets.datasets(&quot;psych&quot;), allrows=true)</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>bfi <span class="op">=</span> <span class="pp">@pipe</span> dataset(<span class="st">&quot;psych&quot;</span><span class="op">,</span> <span class="st">&quot;bfi&quot;</span>) <span class="op">|&gt;</span> dropmissing(_)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>println(names(bfi))</span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>bfi <span class="op">=</span> <span class="pp">@pipe</span> <span class="fu">dataset</span>(<span class="st">&quot;psych&quot;</span>, <span class="st">&quot;bfi&quot;</span>) <span class="op">|&gt;</span> <span class="fu">dropmissing</span>(_)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="fu">names</span>(bfi))</span></code></pre></div>
 <pre><code>[&quot;Variable&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;, &quot;A5&quot;, &quot;C1&quot;, &quot;C2&quot;, &quot;C3&quot;, &quot;C4&quot;, &quot;C5&quot;, &quot;E
 1&quot;, &quot;E2&quot;, &quot;E3&quot;, &quot;E4&quot;, &quot;E5&quot;, &quot;N1&quot;, &quot;N2&quot;, &quot;N3&quot;, &quot;N4&quot;, &quot;N5&quot;, &quot;O1&quot;, &quot;O2&quot;, &quot;O3&quot;,
  &quot;O4&quot;, &quot;O5&quot;, &quot;Gender&quot;, &quot;Education&quot;, &quot;Age&quot;]</code></pre>
-<p>For a complete R documentation of this dataset, please refer to [this] (<a href="https://www.personality-project.org/r/html/bfi.html" class="uri">https://www.personality-project.org/r/html/bfi.html</a>).</p>
-<h3 id="brief-introduction-to-the-package-dataframes">Brief Introduction to the Package <code>DataFrames</code></h3>
-<p>For simplicity, let’s wrangle our data and sum over the scores on the columns for agreeableness (<code>A1</code> to <code>A5</code>) and for contienciousness (<code>C1</code> to <code>C5</code>). <code>Gender</code> is a numeric variable in the original dataset, while it should better be treated as a binary variable. Let’s also convert it into a categorical array using <code>categorical</code>.</p>
-<p><code>transform()</code> has similar function as <code>mutate()</code> in R, with which we can transform a column and save it into a new column in a dataframe. The operator <code>=&gt;</code> is pretty intuitive. In the first transform statment down below, we are basically asking Julia to take the columns between <code>A1</code> and <code>A5</code> in <code>bfi</code>, transform them by summing scores on the same row (<code>=&gt; ByRow(+)</code>), and then save these transformed data into a new column called <code>Asum</code>.</p>
-<p>Note that to call a column in a dataframe, we need to place an colon <code>:</code> before the column name.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> DataFrames</span>
+<p>For a complete R documentation of this dataset, please refer to
+[this] (<a href="https://www.personality-project.org/r/html/bfi.html"
+class="uri">https://www.personality-project.org/r/html/bfi.html</a>).</p>
+<h3 id="brief-introduction-to-the-package-dataframes">Brief Introduction
+to the Package <code>DataFrames</code></h3>
+<p>For simplicity, let’s wrangle our data and sum over the scores on the
+columns for agreeableness (<code>A1</code> to <code>A5</code>) and for
+contienciousness (<code>C1</code> to <code>C5</code>).
+<code>Gender</code> is a numeric variable in the original dataset, while
+it should better be treated as a binary variable. Let’s also convert it
+into a categorical array using <code>categorical</code>.</p>
+<p><code>transform()</code> has similar function as
+<code>mutate()</code> in R, with which we can transform a column and
+save it into a new column in a dataframe. The operator
+<code>=&gt;</code> is pretty intuitive. In the first transform statment
+down below, we are basically asking Julia to take the columns between
+<code>A1</code> and <code>A5</code> in <code>bfi</code>, transform them
+by summing scores on the same row (<code>=&gt; ByRow(+)</code>), and
+then save these transformed data into a new column called
+<code>Asum</code>.</p>
+<p>Note that to call a column in a dataframe, we need to place an colon
+<code>:</code> before the column name.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>bfi <span class="op">=</span> <span class="pp">@pipe</span> bfi <span class="op">|&gt;</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            transform(_<span class="op">,</span> Between(<span class="op">:</span>A1<span class="op">,</span> <span class="op">:</span>A5) <span class="op">=&gt;</span> ByRow(<span class="op">+</span>) <span class="op">=&gt;</span> <span class="op">:</span>Asum) <span class="op">|&gt;</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            transform(_<span class="op">,</span> Between(<span class="op">:</span>C1<span class="op">,</span> <span class="op">:</span>C5) <span class="op">=&gt;</span> ByRow(<span class="op">+</span>) <span class="op">=&gt;</span> <span class="op">:</span>Csum) <span class="op">|&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            transform(_<span class="op">,</span> <span class="op">:</span>Gender <span class="op">=&gt;</span> categorical <span class="op">=&gt;</span> <span class="op">:</span>Gender_bin)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>describe(select(bfi<span class="op">,</span> Between(<span class="op">:</span>Asum<span class="op">,</span> <span class="op">:</span>Gender_bin)))</span></code></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">transform</span>(_, <span class="fu">Between</span>(<span class="op">:</span>A1, <span class="op">:</span>A5) <span class="op">=&gt;</span> <span class="fu">ByRow</span>(<span class="op">+</span>) <span class="op">=&gt;</span> <span class="op">:</span>Asum) <span class="op">|&gt;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">transform</span>(_, <span class="fu">Between</span>(<span class="op">:</span>C1, <span class="op">:</span>C5) <span class="op">=&gt;</span> <span class="fu">ByRow</span>(<span class="op">+</span>) <span class="op">=&gt;</span> <span class="op">:</span>Csum) <span class="op">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="fu">transform</span>(_, <span class="op">:</span>Gender <span class="op">=&gt;</span> categorical <span class="op">=&gt;</span> <span class="op">:</span>Gender_bin)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(<span class="fu">select</span>(bfi, <span class="fu">Between</span>(<span class="op">:</span>Asum, <span class="op">:</span>Gender_bin)))</span></code></pre></div>
 <pre><code>3×7 DataFrame
  Row │ variable    mean     min  median  max  nmissing  eltype             
     ⋯
@@ -2194,12 +2257,26 @@ Applications
 t64
                                                                 1 column om
 itted</code></pre>
-<p><code>describe()</code> provides summary statistics of the selected columns of our newly created variables from <code>Asum</code> to <code>Gender_bin</code>. As can be seen in the summary table, <code>Gender_bin</code> has a data type of <code>CategoricalValue{Int64,UInt32}</code>. Through that way in our following regression analysis, gender will be treated as a categorical variable and automatically dummy coded.</p>
-<p>For data wrangling in Julia using the package <code>Dataframes</code>, a [cheatsheet] (<a href="https://ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v0.22_rev1.pdf" class="uri">https://ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v0.22_rev1.pdf</a>) may come in handy here. I am a beginner Julia and <code>Dataframes</code> user. If you have a better way to optimize my codes, please let me know and I will be more than happy to learn it!</p>
+<p><code>describe()</code> provides summary statistics of the selected
+columns of our newly created variables from <code>Asum</code> to
+<code>Gender_bin</code>. As can be seen in the summary table,
+<code>Gender_bin</code> has a data type of
+<code>CategoricalValue{Int64,UInt32}</code>. Through that way in our
+following regression analysis, gender will be treated as a categorical
+variable and automatically dummy coded.</p>
+<p>For data wrangling in Julia using the package
+<code>Dataframes</code>, a [cheatsheet] (<a
+href="https://ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v0.22_rev1.pdf"
+class="uri">https://ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v0.22_rev1.pdf</a>)
+may come in handy here. I am a beginner Julia and
+<code>Dataframes</code> user. If you have a better way to optimize my
+codes, please let me know and I will be more than happy to learn it!</p>
 <hr />
 <h1 id="linear-regression">Linear Regression</h1>
-<p>Below are some summary statistics and a snapshot of the variables of interest for the following analyses.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>describe(select(bfi<span class="op">,</span> Between(<span class="op">:</span>Education<span class="op">,</span> <span class="op">:</span>Gender_bin)))</span></code></pre></div>
+<p>Below are some summary statistics and a snapshot of the variables of
+interest for the following analyses.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(<span class="fu">select</span>(bfi, <span class="fu">Between</span>(<span class="op">:</span>Education, <span class="op">:</span>Gender_bin)))</span></code></pre></div>
 <pre><code>5×7 DataFrame
  Row │ variable    mean     min  median  max  nmissing  eltype             
     ⋯
@@ -2216,7 +2293,8 @@ itted</code></pre>
 t64 ⋯
                                                                 1 column om
 itted</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>first(select(bfi<span class="op">,</span> Between(<span class="op">:</span>Education<span class="op">,</span> <span class="op">:</span>Gender_bin))<span class="op">,</span> <span class="fl">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(<span class="fu">select</span>(bfi, <span class="fu">Between</span>(<span class="op">:</span>Education, <span class="op">:</span>Gender_bin)), <span class="fl">5</span>)</span></code></pre></div>
 <pre><code>5×5 DataFrame
  Row │ Education  Age    Asum   Csum   Gender_bin
      │ Int64      Int64  Int64  Int64  Cat…
@@ -2226,11 +2304,22 @@ itted</code></pre>
    3 │         1     21     24     17  1
    4 │         1     17     14     19  1
    5 │         5     68     23     18  1</code></pre>
-<p>In our sample, do older people tend to be more agreeable than younger people? We can fit a linear model with <code>Age</code> as the predictor and <code>Asum</code>, the sum scores of agreeableness, as the outcome variable, and determine whether there is a positive association between these two variables.</p>
-<p>The package <a href="https://juliastats.org/GLM.jl/stable/"><code>GLM</code></a> provides convenient ways that are analogous to the R functions <code>lm()</code> and <code>glm()</code> to specify linear models in Julia.</p>
-<p>To build a linear model, we use <code>lm()</code>, specify the model equation within <code>@formula()</code>, and indicate the dataset after the formula.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> GLM</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>lm1 <span class="op">=</span> lm(<span class="pp">@formula</span>(Asum <span class="op">~</span> Age)<span class="op">,</span> bfi)</span></code></pre></div>
+<p>In our sample, do older people tend to be more agreeable than younger
+people? We can fit a linear model with <code>Age</code> as the predictor
+and <code>Asum</code>, the sum scores of agreeableness, as the outcome
+variable, and determine whether there is a positive association between
+these two variables.</p>
+<p>The package <a
+href="https://juliastats.org/GLM.jl/stable/"><code>GLM</code></a>
+provides convenient ways that are analogous to the R functions
+<code>lm()</code> and <code>glm()</code> to specify linear models in
+Julia.</p>
+<p>To build a linear model, we use <code>lm()</code>, specify the model
+equation within <code>@formula()</code>, and indicate the dataset after
+the formula.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">GLM</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>lm1 <span class="op">=</span> <span class="fu">lm</span>(<span class="pp">@formula</span>(Asum <span class="op">~</span> Age), bfi)</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
 }},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
 }}}},Array{Float64,2}}
@@ -2244,9 +2333,12 @@ Coefficients:
 (Intercept)  20.4382     0.225823    90.51    &lt;1e-99  19.9954    20.8811
 Age           0.0245685  0.00719702   3.41    0.0007   0.010455   0.0386821
 ───────────────────────────────────────────────────────────────────────────</code></pre>
-<p>Unlike R, we do not need to additionally summarize <code>lm1</code> to get a summary table of the outputs.</p>
-<p>Equivalent to <code>lm()</code>, we can use the <code>fit()</code> function with the <code>LinearModel</code> argument.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fit1 <span class="op">=</span> fit(LinearModel<span class="op">,</span> <span class="pp">@formula</span>(Asum <span class="op">~</span> Age)<span class="op">,</span> bfi)</span></code></pre></div>
+<p>Unlike R, we do not need to additionally summarize <code>lm1</code>
+to get a summary table of the outputs.</p>
+<p>Equivalent to <code>lm()</code>, we can use the <code>fit()</code>
+function with the <code>LinearModel</code> argument.</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fit1 <span class="op">=</span> <span class="fu">fit</span>(LinearModel, <span class="pp">@formula</span>(Asum <span class="op">~</span> Age), bfi)</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
 }},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
 }}}},Array{Float64,2}}
@@ -2260,37 +2352,53 @@ Coefficients:
 (Intercept)  20.4382     0.225823    90.51    &lt;1e-99  19.9954    20.8811
 Age           0.0245685  0.00719702   3.41    0.0007   0.010455   0.0386821
 ───────────────────────────────────────────────────────────────────────────</code></pre>
-<p><code>lm(...)</code> and <code>fit(LinearModel, ...)</code> do not differ in their type, output, and functionality. A quick check on their type:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>typeof(lm1)</span></code></pre></div>
+<p><code>lm(...)</code> and <code>fit(LinearModel, ...)</code> do not
+differ in their type, output, and functionality. A quick check on their
+type:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(lm1)</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
 }},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
 }}}},Array{Float64,2}}</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>typeof(fit1)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(fit1)</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
 }},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
 }}}},Array{Float64,2}}</code></pre>
 <p>which are essentially the same.</p>
 <h2 id="extracting-model-information">Extracting Model Information</h2>
-<p>We can use <code>coef()</code>, <code>stderror()</code>, and <code>vcov()</code> to extract coefficient estimates and standard errors of the coefficents, and the estimated variance-covariance matrix of the coefficient estimates, respectively.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>coef(lm1)</span></code></pre></div>
+<p>We can use <code>coef()</code>, <code>stderror()</code>, and
+<code>vcov()</code> to extract coefficient estimates and standard errors
+of the coefficents, and the estimated variance-covariance matrix of the
+coefficient estimates, respectively.</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm1)</span></code></pre></div>
 <pre><code>2-element Array{Float64,1}:
  20.43821402633636
   0.024568514618654096</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>stderror(lm1)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stderror</span>(lm1)</span></code></pre></div>
 <pre><code>2-element Array{Float64,1}:
  0.22582269777999403
  0.007197020298763872</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>vcov(lm1)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vcov</span>(lm1)</span></code></pre></div>
 <pre><code>2×2 Array{Float64,2}:
   0.0509959   -0.00152855
  -0.00152855   5.17971e-5</code></pre>
-<p>To obtain statistics for model fit, we can use <code>r2</code> for <code>R^2</code> and <code>deviance()</code> for the weighted residual sum of squares.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>r2(lm1)</span></code></pre></div>
+<p>To obtain statistics for model fit, we can use <code>r2</code> for
+<code>R^2</code> and <code>deviance()</code> for the weighted residual
+sum of squares.</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm1)</span></code></pre></div>
 <pre><code>0.005189310057134855</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>deviance(lm1)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(lm1)</span></code></pre></div>
 <pre><code>29411.99403563621</code></pre>
-<p><code>predict()</code> computes the predicted values of each individual in our sample.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>predict(lm1)</span></code></pre></div>
+<p><code>predict()</code> computes the predicted values of each
+individual in our sample.</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lm1)</span></code></pre></div>
 <pre><code>2236-element Array{Float64,1}:
  20.9541528333281
  20.905015804090787
@@ -2312,12 +2420,21 @@ Age           0.0245685  0.00719702   3.41    0.0007   0.010455   0.0386821
  21.15070095027733
  21.199837979514637
  21.666639757269067</code></pre>
-<p>!!! note “Follow-up Practice (1)” Let’s try to run a linear model to investigate whether contiouenciousness is predicted by education. How much variance is explained by this model?</p>
+<p>!!! note “Follow-up Practice (1)” Let’s try to run a linear model to
+investigate whether contiouenciousness is predicted by education. How
+much variance is explained by this model?</p>
 <hr />
 <h1 id="multiple-regression">Multiple Regression</h1>
-<p>We may suspect that the difference in agreeableness over years of age depend on someone’s education level. To investigate this, we can add an interation between <code>Age</code> and <code>Education</code> on <code>Asum</code> by <code>Age &amp; Education</code>. Typically when we add an interaction term to a model, we include also the main effects of the variables. A shorthand of specifying both the main effects and interaction between the variables is <code>Age * Education</code>.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the models below are equivalent</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>lm(<span class="pp">@formula</span>(Asum <span class="op">~</span> Age <span class="op">+</span> Education <span class="op">+</span> Age <span class="op">&amp;</span> Education)<span class="op">,</span> bfi)</span></code></pre></div>
+<p>We may suspect that the difference in agreeableness over years of age
+depend on someone’s education level. To investigate this, we can add an
+interation between <code>Age</code> and <code>Education</code> on
+<code>Asum</code> by <code>Age &amp; Education</code>. Typically when we
+add an interaction term to a model, we include also the main effects of
+the variables. A shorthand of specifying both the main effects and
+interaction between the variables is <code>Age * Education</code>.</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the models below are equivalent</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="pp">@formula</span>(Asum <span class="op">~</span> Age <span class="op">+</span> Education <span class="op">+</span> Age <span class="op">&amp;</span> Education), bfi)</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
 }},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
 }}}},Array{Float64,2}}
@@ -2341,7 +2458,8 @@ Age &amp; Education  -0.016346    0.0061294  -2.67    0.0077  -0.0283659  -0.00
 432607
 ───────────────────────────────────────────────────────────────────────────
 ──────</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lm(<span class="pp">@formula</span>(Asum <span class="op">~</span> Age <span class="op">*</span> Education)<span class="op">,</span> bfi)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="pp">@formula</span>(Asum <span class="op">~</span> Age <span class="op">*</span> Education), bfi)</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
 }},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
 }}}},Array{Float64,2}}
@@ -2365,25 +2483,35 @@ Age &amp; Education  -0.016346    0.0061294  -2.67    0.0077  -0.0283659  -0.00
 432607
 ───────────────────────────────────────────────────────────────────────────
 ──────</code></pre>
-<p>!!! note “Follow-up Practice (2)” Let’s fit a model to explore whether there is an interaction between education and gender (<code>Gender_bin</code>) on contienciousness. How much did the variance explained by the model increasecompared to the model without the interaction (in reference to Practice (1)) increase?</p>
+<p>!!! note “Follow-up Practice (2)” Let’s fit a model to explore
+whether there is an interaction between education and gender
+(<code>Gender_bin</code>) on contienciousness. How much did the variance
+explained by the model increasecompared to the model without the
+interaction (in reference to Practice (1)) increase?</p>
 <hr />
 <h1 id="probit-regression">Probit Regression</h1>
-<p>For the illustrative purpose, I arbitrarily define that a sum score above 20 out of 25 is a high score of agreeableness and dichotomize <code>Asum</code> to 1 or 0 accordingly.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>bfi <span class="op">=</span> <span class="pp">@pipe</span> transform(bfi<span class="op">,</span> </span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                      <span class="op">:</span>Asum <span class="op">=&gt;</span> ByRow(<span class="kw">function</span>(x) </span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                                        <span class="kw">if</span> x <span class="op">&gt;=</span> <span class="fl">20</span> <span class="fl">1</span> </span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="kw">else</span> <span class="fl">0</span> </span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="kw">end</span> </span>
+<p>For the illustrative purpose, I arbitrarily define that a sum score
+above 20 out of 25 is a high score of agreeableness and dichotomize
+<code>Asum</code> to 1 or 0 accordingly.</p>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>bfi <span class="op">=</span> <span class="pp">@pipe</span> <span class="fu">transform</span>(bfi, </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                      <span class="op">:</span>Asum <span class="op">=&gt;</span> <span class="fu">ByRow</span>(<span class="kw">function</span>(x) </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                                        <span class="cf">if</span> x <span class="op">&gt;=</span> <span class="fl">20</span> <span class="fl">1</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="cf">else</span> <span class="fl">0</span> </span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="cf">end</span> </span>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>                                     <span class="kw">end</span>) </span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>                               <span class="op">=&gt;</span> <span class="op">:</span>Abin)<span class="op">;</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>describe(select(bfi<span class="op">,</span> <span class="op">:</span>Abin))</span></code></pre></div>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>                               <span class="op">=&gt;</span> <span class="op">:</span>Abin);</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(<span class="fu">select</span>(bfi, <span class="op">:</span>Abin))</span></code></pre></div>
 <pre><code>1×7 DataFrame
  Row │ variable  mean     min    median   max    nmissing  eltype
      │ Symbol    Float64  Int64  Float64  Int64  Int64     DataType
 ─────┼──────────────────────────────────────────────────────────────
    1 │ Abin      0.70975      0      1.0      1         0  Int64</code></pre>
-<p>Now because our outcome variable is a binary variable, it is more appropriate to model it with a binomial distribution and a probit link.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>lm_probit <span class="op">=</span> glm(<span class="pp">@formula</span>(Abin <span class="op">~</span> Age)<span class="op">,</span> bfi<span class="op">,</span> Binomial()<span class="op">,</span> ProbitLink())</span></code></pre></div>
+<p>Now because our outcome variable is a binary variable, it is more
+appropriate to model it with a binomial distribution and a probit
+link.</p>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>lm_probit <span class="op">=</span> <span class="fu">glm</span>(<span class="pp">@formula</span>(Abin <span class="op">~</span> Age), bfi, <span class="fu">Binomial</span>(), <span class="fu">ProbitLink</span>())</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.GeneralizedLinearModel{GLM.GlmResp{Arr
 ay{Float64,1},Distributions.Binomial{Float64},GLM.ProbitLink},GLM.DensePred
 Chol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float
@@ -2399,7 +2527,8 @@ Coefficients:
 Age          0.00798517  0.00269249  2.97    0.0030  0.00270799  0.0132623
 ──────────────────────────────────────────────────────────────────────────</code></pre>
 <p>An equivalent way to specify this probit model is</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fit(GeneralizedLinearModel<span class="op">,</span> <span class="pp">@formula</span>(Abin <span class="op">~</span> Age)<span class="op">,</span> bfi<span class="op">,</span> Binomial()<span class="op">,</span> ProbitLink())</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fit</span>(GeneralizedLinearModel, <span class="pp">@formula</span>(Abin <span class="op">~</span> Age), bfi, <span class="fu">Binomial</span>(), <span class="fu">ProbitLink</span>())</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.GeneralizedLinearModel{GLM.GlmResp{Arr
 ay{Float64,1},Distributions.Binomial{Float64},GLM.ProbitLink},GLM.DensePred
 Chol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float
@@ -2417,17 +2546,26 @@ Age          0.00798517  0.00269249  2.97    0.0030  0.00270799  0.0132623
 <p>Our probit model is as follows. <span class="math display">\[
 \Phi^{-1}(\text{High_Agreeableness}) = 0.319 + 0.008 \text{Age}
 \]</span></p>
-<p>For a person of age 20, the predicted probit of scoring high on agreeableness is 0.479.</p>
-<p>Note that the coefficients are probability z-scores and the prediction is a probit. To translate a probit back to a probability, we could use <code>cdf()</code> in the <code>Distributions</code> package.</p>
-<p><code>Normal()</code> by default specifies a normal distribution with a mean of 0 and a standard deviation of 1.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Distributions</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>cdf(Normal()<span class="op">,</span> <span class="fl">.479</span>)</span></code></pre></div>
+<p>For a person of age 20, the predicted probit of scoring high on
+agreeableness is 0.479.</p>
+<p>Note that the coefficients are probability z-scores and the
+prediction is a probit. To translate a probit back to a probability, we
+could use <code>cdf()</code> in the <code>Distributions</code>
+package.</p>
+<p><code>Normal()</code> by default specifies a normal distribution with
+a mean of 0 and a standard deviation of 1.</p>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Distributions</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cdf</span>(<span class="fu">Normal</span>(), <span class="fl">.479</span>)</span></code></pre></div>
 <pre><code>0.6840306856730872</code></pre>
-<p>The predicted probability of someone at age 20 scoring high on agreeablness is 68.4%.</p>
+<p>The predicted probability of someone at age 20 scoring high on
+agreeablness is 68.4%.</p>
 <hr />
 <h1 id="logistic-regression">Logistic Regression</h1>
-<p>An alternative way to handle binary outcome variables is through logistic regression.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>lm_logit <span class="op">=</span> glm(<span class="pp">@formula</span>(Abin <span class="op">~</span> Age)<span class="op">,</span> bfi<span class="op">,</span> Binomial()<span class="op">,</span> LogitLink())</span></code></pre></div>
+<p>An alternative way to handle binary outcome variables is through
+logistic regression.</p>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>lm_logit <span class="op">=</span> <span class="fu">glm</span>(<span class="pp">@formula</span>(Abin <span class="op">~</span> Age), bfi, <span class="fu">Binomial</span>(), <span class="fu">LogitLink</span>())</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.GeneralizedLinearModel{GLM.GlmResp{Arr
 ay{Float64,1},Distributions.Binomial{Float64},GLM.LogitLink},GLM.DensePredC
 hol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float6
@@ -2443,7 +2581,8 @@ Coefficients:
 Age          0.0135925  0.00455195  2.99    0.0028  0.00467084  0.0225141
 ─────────────────────────────────────────────────────────────────────────</code></pre>
 <p>Similarly, an equivalent way to specify this logistic model is</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fit(GeneralizedLinearModel<span class="op">,</span> <span class="pp">@formula</span>(Abin <span class="op">~</span> Age)<span class="op">,</span> bfi<span class="op">,</span> Binomial()<span class="op">,</span> LogitLink())</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fit</span>(GeneralizedLinearModel, <span class="pp">@formula</span>(Abin <span class="op">~</span> Age), bfi, <span class="fu">Binomial</span>(), <span class="fu">LogitLink</span>())</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.GeneralizedLinearModel{GLM.GlmResp{Arr
 ay{Float64,1},Distributions.Binomial{Float64},GLM.LogitLink},GLM.DensePredC
 hol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2}}}},Array{Float6
@@ -2461,19 +2600,28 @@ Age          0.0135925  0.00455195  2.99    0.0028  0.00467084  0.0225141
 <p>Now our logistic model is as follows. <span class="math display">\[
 logit(\text{High_Agreeableness}) = 0.498 + 0.014 \text{Age}
 \]</span></p>
-<p>For a person of age 20, the predicted logit of scoring high on agreeableness is 0.778. Now the prediction is represented in terms of logit. To make it more interpretable, we can simply exponentiate the logit to get the odds ratio, or use the following formula to get the probability:</p>
+<p>For a person of age 20, the predicted logit of scoring high on
+agreeableness is 0.778. Now the prediction is represented in terms of
+logit. To make it more interpretable, we can simply exponentiate the
+logit to get the odds ratio, or use the following formula to get the
+probability:</p>
 <p><span class="math display">\[
 \hat{\pi} = \frac{exp(0.498 + 0.014)}{1 + exp(0.498 + 0.014)}
 \]</span></p>
-<p>where <code>\hat{\pi}</code> is the predicted probability of someone scoring high on agreeableness.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>exp(<span class="fl">.778</span>)<span class="op">/</span>(<span class="fl">1</span> <span class="op">+</span> exp(<span class="fl">.778</span>))</span></code></pre></div>
+<p>where <code>\hat{\pi}</code> is the predicted probability of someone
+scoring high on agreeableness.</p>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">.778</span>)<span class="op">/</span>(<span class="fl">1</span> <span class="op">+</span> <span class="fu">exp</span>(<span class="fl">.778</span>))</span></code></pre></div>
 <pre><code>0.6852489081587367</code></pre>
-<p>Consistent with the result from probit regression, the predicted probability of someone at age 20 scoring high on agreeablness is 68.5%.</p>
+<p>Consistent with the result from probit regression, the predicted
+probability of someone at age 20 scoring high on agreeablness is
+68.5%.</p>
 <hr />
 <h1 id="visualization">Visualization</h1>
 <p>Let’s cover the answers of Follow-up Practice (1) and (2) here.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Practice (1)</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>lm3 <span class="op">=</span> fit(LinearModel<span class="op">,</span> <span class="pp">@formula</span>(Csum <span class="op">~</span> Education)<span class="op">,</span> bfi)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Practice (1)</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>lm3 <span class="op">=</span> <span class="fu">fit</span>(LinearModel, <span class="pp">@formula</span>(Csum <span class="op">~</span> Education), bfi)</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
 }},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
 }}}},Array{Float64,2}}
@@ -2487,8 +2635,9 @@ Coefficients:
 (Intercept)  18.5942    0.176512   105.34    &lt;1e-99  18.2481     18.9403
 Education     0.14285   0.0522318    2.73    0.0063   0.0404219   0.245278
 ──────────────────────────────────────────────────────────────────────────</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Practice (2)</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>lm4 <span class="op">=</span> fit(LinearModel<span class="op">,</span> <span class="pp">@formula</span>(Csum <span class="op">~</span> Education<span class="op">*</span>Gender_bin)<span class="op">,</span> bfi)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Practice (2)</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>lm4 <span class="op">=</span> <span class="fu">fit</span>(LinearModel, <span class="pp">@formula</span>(Csum <span class="op">~</span> Education<span class="op">*</span>Gender_bin), bfi)</span></code></pre></div>
 <pre><code>StatsModels.TableRegressionModel{GLM.LinearModel{GLM.LmResp{Array{Float64,1
 }},GLM.DensePredChol{Float64,LinearAlgebra.Cholesky{Float64,Array{Float64,2
 }}}},Array{Float64,2}}
@@ -2512,38 +2661,58 @@ Education &amp; Gender_bin: 2   0.119855    0.10743     1.12    0.2647  -0.0908
 195   0.330529
 ───────────────────────────────────────────────────────────────────────────
 ──────────────</code></pre>
-<p>Note that <code>Gender_bin</code> is dummy coded with male (1) as 0 and female (2) as 1. The default in <code>GLM</code> is dummy coding, but we can specify a different contrast coding. More details on contrast coding can be found [here] (<a href="https://juliastats.org/StatsModels.jl/stable/contrasts/" class="uri">https://juliastats.org/StatsModels.jl/stable/contrasts/</a>).</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting coefficients</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>lm3_b0<span class="op">,</span> lm3_b1 <span class="op">=</span> coef(lm3)<span class="op">;</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>lm4_b0<span class="op">,</span> lm4_b1<span class="op">,</span> lm4_b2<span class="op">,</span> lm4_b3 <span class="op">=</span> coef(lm4)<span class="op">;</span></span></code></pre></div>
-<p>We will use the package <a href="http://docs.juliaplots.org/latest/"><code>Plots</code></a> for visualizing the relationship between variables in the fitted models. The package <a href="http://docs.juliaplots.org/latest/contributing/#StatsPlots"><code>StatsPlots</code></a> is an extension of <code>Plots</code> that supports plotting with <code>DataFrame</code> objects.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@df</span> bfi scatter(</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Education<span class="op">,</span> </span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Csum<span class="op">,</span> </span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    group <span class="op">=</span> <span class="op">:</span>Gender<span class="op">,</span> </span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>    legend <span class="op">=</span> <span class="op">:</span>bottomright<span class="op">,</span> </span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> [<span class="st">&quot;Male&quot;</span> <span class="st">&quot;Female&quot;</span>]<span class="op">,</span> </span>
-<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">&quot;Education&quot;</span><span class="op">,</span> </span>
+<p>Note that <code>Gender_bin</code> is dummy coded with male (1) as 0
+and female (2) as 1. The default in <code>GLM</code> is dummy coding,
+but we can specify a different contrast coding. More details on contrast
+coding can be found [here] (<a
+href="https://juliastats.org/StatsModels.jl/stable/contrasts/"
+class="uri">https://juliastats.org/StatsModels.jl/stable/contrasts/</a>).</p>
+<div class="sourceCode" id="cb54"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting coefficients</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>lm3_b0, lm3_b1 <span class="op">=</span> <span class="fu">coef</span>(lm3);</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>lm4_b0, lm4_b1, lm4_b2, lm4_b3 <span class="op">=</span> <span class="fu">coef</span>(lm4);</span></code></pre></div>
+<p>We will use the package <a
+href="http://docs.juliaplots.org/latest/"><code>Plots</code></a> for
+visualizing the relationship between variables in the fitted models. The
+package <a
+href="http://docs.juliaplots.org/latest/contributing/#StatsPlots"><code>StatsPlots</code></a>
+is an extension of <code>Plots</code> that supports plotting with
+<code>DataFrame</code> objects.</p>
+<div class="sourceCode" id="cb55"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@df</span> bfi <span class="fu">scatter</span>(</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Education, </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Csum, </span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    group <span class="op">=</span> <span class="op">:</span>Gender, </span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>    legend <span class="op">=</span> <span class="op">:</span>bottomright, </span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> [<span class="st">&quot;Male&quot;</span> <span class="st">&quot;Female&quot;</span>], </span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">&quot;Education&quot;</span>, </span>
 <span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>    ylabel <span class="op">=</span> <span class="st">&quot;Contientiousness&quot;</span>) </span>
-<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>plot<span class="op">!</span>((x) <span class="op">-&gt;</span> lm3_b0 <span class="op">+</span> lm3_b1 <span class="op">*</span> x<span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">5</span><span class="op">,</span> label <span class="op">=</span> <span class="st">&quot;Linear Model&quot;</span>)</span></code></pre></div>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>((x) <span class="op">-&gt;</span> lm3_b0 <span class="op">+</span> lm3_b1 <span class="op">*</span> x, <span class="fl">1</span>, <span class="fl">5</span>, label <span class="op">=</span> <span class="st">&quot;Linear Model&quot;</span>)</span></code></pre></div>
 <p><img src="figures/regression_29_1.png" /></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@df</span> bfi scatter(</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Education<span class="op">,</span> </span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Csum<span class="op">,</span> </span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    group <span class="op">=</span> <span class="op">:</span>Gender<span class="op">,</span> </span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    legend <span class="op">=</span> <span class="op">:</span>bottomright<span class="op">,</span> </span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> [<span class="st">&quot;Male&quot;</span> <span class="st">&quot;Female&quot;</span>]<span class="op">,</span> </span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">&quot;Education&quot;</span><span class="op">,</span> </span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>    ylabel <span class="op">=</span> <span class="st">&quot;Contienciousness&quot;</span><span class="op">,</span> </span>
-<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="fl">690</span><span class="op">,</span><span class="fl">460</span>)) </span>
-<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>plot<span class="op">!</span>((x) <span class="op">-&gt;</span> lm4_b0 <span class="op">+</span> lm4_b1 <span class="op">*</span> x <span class="op">+</span> lm4_b2 <span class="op">*</span> <span class="fl">0</span> <span class="op">+</span> lm4_b2 <span class="op">*</span> x <span class="op">*</span> <span class="fl">0</span><span class="op">,</span> </span>
-<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>      <span class="fl">1</span><span class="op">,</span> <span class="fl">5</span><span class="op">,</span> label <span class="op">=</span> <span class="st">&quot;Male&quot;</span><span class="op">,</span> linecolor <span class="op">=</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>plot<span class="op">!</span>((x) <span class="op">-&gt;</span> lm4_b0 <span class="op">+</span> lm4_b1 <span class="op">*</span> x <span class="op">+</span> lm4_b2 <span class="op">*</span> <span class="fl">1</span> <span class="op">+</span> lm4_b2 <span class="op">*</span> x <span class="op">*</span> <span class="fl">1</span><span class="op">,</span> </span>
-<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>      <span class="fl">1</span><span class="op">,</span> <span class="fl">5</span><span class="op">,</span> label <span class="op">=</span> <span class="st">&quot;Female&quot;</span><span class="op">,</span> linecolor <span class="op">=</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@df</span> bfi <span class="fu">scatter</span>(</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Education, </span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>Csum, </span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    group <span class="op">=</span> <span class="op">:</span>Gender, </span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    legend <span class="op">=</span> <span class="op">:</span>bottomright, </span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> [<span class="st">&quot;Male&quot;</span> <span class="st">&quot;Female&quot;</span>], </span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">&quot;Education&quot;</span>, </span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>    ylabel <span class="op">=</span> <span class="st">&quot;Contienciousness&quot;</span>, </span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="fl">690</span>,<span class="fl">460</span>)) </span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>((x) <span class="op">-&gt;</span> lm4_b0 <span class="op">+</span> lm4_b1 <span class="op">*</span> x <span class="op">+</span> lm4_b2 <span class="op">*</span> <span class="fl">0</span> <span class="op">+</span> lm4_b2 <span class="op">*</span> x <span class="op">*</span> <span class="fl">0</span>, </span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>      <span class="fl">1</span>, <span class="fl">5</span>, label <span class="op">=</span> <span class="st">&quot;Male&quot;</span>, linecolor <span class="op">=</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>((x) <span class="op">-&gt;</span> lm4_b0 <span class="op">+</span> lm4_b1 <span class="op">*</span> x <span class="op">+</span> lm4_b2 <span class="op">*</span> <span class="fl">1</span> <span class="op">+</span> lm4_b2 <span class="op">*</span> x <span class="op">*</span> <span class="fl">1</span>, </span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>      <span class="fl">1</span>, <span class="fl">5</span>, label <span class="op">=</span> <span class="st">&quot;Female&quot;</span>, linecolor <span class="op">=</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="figures/regression_30_1.png" /></p>
-<p>I also made reference to this <a href="https://nextjournal.com/DeepLearningNotes/Ch03LinearRegression">webpage</a> to create the plots above.</p>
-<p>Perhaps because the “research questions” I posed here were not so interesting, there was not much interesting to observe from the analysis outputs and the plots. But I hope you enjoy this tutorial in doing regression analyses with Julia :)</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>I also made reference to this <a
+href="https://nextjournal.com/DeepLearningNotes/Ch03LinearRegression">webpage</a>
+to create the plots above.</p>
+<p>Perhaps because the “research questions” I posed here were not so
+interesting, there was not much interesting to observe from the analysis
+outputs and the plots. But I hope you enjoy this tutorial in doing
+regression analyses with Julia :)</p>
+<div class="sourceCode" id="cb57"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2564,7 +2733,18 @@ Education &amp; Gender_bin: 2   0.119855    0.10743     1.12    0.2647  -0.0908
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom"></div>
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Tse (2021, Feb. 11). Measurement &amp; Multilevel Modeling Lab: Regression with Julia!. Retrieved from https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{tse2021regression,
+  author = {Tse, Winnie Wing-Yee},
+  title = {Measurement &amp; Multilevel Modeling Lab: Regression with Julia!},
+  url = {https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/},
+  year = {2021}
+}</pre>
+</div>
 <!--/radix_placeholder_appendices-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <!--radix_placeholder_navigation_after_body--><html><body>

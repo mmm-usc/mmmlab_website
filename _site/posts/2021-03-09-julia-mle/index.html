@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,7 +77,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -85,10 +85,13 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
+
   <!--radix_placeholder_meta_tags-->
 <title>Measurement &amp; Multilevel Modeling Lab: Maximum Likelihood Estimation with Julia</title>
 
+<meta property="description" itemprop="description" content="A demonstration of doing maximum likelihood estimation using Julia"/>
 
+<link rel="canonical" href="https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/"/>
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2021-03-09"/>
@@ -98,18 +101,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Maximum Likelihood Estimation with Julia"/>
 <meta property="og:type" content="article"/>
+<meta property="og:description" content="A demonstration of doing maximum likelihood estimation using Julia"/>
+<meta property="og:url" content="https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Measurement &amp; Multilevel Modeling Lab"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Maximum Likelihood Estimation with Julia"/>
+<meta property="twitter:description" content="A demonstration of doing maximum likelihood estimation using Julia"/>
+<meta property="twitter:url" content="https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/"/>
 
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Measurement &amp; Multilevel Modeling Lab: Maximum Likelihood Estimation with Julia"/>
+<meta name="citation_fulltext_html_url" content="https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/"/>
+<meta name="citation_online_date" content="2021/03/09"/>
+<meta name="citation_publication_date" content="2021/03/09"/>
+<meta name="citation_author" content="Hok Chio (Mark) Lai"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Maximum Likelihood Estimation with Julia"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Hok Chio (Mark) Lai"]}]}]},{"type":"character","attributes":{},"value":["03/09/2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Julia","Statistics"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Maximum Likelihood Estimation with Julia"]},{"type":"character","attributes":{},"value":["A demonstration of doing maximum likelihood estimation using Julia"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Hok Chio (Mark) Lai"]}]}]},{"type":"character","attributes":{},"value":["03/09/2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Julia","Statistics"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2041,8 +2054,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.7/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2062,7 +2075,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Maximum Likelihood Estimation with Julia","authors":[{"author":"Hok Chio (Mark) Lai","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-03-09T00:00:00.000-08:00","citationText":"Lai, 2021"}
+{"title":"Maximum Likelihood Estimation with Julia","description":"A demonstration of doing maximum likelihood estimation using Julia","authors":[{"author":"Hok Chio (Mark) Lai","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-03-09T00:00:00.000-08:00","citationText":"Lai, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2112,7 +2125,8 @@ Applications
   <a href="../../index.html#category:Statistics" class="dt-tag">Statistics</a>
 </div>
 <!--/radix_placeholder_categories-->
-
+<p><p>A demonstration of doing maximum likelihood estimation using
+Julia</p></p>
 </div>
 
 <div class="d-byline">
@@ -2135,7 +2149,8 @@ Applications
 <li><a href="#log-likelihood">Log-Likelihood</a></li>
 </ul></li>
 <li><a href="#newtons-method">Newton’s Method</a></li>
-<li><a href="#using-established-algorithms-with-optim.jl">Using Established Algorithms with <code>Optim.jl</code></a></li>
+<li><a href="#using-established-algorithms-with-optim.jl">Using
+Established Algorithms with <code>Optim.jl</code></a></li>
 <li><a href="#fit-mle">Fit MLE</a></li>
 </ul></li>
 <li><a href="#regression">Regression</a>
@@ -2150,127 +2165,192 @@ Applications
 </ul>
 </nav>
 </div>
-<p>For a statistical model of data <span class="math inline">\(\mathbf{y}\)</span> written as <span class="math inline">\(f(\mathbf{y}; \boldsymbol{\mathbf{\theta}})\)</span> with parameters <span class="math inline">\(\boldsymbol{\mathbf{\theta}}\)</span>, the likelihood function, <span class="math inline">\(\mathcal{L}(\boldsymbol{\mathbf{\theta}}; \mathbf{y})\)</span>, is the probability of the data given the parameter values.</p>
+<p>For a statistical model of data <span
+class="math inline">\(\mathbf{y}\)</span> written as <span
+class="math inline">\(f(\mathbf{y};
+\boldsymbol{\mathbf{\theta}})\)</span> with parameters <span
+class="math inline">\(\boldsymbol{\mathbf{\theta}}\)</span>, the
+likelihood function, <span
+class="math inline">\(\mathcal{L}(\boldsymbol{\mathbf{\theta}};
+\mathbf{y})\)</span>, is the probability of the data given the parameter
+values.</p>
 <h2 id="loading-packages">Loading Packages</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Plots<span class="op">,</span> Distributions<span class="op">,</span> <span class="bu">Random</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Optim</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> NLSolversBase<span class="op">,</span> ForwardDiff<span class="op">,</span> FiniteDifferences</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> HypothesisTests</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Printf</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> LinearAlgebra</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span>, <span class="bu">Distributions</span>, <span class="bu">Random</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Optim</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">NLSolversBase</span>, <span class="bu">ForwardDiff</span>, <span class="bu">FiniteDifferences</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">HypothesisTests</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Printf</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span></span></code></pre></div>
 <h1 id="simple-bernoulli-example">Simple Bernoulli Example</h1>
-<p>As a simple example, consider a model where <span class="math inline">\(Y\)</span> is assumed to follow a Bernoulli distribution with probability of success equals <span class="math inline">\(\theta\)</span>. Assume that there are three observed values <span class="math inline">\(\mathbf{y} = [0, 1, 0]&#39;\)</span>. You can think about flipping a coin (which may or may not be fair) three times, and call it a success if the coin shows a head. The model further assumes that each coin flip is independent. Therefore, if the success probability is <span class="math inline">\(\theta\)</span>, then the probability of observing <span class="math inline">\(\mathbf{y} = [0, 1, 0]&#39;\)</span> is <span class="math display">\[\mathcal{L}(\theta; y_1 = 0, y_2 = 1, y_3 = 0) = (1 - \theta) \times \theta \times (1 - \theta) = \theta(1 - \theta)^2,\]</span> which is our likelihood function. Note that <span class="math inline">\(\theta \in [0, 1]\)</span> We can write the function in Julia</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that it returns zero when theta is out of range</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lik(θ) <span class="op">=</span> (<span class="fl">0</span> <span class="op">&lt;=</span> θ <span class="op">&lt;=</span> <span class="fl">1</span>) ? θ <span class="op">*</span> (<span class="fl">1</span> <span class="op">-</span> θ)<span class="op">^</span><span class="fl">2</span> <span class="op">:</span> <span class="fl">0</span></span>
+<p>As a simple example, consider a model where <span
+class="math inline">\(Y\)</span> is assumed to follow a Bernoulli
+distribution with probability of success equals <span
+class="math inline">\(\theta\)</span>. Assume that there are three
+observed values <span class="math inline">\(\mathbf{y} = [0, 1,
+0]&#39;\)</span>. You can think about flipping a coin (which may or may
+not be fair) three times, and call it a success if the coin shows a
+head. The model further assumes that each coin flip is independent.
+Therefore, if the success probability is <span
+class="math inline">\(\theta\)</span>, then the probability of observing
+<span class="math inline">\(\mathbf{y} = [0, 1, 0]&#39;\)</span> is
+<span class="math display">\[\mathcal{L}(\theta; y_1 = 0, y_2 = 1, y_3 =
+0) = (1 - \theta) \times \theta \times (1 - \theta) = \theta(1 -
+\theta)^2,\]</span> which is our likelihood function. Note that <span
+class="math inline">\(\theta \in [0, 1]\)</span> We can write the
+function in Julia</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that it returns zero when theta is out of range</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lik</span>(θ) <span class="op">=</span> (<span class="fl">0</span> <span class="op">&lt;=</span> θ <span class="op">&lt;=</span> <span class="fl">1</span>) ? θ <span class="op">*</span> (<span class="fl">1</span> <span class="op">-</span> θ)<span class="op">^</span><span class="fl">2</span> <span class="op">:</span> <span class="fl">0</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Try theta = 0.5</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>lik(<span class="fl">0.5</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lik</span>(<span class="fl">0.5</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Try theta = 0.3</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>lik(<span class="fl">0.3</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lik</span>(<span class="fl">0.3</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Try theta = -0.1</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>lik(<span class="op">-</span><span class="fl">0.1</span>)</span></code></pre></div>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lik</span>(<span class="op">-</span><span class="fl">0.1</span>)</span></code></pre></div>
 <pre><code>0</code></pre>
 <p>We can plot the likelihood function [need help to annotate it]</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot(lik<span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lik, <span class="fl">0</span>, <span class="fl">1</span>)</span></code></pre></div>
 <p><img src="figures/mle_3_1.png" /></p>
-<p>The maximum point of the curve is the maximum likelihood estimate (MLE), usually denoted as <span class="math inline">\(\hat \theta\)</span>. From eyeballing we can see <span class="math inline">\(\hat \theta \approx 1 / 3\)</span>. As you probably can guess, the MLE is the sample mean.</p>
+<p>The maximum point of the curve is the maximum likelihood estimate
+(MLE), usually denoted as <span class="math inline">\(\hat
+\theta\)</span>. From eyeballing we can see <span
+class="math inline">\(\hat \theta \approx 1 / 3\)</span>. As you
+probably can guess, the MLE is the sample mean.</p>
 <h2 id="grid-search">Grid Search</h2>
-<p>Let’s write a Julia program to find the MLE. One brute force method is to try discrete values, say 0, 0.001, 0.002, up to 1:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a function that returns the maximum likelihood value and the estimate</span></span>
+<p>Let’s write a Julia program to find the MLE. One brute force method
+is to try discrete values, say 0, 0.001, 0.002, up to 1:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a function that returns the maximum likelihood value and the estimate</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Need to make the lower bound, the upper bound, and the grid size as parameters</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>my_find_mle <span class="op">=</span> <span class="kw">function</span>(lik<span class="op">,</span> grid_size)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>my_find_mle <span class="op">=</span> <span class="kw">function</span>(lik, grid_size)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    thetas <span class="op">=</span> <span class="fl">0</span><span class="op">:</span>grid_size<span class="op">:</span><span class="fl">1</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    lik_vals <span class="op">=</span> [lik(i) <span class="kw">for</span> i <span class="kw">in</span> thetas]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    max_lik<span class="op">,</span> max_idx <span class="op">=</span> findmax(lik_vals)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> (lik <span class="op">=</span> max_lik<span class="op">,</span> mle <span class="op">=</span> thetas[max_idx])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    lik_vals <span class="op">=</span> [<span class="fu">lik</span>(i) for i <span class="kw">in</span> thetas]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    max_lik, max_idx <span class="op">=</span> <span class="fu">findmax</span>(lik_vals)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (lik <span class="op">=</span> max_lik, mle <span class="op">=</span> thetas[max_idx])</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>my_find_mle(lik<span class="op">,</span> <span class="fl">.00001</span>)</span></code></pre></div>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">my_find_mle</span>(lik, <span class="fl">.00001</span>)</span></code></pre></div>
 <pre><code>(lik = 0.148148148137037, mle = 0.33333)</code></pre>
 <h2 id="gradient-descentascent">Gradient Descent/Ascent</h2>
-<p>An algorithm to minimize a function <span class="math inline">\(f\)</span> is to iteratively do <span class="math display">\[\theta_{s + 1} = \theta_s + \gamma f&#39;(\theta_s),\]</span> where <span class="math inline">\(\gamma\)</span> is a step size/learning rate. We need to first to find the derivative. It can be done numerically, like</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lik_prime(θ<span class="op">;</span> h <span class="op">=</span> <span class="fl">1e-5</span>) <span class="op">=</span> (lik(θ <span class="op">+</span> h) <span class="op">-</span> lik(θ)) <span class="op">/</span> h</span>
+<p>An algorithm to minimize a function <span
+class="math inline">\(f\)</span> is to iteratively do <span
+class="math display">\[\theta_{s + 1} = \theta_s + \gamma
+f&#39;(\theta_s),\]</span> where <span
+class="math inline">\(\gamma\)</span> is a step size/learning rate. We
+need to first to find the derivative. It can be done numerically,
+like</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lik_prime</span>(θ; h <span class="op">=</span> <span class="fl">1e-5</span>) <span class="op">=</span> (<span class="fu">lik</span>(θ <span class="op">+</span> h) <span class="op">-</span> <span class="fu">lik</span>(θ)) <span class="op">/</span> h</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lik_prime(0.5)</span></span></code></pre></div>
 <pre><code>lik_prime (generic function with 1 method)</code></pre>
 <blockquote>
-<p>Note: One can also use the <a href="https://en.wikipedia.org/wiki/Finite_difference#Basic_types">central difference</a> method, which is more accurate</p>
+<p>Note: One can also use the <a
+href="https://en.wikipedia.org/wiki/Finite_difference#Basic_types">central
+difference</a> method, which is more accurate</p>
 </blockquote>
-<div class="sourceCode" id="cb9"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>step_size <span class="op">=</span> <span class="fl">0.6</span></span>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>step_size <span class="op">=</span> <span class="fl">0.6</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>θ₀ <span class="op">=</span> <span class="fl">0.5</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>lik0 <span class="op">=</span> lik(θ₀)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>del0 <span class="op">=</span> lik_prime(θ₀)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>lik0 <span class="op">=</span> <span class="fu">lik</span>(θ₀)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>del0 <span class="op">=</span> <span class="fu">lik_prime</span>(θ₀)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>θ₁ <span class="op">=</span> θ₀ <span class="op">+</span> step_size <span class="op">*</span> del0</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>del1 <span class="op">=</span> lik_prime(θ₁)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>del1 <span class="op">=</span> <span class="fu">lik_prime</span>(θ₁)</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>θ₂ <span class="op">=</span> θ₁ <span class="op">+</span> step_size <span class="op">*</span> del1</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Write a loop/function to find the MLE</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> ga(f<span class="op">,</span> θ<span class="op">;</span> step_size <span class="op">=</span> <span class="fl">0.6</span><span class="op">,</span> tol <span class="op">=</span> <span class="fl">1e-10</span><span class="op">,</span> max_iter <span class="op">=</span> <span class="fl">100</span>)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    f_prime(θ<span class="op">;</span> h <span class="op">=</span> <span class="fl">1e-5</span>) <span class="op">=</span> (f(θ <span class="op">+</span> h) <span class="op">-</span> f(θ)) <span class="op">/</span> h</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    del <span class="op">=</span> f_prime(θ)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># TODO: Write a loop/function to find the MLE</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ga</span>(f, θ; step_size <span class="op">=</span> <span class="fl">0.6</span>, tol <span class="op">=</span> <span class="fl">1e-10</span>, max_iter <span class="op">=</span> <span class="fl">100</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">f_prime</span>(θ; h <span class="op">=</span> <span class="fl">1e-5</span>) <span class="op">=</span> (<span class="fu">f</span>(θ <span class="op">+</span> h) <span class="op">-</span> <span class="fu">f</span>(θ)) <span class="op">/</span> h</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    del <span class="op">=</span> <span class="fu">f_prime</span>(θ)</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    iter <span class="op">=</span> <span class="fl">0</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">while</span> (iter <span class="op">&lt;</span> max_iter <span class="op">&amp;&amp;</span> abs(del) <span class="op">&gt;</span> tol)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (iter <span class="op">&lt;</span> max_iter <span class="op">&amp;&amp;</span> <span class="fu">abs</span>(del) <span class="op">&gt;</span> tol)</span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        θ <span class="op">+=</span> step_size <span class="op">*</span> del</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        del <span class="op">=</span> f_prime(θ)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        del <span class="op">=</span> <span class="fu">f_prime</span>(θ)</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        iter <span class="op">+=</span> <span class="fl">1</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    println(<span class="st">&quot;converged after &quot;</span><span class="op">,</span> iter<span class="op">,</span> <span class="st">&quot; iterations.&quot;</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">&quot;converged after &quot;</span>, iter, <span class="st">&quot; iterations.&quot;</span>)</span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    θ</span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
 <pre><code>ga (generic function with 1 method)</code></pre>
 <h3 id="log-likelihood">Log-Likelihood</h3>
-<p>The log-likelihood function is <span class="math display">\[\ell(\theta; y_1 = 0, y_2 = 1, y_3 = 0) = \log \theta + 2 \log(1 - \theta).\]</span></p>
-<p>The second derivative (or Hessian if <span class="math inline">\(\theta\)</span> is a vector), is useful to obtaining approximate standard errors for the estimate. From the theory of maximum likelihood estimation, it can be shown that the standard error of the MLE is approximately <span class="math inline">\(\sqrt{- 1 / \ell&#39;&#39;(\theta)}\)</span>. This is usually called the asymptotic standard error, or ase.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ll(θ) <span class="op">=</span> log(lik(θ))</span>
+<p>The log-likelihood function is <span
+class="math display">\[\ell(\theta; y_1 = 0, y_2 = 1, y_3 = 0) = \log
+\theta + 2 \log(1 - \theta).\]</span></p>
+<p>The second derivative (or Hessian if <span
+class="math inline">\(\theta\)</span> is a vector), is useful to
+obtaining approximate standard errors for the estimate. From the theory
+of maximum likelihood estimation, it can be shown that the standard
+error of the MLE is approximately <span class="math inline">\(\sqrt{- 1
+/ \ell&#39;&#39;(\theta)}\)</span>. This is usually called the
+asymptotic standard error, or ase.</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ll</span>(θ) <span class="op">=</span> <span class="fu">log</span>(<span class="fu">lik</span>(θ))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Numerical first derivative</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ll_prime(θ<span class="op">;</span> h <span class="op">=</span> <span class="fl">1e-5</span>) <span class="op">=</span> (ll(θ <span class="op">+</span> h) <span class="op">-</span> ll(θ)) <span class="op">/</span> h</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ll_prime</span>(θ; h <span class="op">=</span> <span class="fl">1e-5</span>) <span class="op">=</span> (<span class="fu">ll</span>(θ <span class="op">+</span> h) <span class="op">-</span> <span class="fu">ll</span>(θ)) <span class="op">/</span> h</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Numerical second-order derivative (2nd order forward)</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>ll_prime2(θ<span class="op">;</span> h <span class="op">=</span> <span class="fl">1e-5</span>) <span class="op">=</span> (ll(θ <span class="op">+</span> <span class="fl">2</span>h) <span class="op">-</span> <span class="fl">2</span>ll(θ <span class="op">+</span> h) <span class="op">+</span> ll(θ)) <span class="op">/</span> h<span class="op">^</span><span class="fl">2</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ll_prime2</span>(θ; h <span class="op">=</span> <span class="fl">1e-5</span>) <span class="op">=</span> (<span class="fu">ll</span>(θ <span class="op">+</span> <span class="fl">2</span>h) <span class="op">-</span> <span class="fl">2</span><span class="fu">ll</span>(θ <span class="op">+</span> h) <span class="op">+</span> <span class="fu">ll</span>(θ)) <span class="op">/</span> h<span class="op">^</span><span class="fl">2</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Asymptotic standard error</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>ase(θ) <span class="op">=</span> sqrt(<span class="op">-</span> <span class="fl">1</span> <span class="op">/</span> ll_prime2(θ))</span></code></pre></div>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ase</span>(θ) <span class="op">=</span> <span class="fu">sqrt</span>(<span class="op">-</span> <span class="fl">1</span> <span class="op">/</span> <span class="fu">ll_prime2</span>(θ))</span></code></pre></div>
 <pre><code>ase (generic function with 1 method)</code></pre>
 <p>So the ase is 0.27.</p>
 <h2 id="newtons-method">Newton’s Method</h2>
-<p>See <a href="https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization" class="uri">https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization</a></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>θ₀ <span class="op">=</span> <span class="fl">0.5</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ll0 <span class="op">=</span> ll(θ₀)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>del0 <span class="op">=</span> ll_prime(θ₀)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>deldel0 <span class="op">=</span> ll_prime2(θ₀)</span>
+<p>See <a
+href="https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization"
+class="uri">https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization</a></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>θ₀ <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ll0 <span class="op">=</span> <span class="fu">ll</span>(θ₀)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>del0 <span class="op">=</span> <span class="fu">ll_prime</span>(θ₀)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>deldel0 <span class="op">=</span> <span class="fu">ll_prime2</span>(θ₀)</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>θ₁ <span class="op">=</span> θ₀ <span class="op">-</span> del0 <span class="op">/</span> deldel0</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>del1 <span class="op">=</span> ll_prime(θ₁)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>deldel1 <span class="op">=</span> ll_prime2(θ₁)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>del1 <span class="op">=</span> <span class="fu">ll_prime</span>(θ₁)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>deldel1 <span class="op">=</span> <span class="fu">ll_prime2</span>(θ₁)</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>θ₂ <span class="op">=</span> θ₁ <span class="op">+</span> del1 <span class="op">/</span> deldel1</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Write a loop/function to find the MLE (credit to Winnie Tse)</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> newt(θ<span class="op">;</span> step_size <span class="op">=</span> <span class="fl">.6</span><span class="op">,</span> tol <span class="op">=</span> <span class="fl">1e-10</span><span class="op">,</span> max_iter <span class="op">=</span> <span class="fl">10</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    del <span class="op">=</span> ll_prime(θ)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    deldel <span class="op">=</span> ll_prime2(θ)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># TODO: Write a loop/function to find the MLE (credit to Winnie Tse)</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">newt</span>(θ; step_size <span class="op">=</span> <span class="fl">.6</span>, tol <span class="op">=</span> <span class="fl">1e-10</span>, max_iter <span class="op">=</span> <span class="fl">10</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    del <span class="op">=</span> <span class="fu">ll_prime</span>(θ)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    deldel <span class="op">=</span> <span class="fu">ll_prime2</span>(θ)</span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    iter <span class="op">=</span> <span class="fl">0</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">while</span> (iter <span class="op">&lt;</span> max_iter <span class="op">&amp;&amp;</span> abs(del) <span class="op">&gt;</span> tol)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (iter <span class="op">&lt;</span> max_iter <span class="op">&amp;&amp;</span> <span class="fu">abs</span>(del) <span class="op">&gt;</span> tol)</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        θ <span class="op">+=</span> (<span class="op">-</span><span class="fl">1</span>)<span class="op">^</span>(iter<span class="op">+</span><span class="fl">1</span>) <span class="op">*</span> del <span class="op">/</span> deldel</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        del <span class="op">=</span> ll_prime(θ)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        deldel <span class="op">=</span> ll_prime2(θ)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        del <span class="op">=</span> <span class="fu">ll_prime</span>(θ)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        deldel <span class="op">=</span> <span class="fu">ll_prime2</span>(θ)</span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        iter <span class="op">+=</span> <span class="fl">1</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    println(<span class="st">&quot;converged after &quot;</span><span class="op">,</span> iter<span class="op">,</span> <span class="st">&quot; iterations.&quot;</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">&quot;converged after &quot;</span>, iter, <span class="st">&quot; iterations.&quot;</span>)</span>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    θ</span>
 <span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>newt(<span class="fl">.5</span>)</span></code></pre></div>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="fu">newt</span>(<span class="fl">.5</span>)</span></code></pre></div>
 <pre><code>converged after 5 iterations.
 0.33332833334790385</code></pre>
-<h2 id="using-established-algorithms-with-optim.jl">Using Established Algorithms with <code>Optim.jl</code></h2>
-<p>See <a href="https://julianlsolvers.github.io/Optim.jl/stable/" class="uri">https://julianlsolvers.github.io/Optim.jl/stable/</a></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find minimum on -LL</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> optimize(x <span class="op">-&gt;</span> <span class="op">-</span>ll(x)<span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1</span>)  <span class="co"># Brent&#39;s Method</span></span>
+<h2 id="using-established-algorithms-with-optim.jl">Using Established
+Algorithms with <code>Optim.jl</code></h2>
+<p>See <a href="https://julianlsolvers.github.io/Optim.jl/stable/"
+class="uri">https://julianlsolvers.github.io/Optim.jl/stable/</a></p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find minimum on -LL</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> <span class="fu">optimize</span>(x <span class="op">-&gt;</span> <span class="fu">-ll</span>(x), <span class="fl">0</span>, <span class="fl">1</span>)  <span class="co"># Brent&#39;s Method</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Second-derivative (5th order central method)</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>FiniteDifferences.central_fdm(<span class="fl">5</span><span class="op">,</span> <span class="fl">2</span>)(ll<span class="op">,</span> opt.minimizer)</span></code></pre></div>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>FiniteDifferences.<span class="fu">central_fdm</span>(<span class="fl">5</span>, <span class="fl">2</span>)(ll, opt.minimizer)</span></code></pre></div>
 <pre><code>-13.499999822735278</code></pre>
 <h2 id="fit-mle">Fit MLE</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From Distributions.jl</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fit_mle(Bernoulli<span class="op">,</span> [<span class="fl">0</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">0</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From Distributions.jl</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fit_mle</span>(Bernoulli, [<span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>])</span></code></pre></div>
 <pre><code>Distributions.Bernoulli{Float64}(p=0.3333333333333333)</code></pre>
 <h1 id="regression">Regression</h1>
 <p><span class="math display">\[Y = \beta_0 + \beta_1 X + e\]</span></p>
 <p><span class="math display">\[e \sim N(0, \sigma)\]</span></p>
-<p><span class="math display">\[f(Y; \beta_0, \beta_1) \overset{d}{=} N(\beta_0 + \beta_1 X, \sigma)\]</span></p>
-<p><span class="math display">\[f(Y_1, Y_2, \ldots; \beta_0, \beta_1) \overset{d}{=} \Pi_{i = 1}^n N(\beta_0 + \beta_1 X_i, \sigma)\]</span></p>
-<p><span class="math display">\[\ell(\beta_0, \beta_1, \sigma; y_1, y_2, \ldots, y_n) = \sum_{i = 1}^n \ell(\beta_0, \beta_1, \sigma; y_i)\]</span></p>
-<p><span class="math display">\[\ell(\beta_0, \beta_1, \sigma; y_1, y_2, \ldots, y_n) =  -\frac{n}{2} \log(2 \pi) - n \log \sigma - \frac{\sum_{i = 1}^n(y_i - \beta_0 - \beta_1 x_i)^2}{2 \sigma^2}\]</span></p>
+<p><span class="math display">\[f(Y; \beta_0, \beta_1) \overset{d}{=}
+N(\beta_0 + \beta_1 X, \sigma)\]</span></p>
+<p><span class="math display">\[f(Y_1, Y_2, \ldots; \beta_0, \beta_1)
+\overset{d}{=} \Pi_{i = 1}^n N(\beta_0 + \beta_1 X_i,
+\sigma)\]</span></p>
+<p><span class="math display">\[\ell(\beta_0, \beta_1, \sigma; y_1, y_2,
+\ldots, y_n) = \sum_{i = 1}^n \ell(\beta_0, \beta_1, \sigma;
+y_i)\]</span></p>
+<p><span class="math display">\[\ell(\beta_0, \beta_1, \sigma; y_1, y_2,
+\ldots, y_n) =  -\frac{n}{2} \log(2 \pi) - n \log \sigma - \frac{\sum_{i
+= 1}^n(y_i - \beta_0 - \beta_1 x_i)^2}{2 \sigma^2}\]</span></p>
 <!--
 
 $$f(x) = \frac{1}{\sqrt{2 \pi} \sigma} \exp\left[-\frac{(x - \mu)^2}{2 \sigma^2}\right]$$
@@ -2284,66 +2364,75 @@ $$
 
 -->
 <h2 id="sample-data">Sample Data</h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From the `lm()` example in R</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ctl <span class="op">=</span> [<span class="fl">4.17</span><span class="op">,</span> <span class="fl">5.58</span><span class="op">,</span> <span class="fl">5.18</span><span class="op">,</span> <span class="fl">6.11</span><span class="op">,</span> <span class="fl">4.50</span><span class="op">,</span> <span class="fl">4.61</span><span class="op">,</span> <span class="fl">5.17</span><span class="op">,</span> <span class="fl">4.53</span><span class="op">,</span> <span class="fl">5.33</span><span class="op">,</span> <span class="fl">5.14</span>]</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>trt <span class="op">=</span> [<span class="fl">4.81</span><span class="op">,</span> <span class="fl">4.17</span><span class="op">,</span> <span class="fl">4.41</span><span class="op">,</span> <span class="fl">3.59</span><span class="op">,</span> <span class="fl">5.87</span><span class="op">,</span> <span class="fl">3.83</span><span class="op">,</span> <span class="fl">6.03</span><span class="op">,</span> <span class="fl">4.89</span><span class="op">,</span> <span class="fl">4.32</span><span class="op">,</span> <span class="fl">4.69</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Likelihood function</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> ll(θ<span class="op">;</span> yc <span class="op">=</span> ctl<span class="op">,</span> yt <span class="op">=</span> trt)</span>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From the `lm()` example in R</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ctl <span class="op">=</span> [<span class="fl">4.17</span>, <span class="fl">5.58</span>, <span class="fl">5.18</span>, <span class="fl">6.11</span>, <span class="fl">4.50</span>, <span class="fl">4.61</span>, <span class="fl">5.17</span>, <span class="fl">4.53</span>, <span class="fl">5.33</span>, <span class="fl">5.14</span>]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>trt <span class="op">=</span> [<span class="fl">4.81</span>, <span class="fl">4.17</span>, <span class="fl">4.41</span>, <span class="fl">3.59</span>, <span class="fl">5.87</span>, <span class="fl">3.83</span>, <span class="fl">6.03</span>, <span class="fl">4.89</span>, <span class="fl">4.32</span>, <span class="fl">4.69</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Likelihood function</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ll</span>(θ; yc <span class="op">=</span> ctl, yt <span class="op">=</span> trt)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    σ <span class="op">=</span> θ[<span class="fl">3</span>]</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> σ <span class="op">&lt;</span> <span class="fl">0</span> </span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="op">-</span><span class="cn">Inf</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> σ <span class="op">&lt;</span> <span class="fl">0</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span><span class="cn">Inf</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    β₀ <span class="op">=</span> θ[<span class="fl">1</span>]</span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    β₁ <span class="op">=</span> θ[<span class="fl">2</span>]</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    sum(vcat(logpdf(Normal(β₀<span class="op">,</span> σ)<span class="op">,</span> yc)<span class="op">,</span> </span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>             logpdf(Normal(β₀ <span class="op">+</span> β₁<span class="op">,</span> σ)<span class="op">,</span> yt)))</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(<span class="fu">vcat</span>(<span class="fu">logpdf</span>(<span class="fu">Normal</span>(β₀, σ), yc), </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>             <span class="fu">logpdf</span>(<span class="fu">Normal</span>(β₀ <span class="op">+</span> β₁, σ), yt)))</span>
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
 <pre><code>ll (generic function with 1 method)</code></pre>
 <p>Plot the conditional log-likelihood functions</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Just beta1</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plot(x <span class="op">-&gt;</span> ll([<span class="fl">5</span><span class="op">,</span> x<span class="op">,</span> <span class="fl">1</span>])<span class="op">,</span> <span class="op">-</span><span class="fl">2</span><span class="op">,</span> <span class="fl">2</span>)</span>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Just beta1</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x <span class="op">-&gt;</span> <span class="fu">ll</span>([<span class="fl">5</span>, x, <span class="fl">1</span>]), <span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Both beta1 and sigma</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>contour(<span class="op">-</span><span class="fl">1</span><span class="op">:</span><span class="fl">0.01</span><span class="op">:</span><span class="fl">0</span><span class="op">,</span> <span class="fl">0.5</span><span class="op">:</span><span class="fl">0.01</span><span class="op">:</span><span class="fl">1</span><span class="op">,</span> (x<span class="op">,</span> y) <span class="op">-&gt;</span> ll([<span class="fl">5</span><span class="op">,</span> x<span class="op">,</span> y])<span class="op">,</span> fill <span class="op">=</span> <span class="ex">true</span>)</span></code></pre></div>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(<span class="op">-</span><span class="fl">1</span><span class="op">:</span><span class="fl">0.01</span><span class="op">:</span><span class="fl">0</span>, <span class="fl">0.5</span><span class="op">:</span><span class="fl">0.01</span><span class="op">:</span><span class="fl">1</span>, (x, y) <span class="op">-&gt;</span> <span class="fu">ll</span>([<span class="fl">5</span>, x, y]), fill <span class="op">=</span> <span class="cn">true</span>)</span></code></pre></div>
 <p><img src="figures/mle_13_1.png" /></p>
 <h3 id="with-optim.jl">With <code>Optim.jl</code></h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> optimize(x <span class="op">-&gt;</span> <span class="op">-</span>ll(x)<span class="op">,</span> [<span class="fl">4.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>])    <span class="co"># Nelder-Mead</span></span>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> <span class="fu">optimize</span>(x <span class="op">-&gt;</span> <span class="fu">-ll</span>(x), [<span class="fl">4.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>])    <span class="co"># Nelder-Mead</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>opt.minimizer</span></code></pre></div>
 <pre><code>3-element Vector{Float64}:
   5.03198824016666
  -0.37098861906446434
   0.6606616771567159</code></pre>
 <p>Or use <code>Optim.maximize</code></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> maximize(ll<span class="op">,</span> [<span class="fl">4.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>])</span>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="fu">maximize</span>(ll, [<span class="fl">4.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>])</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>result.res.minimizer</span></code></pre></div>
 <pre><code>3-element Vector{Float64}:
   5.03198824016666
  -0.37098861906446434
   0.6606616771567159</code></pre>
 <h4 id="box-constraints">Box Constraints</h4>
-<p>When some of the parameter(s) are constrained in just a subset of the real line.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> ll2(θ<span class="op">;</span> yc <span class="op">=</span> ctl<span class="op">,</span> yt <span class="op">=</span> trt)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    sum(vcat(logpdf(Normal(θ[<span class="fl">1</span>]<span class="op">,</span> θ[<span class="fl">3</span>])<span class="op">,</span> yc)<span class="op">,</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>             logpdf(Normal(θ[<span class="fl">1</span>] <span class="op">+</span> θ[<span class="fl">2</span>]<span class="op">,</span> θ[<span class="fl">3</span>])<span class="op">,</span> yt)))</span>
+<p>When some of the parameter(s) are constrained in just a subset of the
+real line.</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ll2</span>(θ; yc <span class="op">=</span> ctl, yt <span class="op">=</span> trt)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(<span class="fu">vcat</span>(<span class="fu">logpdf</span>(<span class="fu">Normal</span>(θ[<span class="fl">1</span>], θ[<span class="fl">3</span>]), yc), </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">logpdf</span>(<span class="fu">Normal</span>(θ[<span class="fl">1</span>] <span class="op">+</span> θ[<span class="fl">2</span>], θ[<span class="fl">3</span>]), yt)))</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Unconstrained for beta, [0, infinity) for sigma</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>opt_box <span class="op">=</span> optimize(x <span class="op">-&gt;</span> <span class="op">-</span>ll2(x)<span class="op">,</span> </span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                   [<span class="op">-</span><span class="cn">Inf</span><span class="op">,</span> <span class="op">-</span><span class="cn">Inf</span><span class="op">,</span> <span class="fl">0</span>]<span class="op">,</span> [<span class="cn">Inf</span><span class="op">,</span> <span class="cn">Inf</span><span class="op">,</span> <span class="cn">Inf</span>]<span class="op">,</span> </span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                   [<span class="fl">4.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>])    <span class="co"># Fminbox with L-BFGS</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>opt_box <span class="op">=</span> <span class="fu">optimize</span>(x <span class="op">-&gt;</span> <span class="fu">-ll2</span>(x), </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                   [<span class="op">-</span><span class="cn">Inf</span>, <span class="op">-</span><span class="cn">Inf</span>, <span class="fl">0</span>], [<span class="cn">Inf</span>, <span class="cn">Inf</span>, <span class="cn">Inf</span>], </span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                   [<span class="fl">4.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>])    <span class="co"># Fminbox with L-BFGS</span></span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>opt_box.minimizer</span></code></pre></div>
 <pre><code>3-element Vector{Float64}:
   5.032000000048675
  -0.3710000000898218
   0.6606530860112547</code></pre>
 <p>To obtain the Hessian (to be used to compute standard errors, use</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>hess <span class="op">=</span> ForwardDiff.hessian(x <span class="op">-&gt;</span> ll(x)<span class="op">,</span> opt.minimizer)</span>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>hess <span class="op">=</span> ForwardDiff.<span class="fu">hessian</span>(x <span class="op">-&gt;</span> <span class="fu">ll</span>(x), opt.minimizer)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Asymptotic covariance matrix</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> inv(hess)</span></code></pre></div>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">inv</span>(hess)</span></code></pre></div>
 <pre><code>3×3 Matrix{Float64}:
   0.0436474   -0.0436474   -3.88479e-7
  -0.0436474    0.0872948    3.75962e-7
  -3.88479e-7   3.75962e-7   0.0109123</code></pre>
 <p>Compare to <span class="math inline">\(t\)</span> test</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>EqualVarianceTTest(ctl<span class="op">,</span> trt)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">EqualVarianceTTest</span>(ctl, trt)</span></code></pre></div>
 <pre><code>Two sample t-test (equal variance)
 ----------------------------------
 Population details:
@@ -2362,14 +2451,16 @@ Details:
     degrees of freedom:       18
     empirical standard error: 0.3114348514002032</code></pre>
 <h4 id="with-analytic-derivatives">With Analytic Derivatives</h4>
-<div class="sourceCode" id="cb33"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> g<span class="op">!</span>(G<span class="op">,</span> θ<span class="op">;</span> yc <span class="op">=</span> ctl<span class="op">,</span> yt <span class="op">=</span> trt)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> size(ctl<span class="op">,</span> <span class="fl">1</span>) <span class="op">+</span> size(trt<span class="op">,</span> <span class="fl">1</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    G[<span class="fl">1</span>] <span class="op">=</span> <span class="op">-</span> (sum(yc .<span class="op">-</span> θ[<span class="fl">1</span>]) <span class="op">+</span> sum(yt .<span class="op">-</span> θ[<span class="fl">1</span>] .<span class="op">-</span> θ[<span class="fl">2</span>])) <span class="op">/</span> θ[<span class="fl">3</span>]<span class="op">^</span><span class="fl">2</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    G[<span class="fl">2</span>] <span class="op">=</span> <span class="op">-</span> sum(yt .<span class="op">-</span> θ[<span class="fl">1</span>] .<span class="op">-</span> θ[<span class="fl">2</span>]) <span class="op">/</span> θ[<span class="fl">3</span>]<span class="op">^</span><span class="fl">2</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    G[<span class="fl">3</span>] <span class="op">=</span> n <span class="op">/</span> θ[<span class="fl">3</span>] <span class="op">-</span> sum(vcat(yc .<span class="op">-</span> θ[<span class="fl">1</span>]<span class="op">,</span> yt .<span class="op">-</span> θ[<span class="fl">1</span>] .<span class="op">-</span> θ[<span class="fl">2</span>]) <span class="op">.^</span> <span class="fl">2</span>) <span class="op">/</span> θ[<span class="fl">3</span>]<span class="op">^</span><span class="fl">3</span></span>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">g!</span>(G, θ; yc <span class="op">=</span> ctl, yt <span class="op">=</span> trt)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="fu">size</span>(ctl, <span class="fl">1</span>) <span class="op">+</span> <span class="fu">size</span>(trt, <span class="fl">1</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    G[<span class="fl">1</span>] <span class="op">=</span> <span class="op">-</span> (<span class="fu">sum</span>(yc <span class="op">.-</span> θ[<span class="fl">1</span>]) <span class="op">+</span> <span class="fu">sum</span>(yt <span class="op">.-</span> θ[<span class="fl">1</span>] <span class="op">.-</span> θ[<span class="fl">2</span>])) <span class="op">/</span> θ[<span class="fl">3</span>]<span class="op">^</span><span class="fl">2</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    G[<span class="fl">2</span>] <span class="op">=</span> <span class="op">-</span> <span class="fu">sum</span>(yt <span class="op">.-</span> θ[<span class="fl">1</span>] <span class="op">.-</span> θ[<span class="fl">2</span>]) <span class="op">/</span> θ[<span class="fl">3</span>]<span class="op">^</span><span class="fl">2</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    G[<span class="fl">3</span>] <span class="op">=</span> n <span class="op">/</span> θ[<span class="fl">3</span>] <span class="op">-</span> <span class="fu">sum</span>(<span class="fu">vcat</span>(yc <span class="op">.-</span> θ[<span class="fl">1</span>], yt <span class="op">.-</span> θ[<span class="fl">1</span>] <span class="op">.-</span> θ[<span class="fl">2</span>]) <span class="op">.^</span> <span class="fl">2</span>) <span class="op">/</span> θ[<span class="fl">3</span>]<span class="op">^</span><span class="fl">3</span></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
 <pre><code>g! (generic function with 1 method)</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>opt2 <span class="op">=</span> optimize(x <span class="op">-&gt;</span> <span class="op">-</span>ll(x)<span class="op">,</span> g<span class="op">!,</span> [<span class="fl">4.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>]<span class="op">,</span> GradientDescent())</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>opt2 <span class="op">=</span> <span class="fu">optimize</span>(x <span class="op">-&gt;</span> <span class="fu">-ll</span>(x), g!, [<span class="fl">4.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>], <span class="fu">GradientDescent</span>())</span></code></pre></div>
 <pre><code>* Status: success
 
  * Candidate solution
@@ -2390,33 +2481,36 @@ Details:
     Iterations:    88
     f(x) calls:    224
     ∇f(x) calls:   224</code></pre>
-<h4 id="with-automatic-differentiation-ad">With Automatic Differentiation (AD)</h4>
-<div class="sourceCode" id="cb37"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>obj_func <span class="op">=</span> TwiceDifferentiable(x <span class="op">-&gt;</span> <span class="op">-</span>ll(x)<span class="op">,</span> [<span class="fl">4.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>]<span class="op">;</span> </span>
+<h4 id="with-automatic-differentiation-ad">With Automatic
+Differentiation (AD)</h4>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>obj_func <span class="op">=</span> <span class="fu">TwiceDifferentiable</span>(x <span class="op">-&gt;</span> <span class="fu">-ll</span>(x), [<span class="fl">4.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>]; </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                               autodiff <span class="op">=</span> <span class="op">:</span>forward)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>opt3 <span class="op">=</span> optimize(obj_func<span class="op">,</span> [<span class="fl">4.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>])  <span class="co"># Newton&#39;s method</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>NLSolversBase.hessian<span class="op">!</span>(obj_func<span class="op">,</span> opt3.minimizer)</span></code></pre></div>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>opt3 <span class="op">=</span> <span class="fu">optimize</span>(obj_func, [<span class="fl">4.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>])  <span class="co"># Newton&#39;s method</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>NLSolversBase.<span class="fu">hessian!</span>(obj_func, opt3.minimizer)</span></code></pre></div>
 <pre><code>3×3 Matrix{Float64}:
  45.823        22.9115       -3.52496e-14
  22.9115       22.9115       -3.34732e-14
  -3.52496e-14  -3.34732e-14  91.6459</code></pre>
 <h3 id="using-jump.jl">Using <code>JuMP.jl</code></h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> JuMP</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> Ipopt</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Model(Ipopt.Optimizer)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="pp">@variable</span>(model<span class="op">,</span> β[<span class="fl">1</span><span class="op">:</span><span class="fl">2</span>])</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>setvalue(β[<span class="fl">1</span>]<span class="op">,</span> <span class="fl">4.0</span>)</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>setvalue(β[<span class="fl">2</span>]<span class="op">,</span> <span class="fl">1.0</span>)</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="pp">@variable</span>(model<span class="op">,</span> σ <span class="op">&gt;=</span> <span class="fl">0.0</span><span class="op">,</span> start <span class="op">=</span> <span class="fl">1.0</span>)</span>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JuMP</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Ipopt</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> <span class="fu">Model</span>(Ipopt.Optimizer)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="pp">@variable</span>(model, β[<span class="fl">1</span><span class="op">:</span><span class="fl">2</span>])</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setvalue</span>(β[<span class="fl">1</span>], <span class="fl">4.0</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setvalue</span>(β[<span class="fl">2</span>], <span class="fl">1.0</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="pp">@variable</span>(model, σ <span class="op">&gt;=</span> <span class="fl">0.0</span>, start <span class="op">=</span> <span class="fl">1.0</span>)</span>
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="pp">@NLobjective</span>(</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    model<span class="op">,</span></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    Max<span class="op">,</span></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">10</span> <span class="op">*</span> log(σ) <span class="op">-</span> sum((ctl[i] <span class="op">-</span> β[<span class="fl">1</span>])<span class="op">^</span><span class="fl">2</span> <span class="kw">for</span> i <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>) <span class="op">/</span> (<span class="fl">2</span> <span class="op">*</span> σ<span class="op">^</span><span class="fl">2</span>) <span class="op">+</span> </span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">10</span> <span class="op">*</span> log(σ) <span class="op">-</span> sum((trt[i] <span class="op">-</span> β[<span class="fl">1</span>] <span class="op">-</span> β[<span class="fl">2</span>])<span class="op">^</span><span class="fl">2</span> <span class="kw">for</span> i <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>) <span class="op">/</span> (<span class="fl">2</span> <span class="op">*</span> σ<span class="op">^</span><span class="fl">2</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    model,</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    Max,</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">10</span> <span class="op">*</span> <span class="fu">log</span>(σ) <span class="op">-</span> <span class="fu">sum</span>((ctl[i] <span class="op">-</span> β[<span class="fl">1</span>])<span class="op">^</span><span class="fl">2</span> <span class="cf">for</span> i <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>) <span class="op">/</span> (<span class="fl">2</span> <span class="op">*</span> σ<span class="op">^</span><span class="fl">2</span>) <span class="op">+</span> </span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">10</span> <span class="op">*</span> <span class="fu">log</span>(σ) <span class="op">-</span> <span class="fu">sum</span>((trt[i] <span class="op">-</span> β[<span class="fl">1</span>] <span class="op">-</span> β[<span class="fl">2</span>])<span class="op">^</span><span class="fl">2</span> <span class="cf">for</span> i <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>) <span class="op">/</span> (<span class="fl">2</span> <span class="op">*</span> σ<span class="op">^</span><span class="fl">2</span>)</span>
 <span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="co"># @NLconstraint(model, β₀ == 10σ)</span></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>optimize<span class="op">!</span>(model)</span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>JuMP.value.(β)</span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>JuMP.value.(σ)</span></code></pre></div>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="fu">optimize!</span>(model)</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>JuMP.<span class="fu">value</span>.(β)</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>JuMP.<span class="fu">value</span>.(σ)</span></code></pre></div>
 <pre><code>***************************************************************************
 ***
 This program contains Ipopt, a library for large-scale nonlinear optimizati
@@ -2493,30 +2587,41 @@ Total CPU secs in NLP function evaluations           =      1.901
 
 EXIT: Optimal Solution Found.
 0.6606530860101113</code></pre>
-<p>For more discussion on these packages and other packages in Julia, this page <a href="https://julia.quantecon.org/more_julia/optimization_solver_packages.html" class="uri">https://julia.quantecon.org/more_julia/optimization_solver_packages.html</a> would be helpful. Also check out the documentation of <a href="https://jump.dev/JuMP.jl/stable/"><code>JuMP.jl</code></a> and <a href="https://julianlsolvers.github.io/Optim.jl/stable/"><code>Optim.jl</code></a>.</p>
+<p>For more discussion on these packages and other packages in Julia,
+this page <a
+href="https://julia.quantecon.org/more_julia/optimization_solver_packages.html"
+class="uri">https://julia.quantecon.org/more_julia/optimization_solver_packages.html</a>
+would be helpful. Also check out the documentation of <a
+href="https://jump.dev/JuMP.jl/stable/"><code>JuMP.jl</code></a> and <a
+href="https://julianlsolvers.github.io/Optim.jl/stable/"><code>Optim.jl</code></a>.</p>
 <h3 id="sufficient-statistics">Sufficient Statistics</h3>
-<p>It can be shown that the likelihood function depends only on <span class="math inline">\(\sum_{i = 1}^n y_i^2\)</span> and <span class="math inline">\(\sum_{i = 1}^n y_i\)</span>. This helps speed up the optimization.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Likelihood function with sufficient statistics</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> ll_suff(θ<span class="op">;</span> sum_yc <span class="op">=</span> sum(ctl)<span class="op">,</span> sum_yt <span class="op">=</span> sum(trt)<span class="op">,</span> </span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>                    sum_ycsq <span class="op">=</span> sum(ctl <span class="op">.^</span> <span class="fl">2</span>)<span class="op">,</span> sum_ytsq <span class="op">=</span> sum(trt <span class="op">.^</span> <span class="fl">2</span>))</span>
+<p>It can be shown that the likelihood function depends only on <span
+class="math inline">\(\sum_{i = 1}^n y_i^2\)</span> and <span
+class="math inline">\(\sum_{i = 1}^n y_i\)</span>. This helps speed up
+the optimization.</p>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Likelihood function with sufficient statistics</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ll_suff</span>(θ; sum_yc <span class="op">=</span> <span class="fu">sum</span>(ctl), sum_yt <span class="op">=</span> <span class="fu">sum</span>(trt), </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>                    sum_ycsq <span class="op">=</span> <span class="fu">sum</span>(ctl <span class="op">.^</span> <span class="fl">2</span>), sum_ytsq <span class="op">=</span> <span class="fu">sum</span>(trt <span class="op">.^</span> <span class="fl">2</span>))</span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    β₀ <span class="op">=</span> θ[<span class="fl">1</span>]</span>
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    β₁ <span class="op">=</span> θ[<span class="fl">2</span>]</span>
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    σ <span class="op">=</span> θ[<span class="fl">3</span>]</span>
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    μₜ <span class="op">=</span> β₀ <span class="op">+</span> β₁</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> <span class="fl">10</span> <span class="op">*</span> log(<span class="fl">2</span>pi) <span class="op">-</span> <span class="fl">20</span> <span class="op">*</span> log(σ) <span class="op">-</span> </span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> <span class="fl">10</span> <span class="op">*</span> <span class="fu">log</span>(<span class="fl">2</span>pi) <span class="op">-</span> <span class="fl">20</span> <span class="op">*</span> <span class="fu">log</span>(σ) <span class="op">-</span> </span>
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    (sum_ycsq <span class="op">+</span> sum_ytsq <span class="op">-</span> <span class="fl">2</span> <span class="op">*</span> (β₀ <span class="op">*</span> sum_yc <span class="op">+</span> μₜ <span class="op">*</span> sum_yt) <span class="op">+</span> </span>
 <span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>     <span class="fl">10</span> <span class="op">*</span> (β₀<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> μₜ<span class="op">^</span><span class="fl">2</span>)) <span class="op">/</span> <span class="fl">2</span>σ<span class="op">^</span><span class="fl">2</span></span>
 <span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Unconstrained for beta, [0, infinity) for sigma</span></span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>opt_box <span class="op">=</span> optimize(x <span class="op">-&gt;</span> <span class="op">-</span>ll_suff(x)<span class="op">,</span> </span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>                   [<span class="op">-</span><span class="cn">Inf</span><span class="op">,</span> <span class="op">-</span><span class="cn">Inf</span><span class="op">,</span> <span class="fl">0</span>]<span class="op">,</span> [<span class="cn">Inf</span><span class="op">,</span> <span class="cn">Inf</span><span class="op">,</span> <span class="cn">Inf</span>]<span class="op">,</span> </span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>                   [<span class="fl">4.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>])    <span class="co"># Fminbox with L-BFGS</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>opt_box <span class="op">=</span> <span class="fu">optimize</span>(x <span class="op">-&gt;</span> <span class="fu">-ll_suff</span>(x), </span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>                   [<span class="op">-</span><span class="cn">Inf</span>, <span class="op">-</span><span class="cn">Inf</span>, <span class="fl">0</span>], [<span class="cn">Inf</span>, <span class="cn">Inf</span>, <span class="cn">Inf</span>], </span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>                   [<span class="fl">4.0</span>, <span class="fl">1.0</span>, <span class="fl">1.0</span>])    <span class="co"># Fminbox with L-BFGS</span></span>
 <span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>opt_box.minimizer</span></code></pre></div>
 <pre><code>3-element Vector{Float64}:
   5.032000000229699
  -0.3710000002832418
   0.6606530859921219</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2537,7 +2642,18 @@ EXIT: Optimal Solution Found.
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom"></div>
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Lai (2021, March 9). Measurement &amp; Multilevel Modeling Lab: Maximum Likelihood Estimation with Julia. Retrieved from https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{lai2021maximum,
+  author = {Lai, Hok Chio (Mark)},
+  title = {Measurement &amp; Multilevel Modeling Lab: Maximum Likelihood Estimation with Julia},
+  url = {https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/},
+  year = {2021}
+}</pre>
+</div>
 <!--/radix_placeholder_appendices-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <!--radix_placeholder_navigation_after_body--><html><body>

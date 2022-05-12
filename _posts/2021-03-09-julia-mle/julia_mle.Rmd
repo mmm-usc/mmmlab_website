@@ -1,5 +1,7 @@
 ---
 title: "Maximum Likelihood Estimation with Julia"
+description: |
+  A demonstration of doing maximum likelihood estimation using Julia
 author:
   - name: "Hok Chio (Mark) Lai"
 date: 03/09/2021
