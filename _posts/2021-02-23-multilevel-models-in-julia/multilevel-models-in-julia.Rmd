@@ -311,12 +311,12 @@ between individual's happiness level `happy` and income `income`.
 Mark's MLM class and HW
 
 DataFrames package
-https://dataframes.juliadata.org/v0.14.0/index.html
+https://dataframes.juliadata.org/stable/
 
 MixedModels Package (similar to lme4 in R) documentation 
-https://juliastats.org/MixedModels.jl/v1.0/index.html
+https://juliastats.org/MixedModels.jl/stable/
 
 Maybe useful for plotting week:
 
 Gadfly Package (similar to ggplot in R) documentation 
-https://juliastats.org/MixedModels.jl/v1.0/index.html
+https://gadflyjl.org/stable/
