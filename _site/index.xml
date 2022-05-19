@@ -31,6 +31,17 @@
       <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>Multilevel Models in Julia</title>
+      <dc:creator>Yichi Zhang</dc:creator>
+      <link>https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia</link>
+      <description>Multilevel Models in Julia</description>
+      <category>Julia</category>
+      <category>Multilevel Modeling</category>
+      <category>Statistics</category>
+      <guid>https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia</guid>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Regression with Julia!</title>
       <dc:creator>Winnie Wing-Yee Tse</dc:creator>
       <link>https://mmmlab.rbind.io/posts/2021-02-09-julia-regression</link>

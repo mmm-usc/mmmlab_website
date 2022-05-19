@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -87,53 +88,47 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Measurement &amp; Multilevel Modeling Lab: Confidence Intervals for Multilevel R-Squared</title>
+<title>Measurement &amp; Multilevel Modeling Lab: Multilevel Models in Julia</title>
 
-<meta property="description" itemprop="description" content="A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping."/>
+<meta property="description" itemprop="description" content="Multilevel Models in Julia"/>
 
-<link rel="canonical" href="https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/"/>
+<link rel="canonical" href="https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2022-05-10"/>
-<meta property="article:created" itemprop="dateCreated" content="2022-05-10"/>
-<meta name="article:author" content="Hok Chio (Mark) Lai"/>
+<meta property="article:published" itemprop="datePublished" content="2021-02-23"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-02-23"/>
+<meta name="article:author" content="Yichi Zhang"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Confidence Intervals for Multilevel R-Squared"/>
+<meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Multilevel Models in Julia"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping."/>
-<meta property="og:url" content="https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/"/>
-<meta property="og:image" content="https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/confidence-intervals-for-multilevel-r-squared_files/figure-html5/r2mlm-fm1-1.png"/>
-<meta property="og:image:width" content="1248"/>
-<meta property="og:image:height" content="768"/>
+<meta property="og:description" content="Multilevel Models in Julia"/>
+<meta property="og:url" content="https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Measurement &amp; Multilevel Modeling Lab"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Confidence Intervals for Multilevel R-Squared"/>
-<meta property="twitter:description" content="A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping."/>
-<meta property="twitter:url" content="https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/"/>
-<meta property="twitter:image" content="https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/confidence-intervals-for-multilevel-r-squared_files/figure-html5/r2mlm-fm1-1.png"/>
-<meta property="twitter:image:width" content="1248"/>
-<meta property="twitter:image:height" content="768"/>
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Multilevel Models in Julia"/>
+<meta property="twitter:description" content="Multilevel Models in Julia"/>
+<meta property="twitter:url" content="https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Measurement &amp; Multilevel Modeling Lab: Confidence Intervals for Multilevel R-Squared"/>
-<meta name="citation_fulltext_html_url" content="https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/"/>
-<meta name="citation_online_date" content="2022/05/10"/>
-<meta name="citation_publication_date" content="2022/05/10"/>
-<meta name="citation_author" content="Hok Chio (Mark) Lai"/>
+<meta name="citation_title" content="Measurement &amp; Multilevel Modeling Lab: Multilevel Models in Julia"/>
+<meta name="citation_fulltext_html_url" content="https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/"/>
+<meta name="citation_online_date" content="2021/02/23"/>
+<meta name="citation_publication_date" content="2021/02/23"/>
+<meta name="citation_author" content="Yichi Zhang"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Confidence Intervals for Multilevel R-Squared"]},{"type":"character","attributes":{},"value":["A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Hok Chio (Mark) Lai"]},{"type":"character","attributes":{},"value":["https://quantscience.rbind.io"]}]}]},{"type":"character","attributes":{},"value":["2022-05-10"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Bootstrap","Multilevel Modeling","Statistics"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Multilevel Models in Julia"]},{"type":"character","attributes":{},"value":["Multilevel Models in Julia"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Yichi Zhang"]}]}]},{"type":"character","attributes":{},"value":["February 23, 2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Julia","Multilevel Modeling","Statistics"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["confidence-intervals-for-multilevel-r-squared_files/anchor-4.2.2/anchor.min.js","confidence-intervals-for-multilevel-r-squared_files/bowser-1.9.3/bowser.min.js","confidence-intervals-for-multilevel-r-squared_files/distill-2.2.21/template.v2.js","confidence-intervals-for-multilevel-r-squared_files/figure-html5/hist-boo01-1.png","confidence-intervals-for-multilevel-r-squared_files/figure-html5/r2mlm-fm1-1.png","confidence-intervals-for-multilevel-r-squared_files/header-attrs-2.14/header-attrs.js","confidence-intervals-for-multilevel-r-squared_files/jquery-3.6.0/jquery-3.6.0.js","confidence-intervals-for-multilevel-r-squared_files/jquery-3.6.0/jquery-3.6.0.min.js","confidence-intervals-for-multilevel-r-squared_files/jquery-3.6.0/jquery-3.6.0.min.map","confidence-intervals-for-multilevel-r-squared_files/popper-2.6.0/popper.min.js","confidence-intervals-for-multilevel-r-squared_files/tippy-6.2.7/tippy-bundle.umd.min.js","confidence-intervals-for-multilevel-r-squared_files/tippy-6.2.7/tippy-light-border.css","confidence-intervals-for-multilevel-r-squared_files/tippy-6.2.7/tippy.css","confidence-intervals-for-multilevel-r-squared_files/tippy-6.2.7/tippy.umd.min.js","confidence-intervals-for-multilevel-r-squared_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["multilevel-models-in-julia_files/anchor-4.2.2/anchor.min.js","multilevel-models-in-julia_files/bowser-1.9.3/bowser.min.js","multilevel-models-in-julia_files/distill-2.2.21/template.v2.js","multilevel-models-in-julia_files/header-attrs-2.14/header-attrs.js","multilevel-models-in-julia_files/jquery-3.6.0/jquery-3.6.0.js","multilevel-models-in-julia_files/jquery-3.6.0/jquery-3.6.0.min.js","multilevel-models-in-julia_files/jquery-3.6.0/jquery-3.6.0.min.map","multilevel-models-in-julia_files/popper-2.6.0/popper.min.js","multilevel-models-in-julia_files/tippy-6.2.7/tippy-bundle.umd.min.js","multilevel-models-in-julia_files/tippy-6.2.7/tippy-light-border.css","multilevel-models-in-julia_files/tippy-6.2.7/tippy.css","multilevel-models-in-julia_files/tippy-6.2.7/tippy.umd.min.js","multilevel-models-in-julia_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2110,7 +2105,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Confidence Intervals for Multilevel R-Squared","description":"A demonstration of obtaining confidence intervals for multilevel R-squared effect size using parametric and residual multilevel bootstrapping.","authors":[{"author":"Hok Chio (Mark) Lai","authorURL":"https://quantscience.rbind.io","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-05-10T00:00:00.000-07:00","citationText":"Lai, 2022"}
+{"title":"Multilevel Models in Julia","description":"Multilevel Models in Julia","authors":[{"author":"Yichi Zhang","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-23T00:00:00.000-08:00","citationText":"Zhang, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2153,24 +2148,21 @@ Applications
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Confidence Intervals for Multilevel R-Squared</h1>
+<h1>Multilevel Models in Julia</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
-  <a href="../../index.html#category:Bootstrap" class="dt-tag">Bootstrap</a>
+  <a href="../../index.html#category:Julia" class="dt-tag">Julia</a>
   <a href="../../index.html#category:Multilevel_Modeling" class="dt-tag">Multilevel Modeling</a>
   <a href="../../index.html#category:Statistics" class="dt-tag">Statistics</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>A demonstration of obtaining confidence intervals for multilevel
-R-squared effect size using parametric and residual multilevel
-bootstrapping.</p></p>
+<p><p>Multilevel Models in Julia</p></p>
 </div>
 
 <div class="d-byline">
-  Hok Chio (Mark) Lai <a href="https://quantscience.rbind.io"
-class="uri">https://quantscience.rbind.io</a> 
+  Yichi Zhang  
   
-<br/>2022-05-10
+<br/>February 23, 2021
 </div>
 
 <div class="d-article">
@@ -2178,423 +2170,305 @@ class="uri">https://quantscience.rbind.io</a>
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#load-packages">Load Packages</a></li>
-<li><a href="#an-example-multilevel-model">An Example Multilevel
-Model</a>
+<li><a href="#set-up">Set up</a>
 <ul>
-<li><a
-href="#nakagawa-johnson-schielzeth-r2">Nakagawa-Johnson-Schielzeth <span
-class="math inline">\(R^2\)</span></a></li>
-<li><a href="#right-sterba-r2">Right-Sterba <span
-class="math inline">\(R^2\)</span></a></li>
+<li><a href="#install-packages">Install Packages</a></li>
+<li><a href="#using-packages">Using Packages</a></li>
+<li><a href="#dataset">Dataset</a></li>
 </ul></li>
-<li><a href="#confidence-intervals-for-r2">Confidence Intervals for
-<span class="math inline">\(R^2\)</span></a></li>
-<li><a href="#parametric-bootstrap">Parametric Bootstrap</a>
+<li><a href="#research-questions">Research Questions</a>
 <ul>
-<li><a href="#bias-corrected-estimate">Bias-corrected estimate</a></li>
-<li><a href="#confidence-intervals">Confidence intervals</a></li>
-</ul></li>
-<li><a href="#residual-bootstrap">Residual Bootstrap</a>
+<li><a href="#descriptive-analysis">Descriptive Analysis</a></li>
+<li><a href="#linear-regression">Linear Regression</a>
 <ul>
-<li><a href="#confidence-intervals-1">Confidence Intervals</a></li>
+<li><a href="#fitting-the-linear-regression-model">Fitting the linear
+regression model</a></li>
+<li><a href="#equations">Equations</a></li>
 </ul></li>
-<li><a href="#bootstrap-ci-with-transformation">Bootstrap CI With
-Transformation</a></li>
+<li><a href="#multilevel-modeling">Multilevel Modeling</a>
+<ul>
+<li><a href="#random-intercept-model">Random Intercept Model</a></li>
+<li><a href="#add-level-2-predictor">Add Level 2 Predictor</a></li>
+</ul></li>
+<li><a href="#add-level-1-predictor">Add Level 1 predictor</a></li>
+<li><a href="#cross-level-interaction">Cross level Interaction</a></li>
+</ul></li>
 <li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#resources">Resources</a></li>
 </ul>
 </nav>
 </div>
-<h2 id="load-packages">Load Packages</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/lme4/lme4/'>lme4</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>MuMIn</span><span class='op'>)</span>  <span class='co'># for computing multilevel R-squared</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mkshaw/r2mlm'>r2mlm</a></span><span class='op'>)</span>  <span class='co'># another package for R-squared</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>bootmlm</span><span class='op'>)</span>  <span class='co'># for multilevel bootstrapping</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>boot</span><span class='op'>)</span>  <span class='co'># for bootstrap CIs</span>
-</code></pre>
-</div>
-</div>
-<h2 id="an-example-multilevel-model">An Example Multilevel Model</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>fm1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/lmer.html'>lmer</a></span><span class='op'>(</span><span class='va'>Reaction</span> <span class='op'>~</span> <span class='va'>Days</span> <span class='op'>+</span> <span class='op'>(</span><span class='va'>Days</span> <span class='op'>|</span> <span class='va'>Subject</span><span class='op'>)</span>, <span class='va'>sleepstudy</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<h3 id="nakagawa-johnson-schielzeth-r2">Nakagawa-Johnson-Schielzeth
-<span class="math inline">\(R^2\)</span></h3>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/MuMIn/man/r.squaredGLMM.html'>r.squaredGLMM</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>           R2m       R2c
-[1,] 0.2786511 0.7992199</code></pre>
-</div>
-<p>The marginal <span class="math inline">\(R^2\)</span> considers the
-total variance accounted for due to the fixed effect associated with the
-predictors (<code>Days</code> in this example). See <a
-href="https://doi.org/10.1098/rsif.2017.0213">Nakagawa, Johnson, &amp;
-Schielzeth (2017)</a> for more information.</p>
-<h3 id="right-sterba-r2">Right-Sterba <span
-class="math inline">\(R^2\)</span></h3>
-<p>More fine-grained partitioning, as described in <a
-href="https://doi.org/10.1037/met0000184">Rights &amp; Sterba
-(2019)</a></p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/r2mlm/man/r2mlm.html'>r2mlm</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
-</code></pre>
-</div>
-<p><img src="confidence-intervals-for-multilevel-r-squared_files/figure-html5/r2mlm-fm1-1.png" width="624" /></p>
-<pre><code>$Decompositions
-                     total
-fixed           0.27851304
-slope variation 0.08915267
-mean variation  0.43165365
-sigma2          0.20068063
-
-$R2s
-         total
-f   0.27851304
-v   0.08915267
-m   0.43165365
-fv  0.36766572
-fvm 0.79931937</code></pre>
-</div>
-<p>The <code>fixed</code> part is the same as the marginal <span
-class="math inline">\(R^2\)</span>.</p>
-<h2 id="confidence-intervals-for-r2">Confidence Intervals for <span
-class="math inline">\(R^2\)</span></h2>
-<p>Neither <code>MuMIn::r.squaredGLMM()</code> nor
-<code>r2mlm::r2mlm()</code> provided confidence intervals (CIs) for the
-<span class="math inline">\(R^2\)</span>, but general guidelines for
-effect size reporting would suggest always reporting CIs for point
-estimates of effect size, just like for any point estimates in
-statistics. We can use multilevel bootstrapping to get CIs.</p>
-<p>To do bootstrap, first defines an R function that gives the target
-<span class="math inline">\(R^2\)</span> statistics. We can do it for
-the marginal <span class="math inline">\(R^2\)</span>:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marginal_r2</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/MuMIn/man/r.squaredGLMM.html'>r.squaredGLMM</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
-<span class='op'>}</span>
-<span class='fu'>marginal_r2</span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>[1] 0.2786511</code></pre>
-</div>
-<h2 id="parametric-bootstrap">Parametric Bootstrap</h2>
-<p>The <code>lme4::bootMer()</code> supports basic parametric multilevel
-bootstrapping</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># This takes about 30 sec on my computer</span>
-<span class='va'>boo01</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/bootMer.html'>bootMer</a></span><span class='op'>(</span><span class='va'>fm1</span>, FUN <span class='op'>=</span> <span class='va'>marginal_r2</span>, nsim <span class='op'>=</span> <span class='fl'>999</span><span class='op'>)</span>
-<span class='va'>boo01</span>
-</code></pre>
-</div>
-<pre><code>
-PARAMETRIC BOOTSTRAP
-
-
-Call:
-bootMer(x = fm1, FUN = marginal_r2, nsim = 999)
-
-
-Bootstrap Statistics :
-     original      bias    std. error
-t1* 0.2786511 0.005759548  0.07545455</code></pre>
-</div>
-<p>Here is the bootstrap distribution</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>boo01</span><span class='op'>)</span>
-</code></pre>
-</div>
-<p><img src="confidence-intervals-for-multilevel-r-squared_files/figure-html5/hist-boo01-1.png" width="624" /></p>
-</div>
-<h3 id="bias-corrected-estimate">Bias-corrected estimate</h3>
-<p>The above shows that the sample estimate of <span
-class="math inline">\(R^2\)</span> was upwardly biased. To correct for
-the bias, we can use the bootstrap bias-corrected estimate</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>2</span> <span class='op'>*</span> <span class='va'>boo01</span><span class='op'>$</span><span class='va'>t0</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>boo01</span><span class='op'>$</span><span class='va'>t</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>[1] 0.2728915</code></pre>
-</div>
-<h3 id="confidence-intervals">Confidence intervals</h3>
-<p>You can get three types of bootstrap CIs (<code>"norm"</code>,
-<code>"basic"</code>, <code>"perc"</code>) with
-<code>bootMer</code>:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>boot</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/boot/man/boot.ci.html'>boot.ci</a></span><span class='op'>(</span><span class='va'>boo01</span>, index <span class='op'>=</span> <span class='fl'>1</span>, type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"norm"</span>, <span class='st'>"basic"</span>, <span class='st'>"perc"</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
-Based on 999 bootstrap replicates
-
-CALL : 
-boot::boot.ci(boot.out = boo01, type = c(&quot;norm&quot;, &quot;basic&quot;, &quot;perc&quot;), 
-    index = 1)
-
-Intervals : 
-Level      Normal              Basic              Percentile     
-95%   ( 0.1250,  0.4208 )   ( 0.1088,  0.4114 )   ( 0.1460,  0.4485 )  
-Calculations and Intervals on Original Scale</code></pre>
-</div>
-<h2 id="residual-bootstrap">Residual Bootstrap</h2>
-<p>The <code>bootmlm::bootstrap_mer()</code> implements the residual
-bootstrap, which is robust to non-normality.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># This takes about 30 sec on my computer</span>
-<span class='va'>boo02</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/bootstrap_mer.html'>bootstrap_mer</a></span><span class='op'>(</span><span class='va'>fm1</span>, FUN <span class='op'>=</span> <span class='va'>marginal_r2</span>, nsim <span class='op'>=</span> <span class='fl'>999</span>, type <span class='op'>=</span> <span class='st'>"residual"</span><span class='op'>)</span>
-<span class='va'>boo02</span>
-</code></pre>
-</div>
-<pre><code>
-ORDINARY NONPARAMETRIC BOOTSTRAP
-
-
-Call:
-bootstrap_mer(x = fm1, FUN = marginal_r2, nsim = 999, type = &quot;residual&quot;)
-
-
-Bootstrap Statistics :
-     original      bias    std. error
-t1* 0.2786511 0.005397786  0.08418536</code></pre>
-</div>
-<p>In this example, the results are similar. The boostrap bias-corrected
-estimate of <span class="math inline">\(R^2\)</span>, and the three
-basic CIs, can similarly be computed as in parametric bootstrap.</p>
-<h3 id="confidence-intervals-1">Confidence Intervals</h3>
-<p>In addition to the three CIs previously discussed, which are
-first-order accurate, we can also obtain CIs that are second-order
-accurate: (a) bias-corrected and accelerated (BCa) CI and (b)
-studentized CI (also called the bootstrap-<span
-class="math inline">\(t\)</span> CI). For (a), it requires the influence
-value of the <span class="math inline">\(R^2\)</span> function, whereas
-for (b), it requires an estimate of the sampling variance of the <span
-class="math inline">\(R^2\)</span> estimate.</p>
-<h4 id="influence-value">Influence value</h4>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Based on the group jackknife</span>
-<span class='va'>inf_val</span> <span class='op'>&lt;-</span> <span class='fu'>bootmlm</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/empinf_mer.html'>empinf_mer</a></span><span class='op'>(</span><span class='va'>fm1</span>, <span class='va'>marginal_r2</span>, index <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<h4 id="sampling-variance-with-the-numerical-delta-method">Sampling
-variance with the numerical <a
-href="https://en.wikipedia.org/wiki/Delta_method">delta method</a></h4>
-<blockquote>
-<p>This part is a bit more technical; skip this if you’re not interested
-in the studentized CI.</p>
-</blockquote>
-<p>To obtain an approximate sampling variance of the <span
-class="math inline">\(R^2\)</span>, it would be easier to use the
-<code>r2mlm::r2mlm_manual()</code> function to compute <span
-class="math inline">\(R^2\)</span>. We first write a function that
-computes <span class="math inline">\(R^2\)</span> using input of the
-fixed and random effects:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>manual_r2</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>theta</span>, <span class='va'>data</span>,
-                      <span class='co'># The following are model-specific</span>
-                      <span class='va'>wc</span> <span class='op'>=</span> <span class='fl'>2</span>, <span class='va'>bc</span> <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>rc</span> <span class='op'>=</span> <span class='fl'>2</span>,
-                      <span class='va'>cmc</span> <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>n_wc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>wc</span><span class='op'>)</span>
-  <span class='va'>n_bc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>bc</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span>
-  <span class='va'>dim_rc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>rc</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span>
-  <span class='va'>n_rc</span> <span class='op'>&lt;-</span> <span class='va'>dim_rc</span> <span class='op'>*</span> <span class='op'>(</span><span class='va'>dim_rc</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>/</span> <span class='fl'>2</span>
-  <span class='va'>gam_w</span> <span class='op'>&lt;-</span> <span class='va'>theta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>n_wc</span><span class='op'>)</span><span class='op'>]</span>
-  <span class='va'>gam_b</span> <span class='op'>&lt;-</span> <span class='va'>theta</span><span class='op'>[</span><span class='va'>n_wc</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>n_bc</span><span class='op'>)</span><span class='op'>]</span>
-  <span class='va'>tau</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='cn'>NA</span>, nrow <span class='op'>=</span> <span class='va'>dim_rc</span>, ncol <span class='op'>=</span> <span class='va'>dim_rc</span><span class='op'>)</span>
-  <span class='va'>tau</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/lower.tri.html'>lower.tri</a></span><span class='op'>(</span><span class='va'>tau</span>, diag <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>theta</span><span class='op'>[</span><span class='va'>n_wc</span> <span class='op'>+</span> <span class='va'>n_bc</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>n_rc</span><span class='op'>)</span><span class='op'>]</span>
-  <span class='va'>tau2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='va'>tau</span><span class='op'>)</span>
-  <span class='va'>tau2</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/lower.tri.html'>lower.tri</a></span><span class='op'>(</span><span class='va'>tau2</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>tau</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/lower.tri.html'>lower.tri</a></span><span class='op'>(</span><span class='va'>tau</span><span class='op'>)</span><span class='op'>]</span>
-  <span class='va'>s2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span><span class='op'>(</span><span class='va'>theta</span>, n <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/r2mlm/man/r2mlm_manual.html'>r2mlm_manual</a></span><span class='op'>(</span><span class='va'>data</span>,
-               within_covs <span class='op'>=</span> <span class='va'>wc</span>,
-               between_covs <span class='op'>=</span> <span class='va'>bc</span>,
-               random_covs <span class='op'>=</span> <span class='fl'>2</span>,
-               gamma_w <span class='op'>=</span> <span class='va'>gam_w</span>,
-               gamma_b <span class='op'>=</span> <span class='va'>gam_b</span>,
-               Tau <span class='op'>=</span> <span class='va'>tau2</span>,
-               sigma2 <span class='op'>=</span> <span class='va'>s2</span>,
-               clustermeancentered <span class='op'>=</span> <span class='va'>cmc</span>,
-               bargraph <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>$</span><span class='va'>R2s</span><span class='op'>[</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>]</span>
-<span class='op'>}</span>
-<span class='va'>theta_fm1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/lme4/man/fixef.html'>fixef</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>, <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/fixef.html'>fixef</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>,
-               <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/VarCorr.html'>VarCorr</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>4</span><span class='op'>)</span><span class='op'>]</span>, <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/sigma.html'>sigma</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
-<span class='fu'>manual_r2</span><span class='op'>(</span><span class='va'>theta_fm1</span>, data <span class='op'>=</span> <span class='va'>fm1</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>[1] 0.278513</code></pre>
-</div>
-<p>Now computes the numerical gradient</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>grad_fm1</span> <span class='op'>&lt;-</span> <span class='fu'>numDeriv</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/numDeriv/man/grad.html'>grad</a></span><span class='op'>(</span><span class='va'>manual_r2</span>, x <span class='op'>=</span> <span class='va'>theta_fm1</span>, data <span class='op'>=</span> <span class='va'>fm1</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p>We also need the asymptotic covariance matrix of the fixed and random
-effects</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>vcov_fixed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
-<span class='va'>vcov_random</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/vcov_vc.html'>vcov_vc</a></span><span class='op'>(</span><span class='va'>fm1</span>, sd_cor <span class='op'>=</span> <span class='cn'>FALSE</span>, print_names <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-<span class='va'>vcov_fm1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Matrix/man/bdiag.html'>bdiag</a></span><span class='op'>(</span><span class='va'>vcov_fixed</span>, <span class='va'>vcov_random</span><span class='op'>)</span>
-<span class='co'># Need to re-arrange the first two columns</span>
-<span class='va'>vcov_fm1</span> <span class='op'>&lt;-</span> <span class='va'>vcov_fm1</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>:</span><span class='fl'>6</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>:</span><span class='fl'>6</span><span class='op'>)</span><span class='op'>]</span>
-</code></pre>
-</div>
-</div>
-<p>Now apply the multivariate delta method</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/Matrix/man/matrix-products.html'>crossprod</a></span><span class='op'>(</span><span class='va'>grad_fm1</span>, <span class='va'>vcov_fm1</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/Matrix/man/matrix-products.html'>%*%</a></span> <span class='va'>grad_fm1</span>
-</code></pre>
-</div>
-<pre><code>1 x 1 Matrix of class &quot;dgeMatrix&quot;
-            [,1]
-[1,] 0.005919918</code></pre>
-</div>
-<p>We now need a function that computes both <span
-class="math inline">\(R^2\)</span> and the asymptotic sampling variance
-of it.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>marginal_r2_with_var</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>object</span>,
-                                 <span class='va'>wc</span> <span class='op'>=</span> <span class='fl'>2</span>, <span class='va'>bc</span> <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>rc</span> <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>dim_rc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>rc</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span>
-  <span class='va'>vc_mat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>dim_rc</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>, nrow <span class='op'>=</span> <span class='va'>dim_rc</span>, ncol <span class='op'>=</span> <span class='va'>dim_rc</span><span class='op'>)</span>
-  <span class='va'>vc_index</span> <span class='op'>&lt;-</span> <span class='va'>vc_mat</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/lower.tri.html'>lower.tri</a></span><span class='op'>(</span><span class='va'>vc_mat</span>, diag <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>]</span>
-  <span class='va'>theta_obj</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/lme4/man/fixef.html'>fixef</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='va'>wc</span><span class='op'>]</span>, <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/fixef.html'>fixef</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='va'>bc</span><span class='op'>)</span><span class='op'>]</span>,
-                 <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/VarCorr.html'>VarCorr</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[</span><span class='va'>vc_index</span><span class='op'>]</span>, <span class='fu'><a href='https://rdrr.io/pkg/lme4/man/sigma.html'>sigma</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
-  <span class='va'>r2</span> <span class='op'>&lt;-</span> <span class='fu'>manual_r2</span><span class='op'>(</span><span class='va'>theta_obj</span>, data <span class='op'>=</span> <span class='va'>object</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span>
-  <span class='va'>grad_obj</span> <span class='op'>&lt;-</span> <span class='fu'>numDeriv</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/numDeriv/man/grad.html'>grad</a></span><span class='op'>(</span><span class='va'>manual_r2</span>, x <span class='op'>=</span> <span class='va'>theta_obj</span>, data <span class='op'>=</span> <span class='va'>object</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span>
-  <span class='co'># Need to re-arrange the order of the fixed effects</span>
-  <span class='va'>names_wc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span><span class='op'>[</span><span class='va'>wc</span><span class='op'>]</span>
-  <span class='va'>names_bc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"(Intercept)"</span>, <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>@</span><span class='va'>frame</span><span class='op'>)</span><span class='op'>[</span><span class='va'>bc</span><span class='op'>]</span><span class='op'>)</span>
-  <span class='va'>vcov_fixed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>names_wc</span>, <span class='va'>names_bc</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>names_wc</span>, <span class='va'>names_bc</span><span class='op'>)</span><span class='op'>]</span>
-  <span class='va'>vcov_random</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/vcov_vc.html'>vcov_vc</a></span><span class='op'>(</span><span class='va'>object</span>, sd_cor <span class='op'>=</span> <span class='cn'>FALSE</span>, print_names <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-  <span class='va'>vcov_obj</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Matrix/man/bdiag.html'>bdiag</a></span><span class='op'>(</span><span class='va'>vcov_fixed</span>, <span class='va'>vcov_random</span><span class='op'>)</span>
-  <span class='va'>v_r2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Matrix/man/matrix-products.html'>crossprod</a></span><span class='op'>(</span><span class='va'>grad_obj</span>, <span class='va'>vcov_obj</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/Matrix/man/matrix-products.html'>%*%</a></span> <span class='va'>grad_obj</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>r2</span>, <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>v_r2</span><span class='op'>)</span><span class='op'>)</span>
-<span class='op'>}</span>
-<span class='fu'>marginal_r2_with_var</span><span class='op'>(</span><span class='va'>fm1</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>[1] 0.278513044 0.005919918</code></pre>
-</div>
-<h4 id="five-bootstrap-cis">Five Bootstrap CIs</h4>
-<p>Now, we can do bootstrap again, using the new function that computes
-both the estimate and the asymptotic sampling variance</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># This takes quite a bit longer due to the need to compute variances</span>
-<span class='va'>boo03</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bootmlm/man/bootstrap_mer.html'>bootstrap_mer</a></span><span class='op'>(</span><span class='va'>fm1</span>, FUN <span class='op'>=</span> <span class='va'>marginal_r2_with_var</span>, nsim <span class='op'>=</span> <span class='fl'>999</span>,
-                       type <span class='op'>=</span> <span class='st'>"residual"</span><span class='op'>)</span>
-<span class='va'>boo03</span>
-</code></pre>
-</div>
-<pre><code>
-ORDINARY NONPARAMETRIC BOOTSTRAP
-
-
-Call:
-bootstrap_mer(x = fm1, FUN = marginal_r2_with_var, nsim = 999, 
-    type = &quot;residual&quot;)
-
-
-Bootstrap Statistics :
-       original        bias    std. error
-t1* 0.278513044  0.0100127766 0.083704256
-t2* 0.005919918 -0.0002646922 0.001150678</code></pre>
-</div>
-<p>And then obtain five types of CIs</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>boot</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/boot/man/boot.ci.html'>boot.ci</a></span><span class='op'>(</span><span class='va'>boo03</span>, L <span class='op'>=</span> <span class='va'>inf_val</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
-Based on 998 bootstrap replicates
-
-CALL : 
-boot::boot.ci(boot.out = boo03, L = inf_val)
-
-Intervals : 
-Level      Normal              Basic             Studentized     
-95%   ( 0.1044,  0.4326 )   ( 0.0890,  0.4067 )   ( 0.0822,  0.4385 )  
-
-Level     Percentile            BCa          
-95%   ( 0.1503,  0.4680 )   ( 0.1408,  0.4466 )  
-Calculations and Intervals on Original Scale</code></pre>
-</div>
-<h2 id="bootstrap-ci-with-transformation">Bootstrap CI With
-Transformation</h2>
-<p>Given that <span class="math inline">\(R^2\)</span> is bounded, it
-may be more accurate to first transform the <span
-class="math inline">\(R^2\)</span> estimates to an unbounded scale,
-obtain the CIs on the transformed scale, and then back transform it to
-between 0 and 1. This can be done in <code>boot::boot.ci()</code> as
-well with the logistic transformation:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>boot</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/boot/man/boot.ci.html'>boot.ci</a></span><span class='op'>(</span><span class='va'>boo03</span>, L <span class='op'>=</span> <span class='va'>inf_val</span>, h <span class='op'>=</span> <span class='va'>qlogis</span>,
-              <span class='co'># Need the derivative of the transformation</span>
-              hdot <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fl'>1</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>x</span> <span class='op'>-</span> <span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>,
-              hinv <span class='op'>=</span> <span class='va'>plogis</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
-Based on 998 bootstrap replicates
-
-CALL : 
-boot::boot.ci(boot.out = boo03, L = inf_val, h = qlogis, hdot = function(x) 1/(x - 
-    x^2), hinv = plogis)
-
-Intervals : 
-Level      Normal              Basic             Studentized     
-95%   ( 0.1440,  0.4629 )   ( 0.1449,  0.4572 )   ( 0.1184,  0.4187 )  
-
-Level     Percentile            BCa          
-95%   ( 0.1503,  0.4680 )   ( 0.1408,  0.4466 )  
-Calculations on Transformed Scale;  Intervals on Original Scale</code></pre>
-</div>
-<p>Note that the transformation only affects the Normal, Basic, and
-Studentized CIs.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>This post demonstrates how to use multilevel bootstrapping to obtain
-CIs for <span class="math inline">\(R^2\)</span>. The post only focuses
-on marginal <span class="math inline">\(R^2\)</span>, but CIs for other
-<span class="math inline">\(R^2\)</span> measures can be similarly
-obtained. The studentized CI is the most complex as it requires
-obtaining the sampling variance of <span
-class="math inline">\(R^2\)</span> for each bootstrap sample. So far, to
-my knowledge, there has not been studies on which CI(s) perform best, so
-simulation studies are needed.</p>
-<p>Further readings on multilevel bootstrap:</p>
-<ul>
-<li><a
-href="https://link.springer.com/chapter/10.1007/978-0-387-73186-5_11">Chapter
-by van der Leeden et al.</a></li>
-<li><a href="https://doi.org/10.1080/00273171.2020.1746902">Paper by
-Lai</a></li>
-<li><a href="https://doi.org/10.1017/CBO9780511802843">Book by Davison
-&amp; Hinkley</a></li>
-</ul>
-<div class="sourceCode" id="cb14"><pre
+<p>Today We will have a fun session doing regression and multilevel
+models(MLMs) using Julia. First, we will have a small exercise fitting a
+linear regression model to a sample dataset, and then we will fit the
+MLM to the same dataset and compare the difference in results. Please
+note the examples come from Dr.Mark Lai’s multilevel modeling course,
+which can be assessed at <a
+href="https://quantscience.rbind.io/courses/psyc575/homework-3/"
+class="uri">https://quantscience.rbind.io/courses/psyc575/homework-3/</a>.
+Can’t wait? Let’s get started! Yay!</p>
+<h1 id="set-up">Set up</h1>
+<h2 id="install-packages">Install Packages</h2>
+<p>In Julia, we can add package by typing “]” in the Terminal to enter
+the <code>Pkg</code> mode and exit using <code>Ctrl + C</code>. Or, we
+can use [<code>Pkg</code>] package and add multiple packages at
+once.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#= uncomment below to install packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">using Pkg</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Pkg.add([&quot;Pipe&quot;, &quot;DataFrames&quot;, &quot;StatFiles&quot;, &quot;GLM&quot;,&quot;MixedModels&quot;,&quot;Plots&quot;, &quot;StatsPlots&quot;])</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">=#</span></span></code></pre></div>
+<h2 id="using-packages">Using Packages</h2>
+<p>Just like we use <code>library</code> to load packages in R, we use
+<code>using</code> in Julia. It’s better to have a separate session in
+the beginning of the file to load all packages you will need in the
+analysis. Otherwise it will take a long time to precompile each
+time.</p>
+<p><code>Pipe</code> for pipe operator. <code>DataFrames</code> for
+working with dataframes. <code>StatFiles</code> for reading datasets
+from Stata, SPSS and SAS. If you have a txt file, can try CSV.read
+function from package <code>CSV</code>. <code>GLM</code> for linear
+regression. <code>MixedModels</code> for working with multilevel models.
+Similar to lme4. <code>Plots</code> for making graphs.
+<code>StatsPlots</code> for making graphs.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pipe</span>, <span class="bu">DataFrames</span>, <span class="bu">StatFiles</span>, <span class="bu">GLM</span>, <span class="bu">MixedModels</span>, <span class="bu">Plots</span>, <span class="bu">StatsPlots</span>, <span class="bu">Statistics</span></span></code></pre></div>
+<h2 id="dataset">Dataset</h2>
+<p>Today we are going to use the dataset from the World Value
+Survey-1990-93 data (World Values Study Group, 1994). There are five
+variables in the data set:</p>
+<p><code>CountryID</code>: CountryID<br />
+<code>country</code>: Country’s name<br />
+<code>gm_GNP</code>: Grand-mean centered Gross National Product<br />
+<code>income</code>: Income level(0-least income to 9-most income)<br />
+<code>happy</code>:Feel happy(1-not happy to 4-very happy)</p>
+<p>This data set and set of practice problem come from Mark’s Multilvel
+Modeling class, so thanks Mark!</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_happy <span class="op">=</span> <span class="fu">DataFrame</span>(<span class="fu">load</span>(<span class="st">&quot;happy_combined.sav&quot;</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#= Or we can use pipe operator</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">data_happy = load(&quot;happy_combined.sav&quot;) |&gt; DataFrame</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">=#</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data_happy <span class="op">=</span> <span class="fu">dropmissing</span>(data_happy)</span></code></pre></div>
+<h1 id="research-questions">Research Questions</h1>
+<p>Are people with higher individual level income happier? Is the
+relation similar across countries? How is the result of linear
+regression different from the result of multilevel models?</p>
+<h2 id="descriptive-analysis">Descriptive Analysis</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Summary of all variables in the dataset</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(data_happy)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">## list first five rows of data</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(data_happy,<span class="fl">5</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">## list names of all variables</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data_happy)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">## get size of the data set</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">size</span>(data_happy)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">size</span>(data_happy,<span class="fl">1</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">size</span>(data_happy,<span class="fl">2</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">## check a specific column </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>data_happy[<span class="op">:</span>,<span class="st">&quot;country&quot;</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data_happy[<span class="op">:</span>,<span class="st">&quot;country&quot;</span>])</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># data_happy[!,:2]; data_happy[:,2] also work for extracting the second columns</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># data_happy[2,:] can extract the second row, data_happy[2:5,:] extract the second to fifth row.</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@df</span> data_happy <span class="fu">scatter</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>country, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>happy,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    group <span class="op">=</span> <span class="op">:</span>country)</span></code></pre></div>
+<h2 id="linear-regression">Linear Regression</h2>
+<p>??? Exercise Time: We are familiar with our dataset, so let’s do some
+exercise! Recall Winnie did a great presentation last time on linear
+regression, so please go ahead to fit a linear regression model and
+write out the equation.</p>
+<p>Hint: <code>Model_name = lm(@formula(DV ~ IV), data_set)</code></p>
+<h3 id="fitting-the-linear-regression-model">Fitting the linear
+regression model</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="op">=</span> <span class="fu">lm</span>(<span class="pp">@formula</span>(happy<span class="op">~</span> gm_GNP),data_happy)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># extract coefficients</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm1)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># extract standard errors</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stderror</span>(lm1)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># extract variance covariance matrix</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">vcov</span>(lm1)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain R^2</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm1)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># get the deviance </span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(lm1)</span></code></pre></div>
+<p>This model explains 4.72% of variance in <code>happy</code>. Note the
+standard error estimates for <code>gm_GNP</code> is 0.010, t =17.13, 95%
+CI [0.155 0.195], p &lt; 0.0001.</p>
+<h3 id="equations">Equations</h3>
+<p><span class="math display">\[\text{happy} = 2.992 + 0.175
+\text{gm_GNP}\]</span></p>
+<h2 id="multilevel-modeling">Multilevel Modeling</h2>
+<h3 id="random-intercept-model">Random Intercept Model</h3>
+<p>We first fit a random intercept model and calculate the intraclass
+correlation. Recall</p>
+<h4 id="equations-1">Equations</h4>
+<p>Level 1:</p>
+<p><span class="math display">\[\text{happy}_{ij} = \beta_{0j} +
+e_{ij}\]</span></p>
+<p>Level 2:</p>
+<p><span class="math display">\[\beta_{0j} = \gamma_{00} +
+u_{0j}\]</span></p>
+<p><span class="math display">\[\text{ICC} = \frac{\tau_0^2}{\tau_0^2 +
+\sigma^2}\]</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Fitting MLMs</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mm1 <span class="op">=</span> <span class="fu">fit</span>(LinearMixedModel, <span class="pp">@formula</span>(happy <span class="op">~</span> (<span class="fl">1</span><span class="op">|</span>country)), data_happy)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Create a vector and store the model fit statistics</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>model_fit<span class="op">=</span> <span class="fu">Vector</span><span class="dt">{Float64}</span>()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">push!</span>(model_fit,<span class="fu">aic</span>(mm1))</span></code></pre></div>
+<p>??? Exercise Time: What is the value of ICC?</p>
+<p>The first part of the result prints out estimation method and the
+model fit statistics, such as AIC,BIC, etc. The second part is the table
+of estimates of parameters associated with the random effects. The third
+part is the fixed effects point estimates and standard errors.</p>
+<p>ICC = 0.0649/(0.0649 + 0.4842) = 0.118, so there is evidence that
+people’s happiness level varies across countries. Variability at the
+country level accounts for 11.8% of the total variability of happiness
+level.</p>
+<p>Design effect = 1 +(average cluster size - 1) x ICC. We have 5926
+observations and 38 groups, so design effect = 1 + (5926/38 -1) x 0.118
+= 19.28.</p>
+<h3 id="add-level-2-predictor">Add Level 2 Predictor</h3>
+<p>It is reasonable to think <code>gm_GNP</code> is a cluster level
+predictor, so let’s add it to our model.</p>
+<h4 id="equations-2">Equations</h4>
+<p>Level 1:</p>
+<p><span class="math display">\[\text{happy}_{ij} = \beta_{0j} +
+e_{ij}\]</span> Level 2:</p>
+<p><span class="math display">\[\beta_{0j} = \gamma_{00} + \gamma_{01}
+\text{gm_GNP}_{j} + u_{0j}\]</span></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Fitting MLMs</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mm2 <span class="op">=</span> <span class="fu">fit</span>(LinearMixedModel, <span class="pp">@formula</span>(happy <span class="op">~</span> gm_GNP <span class="op">+</span> (<span class="fl">1</span><span class="op">|</span>country)), data_happy)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">push!</span>(model_fit, <span class="fu">aic</span>(mm2))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># extract log likelihood</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">loglikelihood</span>(mm2)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># extract Akaike&#39;s Information Criterion</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">aic</span>(mm2)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># extract Bayesian Information Criterion</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">bic</span>(mm2)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># extract degrees of freedom</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dof</span>(mm2)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># extract coefficient</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mm2)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># extract fixed effects</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(mm2)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">vcov</span>(mm2)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">stderror</span>(mm2)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># extract coefficients table</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftable</span>(mm2)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co"># extract variance components</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">VarCorr</span>(mm2)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># return sigma^2</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">varest</span>(mm2)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># return tau</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fu">VarCorr</span>(mm2).σρ[<span class="fl">1</span>][<span class="fl">1</span>][<span class="fl">1</span>]</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># return elements in the components</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="fu">dump</span>(<span class="fu">VarCorr</span>(mm1))</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># return sigma</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="fu">sdest</span>(mm2)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co"># extract random effects</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ranef</span>(mm2)</span></code></pre></div>
+<p>Note that the result is slightly different from the R output, it’s
+because the default estimation method in [<code>MixedModels</code>] in
+Julia is maximum likelihood estimation, whereas the default estimation
+method for [<code>lme4</code>] in R is Restricted maximum likelihood
+method.</p>
+<p>This time standard error estimates for <code>gm_GNP</code> is 0.0337,
+z = 5.33, p &lt; 0.0001. The SE for OLS is smaller than the SE for MLM,
+indicating OLS underestimates the SE.</p>
+<h2 id="add-level-1-predictor">Add Level 1 predictor</h2>
+<p>Because relationships at one level are not necessarily the same at
+the other level, we need to be careful adding the level 1 predictor. Two
+approaches to decompose the impact of level 1 predictor on outcome
+variables: cluter mean centering + cluster mean and the raw predictor +
+clutster mean. Here we will use the first approach.</p>
+<h4 id="equations-3">Equations</h4>
+<p>Level 1:</p>
+<p><span class="math display">\[\text{happy}_{ij} = \beta_{0j} +
+\beta_{1j} \text{income_cmc}_{ij} + e_{ij}\]</span></p>
+<p>Level 2:</p>
+<p><span class="math display">\[
+  \begin{aligned}
+  \beta_{0j} &amp; = \gamma_{00} + \gamma_{01} \text{income_mean}_{j} +
+u_{0j} \\
+  \beta_{1j} &amp; = \gamma_{10} + u_{1j}
+  \end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Cluster mean centering</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data_happy2 <span class="op">=</span> <span class="pp">@pipe</span> data_happy <span class="op">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">groupby</span>(_,<span class="op">:</span>country) <span class="op">|&gt;</span> <span class="co"># group by country</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">transform</span>(_, <span class="op">:</span>income <span class="op">=&gt;</span> mean <span class="op">=&gt;</span> <span class="op">:</span>income_mean)<span class="op">|&gt;</span> <span class="co"># add a new variable income_mean</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            <span class="fu">transform</span>(_, [<span class="op">:</span>income, <span class="op">:</span>income_mean]<span class="op">=&gt;</span> <span class="fu">ByRow</span>(<span class="op">-</span>) <span class="op">=&gt;</span> <span class="op">:</span>income_cmc) <span class="co"># add a new variable the centered variable</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Fitting MLMs</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>mm3 <span class="op">=</span> <span class="fu">fit</span>(LinearMixedModel, <span class="pp">@formula</span>(happy <span class="op">~</span> income_cmc <span class="op">+</span> income_mean <span class="op">+</span> (income_cmc<span class="op">|</span>country)), data_happy2)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">push!</span>(model_fit, <span class="fu">aic</span>(mm3))</span></code></pre></div>
+<p>Both <code>income_cmc</code> and <code>income</code> are significant
+predictors of happiness level. For a person from a country with
+<code>income_mean</code> = 0 and this person has average country level
+income, the predicted happiness level is 2.66, SE = 0.16. The average
+within country slope is 0.047(SE = 0.008), meaning a one unit increase
+in <code>income_cmc</code> is associated with a 0.047 unit increase in
+happiness. This slope varies across countries, with a standard deviation
+of 0.38. The average between country level slope is 0.08, SE = 0.04,
+suggesting a one unit increase in <code>income_mean</code> is associated
+with a 0.08 unit increase in the average happiness level.</p>
+<h2 id="cross-level-interaction">Cross level Interaction</h2>
+<p>Is the relation between <code>happy</code> and <code>income</code>
+moderated by <code>gm_GNP</code>? We can answer this question by adding
+<code>gm_GNP</code> to the above model.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mm4 <span class="op">=</span> <span class="fu">fit</span>(LinearMixedModel, <span class="pp">@formula</span>(happy <span class="op">~</span> income_cmc <span class="op">*</span> gm_GNP <span class="op">+</span> income_mean <span class="op">+</span> (income_cmc<span class="op">|</span>country)), data_happy2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">push!</span>(model_fit, <span class="fu">aic</span>(mm4))</span></code></pre></div>
+<p>After adding <code>gm_GNP</code>, the impact of
+<code>income_mean</code> on <code>happy</code> is not significant.</p>
+<h4 id="equations-4">Equations</h4>
+<p>Level 1:</p>
+<p><span class="math display">\[
+\text{happy}_{ij} = \beta_{0j} + \beta_{1j} \text{income_cmc}_{ij} +
+e_{ij}
+\]</span></p>
+<p>Level 2:</p>
+<p><span class="math display">\[
+  \begin{aligned}
+  \beta_{0j} &amp; = \gamma_{00} + \gamma_{01} \text{income_mean}_{j} +
+\gamma_{02} \text{gm_GNP}_{j} + u_{0j}\\
+\beta_{1j} &amp; = \gamma_{10} + \gamma_{11} \text{gm_GNP}_{j} + u_{1j}
+  \end{aligned}
+\]</span></p>
+<p>??? Exercise time: 1. Which model fits data better?</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print out the AIC</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_fit)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Likelihood Ratio Test</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>MixedModels.<span class="fu">likelihoodratiotest</span>(mm1,mm2,mm3,mm4)</span></code></pre></div>
+<h1 id="conclusion">Conclusion</h1>
+<p>The results of [<code>MixedModels</code>] in Julia and
+[<code>lme4</code>] are slightly different due to the estimation methods
+that are used. The cross-level interaction model fits best to our data,
+suggesting the country level GNP <code>gm_GNP</code> moderated the
+relation between individual’s happiness level <code>happy</code> and
+income <code>income</code>.</p>
+<h1 id="resources">Resources</h1>
+<p>Mark’s MLM class and HW</p>
+<p>DataFrames package <a
+href="https://dataframes.juliadata.org/v0.14.0/index.html"
+class="uri">https://dataframes.juliadata.org/v0.14.0/index.html</a></p>
+<p>MixedModels Package (similar to lme4 in R) documentation <a
+href="https://juliastats.org/MixedModels.jl/v1.0/index.html"
+class="uri">https://juliastats.org/MixedModels.jl/v1.0/index.html</a></p>
+<p>Maybe useful for plotting week:</p>
+<p>Gadfly Package (similar to ggplot in R) documentation <a
+href="https://juliastats.org/MixedModels.jl/v1.0/index.html"
+class="uri">https://juliastats.org/MixedModels.jl/v1.0/index.html</a></p>
+<div class="sourceCode" id="cb12"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2619,13 +2493,13 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <div class="appendix-bottom">
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Lai (2022, May 10). Measurement &amp; Multilevel Modeling Lab: Confidence Intervals for Multilevel R-Squared. Retrieved from https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/</pre>
+  <pre class="citation-appendix short">Zhang (2021, Feb. 23). Measurement &amp; Multilevel Modeling Lab: Multilevel Models in Julia. Retrieved from https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{lai2022confidence,
-  author = {Lai, Hok Chio (Mark)},
-  title = {Measurement &amp; Multilevel Modeling Lab: Confidence Intervals for Multilevel R-Squared},
-  url = {https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/},
-  year = {2022}
+  <pre class="citation-appendix long">@misc{zhang2021multilevel,
+  author = {Zhang, Yichi},
+  title = {Measurement &amp; Multilevel Modeling Lab: Multilevel Models in Julia},
+  url = {https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/},
+  year = {2021}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->

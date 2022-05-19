@@ -88,635 +88,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Measurement &amp; Multilevel Modeling Lab: Lab Members</title>
+  <title>Multilevel Models in Julia</title>
+
+  <meta property="description" itemprop="description" content="Multilevel Models in Julia"/>
 
 
-
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-02-23"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-02-23"/>
+  <meta name="article:author" content="Yichi Zhang"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Lab Members"/>
+  <meta property="og:title" content="Multilevel Models in Julia"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Multilevel Models in Julia"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Measurement &amp; Multilevel Modeling Lab"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Lab Members"/>
+  <meta property="twitter:title" content="Multilevel Models in Julia"/>
+  <meta property="twitter:description" content="Multilevel Models in Julia"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab Members"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Multilevel Models in Julia"]},{"type":"character","attributes":{},"value":["Multilevel Models in Julia\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Yichi Zhang"]}]}]},{"type":"character","attributes":{},"value":["February 23, 2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Julia","Multilevel Modeling","Statistics"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["multilevel-models-in-julia_files/anchor-4.2.2/anchor.min.js","multilevel-models-in-julia_files/bowser-1.9.3/bowser.min.js","multilevel-models-in-julia_files/distill-2.2.21/template.v2.js","multilevel-models-in-julia_files/header-attrs-2.14/header-attrs.js","multilevel-models-in-julia_files/jquery-3.6.0/jquery-3.6.0.js","multilevel-models-in-julia_files/jquery-3.6.0/jquery-3.6.0.min.js","multilevel-models-in-julia_files/jquery-3.6.0/jquery-3.6.0.min.map","multilevel-models-in-julia_files/popper-2.6.0/popper.min.js","multilevel-models-in-julia_files/tippy-6.2.7/tippy-bundle.umd.min.js","multilevel-models-in-julia_files/tippy-6.2.7/tippy-light-border.css","multilevel-models-in-julia_files/tippy-6.2.7/tippy.css","multilevel-models-in-julia_files/tippy-6.2.7/tippy.umd.min.js","multilevel-models-in-julia_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
   <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
-  </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-
-  </style>
-
-  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
-  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-
-  <script type="application/javascript">
-
-  function getMeta(metaName) {
-    var metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  }
-
-  function offsetURL(url) {
-    var offset = getMeta('distill:offset');
-    return offset ? offset + '/' + url : url;
-  }
-
-  function createFuseIndex() {
-
-    // create fuse index
-    var options = {
-      keys: [
-        { name: 'title', weight: 20 },
-        { name: 'categories', weight: 15 },
-        { name: 'description', weight: 10 },
-        { name: 'contents', weight: 5 },
-      ],
-      ignoreLocation: true,
-      threshold: 0
-    };
-    var fuse = new window.Fuse([], options);
-
-    // fetch the main search.json
-    return fetch(offsetURL('search.json'))
-      .then(function(response) {
-        if (response.status == 200) {
-          return response.json().then(function(json) {
-            // index main articles
-            json.articles.forEach(function(article) {
-              fuse.add(article);
-            });
-            // download collections and index their articles
-            return Promise.all(json.collections.map(function(collection) {
-              return fetch(offsetURL(collection)).then(function(response) {
-                if (response.status === 200) {
-                  return response.json().then(function(articles) {
-                    articles.forEach(function(article) {
-                      fuse.add(article);
-                    });
-                  })
-                } else {
-                  return Promise.reject(
-                    new Error('Unexpected status from search index request: ' +
-                              response.status)
-                  );
-                }
-              });
-            })).then(function() {
-              return fuse;
-            });
-          });
-
-        } else {
-          return Promise.reject(
-            new Error('Unexpected status from search index request: ' +
-                        response.status)
-          );
-        }
-      });
-  }
-
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-
-    // get search element (bail if we don't have one)
-    var searchEl = window.document.getElementById('distill-search');
-    if (!searchEl)
-      return;
-
-    createFuseIndex()
-      .then(function(fuse) {
-
-        // make search box visible
-        searchEl.classList.remove('hidden');
-
-        // initialize autocomplete
-        var options = {
-          autoselect: true,
-          hint: false,
-          minLength: 2,
-        };
-        window.autocomplete(searchEl, options, [{
-          source: function(query, callback) {
-            const searchOptions = {
-              isCaseSensitive: false,
-              shouldSort: true,
-              minMatchCharLength: 2,
-              limit: 10,
-            };
-            var results = fuse.search(query, searchOptions);
-            callback(results
-              .map(function(result) { return result.item; })
-            );
-          },
-          templates: {
-            suggestion: function(suggestion) {
-              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-                : '';
-              var html = `
-                <div class="search-item">
-                  <h3>${suggestion.title}</h3>
-                  <div class="search-item-description">
-                    ${suggestion.description || ''}
-                  </div>
-                  <div class="search-item-preview">
-                    ${img}
-                  </div>
-                </div>
-              `;
-              return html;
-            }
-          }
-        }]).on('autocomplete:selected', function(event, suggestion) {
-          window.location.href = offsetURL(suggestion.path);
-        });
-        // remove inline display style on autocompleter (we want to
-        // manage responsive display via css)
-        $('.algolia-autocomplete').css("display", "");
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-
-  });
-
-  </script>
-
-  <style type="text/css">
-
-  .nav-search {
-    font-size: x-small;
-  }
-
-  /* Algolioa Autocomplete */
-
-  .algolia-autocomplete {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: sub;
-    background-color: white;
-    color: black;
-    padding: 6px;
-    padding-top: 8px;
-    padding-bottom: 0;
-    border-radius: 6px;
-    border: 1px #0F2E3D solid;
-    width: 180px;
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-nav .algolia-autocomplete {
-      display: none;
-      visibility: hidden;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete {
-      display: inline-block;
-      visibility: visible;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-      margin-left: 0;
-      width: 400px;
-      max-height: 400px;
-    }
-  }
-
-  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-    width: 90%;
-    outline: none;
-    border: none;
-  }
-
-  .algolia-autocomplete .aa-hint {
-    color: #999;
-  }
-  .algolia-autocomplete .aa-dropdown-menu {
-    width: 550px;
-    max-height: 70vh;
-    overflow-x: visible;
-    overflow-y: scroll;
-    padding: 5px;
-    margin-top: 3px;
-    margin-left: -150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #999;
-    border-top: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-    cursor: pointer;
-    padding: 5px 4px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-    overflow: hidden;
-    font-size: 0.8em;
-    line-height: 1.4em;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-    font-size: 1rem;
-    margin-block-start: 0;
-    margin-block-end: 5px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-    display: inline-block;
-    overflow: hidden;
-    height: 2.8em;
-    width: 80%;
-    margin-right: 4%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-    display: inline-block;
-    width: 15%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-    height: 3em;
-    width: auto;
-    display: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-    display: initial;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #eee;
-  }
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  </style>
-
-
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -2064,26 +1468,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
-  <script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-  <script src="site_libs/jquery-3.4.1/jquery-3.4.1.min.js"></script>
-  <script src="site_libs/jquery-migrate-3.1.0/jquery-migrate-3.1.0.min.js"></script>
-  <link href="site_libs/slick-1.8.1/slick/slick.css" rel="stylesheet" />
-  <link href="site_libs/slick-1.8.1/slick/slick-theme.css" rel="stylesheet" />
-  <script src="site_libs/slick-1.8.1/slick/slick.min.js"></script>
-  <script src="site_libs/css-resize-1.2.1/ResizeSensor.js"></script>
-  <script src="site_libs/css-resize-1.2.1/ElementQueries.js"></script>
-  <link href="site_libs/slickR-0.0.1/slick.css" rel="stylesheet" />
-  <link href="site_libs/slickR-0.0.1/slick-theme.css" rel="stylesheet" />
-  <script src="site_libs/slickR-0.0.1/slickR.js"></script>
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="multilevel-models-in-julia_files/header-attrs-2.14/header-attrs.js"></script>
+  <script src="multilevel-models-in-julia_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="multilevel-models-in-julia_files/popper-2.6.0/popper.min.js"></script>
+  <link href="multilevel-models-in-julia_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="multilevel-models-in-julia_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="multilevel-models-in-julia_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="multilevel-models-in-julia_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="multilevel-models-in-julia_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="multilevel-models-in-julia_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="multilevel-models-in-julia_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -2095,197 +1489,337 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Lab Members","authors":[]}
+{"title":"Multilevel Models in Julia","description":"Multilevel Models in Julia","authors":[{"author":"Yichi Zhang","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-23T00:00:00.000-08:00","citationText":"Zhang, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a class="logo">
-<img src="static/images/mmm_white_transparent.png" alt="Logo"/>
-</a>
-<a href="index.html" class="title">Measurement &amp; Multilevel Modeling Lab</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="members.html">Members</a>
-<a href="research.html">Research</a>
-<a href="publications.html">Publications</a>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-Applications
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="https://partinvmmm.shinyapps.io/partinvshinyui/">PartInv Shiny App</a>
-<a href="https://winnie-wy-tse.shinyapps.io/hcb_shiny/">HCBR Shiny App</a>
-</div>
-</div>
-<a href="https://github.com/mmm-usc">
-<i class="fab fa-github" aria-hidden="true"></i>
-</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Lab Members</h1>
+<h1>Multilevel Models in Julia</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt-tag">Julia</div>
+<div class="dt-tag">Multilevel Modeling</div>
+<div class="dt-tag">Statistics</div>
+</div>
 <!--/radix_placeholder_categories-->
-
+<p><p>Multilevel Models in Julia</p></p>
 </div>
 
+<div class="d-byline">
+  Yichi Zhang  
+  
+<br/>February 23, 2021
+</div>
 
 <div class="d-article">
-<div class="layout-chunk" data-layout="l-body">
-<div id="htmlwidget-389462a653bb06ab1d79" style="width:95%;height:384px;" class="slickR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-389462a653bb06ab1d79">{"x":[{"obj":"<div class=\"baseDiv_bump_330777583876625\">\n  <div>\n    <img src=\"static/images/slickr_files/MidAutumnPicnic21.jpg\" title=\"Mid-Autumn Picnic 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_1.jpg\" title=\"Point Dume Hike 2021-1\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/ThanksgivingPicnic21.jpg\" title=\"Thanksgiving picnic 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/FirstLabMeetingofFall21.jpg\" title=\"FirstLabMeetingofFall2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_2.jpg\" title=\"Point Dume Hike 2021-2\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/Summer21.jpg\" title=\"Summer21\" height=\"400\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_330777583876625","slideh":400,"slidew":"95%","slickOpts":{"autoplay":true,"autoplaySpeed":4000}}],"evals":[],"jsHooks":[]}</script>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#set-up">Set up</a>
+<ul>
+<li><a href="#install-packages">Install Packages</a></li>
+<li><a href="#using-packages">Using Packages</a></li>
+<li><a href="#dataset">Dataset</a></li>
+</ul></li>
+<li><a href="#research-questions">Research Questions</a>
+<ul>
+<li><a href="#descriptive-analysis">Descriptive Analysis</a></li>
+<li><a href="#linear-regression">Linear Regression</a>
+<ul>
+<li><a href="#fitting-the-linear-regression-model">Fitting the linear
+regression model</a></li>
+<li><a href="#equations">Equations</a></li>
+</ul></li>
+<li><a href="#multilevel-modeling">Multilevel Modeling</a>
+<ul>
+<li><a href="#random-intercept-model">Random Intercept Model</a></li>
+<li><a href="#add-level-2-predictor">Add Level 2 Predictor</a></li>
+</ul></li>
+<li><a href="#add-level-1-predictor">Add Level 1 predictor</a></li>
+<li><a href="#cross-level-interaction">Cross level Interaction</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+</nav>
 </div>
-<h2 id="principal-investigator">Principal Investigator</h2>
-<h3 id="hok-chio-mark-lai">Hok Chio (Mark) Lai</h3>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="https://quantscience.rbind.io/author/hok-chio-mark-lai-%E9%BB%8E%E5%AD%B8%E6%98%AD/avatar_hu5fee5d8532847d51fbb6966683aaaac0_71984_270x270_fill_q90_lanczos_center.jpg" width="250px" /></p>
-</div>
-<p>I am an Assistant Professor of Psychology (Quantitative Methods) in
-the Department of Psychology at the University of Southern California. I
-am from Macau and speaks Cantonese as my native language. Mathematics
-has always been a favorite subject to me, but my growing interest in
-understanding the human mind lead me to pursue a bachelor degree in
-Psychology at the University of Macau, where I discovered that a career
-of developing and applying quantitative methods in the social sciences
-would be a very good fit to me.</p>
-<p>I am interested in all kinds of statistical methods, but currently my
-research areas include multilevel modeling, structural equation
-modeling, effect size statistics, and measurement invariance. I also
-have collaborations on projects studying the prevalence, antecedents and
-consequences of gambling disorder, and in other areas such as
-evolutionary psychology, social psychology, developmental sciences,
-health sciences, etc.</p>
-<ul>
-<li><a
-href="https://quantscience.rbind.io/files/Vita_Lai.pdf">CV</a></li>
-<li><a href="https://quantscience.rbind.io">Personal website</a></li>
-<li>Email: <a href="mailto:hokchiol@usc.edu"
-class="email">hokchiol@usc.edu</a></li>
-</ul>
-<h2 id="graduate-students">Graduate Students</h2>
-<h3 id="winnie-wing-yee-tse">Winnie Wing-Yee Tse</h3>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="https://dornsife.usc.edu/assets/img/content/284548/wizard/xizebuje.jpg" width="250px" /></p>
-</div>
-<p>I am a third-year Ph.D. quantitative psychology student, working
-under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my
-research interests are on multilevel modeling, structural equation
-modeling, and Bayesian statistics. My main project focuses on
-incorporating uncertainty in parameter values (e.g., effect size and
-intraclass correlation) for designing multilevel studies. My secondary
-project investigates when strict factorial invariance is a necessary
-condition for valid use of observed scale scores. I am also involved in
-projects on latent class/profile analysis, two-stage path analysis with
-adjustment for measurement noninvariance and unreliability, and
-multilevel regression and poststratification on subnational predictions
-with language data.</p>
-<ul>
-<li><a href="static/cv/WinnieTse_CV_20220222.pdf">CV</a></li>
-<li><a href="https://winniewytse.rbind.io/">Personal website</a></li>
-<li>Email: <a href="mailto:wingyeet@usc.edu"
-class="email">wingyeet@usc.edu</a></li>
-</ul>
-<h3 id="yichi-zhang">Yichi Zhang</h3>
-<p><img src="static/images/YichiZhang_image_20210326.jpg"
-style="width:50.0%" /></p>
-<p>Hello! I am a third-year Ph.D. student in quantitative psychology. I
-am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current
-research interests are measurement invariance, robust structural
-equation modeling and longitudinal growth modeling. My current project
-is about establishing measurement invariance using a Bayesian ROME
-(region of measurement equivalence) method.</p>
-<ul>
-<li><a href="static/cv/YichiZhang_CV_20220206.pdf">CV</a></li>
-<li>Email: <a href="mailto:yzhang97@usc.edu"
-class="email">yzhang97@usc.edu</a></li>
-</ul>
-<h3 id="jimmy-zhang">Jimmy Zhang</h3>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="https://dornsife.usc.edu/assets/img/content/284548/wizard/nojaqado.jpg" width="250px" /></p>
-</div>
-<p>Research Interests: Factor Analysis, Measurement Invariance,
-Meta-analysis</p>
-<ul>
-<li>Email: <a href="mailto:gengruiz@usc.edu"
-class="email">gengruiz@usc.edu</a></li>
-</ul>
-<h3 id="meltem-ozcan">Meltem Ozcan</h3>
-<p><img src="static/images/MeltemOzcan_imgage_20210512.jpg"
-style="width:50.0%" /></p>
-<p>I am a first-year Ph.D. student in quantitative psychology at USC
-advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the
-development and application of advanced quantitative methods to assess
-and model dynamic and complex psychological phenomena, and more
-specifically, my research interests include measurement bias, Bayesian
-statistics, and psychometrics. At UC Santa Cruz, where I completed my
-M.S. in statistics, my research looked at the performance of the
-cumulative sum test for determining changepoints in time series under
-various correlation structures through a series of simulation
-experiments. Previously, I conducted research on an eclectic set of
-topics I find fascinating, including self-disclosure, intimacy,
-(skipping the) small talk, influence attempts in friendships on topics
-such as politics, linguistic patterns in trauma narratives, and light
-therapy for PTSD. I enjoy hiking, road trips, horror movies, reading,
-learning languages (Korean or Python), writing (stories or code), and
-skipping the small talk.</p>
-<ul>
-<li>Email: <a href="mailto:ozcan@usc.edu"
-class="email">ozcan@usc.edu</a></li>
-<li>Personal website: <a href="https://www.linkedin.com/in/meltemozcan/"
-class="uri">https://www.linkedin.com/in/meltemozcan/</a></li>
-</ul>
-<hr />
-<h2 id="undergraduate-students">Undergraduate Students</h2>
-<h3 id="hailin-yue-haley">Hailin Yue (Haley)</h3>
-<p>I am a fourth-year undergraduate student majoring in economics, with
-a minor in psychology and data analytics. I am interested in applying
-quantitative reasoning to study mental health and to optimize business
-decision I hope to pursue a graduate degree after graduation, but am not
-sure on what subject yet. Outside of academia, I enjoy reading,
-painting, listening to music, and watching TV dramas.</p>
-<ul>
-<li>Email: <a href="mailto:hailinyu@usc.edu"
-class="email">hailinyu@usc.edu</a></li>
-</ul>
-<h3 id="clay-cantrell">Clay Cantrell</h3>
-<p>I am a fourth year undergraduate student studying Cognitive Science
-with a minor in Computer Programming at USC. My academic interests
-include computer-human interaction and social learning. When I’m not in
-front of a computer my hobbies include mountain bike riding,
-backpacking, and getting some fresh air.</p>
-<ul>
-<li>Email: <a href="mailto:cacantre@usc.edu"
-class="email">cacantre@usc.edu</a></li>
-</ul>
-<h3 id="alyssa-delarosa">Alyssa Delarosa</h3>
-<ul>
-<li>Email: <a href="mailto:alyssad1@usc.edu"
-class="email">alyssad1@usc.edu</a></li>
-</ul>
-<h2 id="collaborators">Collaborators</h2>
-<p><a href="https://hiowamak.weebly.com/">Hio Wa (Grace) Mak (U Southern
-Califnoria)</a></p>
-<p><a href="https://researchdirectory.uc.edu/p/richargg">George
-Richardson (U Cincinnati)</a></p>
-<p><a href="#">Yu-Yu Hsiao (U New Mexico)</a></p>
-<h2 id="lab-alumni">Lab Alumni</h2>
-<h3 id="yuting-wang">Yuting Wang</h3>
+<p>Today We will have a fun session doing regression and multilevel
+models(MLMs) using Julia. First, we will have a small exercise fitting a
+linear regression model to a sample dataset, and then we will fit the
+MLM to the same dataset and compare the difference in results. Please
+note the examples come from Dr.Mark Lai’s multilevel modeling course,
+which can be assessed at <a
+href="https://quantscience.rbind.io/courses/psyc575/homework-3/"
+class="uri">https://quantscience.rbind.io/courses/psyc575/homework-3/</a>.
+Can’t wait? Let’s get started! Yay!</p>
+<h1 id="set-up">Set up</h1>
+<h2 id="install-packages">Install Packages</h2>
+<p>In Julia, we can add package by typing “]” in the Terminal to enter
+the <code>Pkg</code> mode and exit using <code>Ctrl + C</code>. Or, we
+can use [<code>Pkg</code>] package and add multiple packages at
+once.</p>
 <div class="sourceCode" id="cb1"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#= uncomment below to install packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">using Pkg</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Pkg.add([&quot;Pipe&quot;, &quot;DataFrames&quot;, &quot;StatFiles&quot;, &quot;GLM&quot;,&quot;MixedModels&quot;,&quot;Plots&quot;, &quot;StatsPlots&quot;])</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">=#</span></span></code></pre></div>
+<h2 id="using-packages">Using Packages</h2>
+<p>Just like we use <code>library</code> to load packages in R, we use
+<code>using</code> in Julia. It’s better to have a separate session in
+the beginning of the file to load all packages you will need in the
+analysis. Otherwise it will take a long time to precompile each
+time.</p>
+<p><code>Pipe</code> for pipe operator. <code>DataFrames</code> for
+working with dataframes. <code>StatFiles</code> for reading datasets
+from Stata, SPSS and SAS. If you have a txt file, can try CSV.read
+function from package <code>CSV</code>. <code>GLM</code> for linear
+regression. <code>MixedModels</code> for working with multilevel models.
+Similar to lme4. <code>Plots</code> for making graphs.
+<code>StatsPlots</code> for making graphs.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pipe</span>, <span class="bu">DataFrames</span>, <span class="bu">StatFiles</span>, <span class="bu">GLM</span>, <span class="bu">MixedModels</span>, <span class="bu">Plots</span>, <span class="bu">StatsPlots</span>, <span class="bu">Statistics</span></span></code></pre></div>
+<h2 id="dataset">Dataset</h2>
+<p>Today we are going to use the dataset from the World Value
+Survey-1990-93 data (World Values Study Group, 1994). There are five
+variables in the data set:</p>
+<p><code>CountryID</code>: CountryID<br />
+<code>country</code>: Country’s name<br />
+<code>gm_GNP</code>: Grand-mean centered Gross National Product<br />
+<code>income</code>: Income level(0-least income to 9-most income)<br />
+<code>happy</code>:Feel happy(1-not happy to 4-very happy)</p>
+<p>This data set and set of practice problem come from Mark’s Multilvel
+Modeling class, so thanks Mark!</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_happy <span class="op">=</span> <span class="fu">DataFrame</span>(<span class="fu">load</span>(<span class="st">&quot;happy_combined.sav&quot;</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#= Or we can use pipe operator</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">data_happy = load(&quot;happy_combined.sav&quot;) |&gt; DataFrame</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">=#</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data_happy <span class="op">=</span> <span class="fu">dropmissing</span>(data_happy)</span></code></pre></div>
+<h1 id="research-questions">Research Questions</h1>
+<p>Are people with higher individual level income happier? Is the
+relation similar across countries? How is the result of linear
+regression different from the result of multilevel models?</p>
+<h2 id="descriptive-analysis">Descriptive Analysis</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Summary of all variables in the dataset</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(data_happy)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">## list first five rows of data</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(data_happy,<span class="fl">5</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">## list names of all variables</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data_happy)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">## get size of the data set</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">size</span>(data_happy)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">size</span>(data_happy,<span class="fl">1</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">size</span>(data_happy,<span class="fl">2</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">## check a specific column </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>data_happy[<span class="op">:</span>,<span class="st">&quot;country&quot;</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data_happy[<span class="op">:</span>,<span class="st">&quot;country&quot;</span>])</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># data_happy[!,:2]; data_happy[:,2] also work for extracting the second columns</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># data_happy[2,:] can extract the second row, data_happy[2:5,:] extract the second to fifth row.</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@df</span> data_happy <span class="fu">scatter</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>country, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>happy,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    group <span class="op">=</span> <span class="op">:</span>country)</span></code></pre></div>
+<h2 id="linear-regression">Linear Regression</h2>
+<p>??? Exercise Time: We are familiar with our dataset, so let’s do some
+exercise! Recall Winnie did a great presentation last time on linear
+regression, so please go ahead to fit a linear regression model and
+write out the equation.</p>
+<p>Hint: <code>Model_name = lm(@formula(DV ~ IV), data_set)</code></p>
+<h3 id="fitting-the-linear-regression-model">Fitting the linear
+regression model</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="op">=</span> <span class="fu">lm</span>(<span class="pp">@formula</span>(happy<span class="op">~</span> gm_GNP),data_happy)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># extract coefficients</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm1)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># extract standard errors</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stderror</span>(lm1)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># extract variance covariance matrix</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">vcov</span>(lm1)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain R^2</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(lm1)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># get the deviance </span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(lm1)</span></code></pre></div>
+<p>This model explains 4.72% of variance in <code>happy</code>. Note the
+standard error estimates for <code>gm_GNP</code> is 0.010, t =17.13, 95%
+CI [0.155 0.195], p &lt; 0.0001.</p>
+<h3 id="equations">Equations</h3>
+<p><span class="math display">\[\text{happy} = 2.992 + 0.175
+\text{gm_GNP}\]</span></p>
+<h2 id="multilevel-modeling">Multilevel Modeling</h2>
+<h3 id="random-intercept-model">Random Intercept Model</h3>
+<p>We first fit a random intercept model and calculate the intraclass
+correlation. Recall</p>
+<h4 id="equations-1">Equations</h4>
+<p>Level 1:</p>
+<p><span class="math display">\[\text{happy}_{ij} = \beta_{0j} +
+e_{ij}\]</span></p>
+<p>Level 2:</p>
+<p><span class="math display">\[\beta_{0j} = \gamma_{00} +
+u_{0j}\]</span></p>
+<p><span class="math display">\[\text{ICC} = \frac{\tau_0^2}{\tau_0^2 +
+\sigma^2}\]</span></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Fitting MLMs</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mm1 <span class="op">=</span> <span class="fu">fit</span>(LinearMixedModel, <span class="pp">@formula</span>(happy <span class="op">~</span> (<span class="fl">1</span><span class="op">|</span>country)), data_happy)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Create a vector and store the model fit statistics</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>model_fit<span class="op">=</span> <span class="fu">Vector</span><span class="dt">{Float64}</span>()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">push!</span>(model_fit,<span class="fu">aic</span>(mm1))</span></code></pre></div>
+<p>??? Exercise Time: What is the value of ICC?</p>
+<p>The first part of the result prints out estimation method and the
+model fit statistics, such as AIC,BIC, etc. The second part is the table
+of estimates of parameters associated with the random effects. The third
+part is the fixed effects point estimates and standard errors.</p>
+<p>ICC = 0.0649/(0.0649 + 0.4842) = 0.118, so there is evidence that
+people’s happiness level varies across countries. Variability at the
+country level accounts for 11.8% of the total variability of happiness
+level.</p>
+<p>Design effect = 1 +(average cluster size - 1) x ICC. We have 5926
+observations and 38 groups, so design effect = 1 + (5926/38 -1) x 0.118
+= 19.28.</p>
+<h3 id="add-level-2-predictor">Add Level 2 Predictor</h3>
+<p>It is reasonable to think <code>gm_GNP</code> is a cluster level
+predictor, so let’s add it to our model.</p>
+<h4 id="equations-2">Equations</h4>
+<p>Level 1:</p>
+<p><span class="math display">\[\text{happy}_{ij} = \beta_{0j} +
+e_{ij}\]</span> Level 2:</p>
+<p><span class="math display">\[\beta_{0j} = \gamma_{00} + \gamma_{01}
+\text{gm_GNP}_{j} + u_{0j}\]</span></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Fitting MLMs</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mm2 <span class="op">=</span> <span class="fu">fit</span>(LinearMixedModel, <span class="pp">@formula</span>(happy <span class="op">~</span> gm_GNP <span class="op">+</span> (<span class="fl">1</span><span class="op">|</span>country)), data_happy)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">push!</span>(model_fit, <span class="fu">aic</span>(mm2))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># extract log likelihood</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">loglikelihood</span>(mm2)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># extract Akaike&#39;s Information Criterion</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">aic</span>(mm2)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># extract Bayesian Information Criterion</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">bic</span>(mm2)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># extract degrees of freedom</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dof</span>(mm2)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># extract coefficient</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mm2)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># extract fixed effects</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(mm2)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">vcov</span>(mm2)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">stderror</span>(mm2)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># extract coefficients table</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftable</span>(mm2)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co"># extract variance components</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">VarCorr</span>(mm2)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># return sigma^2</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">varest</span>(mm2)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># return tau</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fu">VarCorr</span>(mm2).σρ[<span class="fl">1</span>][<span class="fl">1</span>][<span class="fl">1</span>]</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># return elements in the components</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="fu">dump</span>(<span class="fu">VarCorr</span>(mm1))</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># return sigma</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="fu">sdest</span>(mm2)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co"># extract random effects</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ranef</span>(mm2)</span></code></pre></div>
+<p>Note that the result is slightly different from the R output, it’s
+because the default estimation method in [<code>MixedModels</code>] in
+Julia is maximum likelihood estimation, whereas the default estimation
+method for [<code>lme4</code>] in R is Restricted maximum likelihood
+method.</p>
+<p>This time standard error estimates for <code>gm_GNP</code> is 0.0337,
+z = 5.33, p &lt; 0.0001. The SE for OLS is smaller than the SE for MLM,
+indicating OLS underestimates the SE.</p>
+<h2 id="add-level-1-predictor">Add Level 1 predictor</h2>
+<p>Because relationships at one level are not necessarily the same at
+the other level, we need to be careful adding the level 1 predictor. Two
+approaches to decompose the impact of level 1 predictor on outcome
+variables: cluter mean centering + cluster mean and the raw predictor +
+clutster mean. Here we will use the first approach.</p>
+<h4 id="equations-3">Equations</h4>
+<p>Level 1:</p>
+<p><span class="math display">\[\text{happy}_{ij} = \beta_{0j} +
+\beta_{1j} \text{income_cmc}_{ij} + e_{ij}\]</span></p>
+<p>Level 2:</p>
+<p><span class="math display">\[
+  \begin{aligned}
+  \beta_{0j} &amp; = \gamma_{00} + \gamma_{01} \text{income_mean}_{j} +
+u_{0j} \\
+  \beta_{1j} &amp; = \gamma_{10} + u_{1j}
+  \end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Cluster mean centering</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data_happy2 <span class="op">=</span> <span class="pp">@pipe</span> data_happy <span class="op">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">groupby</span>(_,<span class="op">:</span>country) <span class="op">|&gt;</span> <span class="co"># group by country</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">transform</span>(_, <span class="op">:</span>income <span class="op">=&gt;</span> mean <span class="op">=&gt;</span> <span class="op">:</span>income_mean)<span class="op">|&gt;</span> <span class="co"># add a new variable income_mean</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            <span class="fu">transform</span>(_, [<span class="op">:</span>income, <span class="op">:</span>income_mean]<span class="op">=&gt;</span> <span class="fu">ByRow</span>(<span class="op">-</span>) <span class="op">=&gt;</span> <span class="op">:</span>income_cmc) <span class="co"># add a new variable the centered variable</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Fitting MLMs</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>mm3 <span class="op">=</span> <span class="fu">fit</span>(LinearMixedModel, <span class="pp">@formula</span>(happy <span class="op">~</span> income_cmc <span class="op">+</span> income_mean <span class="op">+</span> (income_cmc<span class="op">|</span>country)), data_happy2)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">push!</span>(model_fit, <span class="fu">aic</span>(mm3))</span></code></pre></div>
+<p>Both <code>income_cmc</code> and <code>income</code> are significant
+predictors of happiness level. For a person from a country with
+<code>income_mean</code> = 0 and this person has average country level
+income, the predicted happiness level is 2.66, SE = 0.16. The average
+within country slope is 0.047(SE = 0.008), meaning a one unit increase
+in <code>income_cmc</code> is associated with a 0.047 unit increase in
+happiness. This slope varies across countries, with a standard deviation
+of 0.38. The average between country level slope is 0.08, SE = 0.04,
+suggesting a one unit increase in <code>income_mean</code> is associated
+with a 0.08 unit increase in the average happiness level.</p>
+<h2 id="cross-level-interaction">Cross level Interaction</h2>
+<p>Is the relation between <code>happy</code> and <code>income</code>
+moderated by <code>gm_GNP</code>? We can answer this question by adding
+<code>gm_GNP</code> to the above model.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mm4 <span class="op">=</span> <span class="fu">fit</span>(LinearMixedModel, <span class="pp">@formula</span>(happy <span class="op">~</span> income_cmc <span class="op">*</span> gm_GNP <span class="op">+</span> income_mean <span class="op">+</span> (income_cmc<span class="op">|</span>country)), data_happy2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">push!</span>(model_fit, <span class="fu">aic</span>(mm4))</span></code></pre></div>
+<p>After adding <code>gm_GNP</code>, the impact of
+<code>income_mean</code> on <code>happy</code> is not significant.</p>
+<h4 id="equations-4">Equations</h4>
+<p>Level 1:</p>
+<p><span class="math display">\[
+\text{happy}_{ij} = \beta_{0j} + \beta_{1j} \text{income_cmc}_{ij} +
+e_{ij}
+\]</span></p>
+<p>Level 2:</p>
+<p><span class="math display">\[
+  \begin{aligned}
+  \beta_{0j} &amp; = \gamma_{00} + \gamma_{01} \text{income_mean}_{j} +
+\gamma_{02} \text{gm_GNP}_{j} + u_{0j}\\
+\beta_{1j} &amp; = \gamma_{10} + \gamma_{11} \text{gm_GNP}_{j} + u_{1j}
+  \end{aligned}
+\]</span></p>
+<p>??? Exercise time: 1. Which model fits data better?</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode julia"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print out the AIC</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_fit)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Likelihood Ratio Test</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>MixedModels.<span class="fu">likelihoodratiotest</span>(mm1,mm2,mm3,mm4)</span></code></pre></div>
+<h1 id="conclusion">Conclusion</h1>
+<p>The results of [<code>MixedModels</code>] in Julia and
+[<code>lme4</code>] are slightly different due to the estimation methods
+that are used. The cross-level interaction model fits best to our data,
+suggesting the country level GNP <code>gm_GNP</code> moderated the
+relation between individual’s happiness level <code>happy</code> and
+income <code>income</code>.</p>
+<h1 id="resources">Resources</h1>
+<p>Mark’s MLM class and HW</p>
+<p>DataFrames package <a
+href="https://dataframes.juliadata.org/v0.14.0/index.html"
+class="uri">https://dataframes.juliadata.org/v0.14.0/index.html</a></p>
+<p>MixedModels Package (similar to lme4 in R) documentation <a
+href="https://juliastats.org/MixedModels.jl/v1.0/index.html"
+class="uri">https://juliastats.org/MixedModels.jl/v1.0/index.html</a></p>
+<p>Maybe useful for plotting week:</p>
+<p>Gadfly Package (similar to ggplot in R) documentation <a
+href="https://juliastats.org/MixedModels.jl/v1.0/index.html"
+class="uri">https://juliastats.org/MixedModels.jl/v1.0/index.html</a></p>
+<div class="sourceCode" id="cb12"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2294,6 +1828,15 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
@@ -2301,15 +1844,7 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
-<div class="distill-site-nav distill-site-footer">
-<p>© 2021 Measurement &amp; Multilevel Modeling Lab</p>
-<p>Powered by
-<a href="https://github.com/distillpub/template/blob/master/AUTHORS">The
-Distill Template Authors</a> and
-<a href="https://www.rstudio.com">Rstudio, Inc</a>.</p>
-</div>
 <!--/radix_placeholder_navigation_after_body-->
-
 
 </body>
 
