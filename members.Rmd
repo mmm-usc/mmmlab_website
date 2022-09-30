@@ -48,7 +48,7 @@ I am interested in all kinds of statistical methods, but currently my research a
 ### Winnie Wing-Yee Tse
 
 ```{r}
-knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/xizebuje.jpg")
+knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/322110/wizard/ydyzulev.jpg")
 ```
 
 I am a third-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my research interests are on multilevel modeling, structural equation modeling, and Bayesian statistics. My main project focuses on incorporating uncertainty in parameter values (e.g., effect size and intraclass correlation) for designing multilevel studies. My secondary project investigates when strict factorial invariance is a necessary condition for valid use of observed scale scores. I am also involved in projects on latent class/profile analysis, two-stage path analysis with adjustment for measurement noninvariance and unreliability, and multilevel regression and poststratification on subnational predictions with language data.
@@ -69,7 +69,7 @@ Hello! I am a third-year Ph.D. student in quantitative psychology. I am co-advis
 ### Jimmy Zhang
 
 ```{r}
-knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/nojaqado.jpg")
+knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/322110/wizard/ewunerik.jpg")
 ```
 
 Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
