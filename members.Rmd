@@ -51,9 +51,9 @@ I am interested in all kinds of statistical methods, but currently my research a
 knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/322110/wizard/ydyzulev.jpg")
 ```
 
-I am a third-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my research interests are on multilevel modeling, structural equation modeling, and Bayesian statistics. My main project focuses on incorporating uncertainty in parameter values (e.g., effect size and intraclass correlation) for designing multilevel studies. My secondary project investigates when strict factorial invariance is a necessary condition for valid use of observed scale scores. I am also involved in projects on latent class/profile analysis, two-stage path analysis with adjustment for measurement noninvariance and unreliability, and multilevel regression and poststratification on subnational predictions with language data.
+I am a fourth-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my research interests are in multilevel modeling, structural equation modeling, and Bayesian statistics. My main project focuses on incorporating uncertainty in parameter values (e.g., effect size and intraclass correlation) for designing multilevel studies. My secondary project investigates when strict factorial invariance is a necessary condition for valid use of observed scale scores. I am also involved in projects on latent class/profile analysis, two-stage path analysis with adjustment for measurement noninvariance and unreliability, and multilevel regression and poststratification on subnational predictions with language data.
 
-- [CV](static/cv/WinnieTse_CV_20220222.pdf)
+- [CV](https://winniewytse.rbind.io/cv/winniewytse_cv.pdf)
 - [Personal website](https://winniewytse.rbind.io/)
 - Email: wingyeet@usc.edu
 
@@ -61,7 +61,7 @@ I am a third-year Ph.D. quantitative psychology student, working under the super
 
 ![](static/images/YichiZhang_image_20210326.jpg){width=50%}
 
-Hello! I am a third-year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
+Hello! I am a forth-year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
 
 - [CV](static/cv/YichiZhang_CV_20220206.pdf)
 - Email: yzhang97@usc.edu
@@ -80,7 +80,7 @@ Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 
 ![](static/images/MeltemOzcan_imgage_20210512.jpg){width=50%}
 
-I am a first-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the development and application of advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and more specifically, my research interests include measurement bias, Bayesian statistics, and psychometrics. At UC Santa Cruz, where I completed my M.S. in statistics, my research looked at the performance of the cumulative sum test for determining changepoints in time series under various correlation structures through a series of simulation experiments. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics such as politics, linguistic patterns in trauma narratives, and light therapy for PTSD. I enjoy hiking, road trips, horror movies, reading, learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
+I am a second-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the development and application of advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and more specifically, my research interests include measurement bias, Bayesian statistics, and psychometrics. At UC Santa Cruz, where I completed my M.S. in statistics, my research looked at the performance of the cumulative sum test for determining changepoints in time series under various correlation structures through a series of simulation experiments. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics such as politics, linguistic patterns in trauma narratives, and light therapy for PTSD. I enjoy hiking, road trips, horror movies, reading, learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
 
 - Email: ozcan@usc.edu
 - Personal website: https://www.linkedin.com/in/meltemozcan/ 
@@ -88,6 +88,12 @@ I am a first-year Ph.D. student in quantitative psychology at USC advised by Dr.
 ***
 
 ## Undergraduate Students
+
+### Yixiao
+
+I am currently a third-year undergraduate student majoring in computer science. Personally, I am interested in quantitative analysis and data science, and am passionate about applying statistical methods in solving real-life problems. Previously, at MMM Lab, I have worked on projects including building R software package for a 2SPA model. Additionally, I love skateboard, basketball (I've played for several years), hang out with friends, and travel. 
+
+-Email: likather@usc.edu
 
 ### Hailin Yue (Haley)
 
