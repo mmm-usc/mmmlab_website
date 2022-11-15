@@ -61,10 +61,11 @@ I am a fourth-year Ph.D. quantitative psychology student, working under the supe
 
 ![](static/images/YichiZhang_image_20210326.jpg){width=50%}
 
-Hello! I am a forth-year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
+I am a fourth-year Ph.D. student in Quantitative Psychology. I am co-advised by Dr. Hok Chio(Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement bias in surveys/questionnaires and robust statistical models, such as hierarchical linear model(linear mixed effects model), latent variable model (structural equation modeling), etc. I hope to use psychometric methods and statistical models to explore research questions related to fair and accurate psychological measurement. My main project focuses on quantifying the practical impact of item bias(noninvariance) on total scale scores. My secondary project evaluates the impact of two-level heteroscedasticity on small sample corrections for fixed-effects inferences. In addition, I am involved in projects on bootstrapping for multilevel models, multilevel regression and poststratification on subnational predictions with language data.
 
 - [CV](static/cv/YichiZhang_CV_20220206.pdf)
 - Email: yzhang97@usc.edu
+- Personal website: https://yichiyczhang.rbind.io/about.html 
 
 ### Jimmy Zhang
 
@@ -72,7 +73,7 @@ Hello! I am a forth-year Ph.D. student in quantitative psychology. I am co-advis
 knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/322110/wizard/ewunerik.jpg")
 ```
 
-Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
+I am a third-year Ph.D. student in Quantitative Methods and Computational Psychology (QMCP) area at USC. My advisor is Dr. Hok Chio (Mark) Lai. I'm generally interested in how researchers can meta-analytic techniques to synthesize research information from their areas of interests and figure out broad and overarching effects. Specifically, researchers look into questions cross-sectionally and longitudinally with complex hypotheses formalized through various statistical models. For example, I'm interested in how structural equation modeling (SEM), longitudinal models, and moderation models can be applied in meta-analysis to synthesize the effects from different angles. My main project focuses on a meta-analysis of measurement invariance of the CES-D scale across gender groups.
 
 - Email: gengruiz@usc.edu
 
@@ -80,10 +81,11 @@ Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 
 ![](static/images/MeltemOzcan_imgage_20210512.jpg){width=50%}
 
-I am a second-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the development and application of advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and more specifically, my research interests include measurement bias, Bayesian statistics, and psychometrics. At UC Santa Cruz, where I completed my M.S. in statistics, my research looked at the performance of the cumulative sum test for determining changepoints in time series under various correlation structures through a series of simulation experiments. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics such as politics, linguistic patterns in trauma narratives, and light therapy for PTSD. I enjoy hiking, road trips, horror movies, reading, learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
+I am a second-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in developing and applying advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and harnessing advances in machine learning and Bayesian statistics to improve upon traditional methods in psychology. My research interests include measurement invariance, fairness and accuracy in psychometric tests, Bayesian statistical methods, effect size statistics, and the measurement of and prediction with time-dependent variables. At UC Santa Cruz, where I completed my M.S. in statistics, I investigated the performance of changepoint detection techniques for time series under various correlation structures. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics like politics, and linguistic patterns in trauma narratives. I enjoy learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
 
 - Email: ozcan@usc.edu
 - Personal website: https://www.linkedin.com/in/meltemozcan/ 
+- Github: https://github.com/meltemozcan
 
 ***
 
@@ -95,23 +97,11 @@ I am currently a third-year undergraduate student majoring in computer science. 
 
 -Email: likather@usc.edu
 
-### Hailin Yue (Haley)
+### Kazia
 
-I am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.
+I am a second-year undergraduate student majoring in Cognitive Science with a minor in Computer Programming. I’m very interested in user experience and using quantitative data to better understand the way we think in order to improve products. I want to apply quantitative methods to understand the human mind more. In my free time, I enjoy cooking, drawing, going to beaches, exploring the city, and eating food!
 
-- Email: hailinyu@usc.edu
-
-
-### Clay Cantrell
-
-I am a fourth year undergraduate student studying Cognitive Science with a minor in Computer Programming at USC. My academic interests include computer-human interaction and social learning. When I'm not in front of a computer my hobbies include mountain bike riding, backpacking, and getting some fresh air.
- 
-- Email: cacantre@usc.edu
-
-### Alyssa Delarosa
-
-- Email: alyssad1@usc.edu
-
+-Email: keleung@usc.edu
 
 ## Collaborators
 
@@ -124,3 +114,12 @@ I am a fourth year undergraduate student studying Cognitive Science with a minor
 ## Lab Alumni
 
 ### Yuting Wang
+
+### Hailin Yue (Haley)
+-[Linkedin page](https://www.linkedin.com/in/hailin-haley-yue-65535219b/)
+
+### Clay Cantrell
+-[Linkedin page](https://www.linkedin.com/in/clay-cantrell-808676202/)
+
+### Alyssa Delarosa
+-[Linkedin page](https://www.linkedin.com/in/alyssa-delarosa-49272b163/)
