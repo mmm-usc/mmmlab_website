@@ -13,13 +13,18 @@ paths <- c('static/images/slickr_files/MidAutumnPicnic21.jpg',
           'static/images/slickr_files/ThanksgivingPicnic21.jpg',
           'static/images/slickr_files/FirstLabMeetingofFall21.jpg',
           'static/images/slickr_files/PointDumeHike21_2.jpg',
-          'static/images/slickr_files/Summer21.jpg')
+          'static/images/slickr_files/Summer21.jpg',
+          'static/images/slickr_files/SpringBBQ22.jpeg',
+          'static/images/slickr_files/SummerHike22.jpeg')
+          
 alt_text <- c('Mid-Autumn Picnic 2021',
               'Point Dume Hike 2021-1', 
               'Thanksgiving picnic 2021',
               'FirstLabMeetingofFall2021', 
               'Point Dume Hike 2021-2', 
-              'Summer21')
+              'Summer21',
+              'Spring BBQ 2022',
+              'Summer Hike 2022')
 img_h <- 400
 paths_w_alt_text <- mapply(function(x,txt,h){
   htmltools::tags$img(src = x, title = txt, height=h)},
