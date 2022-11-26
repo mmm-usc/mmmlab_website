@@ -18,10 +18,13 @@ RefManageR::GetBibEntryWithDOI(
   temp.file = "pubs.bib", 
   delete.file = FALSE)
 # Manual bibTeX for articles without DOIs
-ref <- RefManageR::ReadBib("pub_nodoi.bib")
-WriteBib(bib = ref, 
-         file = "pubs.bib", 
-         append = TRUE)
+if (length(readLines("pub_nodoi.bib")) > 1 ||
+    readLines("pub_nodoi.bib") != "") {
+  ref <- RefManageR::ReadBib("pub_nodoi.bib")
+  WriteBib(bib = ref, 
+           file = "pubs.bib", 
+           append = TRUE)
+}
 ```
 
 ```{r, load_refs, include = FALSE, cache = FALSE}
