@@ -29,7 +29,7 @@ img_path <-'static/images/slickr_files/'
 
 paths_w_alt_text <- mapply(function(x,txt,h){
   htmltools::tags$img(src = x, title = txt, height = h)},
-  x = paste0('static/images/slickr_files/', unlist(list.files(img_path))),
+  x = paste0(img_path, unlist(list.files(img_path))),
   txt = alt_text, h = 400, SIMPLIFY = FALSE)
 
 slickR::slickR(obj = paths_w_alt_text, height = 400) + 
