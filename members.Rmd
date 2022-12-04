@@ -100,13 +100,13 @@ I am a second-year Ph.D. student in quantitative psychology at USC advised by Dr
 
 I am currently a third-year undergraduate student majoring in computer science. Personally, I am interested in quantitative analysis and data science, and am passionate about applying statistical methods in solving real-life problems. Previously, at MMM Lab, I have worked on projects including building R software package for a 2SPA model. Additionally, I love skateboard, basketball (I've played for several years), hang out with friends, and travel. 
 
--Email: likather@usc.edu
+- Email: likather@usc.edu
 
-### Kazia
+### Kezia
 
 I am a second-year undergraduate student majoring in Cognitive Science with a minor in Computer Programming. I’m very interested in user experience and using quantitative data to better understand the way we think in order to improve products. I want to apply quantitative methods to understand the human mind more. In my free time, I enjoy cooking, drawing, going to beaches, exploring the city, and eating food!
 
--Email: keleung@usc.edu
+- Email: keleung@usc.edu
 
 ## Collaborators
 
@@ -121,10 +121,10 @@ I am a second-year undergraduate student majoring in Cognitive Science with a mi
 ### Yuting Wang
 
 ### Hailin Yue (Haley)
--[Linkedin page](https://www.linkedin.com/in/hailin-haley-yue-65535219b/)
+- [Linkedin page](https://www.linkedin.com/in/hailin-haley-yue-65535219b/)
 
 ### Clay Cantrell
--[Linkedin page](https://www.linkedin.com/in/clay-cantrell-808676202/)
+- [Linkedin page](https://www.linkedin.com/in/clay-cantrell-808676202/)
 
 ### Alyssa Delarosa
--[Linkedin page](https://www.linkedin.com/in/alyssa-delarosa-49272b163/)
+- [Linkedin page](https://www.linkedin.com/in/alyssa-delarosa-49272b163/)
