@@ -15,7 +15,7 @@ categories:
   - version control
 ---
 
-The goal for this demonstration is to equip the readers with a basic understanding
+The goal of this demonstration is to equip the readers with a basic understanding
 of concepts relevant to version control with git, and to demonstrate how git can be 
 used for collaboration among multiple team members.
 
@@ -24,7 +24,7 @@ used for collaboration among multiple team members.
 Git allows multiple users to synchronously write and edit code locally, fix bugs
 and resolve any conflicts with others' work before accepting (or rejecting) and
 propagating the changes. Users can go back to previous versions of their work as
-needed, allowing for an relatively risk free coding environment. Version control 
+needed, allowing for a relatively risk-free coding environment. Version control 
 is made possible through the use of tree-like data structures, and the distinction
 between the local and remote repositories. The **remote repository** contains the 
 version(s) of the project hosted on the internet and can be accessed by collaborators.
@@ -46,7 +46,9 @@ staged at once by specifying file names with spaces in between:
 `git add <filename1> <filename2>`, and all files can be staged using `git *`. 
 Once files are staged, the changes can be committed as below:
 
-`git commit -m “<meaningful message here>”`.
+```
+git commit -m "<meaningful message here>"
+```
 
 Once the commit is completed, HEAD moves up to match the newest commit. A history
 of commits and commit messages can be viewed using `git log`, which pulls up the
@@ -58,18 +60,18 @@ produced using: `git log --pretty=format:"%h - %an, %ar : %s"`.
 A **branch** is a pointer to a specific commit. Commonly, three types of branches
 are used:
 
-**Main/master branch**: the primary branch automatically created when the 
+**Main/master branch**: the primary branch is automatically created when the 
 repository is cloned from the origin, which is a *remote* repository. The main/master 
 branch can be thought of as “production-ready” and is only updated when the develop branch 
 is stable with new version updates. As such, it contains an abridged history of commits.
 
-**Develop (dev) branch**: the secondary branch that contains full history of 
+**Develop (dev) branch**: the secondary branch that contains the full history of 
 commits. Supporting branches are created from and merged into dev. The separation
 between main/master and dev branches functions as a check against unstable/buggy commits
 being prematurely pushed to the main/master branch.
 
 **Supporting branches**: the short-lived snapshots created to build or test new
-features, fix glitches etc. and are deleted after a merge. Ideally each 
+features, fix glitches etc. and are deleted after a merge. Ideally, each 
 supporting branch is used for an isolated task or feature.
 
 
@@ -122,7 +124,7 @@ shows changes to a particular file.
 When changes from a supporting branch are ready to be merged into dev, a pull 
 request can be put in from the browser. The user can specify a topic and an 
 optional description to explain to the reader what the PR is about. It is important
-to double check which branch the PR is set to merge the supporting branch into,
+to double-check which branch the PR is set to merge the supporting branch into,
 as the browser might default to main rather than dev. The following summarizes
 the main steps of a pull request: pull -> edit -> commit with message -> push -> put in a pull request (PR) through the browser. 
 
@@ -163,9 +165,9 @@ For bigger tasks, it is helpful to write a description/comment for the card to
 provide some scaffolding/reminders for the assignee. 
 
 
-#### If setting up new repository:
+#### If setting up a new repository:
 
-Navigate to Github profile -> Repositories tab -> New -> fill in repository name and click ‘add a README file’ -> Create repository
+Navigate to GitHub profile -> Repositories tab -> New -> fill in repository name and click ‘add a README file’ -> Create repository
 
 Navigate to the new repository -> copy the HTTPS or SSH link from under the Code tab -> pull up RStudio (or VSCode) terminal -> clone repository to local machine by typing `<username>$ git clone <URL>`
 in the terminal.
@@ -190,13 +192,13 @@ One person creates a git project in the browser for the demo with tabs “to do�
 “done”, “won’t do”.
 
 Each person adds a card for a task from the list below to the “to do” column of 
-the new project. The fifth task should alsp be added to the "to do" column, but
+the new project. The fifth task should also be added to the "to do" column, but
 will not be worked on. 
 
 
 Task 1. Create an R file “string.R” which has one function “split_list” that 
 takes in a single argument. split_list splits a given long string into a list 
-of words (e.g., “heavy rain” to list(“heavy”, “rain”) and returns this list.
+of words (e.g., “heavy rain” to list(“heavy”, “rain”) and returns this list).
 
 Task 2. Create an R file “main.R” that sources an R file “string.R”. Assign the 
 returned list from split_list(“Measurement and Multilevel Modeling Lab”) to an
