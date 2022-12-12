@@ -53,7 +53,11 @@ git commit -m "<meaningful message here>"
 Once the commit is completed, HEAD moves up to match the newest commit. A history
 of commits and commit messages can be viewed using `git log`, which pulls up the
 latest commits in chronological order. A more readable list of commits can be 
-produced using: `git log --pretty=format:"%h - %an, %ar : %s"`.
+produced using: 
+
+```
+git log --pretty=format:"%h - %an, %ar : %s"
+```
 
 ### Branches
 
@@ -85,17 +89,23 @@ with `git branch -r`. The current branch is marked with an asterisk.
 In order to create a new branch, the user can navigate to the branch to build from
 (e.g., dev), and use 
 
-`git checkout -b <new branch name>`
+```
+git checkout -b <new branch name>
+```
 
 As with commits, a new branch is local until it is pushed to the remote repository.
 When pushing a branch for the first time, `git push` will give an error as the
 new local branch does not have an upstream branch. This error is solvable by using  
 
-`git push --set-upstream origin <name of the new branch>`
+```
+git push --set-upstream origin <name of the new branch>
+```
     
 Or, the user can directly push to the origin by 
 
-`git push origin <name of the new branch>`
+```
+git push origin <name of the new branch>
+```
     
 After the first commit, `git push` is sufficient to push commits to the remote. 
 
@@ -126,7 +136,7 @@ request can be put in from the browser. The user can specify a topic and an
 optional description to explain to the reader what the PR is about. It is important
 to double-check which branch the PR is set to merge the supporting branch into,
 as the browser might default to main rather than dev. The following summarizes
-the main steps of a pull request: pull -> edit -> commit with message -> push -> put in a pull request (PR) through the browser. 
+the main steps of a pull request: pull &rarr; edit &rarr; commit with message &rarr; push &rarr; put in a pull request (PR) through the browser. 
 
 If there are no conflicts and the user has no suggestions/edits, the user can 
 automatically merge and delete the supporting branch.
@@ -167,9 +177,9 @@ provide some scaffolding/reminders for the assignee.
 
 #### If setting up a new repository:
 
-Navigate to GitHub profile -> Repositories tab -> New -> fill in repository name and click ‘add a README file’ -> Create repository
+Navigate to GitHub profile &rarr; Repositories tab &rarr; New &rarr; fill in repository name and click ‘add a README file’ &rarr; Create repository
 
-Navigate to the new repository -> copy the HTTPS or SSH link from under the Code tab -> pull up RStudio (or VSCode) terminal -> clone repository to local machine by typing `<username>$ git clone <URL>`
+Navigate to the new repository &rarr; copy the HTTPS or SSH link from under the Code tab &rarr; pull up RStudio (or VSCode) terminal &rarr; clone repository to local machine by typing `<username>$ git clone <URL>`
 in the terminal.
 
 Note that the project will be cloned into the current working directory, which
