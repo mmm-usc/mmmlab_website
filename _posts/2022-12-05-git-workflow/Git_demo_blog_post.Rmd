@@ -1,0 +1,267 @@
+---
+title: "Git Workflow"
+description: |
+  A brief overview of the git workflow and a demonstration of the git workflow for collaboration.
+author:
+  - name: Meltem Ozcan
+    url: https://quantscience.rbind.io
+date: 2022-11-28
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+categories:
+  - git
+  - version control
+---
+
+The goal of this demonstration is to equip the readers with a basic understanding
+of concepts relevant to version control with git, and to demonstrate how git can be 
+used for collaboration among multiple team members.
+
+## Git concepts
+
+Git allows multiple users to synchronously write and edit code locally, fix bugs
+and resolve any conflicts with others' work before accepting (or rejecting) and
+propagating the changes. Users can go back to previous versions of their work as
+needed, allowing for a relatively risk-free coding environment. Version control 
+is made possible through the use of tree-like data structures, and the distinction
+between the local and remote repositories. The **remote repository** contains the 
+version(s) of the project hosted on the internet and can be accessed by collaborators.
+All changes to code remain *local* until they are *pushed* to the remote. The 
+**local repository** refers to versions of the project on someone's local 
+computer, and consists of 3 'trees': 1. *working directory* (the files), 2. *index* 
+(the staging area), 3. *HEAD* (the pointer to the most recent commit). 
+
+### Commits
+
+A **commit** is a snapshot/copy/state of the local project at a specific point 
+in time, and commits can be thought of as periodic checkpoints that make it easier
+to backtrack/understand previous work and to troubleshoot. See [Git best practices about commits](https://sethrobertson.github.io/GitBestPractices/)
+for more details and tips. Committing early and often is strongly recommended.
+
+First, the file is staged for commit and added to
+the index by calling `git add <filename>` in the terminal. Multiple files can be 
+staged at once by specifying file names with spaces in between: 
+`git add <filename1> <filename2>`, and all files can be staged using `git *`. 
+Once files are staged, the changes can be committed as below:
+
+```
+git commit -m "<meaningful message here>"
+```
+
+Once the commit is completed, HEAD moves up to match the newest commit. A history
+of commits and commit messages can be viewed using `git log`, which pulls up the
+latest commits in chronological order. A more readable list of commits can be 
+produced using: 
+
+```
+git log --pretty=format:"%h - %an, %ar : %s"
+```
+
+### Branches
+
+A **branch** is a pointer to a specific commit. Commonly, three types of branches
+are used:
+
+**Main/master branch**: the primary branch is automatically created when the 
+repository is cloned from the origin, which is a *remote* repository. The main/master 
+branch can be thought of as “production-ready” and is only updated when the develop branch 
+is stable with new version updates. As such, it contains an abridged history of commits.
+
+**Develop (dev) branch**: the secondary branch that contains the full history of 
+commits. Supporting branches are created from and merged into dev. The separation
+between main/master and dev branches functions as a check against unstable/buggy commits
+being prematurely pushed to the main/master branch.
+
+**Supporting branches**: the short-lived snapshots created to build or test new
+features, fix glitches etc. and are deleted after a merge. Ideally, each 
+supporting branch is used for an isolated task or feature.
+
+
+The current branch and its status (in terms of modified files and in comparison
+with origin/<branch>) can be checked with `git status`. Any staged files will
+appear in green. 
+
+The user can list all branches with `git branch -a`, and all remote branches
+with `git branch -r`. The current branch is marked with an asterisk.
+
+In order to create a new branch, the user can navigate to the branch to build from
+(e.g., dev), and use 
+
+```
+git checkout -b <new branch name>
+```
+
+As with commits, a new branch is local until it is pushed to the remote repository.
+When pushing a branch for the first time, `git push` will give an error as the
+new local branch does not have an upstream branch. This error is solvable by using  
+
+```
+git push --set-upstream origin <name of the new branch>
+```
+    
+Or, the user can directly push to the origin by 
+
+```
+git push origin <name of the new branch>
+```
+    
+After the first commit, `git push` is sufficient to push commits to the remote. 
+
+`git branch -d <branch name>` can be used to delete a local branch that has been
+pushed and merged with the remote branch. Use `-D` to force delete a branch that
+hasn’t been merged into the remote.
+
+`git push <remote name> -- delete <branch name>` deletes the remote branch.
+
+`git fetch --all --prune` grabs all changes from remotes and locally deletes the
+files/branches that were deleted remotely. 
+
+`git fetch` grabs all the changes from remotes. This command does not delete
+local files.
+
+`git pull` downloads the most recent version of the branch from the remote. 
+Remember to pull first before any edits, as there may have been modifications to
+code by others.
+
+`git diff` illustrates changes since the last commit, `git diff <filename>` 
+shows changes to a particular file.
+
+
+### Pull Requests 
+
+When changes from a supporting branch are ready to be merged into dev, a pull 
+request can be put in from the browser. The user can specify a topic and an 
+optional description to explain to the reader what the PR is about. It is important
+to double-check which branch the PR is set to merge the supporting branch into,
+as the browser might default to main rather than dev. The following summarizes
+the main steps of a pull request: pull &rarr; edit &rarr; commit with message &rarr; push &rarr; put in a pull request (PR) through the browser. 
+
+If there are no conflicts and the user has no suggestions/edits, the user can 
+automatically merge and delete the supporting branch.
+
+If there are conflicts, the user can view and solve these either via the browser 
+or in RStudio. Through the browser, the user can check which files have conflicts 
+under the ‘files changed’ tab for the pull request. 
+
+The browser has two helpful viewing options that make it easier to sort through
+multiple changes: *split view* or *unified view*. 
+
+If a user would like a code review on the changes made or would like collaborators 
+to review and accept/reject their changes, a pull review can be requested from
+specific individuals who will receive a notification to view, comment on, or 
+merge the pull request. If multiple individuals need to weigh in before the merge, 
+each individual can click ‘approve’ to show that they are comfortable with the 
+changes/edits (or request edits/reject otherwise).
+
+While reviewing a PR with multiple files, progress can be tracked by clicking ‘Viewed’.
+
+If the user sees errors/has suggestions, they can [leave comments](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) on specific lines or chunks of code by
+clicking on the blue comment icon on the left side. If the task is substantial,
+an issue can be created for it and specific individuals can be assigned to the task. 
+
+
+
+### Projects 
+
+Each issue can be assigned to a [project](https://docs.github.com/en/issues/planning-and-tracking-with-projects), which makes it easier to keep track of different ongoing projects’ progress.
+
+Depending on the priority and status of the issues (‘cards’) within a project,
+they can be moved under different headings for easier management as well as
+tracking of ideas: backlog, to-do, in progress, on hold/blocked, done, won’t do, etc.
+
+For bigger tasks, it is helpful to write a description/comment for the card to 
+provide some scaffolding/reminders for the assignee. 
+
+
+#### If setting up a new repository:
+
+Navigate to GitHub profile &rarr; Repositories tab &rarr; New &rarr; fill in repository name and click ‘add a README file’ &rarr; Create repository
+
+Navigate to the new repository &rarr; copy the HTTPS or SSH link from under the Code tab &rarr; pull up RStudio (or VSCode) terminal &rarr; clone repository to local machine by typing `<username>$ git clone <URL>`
+in the terminal.
+
+Note that the project will be cloned into the current working directory, which
+can be checked in the terminal with the `pwd` command. 
+
+In the terminal, navigate to the repository with command `cd <name or path to repo>`.
+
+
+## Demo
+
+This is a quick demo that can be worked on as a group to get familiar with the 
+git workflow for collaboration. It was created with four collaborators in mind 
+but can be modified as needed. 
+
+First, one person creates a new repo and creates a dev branch from main.
+
+Everyone else clones the new repo to their local machine.
+
+One person creates a git project in the browser for the demo with tabs “to do”, 
+“done”, “won’t do”.
+
+Each person adds a card for a task from the list below to the “to do” column of 
+the new project. The fifth task should also be added to the "to do" column, but
+will not be worked on. 
+
+
+Task 1. Create an R file “string.R” which has one function “split_list” that 
+takes in a single argument. split_list splits a given long string into a list 
+of words (e.g., “heavy rain” to list(“heavy”, “rain”) and returns this list).
+
+Task 2. Create an R file “main.R” that sources an R file “string.R”. Assign the 
+returned list from split_list(“Measurement and Multilevel Modeling Lab”) to an
+object. Write a for loop that loops over each element in the object and prints it.
+
+Task 3. Create an R file “and.R” which has one function “checkifand” which takes
+in one argument. Returns TRUE if the argument provided is “and” and FALSE if 
+there is no match.
+
+Task 4. Modify main.R to also source add.R. Edit the for loop such that any 
+matches to “and” are not printed.
+
+Task 5. Create an R file “reorder.R” that takes in a list and reorders the 
+elements such that the first element is now the last element and so on. 
+
+Once the cards have been created on the browser project, the first four tasks 
+are split between the individuals. The cards can be converted into issues and
+assigned to specific individuals.
+
+Each person creates a supporting branch from dev with a suitable name and 
+checks out the branch on their local machine. 
+
+Everyone takes 5 minutes to make some progress on their designated task and 
+pull, commit, pushes their changes to the remote following the best practices 
+discussed above. When a task is complete and the change has been pushed to the
+remote, each person can create a pull request from their branch to dev, and assign
+one other person from the group to review their pull request (PR).
+
+While the updates are being made, experiment with `git fetch`, `git status`,
+`git branch -a` and `git branch -r` to see how each commit changes the repositories. 
+
+Each person reviews a PR, either approves edits or suggests a simple change.
+If everything works as expected, the branch can be merged into dev from the browser
+and the supporting branch can be deleted. 
+
+Again, everyone experiments with commands like `git fetch`, `git status`, 
+`git branch -a` and `git branch -r`. 
+
+Finally, fetch with pruning to delete local versions of deleted branches.
+
+Each person moves their git project card to the appropriate tab, and one 
+person moves the fifth task card to the “won’t do” tab.
+
+
+### References and helpful Git resources:
+
+[git - the simple guide](http://rogerdudler.github.io/git-guide/)
+
+[Think like (a) Git - a guide for the perplexed](https://think-like-a-git.net/)
+
+[Cheatsheet](https://gist.github.com/davfre/8313299)
+
+[Hello world tutorial](https://docs.github.com/en/get-started/quickstart/hello-world)
+
+
+
