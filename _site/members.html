@@ -785,6 +785,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1857,15 +1858,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2064,8 +2071,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
-  <script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+  <script src="site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
   <script src="site_libs/jquery-3.4.1/jquery-3.4.1.min.js"></script>
   <script src="site_libs/jquery-migrate-3.1.0/jquery-migrate-3.1.0.min.js"></script>
   <link href="site_libs/slick-1.8.1/slick/slick.css" rel="stylesheet" />
@@ -2073,9 +2080,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="site_libs/slick-1.8.1/slick/slick.min.js"></script>
   <script src="site_libs/css-resize-1.2.1/ResizeSensor.js"></script>
   <script src="site_libs/css-resize-1.2.1/ElementQueries.js"></script>
-  <link href="site_libs/slickR-0.0.1/slick.css" rel="stylesheet" />
-  <link href="site_libs/slickR-0.0.1/slick-theme.css" rel="stylesheet" />
-  <script src="site_libs/slickR-0.0.1/slickR.js"></script>
+  <link href="site_libs/slickR-0.0.2/slick.css" rel="stylesheet" />
+  <link href="site_libs/slickR-0.0.2/slick-theme.css" rel="stylesheet" />
+  <script src="site_libs/slickR-0.0.2/slickR.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2122,7 +2129,7 @@ Applications
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="https://partinvmmm.shinyapps.io/partinvshinyui/">PartInv Shiny App</a>
+<a href="https://mmmlabusc.shinyapps.io/partinvshinyui/">PartInv Shiny App</a>
 <a href="https://winnie-wy-tse.shinyapps.io/hcb_shiny/">HCBR Shiny App</a>
 </div>
 </div>
@@ -2147,146 +2154,87 @@ Applications
 
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
-<div id="htmlwidget-389462a653bb06ab1d79" style="width:95%;height:384px;" class="slickR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-389462a653bb06ab1d79">{"x":[{"obj":"<div class=\"baseDiv_bump_330777583876625\">\n  <div>\n    <img src=\"static/images/slickr_files/MidAutumnPicnic21.jpg\" title=\"Mid-Autumn Picnic 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_1.jpg\" title=\"Point Dume Hike 2021-1\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/ThanksgivingPicnic21.jpg\" title=\"Thanksgiving picnic 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/FirstLabMeetingofFall21.jpg\" title=\"FirstLabMeetingofFall2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_2.jpg\" title=\"Point Dume Hike 2021-2\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/Summer21.jpg\" title=\"Summer21\" height=\"400\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_330777583876625","slideh":400,"slidew":"95%","slickOpts":{"autoplay":true,"autoplaySpeed":4000}}],"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-52a49345a31718344cd2" style="width:95%;height:384px;" class="slickR html-widget "></div>
+<script type="application/json" data-for="htmlwidget-52a49345a31718344cd2">{"x":[{"obj":"<div class=\"baseDiv_bump_484765243716538\">\n  <div>\n    <img src=\"static/images/slickr_files/2spa_team_lunch.jpg\" title=\"First lab meeting of Fall 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/bologna group picture 1.jpg\" title=\"Mid-Autumn picnic at Elysian Park, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/bologna group picture 2.jpg\" title=\"Point Dume hike, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/FirstLabMeetingofFall21.jpg\" title=\"Point Dume hike, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/MidAutumnPicnic21.jpg\" title=\"Spring BBQ, 2022\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_1.jpg\" title=\"Summer gathering, Aug 21\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_2.jpg\" title=\"Summer hike, 2022\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/SpringBBQ22.jpeg\" title=\"Thanksgiving picnic at Kenneth Hahn, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/Summer21.jpg\" title=\"First lab meeting of Fall 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/SummerHike22.jpeg\" title=\"Mid-Autumn picnic at Elysian Park, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/ThanksgivingPicnic21.jpg\" title=\"Point Dume hike, 2021\" height=\"400\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_484765243716538","slideh":400,"slidew":"95%","slickOpts":{"autoplay":true,"autoplaySpeed":4000}}],"evals":[],"jsHooks":[]}</script>
 </div>
 <h2 id="principal-investigator">Principal Investigator</h2>
 <h3 id="hok-chio-mark-lai">Hok Chio (Mark) Lai</h3>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="https://quantscience.rbind.io/author/hok-chio-mark-lai-%E9%BB%8E%E5%AD%B8%E6%98%AD/avatar_hu5fee5d8532847d51fbb6966683aaaac0_71984_270x270_fill_q90_lanczos_center.jpg" width="250px" /></p>
 </div>
-<p>I am an Assistant Professor of Psychology (Quantitative Methods) in
-the Department of Psychology at the University of Southern California. I
-am from Macau and speaks Cantonese as my native language. Mathematics
-has always been a favorite subject to me, but my growing interest in
-understanding the human mind lead me to pursue a bachelor degree in
-Psychology at the University of Macau, where I discovered that a career
-of developing and applying quantitative methods in the social sciences
-would be a very good fit to me.</p>
-<p>I am interested in all kinds of statistical methods, but currently my
-research areas include multilevel modeling, structural equation
-modeling, effect size statistics, and measurement invariance. I also
-have collaborations on projects studying the prevalence, antecedents and
-consequences of gambling disorder, and in other areas such as
-evolutionary psychology, social psychology, developmental sciences,
-health sciences, etc.</p>
+<p>I am an Assistant Professor of Psychology (Quantitative Methods) in the Department of Psychology at the University of Southern California. I am from Macau and speaks Cantonese as my native language. Mathematics has always been a favorite subject to me, but my growing interest in understanding the human mind lead me to pursue a bachelor degree in Psychology at the University of Macau, where I discovered that a career of developing and applying quantitative methods in the social sciences would be a very good fit to me.</p>
+<p>I am interested in all kinds of statistical methods, but currently my research areas include multilevel modeling, structural equation modeling, effect size statistics, and measurement invariance. I also have collaborations on projects studying the prevalence, antecedents and consequences of gambling disorder, and in other areas such as evolutionary psychology, social psychology, developmental sciences, health sciences, etc.</p>
 <ul>
-<li><a
-href="https://quantscience.rbind.io/files/Vita_Lai.pdf">CV</a></li>
+<li><a href="https://quantscience.rbind.io/files/Vita_Lai.pdf">CV</a></li>
 <li><a href="https://quantscience.rbind.io">Personal website</a></li>
-<li>Email: <a href="mailto:hokchiol@usc.edu"
-class="email">hokchiol@usc.edu</a></li>
+<li>Email: <a href="mailto:hokchiol@usc.edu" class="email">hokchiol@usc.edu</a></li>
 </ul>
 <h2 id="graduate-students">Graduate Students</h2>
 <h3 id="winnie-wing-yee-tse">Winnie Wing-Yee Tse</h3>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="https://dornsife.usc.edu/assets/img/content/284548/wizard/xizebuje.jpg" width="250px" /></p>
+<p><img src="https://dornsife.usc.edu/assets/img/content/322110/wizard/ydyzulev.jpg" width="250px" /></p>
 </div>
-<p>I am a third-year Ph.D. quantitative psychology student, working
-under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my
-research interests are on multilevel modeling, structural equation
-modeling, and Bayesian statistics. My main project focuses on
-incorporating uncertainty in parameter values (e.g., effect size and
-intraclass correlation) for designing multilevel studies. My secondary
-project investigates when strict factorial invariance is a necessary
-condition for valid use of observed scale scores. I am also involved in
-projects on latent class/profile analysis, two-stage path analysis with
-adjustment for measurement noninvariance and unreliability, and
-multilevel regression and poststratification on subnational predictions
-with language data.</p>
+<p>I am a fourth-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my research interests are in multilevel modeling, structural equation modeling, and Bayesian statistics. My main project focuses on incorporating uncertainty in parameter values (e.g., effect size and intraclass correlation) for designing multilevel studies. My secondary project investigates when strict factorial invariance is a necessary condition for valid use of observed scale scores. I am also involved in projects on latent class/profile analysis, two-stage path analysis with adjustment for measurement noninvariance and unreliability, and multilevel regression and poststratification on subnational predictions with language data.</p>
 <ul>
-<li><a href="static/cv/WinnieTse_CV_20220222.pdf">CV</a></li>
+<li><a href="https://winniewytse.rbind.io/cv/winniewytse_cv.pdf">CV</a></li>
 <li><a href="https://winniewytse.rbind.io/">Personal website</a></li>
-<li>Email: <a href="mailto:wingyeet@usc.edu"
-class="email">wingyeet@usc.edu</a></li>
+<li>Email: <a href="mailto:wingyeet@usc.edu" class="email">wingyeet@usc.edu</a></li>
 </ul>
 <h3 id="yichi-zhang">Yichi Zhang</h3>
-<p><img src="static/images/YichiZhang_image_20210326.jpg"
-style="width:50.0%" /></p>
-<p>Hello! I am a third-year Ph.D. student in quantitative psychology. I
-am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current
-research interests are measurement invariance, robust structural
-equation modeling and longitudinal growth modeling. My current project
-is about establishing measurement invariance using a Bayesian ROME
-(region of measurement equivalence) method.</p>
+<p><img src="static/images/YichiZhang_image_20210326.jpg" style="width:50.0%" /></p>
+<p>I am a fourth-year Ph.D. student in Quantitative Psychology. I am co-advised by Dr. Hok Chio(Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement bias in surveys/questionnaires and robust statistical models, such as hierarchical linear model(linear mixed effects model), latent variable model (structural equation modeling), etc. I hope to use psychometric methods and statistical models to explore research questions related to fair and accurate psychological measurement. My main project focuses on quantifying the practical impact of item bias(noninvariance) on total scale scores. My secondary project evaluates the impact of two-level heteroscedasticity on small sample corrections for fixed-effects inferences. In addition, I am involved in projects on bootstrapping for multilevel models, multilevel regression and poststratification on subnational predictions with language data.</p>
 <ul>
 <li><a href="static/cv/YichiZhang_CV_20220206.pdf">CV</a></li>
-<li>Email: <a href="mailto:yzhang97@usc.edu"
-class="email">yzhang97@usc.edu</a></li>
+<li>Email: <a href="mailto:yzhang97@usc.edu" class="email">yzhang97@usc.edu</a></li>
+<li>Personal website: <a href="https://yichiyczhang.rbind.io/about.html" class="uri">https://yichiyczhang.rbind.io/about.html</a></li>
 </ul>
 <h3 id="jimmy-zhang">Jimmy Zhang</h3>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="https://dornsife.usc.edu/assets/img/content/284548/wizard/nojaqado.jpg" width="250px" /></p>
+<p><img src="https://dornsife.usc.edu/assets/img/content/322110/wizard/ewunerik.jpg" width="250px" /></p>
 </div>
-<p>Research Interests: Factor Analysis, Measurement Invariance,
-Meta-analysis</p>
+<p>I am a third-year Ph.D. student in Quantitative Methods and Computational Psychology (QMCP) area at USC. My advisor is Dr. Hok Chio (Mark) Lai. I’m generally interested in how researchers can meta-analytic techniques to synthesize research information from their areas of interests and figure out broad and overarching effects. Specifically, researchers look into questions cross-sectionally and longitudinally with complex hypotheses formalized through various statistical models. For example, I’m interested in how structural equation modeling (SEM), longitudinal models, and moderation models can be applied in meta-analysis to synthesize the effects from different angles. My main project focuses on a meta-analysis of measurement invariance of the CES-D scale across gender groups.</p>
 <ul>
-<li>Email: <a href="mailto:gengruiz@usc.edu"
-class="email">gengruiz@usc.edu</a></li>
+<li>Email: <a href="mailto:gengruiz@usc.edu" class="email">gengruiz@usc.edu</a></li>
 </ul>
 <h3 id="meltem-ozcan">Meltem Ozcan</h3>
-<p><img src="static/images/MeltemOzcan_imgage_20210512.jpg"
-style="width:50.0%" /></p>
-<p>I am a first-year Ph.D. student in quantitative psychology at USC
-advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the
-development and application of advanced quantitative methods to assess
-and model dynamic and complex psychological phenomena, and more
-specifically, my research interests include measurement bias, Bayesian
-statistics, and psychometrics. At UC Santa Cruz, where I completed my
-M.S. in statistics, my research looked at the performance of the
-cumulative sum test for determining changepoints in time series under
-various correlation structures through a series of simulation
-experiments. Previously, I conducted research on an eclectic set of
-topics I find fascinating, including self-disclosure, intimacy,
-(skipping the) small talk, influence attempts in friendships on topics
-such as politics, linguistic patterns in trauma narratives, and light
-therapy for PTSD. I enjoy hiking, road trips, horror movies, reading,
-learning languages (Korean or Python), writing (stories or code), and
-skipping the small talk.</p>
+<p><img src="static/images/MeltemOzcan_imgage_20210512.jpg" style="width:50.0%" /></p>
+<p>I am a second-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in developing and applying advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and harnessing advances in machine learning and Bayesian statistics to improve upon traditional methods in psychology. My research interests include measurement invariance, fairness and accuracy in psychometric tests, Bayesian statistical methods, effect size statistics, and the measurement of and prediction with time-dependent variables. At UC Santa Cruz, where I completed my M.S. in statistics, I investigated the performance of changepoint detection techniques for time series under various correlation structures. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics like politics, and linguistic patterns in trauma narratives. I enjoy learning languages (Korean or Python), writing (stories or code), and skipping the small talk.</p>
 <ul>
-<li>Email: <a href="mailto:ozcan@usc.edu"
-class="email">ozcan@usc.edu</a></li>
-<li>Personal website: <a href="https://www.linkedin.com/in/meltemozcan/"
-class="uri">https://www.linkedin.com/in/meltemozcan/</a></li>
+<li>Email: <a href="mailto:ozcan@usc.edu" class="email">ozcan@usc.edu</a></li>
+<li>Personal website: <a href="https://www.linkedin.com/in/meltemozcan/" class="uri">https://www.linkedin.com/in/meltemozcan/</a></li>
+<li>Github: <a href="https://github.com/meltemozcan" class="uri">https://github.com/meltemozcan</a></li>
 </ul>
 <hr />
 <h2 id="undergraduate-students">Undergraduate Students</h2>
-<h3 id="hailin-yue-haley">Hailin Yue (Haley)</h3>
-<p>I am a fourth-year undergraduate student majoring in economics, with
-a minor in psychology and data analytics. I am interested in applying
-quantitative reasoning to study mental health and to optimize business
-decision I hope to pursue a graduate degree after graduation, but am not
-sure on what subject yet. Outside of academia, I enjoy reading,
-painting, listening to music, and watching TV dramas.</p>
+<h3 id="yixiao">Yixiao</h3>
+<p>I am currently a third-year undergraduate student majoring in computer science. Personally, I am interested in quantitative analysis and data science, and am passionate about applying statistical methods in solving real-life problems. Previously, at MMM Lab, I have worked on projects including building R software package for a 2SPA model. Additionally, I love skateboard, basketball (I’ve played for several years), hang out with friends, and travel.</p>
 <ul>
-<li>Email: <a href="mailto:hailinyu@usc.edu"
-class="email">hailinyu@usc.edu</a></li>
+<li>Email: <a href="mailto:likather@usc.edu" class="email">likather@usc.edu</a></li>
 </ul>
-<h3 id="clay-cantrell">Clay Cantrell</h3>
-<p>I am a fourth year undergraduate student studying Cognitive Science
-with a minor in Computer Programming at USC. My academic interests
-include computer-human interaction and social learning. When I’m not in
-front of a computer my hobbies include mountain bike riding,
-backpacking, and getting some fresh air.</p>
+<h3 id="kezia">Kezia</h3>
+<p>I am a second-year undergraduate student majoring in Cognitive Science with a minor in Computer Programming. I’m very interested in user experience and using quantitative data to better understand the way we think in order to improve products. I want to apply quantitative methods to understand the human mind more. In my free time, I enjoy cooking, drawing, going to beaches, exploring the city, and eating food!</p>
 <ul>
-<li>Email: <a href="mailto:cacantre@usc.edu"
-class="email">cacantre@usc.edu</a></li>
-</ul>
-<h3 id="alyssa-delarosa">Alyssa Delarosa</h3>
-<ul>
-<li>Email: <a href="mailto:alyssad1@usc.edu"
-class="email">alyssad1@usc.edu</a></li>
+<li>Email: <a href="mailto:keleung@usc.edu" class="email">keleung@usc.edu</a></li>
 </ul>
 <h2 id="collaborators">Collaborators</h2>
-<p><a href="https://hiowamak.weebly.com/">Hio Wa (Grace) Mak (U Southern
-Califnoria)</a></p>
-<p><a href="https://researchdirectory.uc.edu/p/richargg">George
-Richardson (U Cincinnati)</a></p>
+<p><a href="https://hiowamak.weebly.com/">Hio Wa (Grace) Mak (U Southern Califnoria)</a></p>
+<p><a href="https://researchdirectory.uc.edu/p/richargg">George Richardson (U Cincinnati)</a></p>
 <p><a href="#">Yu-Yu Hsiao (U New Mexico)</a></p>
 <h2 id="lab-alumni">Lab Alumni</h2>
 <h3 id="yuting-wang">Yuting Wang</h3>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h3 id="hailin-yue-haley">Hailin Yue (Haley)</h3>
+<ul>
+<li><a href="https://www.linkedin.com/in/hailin-haley-yue-65535219b/">Linkedin page</a></li>
+</ul>
+<h3 id="clay-cantrell">Clay Cantrell</h3>
+<ul>
+<li><a href="https://www.linkedin.com/in/clay-cantrell-808676202/">Linkedin page</a></li>
+</ul>
+<h3 id="alyssa-delarosa">Alyssa Delarosa</h3>
+<ul>
+<li><a href="https://www.linkedin.com/in/alyssa-delarosa-49272b163/">Linkedin page</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

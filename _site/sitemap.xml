@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/members.html</loc>
-    <lastmod>2022-05-12T14:15:06-07:00</lastmod>
+    <lastmod>2023-01-20T07:41:23-08:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/publications.html</loc>
-    <lastmod>2022-05-11T21:39:02-07:00</lastmod>
+    <lastmod>2023-01-20T07:41:23-08:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/README.html</loc>
@@ -22,7 +22,11 @@
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/research.html</loc>
-    <lastmod>2022-05-11T21:39:02-07:00</lastmod>
+    <lastmod>2023-01-20T07:41:23-08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/</loc>
+    <lastmod>2023-01-20T07:41:23-08:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/</loc>
@@ -34,7 +38,7 @@
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/</loc>
-    <lastmod>2022-05-19T11:47:26-07:00</lastmod>
+    <lastmod>2022-05-19T11:47:27-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/</loc>

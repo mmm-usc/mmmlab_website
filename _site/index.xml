@@ -7,7 +7,17 @@
     <description>Measurement &amp; Multilevel Modeling Lab
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Git Workflow</title>
+      <dc:creator>Meltem Ozcan</dc:creator>
+      <link>https://mmmlab.rbind.io/posts/2022-12-05-git-workflow</link>
+      <description>A brief overview of the git workflow and a demonstration of the git workflow for collaboration.</description>
+      <category>git</category>
+      <category>version control</category>
+      <guid>https://mmmlab.rbind.io/posts/2022-12-05-git-workflow</guid>
+      <pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Confidence Intervals for Multilevel R-Squared</title>
       <dc:creator>Hok Chio (Mark) Lai</dc:creator>
