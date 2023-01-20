@@ -23,7 +23,7 @@ navbar:
     - text: "Applications"
       menu:
         - text: "PartInv Shiny App"
-          href: https://partinvmmm.shinyapps.io/partinvshinyui/
+          href: https://mmmlabusc.shinyapps.io/partinvshinyui/
         - text: "HCBR Shiny App"
           href: https://winnie-wy-tse.shinyapps.io/hcb_shiny/
     - icon: fab fa-github
