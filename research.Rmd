@@ -15,7 +15,7 @@ Measurement is the foundation of quantitative science, and it's especially impor
 - New algorithms for adjusting parameter estimates for measurement noninvariance (Mark Lai & Winnie Tse)
 - Measurement invariance with categorical data (Winnie Tse)
 - Quantifying measurement noninvariance in a meaningful way (Yichi Zhang)
-- Bias-correction methods for heterogeneous measurement errors (Mark Lai)
+- Two-stage path analysis to adjust for measurement errors and measurement bias in data harmonization and integrative data analysis (Mark Lai, Winnie Tse, Jimmy Zhang, & Yixiao Li, funded by the National Science Foundation)
 - Developing a Multidimensional Psychometric Framework on the Impact of Item Bias on Classification (Mark Lai & Yichi Zhang & Meltem Ozcan, Contract with Army Research Institute)
 - Synthesis of invariance research (Jimmy Zhang & Haley Yue)
 

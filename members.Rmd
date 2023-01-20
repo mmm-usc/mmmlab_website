@@ -8,23 +8,32 @@ knitr::opts_chunk$set(echo = FALSE,
 ```
 
 ```{r}
-paths <- c('static/images/slickr_files/MidAutumnPicnic21.jpg',
-           'static/images/slickr_files/PointDumeHike21_1.jpg',
-          'static/images/slickr_files/ThanksgivingPicnic21.jpg',
-          'static/images/slickr_files/FirstLabMeetingofFall21.jpg',
-          'static/images/slickr_files/PointDumeHike21_2.jpg',
-          'static/images/slickr_files/Summer21.jpg')
-alt_text <- c('Mid-Autumn Picnic 2021',
-              'Point Dume Hike 2021-1', 
-              'Thanksgiving picnic 2021',
-              'FirstLabMeetingofFall2021', 
-              'Point Dume Hike 2021-2', 
-              'Summer21')
-img_h <- 400
+
+# Alt text that will appear for each image for accessibility. When adding new 
+# images, ensure that the alt text for the new image is added in the correct
+# order in the list below (the ordering should match the alphabetical ordering
+# of the images listed in the path. For example, if adding an image named 
+# 'aaa.jpg' with alt text "really fun event 2022", "really fun event 2022" 
+# should appear as the first element in alt_text as 'aaa.jpg' is the fist image
+# alphabetically.
+alt_text <- c('First lab meeting of Fall 2021',
+              'Mid-Autumn picnic at Elysian Park, 2021',
+              'Point Dume hike, 2021', 
+              'Point Dume hike, 2021', 
+              'Spring BBQ, 2022',
+              'Summer gathering, Aug 21',
+              'Summer hike, 2022',
+              'Thanksgiving picnic at Kenneth Hahn, 2021')
+
+img_path <-'static/images/slickr_files/'
+
 paths_w_alt_text <- mapply(function(x,txt,h){
-  htmltools::tags$img(src = x, title = txt, height=h)},
-  x = paths, txt = alt_text, h=img_h, SIMPLIFY = FALSE)
-slickR::slickR(obj = paths_w_alt_text, height = 400) + slickR::settings(autoplay = TRUE, autoplaySpeed = 4000)
+  htmltools::tags$img(src = x, title = txt, height = h)},
+  x = paste0(img_path, unlist(list.files(img_path))),
+  txt = alt_text, h = 400, SIMPLIFY = FALSE)
+
+slickR::slickR(obj = paths_w_alt_text, height = 400) + 
+  slickR::settings(autoplay = TRUE, autoplaySpeed = 4000)
 ```
 
 ## Principal Investigator
@@ -48,12 +57,12 @@ I am interested in all kinds of statistical methods, but currently my research a
 ### Winnie Wing-Yee Tse
 
 ```{r}
-knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/xizebuje.jpg")
+knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/322110/wizard/ydyzulev.jpg")
 ```
 
-I am a third-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my research interests are on multilevel modeling, structural equation modeling, and Bayesian statistics. My main project focuses on incorporating uncertainty in parameter values (e.g., effect size and intraclass correlation) for designing multilevel studies. My secondary project investigates when strict factorial invariance is a necessary condition for valid use of observed scale scores. I am also involved in projects on latent class/profile analysis, two-stage path analysis with adjustment for measurement noninvariance and unreliability, and multilevel regression and poststratification on subnational predictions with language data.
+I am a fourth-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my research interests are in multilevel modeling, structural equation modeling, and Bayesian statistics. My main project focuses on incorporating uncertainty in parameter values (e.g., effect size and intraclass correlation) for designing multilevel studies. My secondary project investigates when strict factorial invariance is a necessary condition for valid use of observed scale scores. I am also involved in projects on latent class/profile analysis, two-stage path analysis with adjustment for measurement noninvariance and unreliability, and multilevel regression and poststratification on subnational predictions with language data.
 
-- [CV](static/cv/WinnieTse_CV_20220222.pdf)
+- [CV](https://winniewytse.rbind.io/cv/winniewytse_cv.pdf)
 - [Personal website](https://winniewytse.rbind.io/)
 - Email: wingyeet@usc.edu
 
@@ -61,18 +70,19 @@ I am a third-year Ph.D. quantitative psychology student, working under the super
 
 ![](static/images/YichiZhang_image_20210326.jpg){width=50%}
 
-Hello! I am a third-year Ph.D. student in quantitative psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement invariance, robust structural equation modeling and longitudinal growth modeling. My current project is about establishing measurement invariance using a Bayesian ROME (region of measurement equivalence) method.
+I am a fourth-year Ph.D. student in Quantitative Psychology. I am co-advised by Dr. Hok Chio(Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement bias in surveys/questionnaires and robust statistical models, such as hierarchical linear model(linear mixed effects model), latent variable model (structural equation modeling), etc. I hope to use psychometric methods and statistical models to explore research questions related to fair and accurate psychological measurement. My main project focuses on quantifying the practical impact of item bias(noninvariance) on total scale scores. My secondary project evaluates the impact of two-level heteroscedasticity on small sample corrections for fixed-effects inferences. In addition, I am involved in projects on bootstrapping for multilevel models, multilevel regression and poststratification on subnational predictions with language data.
 
 - [CV](static/cv/YichiZhang_CV_20220206.pdf)
 - Email: yzhang97@usc.edu
+- Personal website: https://yichiyczhang.rbind.io/about.html 
 
 ### Jimmy Zhang
 
 ```{r}
-knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/284548/wizard/nojaqado.jpg")
+knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/322110/wizard/ewunerik.jpg")
 ```
 
-Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
+I am a third-year Ph.D. student in Quantitative Methods and Computational Psychology (QMCP) area at USC. My advisor is Dr. Hok Chio (Mark) Lai. I'm generally interested in how researchers can meta-analytic techniques to synthesize research information from their areas of interests and figure out broad and overarching effects. Specifically, researchers look into questions cross-sectionally and longitudinally with complex hypotheses formalized through various statistical models. For example, I'm interested in how structural equation modeling (SEM), longitudinal models, and moderation models can be applied in meta-analysis to synthesize the effects from different angles. My main project focuses on a meta-analysis of measurement invariance of the CES-D scale across gender groups.
 
 - Email: gengruiz@usc.edu
 
@@ -80,32 +90,27 @@ Research Interests: Factor Analysis, Measurement Invariance, Meta-analysis
 
 ![](static/images/MeltemOzcan_imgage_20210512.jpg){width=50%}
 
-I am a first-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in the development and application of advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and more specifically, my research interests include measurement bias, Bayesian statistics, and psychometrics. At UC Santa Cruz, where I completed my M.S. in statistics, my research looked at the performance of the cumulative sum test for determining changepoints in time series under various correlation structures through a series of simulation experiments. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics such as politics, linguistic patterns in trauma narratives, and light therapy for PTSD. I enjoy hiking, road trips, horror movies, reading, learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
+I am a second-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in developing and applying advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and harnessing advances in machine learning and Bayesian statistics to improve upon traditional methods in psychology. My research interests include measurement invariance, fairness and accuracy in psychometric tests, Bayesian statistical methods, effect size statistics, and the measurement of and prediction with time-dependent variables. At UC Santa Cruz, where I completed my M.S. in statistics, I investigated the performance of changepoint detection techniques for time series under various correlation structures. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics like politics, and linguistic patterns in trauma narratives. I enjoy learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
 
 - Email: ozcan@usc.edu
 - Personal website: https://www.linkedin.com/in/meltemozcan/ 
+- Github: https://github.com/meltemozcan
 
 ***
 
 ## Undergraduate Students
 
-### Hailin Yue (Haley)
+### Yixiao
 
-I am a fourth-year undergraduate student majoring in economics, with a minor in psychology and data analytics. I am interested in applying quantitative reasoning to study mental health and to optimize business decision I hope to pursue a graduate degree after graduation, but am not sure on what subject yet. Outside of academia, I enjoy reading, painting, listening to music, and watching TV dramas.
+I am currently a third-year undergraduate student majoring in computer science. Personally, I am interested in quantitative analysis and data science, and am passionate about applying statistical methods in solving real-life problems. Previously, at MMM Lab, I have worked on projects including building R software package for a 2SPA model. Additionally, I love skateboard, basketball (I've played for several years), hang out with friends, and travel. 
 
-- Email: hailinyu@usc.edu
+- Email: likather@usc.edu
 
+### Kezia
 
-### Clay Cantrell
+I am a second-year undergraduate student majoring in Cognitive Science with a minor in Computer Programming. I’m very interested in user experience and using quantitative data to better understand the way we think in order to improve products. I want to apply quantitative methods to understand the human mind more. In my free time, I enjoy cooking, drawing, going to beaches, exploring the city, and eating food!
 
-I am a fourth year undergraduate student studying Cognitive Science with a minor in Computer Programming at USC. My academic interests include computer-human interaction and social learning. When I'm not in front of a computer my hobbies include mountain bike riding, backpacking, and getting some fresh air.
- 
-- Email: cacantre@usc.edu
-
-### Alyssa Delarosa
-
-- Email: alyssad1@usc.edu
-
+- Email: keleung@usc.edu
 
 ## Collaborators
 
@@ -118,3 +123,12 @@ I am a fourth year undergraduate student studying Cognitive Science with a minor
 ## Lab Alumni
 
 ### Yuting Wang
+
+### Hailin Yue (Haley)
+- [Linkedin page](https://www.linkedin.com/in/hailin-haley-yue-65535219b/)
+
+### Clay Cantrell
+- [Linkedin page](https://www.linkedin.com/in/clay-cantrell-808676202/)
+
+### Alyssa Delarosa
+- [Linkedin page](https://www.linkedin.com/in/alyssa-delarosa-49272b163/)

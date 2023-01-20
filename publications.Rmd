@@ -18,10 +18,13 @@ RefManageR::GetBibEntryWithDOI(
   temp.file = "pubs.bib", 
   delete.file = FALSE)
 # Manual bibTeX for articles without DOIs
-ref <- RefManageR::ReadBib("pub_nodoi.bib")
-WriteBib(bib = ref, 
-         file = "pubs.bib", 
-         append = TRUE)
+if (length(readLines("pub_nodoi.bib")) > 1 ||
+    readLines("pub_nodoi.bib") != "") {
+  ref <- RefManageR::ReadBib("pub_nodoi.bib")
+  WriteBib(bib = ref, 
+           file = "pubs.bib", 
+           append = TRUE)
+}
 ```
 
 ```{r, load_refs, include = FALSE, cache = FALSE}
@@ -47,6 +50,22 @@ for (yeari in as.character(2022:2019)) {
 ```
 
 ## Conference Presentations
+
+### 2022
+
+Lai, M. H. C., Tse, W. W. Y., Zhang, G., Li, Y., & Hsiao, Y. Y. (2022, September 21-24). *Correcting for unreliability and partial invariance: A two-stage path analysis approach* [Symposium presentation]. Society for Research on Educational Effectiveness 2022 Conference, Arlington, VA, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf
+
+Zhang, G., & Lai, M. H. C. (2022, July 11-15). *A systematic review of measurement invariance research of the CES-D across gender: calculation and report of effect size* [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), Bologna, Italy. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf
+
+Tse, W. W., & Lai, M. H. C. (2022, July 11-15). *Incorporating information from historical data for power analysis: A hybrid classical-Bayesian approach for multilevel studies *[Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), Bologna, Italy. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf
+
+Zhang, Y., & Lai, M. H. C. (2022, July 11-15). *Bayesian region of measurement equivalence (ROME) approach with alignment *[Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), Bologna, Italy. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf
+
+Tse, W. W., & Lai, M. H. C. (2022, June 27-29). *Incorporating Uncertainty in power analysis to more realistically determine sample size* [Workshop]. Meeting of the Society for the Improvement of Psychological Science (SIPS), Victoria, B. C., Canada. https://docs.google.com/document/d/1Rka3f0ZY9BBZVIlZoVINrpyaJYeitpq1yKXBLukeMng
+
+Zhang, Y., & Lai, M. H. C. (2022, April 21-26). *Evaluating standard error estimators and resampling method for multilevel models on small samples with heteroscedasticity and unbalanced cluster sizes *[Poster presentation]. AERA Annual Meeting, San Diego, CA, United States. https://convention2.allacademic.com/one/aera/aera22
+
+Palardy, G. J., Zhang, Y., & Lai, M. H. C. (2022, April 21-26). *Measurement invariance testing via the alignment method: Intersectional grouping and multiple cohorts* [oral presentation]. AERA Annual Meeting, San Diego, CA, United States. https://convention2.allacademic.com/one/aera/aera22
 
 ### 2021
 
