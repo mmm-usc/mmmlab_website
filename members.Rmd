@@ -16,7 +16,9 @@ knitr::opts_chunk$set(echo = FALSE,
 # 'aaa.jpg' with alt text "really fun event 2022", "really fun event 2022" 
 # should appear as the first element in alt_text as 'aaa.jpg' is the fist image
 # alphabetically.
-alt_text <- c('First lab meeting of Fall 2021',
+alt_text <- c('2spa team lunch 2022',
+              'Bologna group picture',
+              'First lab meeting of Fall 2021',
               'Mid-Autumn picnic at Elysian Park, 2021',
               'Point Dume hike, 2021', 
               'Point Dume hike, 2021', 
