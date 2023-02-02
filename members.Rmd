@@ -114,7 +114,7 @@ I am a second-year undergraduate student majoring in Cognitive Science with a mi
 
 - Email: keleung@usc.edu
 
-### Nellie(Yinuo) Chen
+### Nellie (Yinuo) Chen
 
 I'm currently a sophomore majoring in Psychology and Computer Science. As the website maintainer of the MMM lab, I was offered great opportunities to be familiar with R Studio and Github. During my spare time, I enjoy dancing, reading, and singing Chinese traditional dramas.
 
