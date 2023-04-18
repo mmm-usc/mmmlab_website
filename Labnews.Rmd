@@ -1,10 +1,6 @@
 ---
 title: "Lab News"
-author: 'MMM'
 date: '2023-04-17'
-output:
-  html_document:
-    theme: united
 ---
 
 ### 2019
