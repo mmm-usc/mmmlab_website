@@ -5,22 +5,26 @@ date: '2023-04-17'
 
 ### 2019
 
-- August - MMM lab established
-- August - We welcomed our first two graduate students Winnie Tse and Yichi Zhang to the lab
+- August - MMM lab established.
+- August - We welcomed our first two graduate students Winnie Tse and Yichi Zhang to the lab.
 
 ### 2020
-- July - Winnie and Yichi presented posters at the International Meeting of Psychometric Society (IMPS) online 
-- August - We welcomed our third graduate student Jimmy Zhang to the lab
+
+- July - Winnie and Yichi presented posters at the International Meeting of Psychometric Society (IMPS) online.
+- August - We welcomed our third graduate student Jimmy Zhang to the lab.
 
 ### 2021
-- July - We welcomed our fourth graduate student Meltem Ozcan to the lab
-- July - Mark authored article titled "Adjusting for Measurement Noninvariance with Alignment in Growth Modeling" in journal Multivariate Behavioral Research
+
+- July - We welcomed our fourth graduate student Meltem Ozcan to the lab.
+- July - Mark authored article titled "Adjusting for Measurement Noninvariance with Alignment in Growth Modeling" in journal Multivariate Behavioral Research.
 
 ### 2022
+
+- April - Winnie presented a paper titled "Addressing Uncertainty in Power Analaysis for Designing Cluster Randomzied Trials" at the American Educational Research Association (AERA) 2023 Annual Meeting in Chicago. 
 - September - Mark is the recipient of the NSF CAREER Scientist Award and starts the funded project in September. Congratulations to Mark!
-- September - Meltem presented a poster titled "Evaluating the Effectiveness and Equity of Court Interventions to Reduce Involvement with the
-Criminal Justice System" at the Learning & Doing Data for Good (LDDG) Conference at the University of Washington.
+- September - Meltem presented a poster titled "Evaluating the Effectiveness and Equity of Court Interventions to Reduce Involvement with the Criminal Justice System" at the Learning & Doing Data for Good (LDDG) Conference at the University of Washington.
 - November - Winnie and Yichi passed their qualifying exams and defended their dissertation proposals. Congratulations to Winnie and Yichi!
 
 ### 2023
+
 - February - Mark has a co-authored article titled "The Impacts of the COVID-19 Pandemic on Therapy Utilization Among Racially/Ethnically and Socio-Economically Diverse Autistic Children," in press in the Journal of Autism and Developmental Disorders. The first author is Cassie Gonzalez who is a graduate researcher at USC, and she applies multilevel modeling in this work.
