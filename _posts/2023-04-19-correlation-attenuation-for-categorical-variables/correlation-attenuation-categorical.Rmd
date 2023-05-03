@@ -2,9 +2,12 @@
 title: Correlation Attenuation for Categorical Variables
 author: Gengrui (Jimmy) Zhang
 date: '2023-04-19'
-slug: []
-categories: []
-tags:
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+categories:
+  - statistics
   - correlation
   - categorical
 draft: yes
@@ -15,12 +18,12 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 ```{r loading packages, include = FALSE}
+# HL: I took out packages not used
 library(dplyr)
 library(MASS)
-library(xtable)
 library(mnormt)
-library(ggplot2)
-library(formattable)
+# HL: The seed should be set for random number generation
+set.seed(2229)
 ```
 
 # An Intro to Correlation Attenuation
@@ -32,11 +35,11 @@ $$\rho(x,y) = \frac{COV(X, Y)}{\sigma_{X}\sigma_{Y}},$$
 
 where $\sigma$ is the standard deviation. 
 
-When one of the variable is categorized into dichotomous or categorical variables, the correlation $\rho(X,Y)$ will be usually attenuated due to loss of information. 
+When one of the variable is categorized into dichotomous or categorical variables, the correlation $\rho(X,Y)$ will usually be attenuated due to loss of information. 
 
 ## An Example of Attenuated Correlation for Dichotomous Variable
 
-Say $X$ and $Y^*$ have a correlation of .5 (i.e., $\rho(X, Y^*) = .5$), $Y^*$ is dichotomized into $Y$ so that 30% of $Y$ is 0 and 70% of $Y$ is 1. What is the correlation between $X$ and $Y$ now?
+Say $X$ and $Y^*$ have a correlation of .5 (i.e., $\rho[X, Y^*] = .5$), $Y^*$ is dichotomized into $Y$ so that 30% of $Y$ is 0 and 70% of $Y$ is 1. What is the correlation between $X$ and $Y$ now?
 
 Let's simulate a dataset to see this attenuation:
 
@@ -61,7 +64,7 @@ names(df) <- c("X", "Y*")
 
 # Manually dichotomize Y* to 0 and 1
 df <- df %>%
-  mutate(Y = ifelse(`Y*` > qnorm(0.7, mean(df$`Y*`), sd(df$`Y*`)), 1, 0))
+  mutate(Y = ifelse(`Y*` > qnorm(0.7, mean(`Y*`), sd(`Y*`)), 1, 0))
 
 # Show proportion of Y
 knitr::kable(table(df$Y)/nrow(df),
@@ -75,25 +78,29 @@ knitr::kable(
 )
 ```
 
-From this example, we can see the correlation is attenuated when one of the continuous variable is dichotomized. According to the correlation formula and expectation of covariance formula, we can derive the attenuation factor due to categorization. Note that the value of dichotomozing $Y*$ for desired proportion is called `threshold`. 
+<!-- HL: Missing discussion on only needing the correlation, not the covariance -->
+
+From this example, we can see the correlation is attenuated when one of the continuous variable is dichotomized. According to the correlation formula and expectation of covariance formula, we can derive the attenuation factor due to categorization. Note that the value of dichotomozing $Y^*$ for desired proportion is called `threshold`. 
 
 
-$$Attenuation Factor = \frac{COV(X, Y)}{COV(X, Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}},$$
+$$\text{Attenuation Factor} = \frac{COV(X, Y)}{COV(X, Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}},$$
 
 
 
-$$Attenuation Factor = \frac{E(XY) - E(X)E(Y)}{E(XY^*) - E(X)E(Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}}$$
+$$\text{Attenuation Factor} = \frac{E(XY) - E(X)E(Y)}{E(XY^*) - E(X)E(Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}}$$
 
 
 Thresholds are only dependent on the variable being categorized (i.e., $Y^*$ in this case). To calculate the expectation of $XY$ and $XY^*$ in the formula above, we need to use bivariate normal distribution:
 
+<!-- HL: Unclear how the formula and discussion below relates to E(XY) -->
 
-$$f_{x,y}(x,y) = \frac{1}{2\pi\sigma_{x}\sigma_{y}\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[(\frac{x - \mu_{x}}{\sigma_{x}})^2 + (\frac{y - \mu_{y}}{\sigma_{y}})^2 - 2\rho\frac{(x - \mu_{x})(y - \mu_{y})}{\sigma_{x}\sigma_{y}}]}$$
+$$f_{x,y}(x,y) = \frac{1}{2\pi\sigma_{x}\sigma_{y}\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*\left[(\frac{x - \mu_{x}}{\sigma_{x}})^2 + (\frac{y - \mu_{y}}{\sigma_{y}})^2 - 2\rho\frac{(x - \mu_{x})(y - \mu_{y})}{\sigma_{x}\sigma_{y}}\right]}$$
 
+<!-- HL: Do you use the density function or cumulative probability? Please clarify as the above formula is density, which does not require integration. -->
 
 We can code this formula into a `R` function and use it later. 
 
-```{r bivariate normal function, include = FALSE}
+```{r bivariate normal function}
 # helper function for integrating bivariate normal density
 pbnorm <- function(lo1, up1, lo2, up2, mu1, mu2, sigma1, sigma2, rho) {
   cubature::cuhre(
@@ -114,12 +121,14 @@ Now we can use the derived formula instead of simulated dataset to calculated at
 
 ```{r}
 # Analytic calculation
-rho <- 0.5
 thres <- qnorm(0.3)
 var_ystar <- 1
-var_y <- 0.7*(1-0.7)
-attenuation_bi <- pbnorm(-Inf, Inf, thres, Inf, 0, 0, 1, 1, 0.5)/rho * sqrt(var_ystar/var_y)
-cor_xy_bi <- attenuation_bi*rho
+var_y <- 0.7*(1-0.7)  # HL: This has not been discussed
+# HL: If you're integrating one of the variables in the bivariate normal out, you just need the marginal distribution (Y* in this case)
+# HL: You can verify that the one below is just the mean of a truncated normal and does not depend on rho. This can be discussed.
+# attenuation_bi <- pbnorm(-Inf, Inf, thres, Inf, 0, 0, sd_x, sd_y, rho)/rho * sqrt(var_ystar/var_y)
+attenuation_bi <- dnorm(thres) * sqrt(var_ystar / var_y)
+cor_xy_bi <- attenuation_bi * rho
 
 # Simulated results
 lat_cor <- cor(df$X, df$`Y*`)
@@ -144,6 +153,7 @@ knitr::kable(summary_1,
 ## An Example of Attenuated Correlation for Categorical Variable with Three Thresholds
 
 Given $Y^*$ is discretized into $Y$ with 4 categories (ie., 50% is 0, 30% is 1, 10% is 2, 10% is 3), what is the correlation between $X$ and $Y$?
+
 ```{r}
 # Assuming X and Y* ~ N(0,1)
 # for standard bivariate normal distribution, E(XY*) = rho
@@ -162,11 +172,12 @@ p_larger_than_thres3 <- pnorm(thres_3, lower.tail = F)
 e_y2 <- 0*p_less_than_thres1 + 1^2*p_thres1_thres2 + 2^2*p_thres2_thres3 + 3^2*p_larger_than_thres3
 e_y <- 1*p_thres1_thres2 + 2*p_thres2_thres3 + 3*p_larger_than_thres3
 var_y <- e_y2 - e_y^2
-
-attenuation_cat <- (0*pbnorm(-Inf, Inf, -Inf, thres_1, 0, 0, 1, 1, 0.5) + 
-  1*pbnorm(-Inf, Inf, thres_1, thres_2, 0, 0, 1, 1, 0.5) + 
-  2*pbnorm(-Inf, Inf, thres_2, thres_3, 0, 0, 1, 1, 0.5) + 
-  3*pbnorm(-Inf, Inf, thres_3, Inf, 0, 0, 1, 1, 0.5))/rho * sqrt(var_ystar/var_y)
+# HL: Verify you can simplify to the following (based on the binary results):
+attenuation_cat <- 1 * (dnorm(thres_1) - dnorm(thres_2)) + 2 * (dnorm(thres_2) - dnorm(thres_3)) + 3 * dnorm(thres_3) * sqrt(var_ystar / var_y)
+# attenuation_cat <- (0*pbnorm(-Inf, Inf, -Inf, thres_1, 0, 0, 1, 1, 0.5) + 
+#   1*pbnorm(-Inf, Inf, thres_1, thres_2, 0, 0, 1, 1, 0.5) + 
+#   2*pbnorm(-Inf, Inf, thres_2, thres_3, 0, 0, 1, 1, 0.5) + 
+#   3*pbnorm(-Inf, Inf, thres_3, Inf, 0, 0, 1, 1, 0.5))/rho * sqrt(var_ystar/var_y)
 cor_xy_cat <- attenuation_cat*rho
 ```
 
@@ -214,6 +225,7 @@ knitr::kable(summary_2,
 
 It is highly probable that $X$ and $Y*$ do not follow a standard normal distribution in practical research. We would like to prove that the attenuation of correlation is generalizeable to $X$ and $Y^*$ with any means and variances when $Y^*$ is categorized with any numbers of categories.
 
+<!-- HL: Unclear why there two 'c's below -->
 
 let's say $Y^{*}$ is categorized to Y (c = 4; c = \[0, 1, 2, 3\]),
 
