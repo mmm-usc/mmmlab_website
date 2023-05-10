@@ -3,34 +3,54 @@ title: "Lab News"
 date: '2023-04-17'
 ---
 
-### 2023
+## 2023
+### April 
 
-- April - Winnie presented a paper titled "Addressing Uncertainty in Power Analysis for Designing Cluster Randomized Trials" at the American Educational Research Association (AERA) 2023 Annual Meeting in Chicago. 
-- April - Yichi presented a paper titled "Investigating Measurement Invariance in NAEP Student Questionnaire Index Items" at the National Council on Measurement in Education (NCME) 2023 Annual Meeting in Chicago.
-- April - Yichi presented a poster titled "An empirical Bayes cluster-mean approach to correct for sampling error in between-cluster effects" at the American Educational Research Association (AERA) 2023 Annual Meeting in Chicago.
-- April - Winnie received the Excellence in Scientific Writing in the Psychology Department at USC. 
-- April - Jimmy presented his project titled "A Systematic Review of Measurement Invariance Research of the CES-D across Gender" at the poster party. 
-- February - Mark has a co-authored article titled "The Impacts of the COVID-19 Pandemic on Therapy Utilization Among Racially/Ethnically and Socio-Economically Diverse Autistic Children," in press in the Journal of Autism and Developmental Disorders. The first author is Cassie Gonzalez who is a graduate researcher at USC, and she applies multilevel modeling in this work.
+- Winnie presented a paper titled "Addressing Uncertainty in Power Analysis for Designing Cluster Randomized Trials" at the American Educational Research Association (AERA) 2023 Annual Meeting in Chicago. 
+- Yichi presented a paper titled "Investigating Measurement Invariance in NAEP Student Questionnaire Index Items" at the National Council on Measurement in Education (NCME) 2023 Annual Meeting in Chicago.
+- Yichi presented a poster titled "An empirical Bayes cluster-mean approach to correct for sampling error in between-cluster effects" at the American Educational Research Association (AERA) 2023 Annual Meeting in Chicago.
+- Winnie received the Excellence in Scientific Writing in the Psychology Department at USC. 
+- Jimmy presented his project titled "A Systematic Review of Measurement Invariance Research of the CES-D across Gender" at the poster party. 
 
-### 2022
+### February 
 
-- November - Winnie and Yichi passed their qualifying exams and defended their dissertation proposals. Congratulations to Winnie and Yichi!
-- September - Mark is the recipient of the NSF CAREER Scientist Award and starts the funded project in September. Congratulations to Mark!
-- September - Meltem presented a poster titled "Evaluating the Effectiveness and Equity of Court Interventions to Reduce Involvement with the Criminal Justice System" at the Learning & Doing Data for Good (LDDG) Conference at the University of Washington.
-- June to August - Meltem was selected as a Data Science for Social Good (DSSG) Fellow and completed the 3-month full-time DSSG fellowship at Carnegie Mellon which aims to "train aspiring data scientists to work on machine learning, data science, and AI projects with social impact in a fair and equitable manner."
-- June - Yichi did a summer internship at American Institutes for Research. 
+- Mark has a co-authored article titled "The Impacts of the COVID-19 Pandemic on Therapy Utilization Among Racially/Ethnically and Socio-Economically Diverse Autistic Children," in press in the Journal of Autism and Developmental Disorders. The first author is Cassie Gonzalez who is a graduate researcher at USC, and she applies multilevel modeling in this work.
 
-### 2021
+## 2022
+### November 
 
-- July - We welcomed our fourth graduate student Meltem Ozcan to the lab.
-- July - Mark authored article titled "Adjusting for Measurement Noninvariance with Alignment in Growth Modeling" in journal Multivariate Behavioral Research.
+- Winnie and Yichi passed their qualifying exams and defended their dissertation proposals. Congratulations to Winnie and Yichi!
 
-### 2020
+### September
 
-- August - We welcomed our third graduate student Jimmy Zhang to the lab.
-- July - Winnie and Yichi presented posters at the International Meeting of Psychometric Society (IMPS) online.
+- Mark is the recipient of the NSF CAREER Scientist Award and starts the funded project in September. Congratulations to Mark!
+- Meltem presented a poster titled "Evaluating the Effectiveness and Equity of Court Interventions to Reduce Involvement with the Criminal Justice System" at the Learning & Doing Data for Good (LDDG) Conference at the University of Washington.
 
-### 2019
+### June to August
 
-- August - MMM lab established.
-- August - We welcomed our first two graduate students Winnie Tse and Yichi Zhang to the lab.
+- Meltem was selected as a Data Science for Social Good (DSSG) Fellow and completed the 3-month full-time DSSG fellowship at Carnegie Mellon which aims to "train aspiring data scientists to work on machine learning, data science, and AI projects with social impact in a fair and equitable manner."
+
+### June 
+
+- Yichi did a summer internship at American Institutes for Research. 
+
+## 2021
+### July 
+
+- We welcomed our fourth graduate student Meltem Ozcan to the lab.
+- Mark authored article titled "Adjusting for Measurement Noninvariance with Alignment in Growth Modeling" in journal Multivariate Behavioral Research.
+
+## 2020
+### August 
+
+- We welcomed our third graduate student Jimmy Zhang to the lab.
+
+### July 
+
+- Winnie and Yichi presented posters at the International Meeting of Psychometric Society (IMPS) online.
+
+## 2019
+### August 
+
+- MMM lab established.
+- We welcomed our first two graduate students Winnie Tse and Yichi Zhang to the lab.
