@@ -2,50 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://mmmlab.rbind.io/about.html</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mmmlab.rbind.io/Labnews.html</loc>
+    <lastmod>2023-05-15T16:12:13-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/members.html</loc>
-    <lastmod>2023-02-02T12:58:12-08:00</lastmod>
+    <lastmod>2023-05-15T16:12:13-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/publications.html</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2023-05-15T16:04:12-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/research.html</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2023-05-15T13:07:07-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/</loc>
-    <lastmod>2023-02-02T12:53:03-08:00</lastmod>
+    <lastmod>2023-05-15T16:04:12-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/welcome/</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2020-07-25-part-1-covid-19/</loc>
-    <lastmod>2023-01-20T22:29:40-08:00</lastmod>
+    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
   </url>
 </urlset>
