@@ -18,11 +18,9 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 ```{r loading packages, include = FALSE}
-# HL: I took out packages not used
 library(dplyr)
 library(MASS)
 library(mnormt)
-# HL: The seed should be set for random number generation
 set.seed(2229)
 ```
 
@@ -97,12 +95,10 @@ knitr::kable(
 )
 ```
 
-<!-- HL: Missing discussion on only needing the correlation, not the covariance -->
-
-In this example, we can see the correlation is attenuated when one of the continuous variables is dichotomized. According to the correlation formula and expectation of covariance formula, we can derive the attenuation factor due to categorization. Note that the value of dichotomozing $Y^*$ for desired proportion is called `threshold`. 
+In this example, we can see the correlation is attenuated when one of the continuous variables is dichotomized. According to the correlation formula and expectation of covariance formula, we can derive the attenuation factor due to categorization. Note that the value of dichotomozing $Y^*$ for desired proportion is called "threshold."
 
 $$\text{Attenuation Factor} = \frac{COV(X, Y)}{COV(X, Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}},$$
-Now we can use the derived formula instead of simulated dataset to calculate the attenuated $R^2$. (A quick review of how to compute variance (e.g., $\sigma^2_{Y}$) of a binary variable: $\sigma^2_{Y} = \mu_{Y}*(1 - \mu _{Y})$).
+Now we can use the derived formula instead of simulated dataset to calculate the attenuated $R^2$. (A quick review of how to compute variance, e.g., $\sigma^2_{Y}$, of a binary variable: $\sigma^2_{Y} = \mu_{Y}*[1 - \mu _{Y}]$).
 
 ```{r}
 # Analytic calculation
@@ -113,6 +109,7 @@ var_y <- 0.7*(1-0.7)  # HL: This has not been discussed
 # HL: You can verify that the one below is just the mean of a truncated normal and does not depend on rho. This can be discussed.
 # JZ: I think maybe it's a good idea to keep both calculation methods and discuss they are equivalent?
 # attenuation_bi <- pbnorm(-Inf, Inf, thres, Inf, 0, 0, sd_x, sd_y, rho)/rho * sqrt(var_ystar/var_y)
+# HL: I'm not sure they're 100% equivalent, as I recall trying some values with your function and the results seemed off. Perhaps I made a mistake, but you can use pbnorm() just as a check that the analytic simplication is correct.
 attenuation_bi <- dnorm(thres) * sqrt(var_ystar / var_y)
 cor_xy_bi <- attenuation_bi * rho
 
@@ -141,13 +138,13 @@ In the table, "Attenuation_Formula" and "Correlation_Formula" represent the atte
 We can see that the covariances between $X$ and $Y^*$ are needed to compute the attenuation factor, which requires raw data. Sometimes, however, researchers may have difficulties obtaining raw data or they only have the correlation between $X$ and $Y$ reported in published articles.
 
 $$\text{Attenuation Factor} = \frac{E(XY) - E(X)E(Y)}{E(XY^*) - E(X)E(Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}}$$
-If we further expand the covariance terms, they can be computed as long as we are able to obtain the information of each part (e.g., $E(XY)$). 
+If we further expand the covariance terms, they can be computed as long as we are able to obtain the information of each part (e.g., $E[XY]$). 
 
-Let's suppose $X$ and $Y^*$ both follow standard normal distribution (i.e., $N(0,1)$) for easier understanding. Under this condition, $E(X)E(Y)$ and $E(X)E(Y^*) = 0$ because $E(X) = 0$.
+Let's suppose $X$ and $Y^*$ both follow standard normal distribution (i.e., $N(0,1)$) for simplicity. Under this condition, $E(X)E(Y)$ and $E(X)E(Y^*) = 0$ because $E(X) = 0$.
 
 For $E(XY^*)$, we can use the correlation and covariance formula to prove that:
 
-$\rho(X, Y^*) = \frac{E(XY^*)}{\sqrt{\sigma^2_{X} \sigma^2_{Y^*}}} = E[(\frac{X - \mu_{x}}{\sigma_{X}})(\frac{Y^* - \mu_{Y^*}}{\sigma_{Y^*}})] = E(XY^*)$,
+$\rho(X, Y^*) = \frac{E(XY^*)}{\sqrt{\sigma^2_{X} \sigma^2_{Y^*}}} = E\left[\left(\frac{X - \mu_{x}}{\sigma_{X}}\right)\left(\frac{Y^* - \mu_{Y^*}}{\sigma_{Y^*}}\right)\right] = E(XY^*)$,
 
 given that the correlation of $X$ and $Y^*$ is their standardized covariance. Then $E(XY)$ can be calculated using thresholds of the categorized variable. 
 
@@ -157,28 +154,34 @@ One important formula we need is the probability density function (p.d.f.) of st
 
 $$f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[x^2 + y^*2 - 2\rho x y^*]}$$
 
-and the cumulative probability of $XY$ is: 
+<!-- HL: Is this XY or XY^* ? -->
 
-$$E(XY) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[x^2 + y^{*^2} - 2\rho x y^*]} d(x) d(y^*)$$
+and the expected value of $XY$ is: 
+
+$$E(XY) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*)$$
 
 When $y^*$ is dichotomized with a threshold (i.e., $\tau$), it means that $y^*$ is truncated because 30% of $y^*$ is 0. Then the cumulative probability becomes:
 
-$$E(XY) = \int_{-\infty}^{\infty}\int_{\tau}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[x^2 + y^{*^2} - 2\rho x y^*]} d(x) d(y^*)$$
+<!-- HL: This part is not clear to me; I think a step is missing from E(XY) = E(X | Y^* > tau) -->
+
+$$E(XY) = \int_{-\infty}^{\infty}\int_{\tau}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[x^2 + y^{*^2} - 2\rho x y^*]} d(x) d(y^*)$$
+
+<!-- HL: I don't think the following derivation is correct. At the end, E(XY) should the rho * dnorm(tau). Note that it is dnorm, not pnorm, which you show below. One possibility is to consider E(X | Y^* = a) and its distribution, and then integrate the conditional expectation from tau to infinity. -->
 
 If we consider $x^2 + y^{*^2} - 2\rho x y^* = (x - \rho y^*)^2 + y^{*^2}(1-\rho^2)$, and let $x - \rho y^* = a$, $x^2 + y^{*^2} - 2\rho x y^* = a^2 + y^{*^2}(1-\rho^2)$.
 
 The density function will change to: 
 
-$$E(XY) = \int_{-\infty}^{\infty}\int_{\tau}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)} [a^2 + y^{*^2}(1-\rho^2)]} d(a) d(y^*)$$
+$$E(XY) = \int_{-\infty}^{\infty}\int_{\tau}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)} [a^2 + y^{*^2}(1-\rho^2)]} d(a) d(y^*)$$
 
 Because it is integrating at the first quadrant, $d(a) = d(a + \rho y)$.
 
 $$E(XY) = \int_{-\infty}^{\infty}\int_{\tau}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)} a^2} d(a) e^{-\frac{y^{*^2}(1-\rho^2)}{2(1 - \rho^2)}} d(y^*)$$
 If we use the formula:
 
-$$\int_{-\infty}^{\infty}e^{-\frac{a^2}{b}} = \sqrt{b \pi}$$,
+$$\int_{-\infty}^{\infty}e^{-\frac{a^2}{b}} = \sqrt{b \pi},$$
 
-the $E(XY)$ will become:
+$E(XY)$ will become:
 
 $$E(XY) = \frac{1}{\sqrt{2\pi}}\int_{\tau}^{\infty}e^{\frac{-y^{*^2}}{2}}d(y^*)$$
 
@@ -187,10 +190,6 @@ We can see that the cumulative probability is determined by the density value, o
 In the following sections, I'll use an example of 4-category variable to show how $E(XY)$ can be computed for each response category using the probability density function of bivariate normal random variables and their cumulative probabilities.
 
 The information of other parts are available with threshold values if $X$ and $Y^*$ follow normal distribution. Thus, we are able to calculate the attenuated correlation without the need of covariances but only the correlation $\rho(X, Y^*)$.
-
-<!-- HL: Unclear how the formula and discussion below relates to E(XY) -->
-<!-- HL: Do you use the density function or cumulative probability? Please clarify as the above formula is density, which does not require integration. -->
-<!-- JZ: I deleted the function here and move it to the later section -->
 
 ## An Example of Attenuated Correlation for Categorical Variable with Three Thresholds
 
@@ -265,7 +264,7 @@ knitr::kable(summary_2,
 
 # Reasoning of Generalization to X and Y* with Any Means and Variances
 
-It is highly probable that $X$ and $Y^*$ do not follow standard normal distributions in practical research. We would like to prove that the attenuation of correlation is generalizeable to $X$ and $Y^*$ with any means and variances when $Y^*$ is categorized with any numbers of categories.
+We would like to prove that the attenuation of correlation based on standard normal $X$ and $Y^*$ is generalizeable to $X$ and $Y^*$ with any means and variances when $Y^*$ is categorized with any numbers of categories.
 
 <!-- HL: Unclear why there two 'c's below -->
 <!-- JZ: I deleted the second c -->
