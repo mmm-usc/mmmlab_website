@@ -7,7 +7,7 @@
     <description>Measurement &amp; Multilevel Modeling Lab
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 28 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>2022-11-28</lastBuildDate>
     <item>
       <title>Git Workflow</title>
       <dc:creator>Meltem Ozcan</dc:creator>
@@ -16,7 +16,7 @@
       <category>git</category>
       <category>version control</category>
       <guid>https://mmmlab.rbind.io/posts/2022-12-05-git-workflow</guid>
-      <pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate>
+      <pubDate>2022-11-28</pubDate>
     </item>
     <item>
       <title>Confidence Intervals for Multilevel R-Squared</title>
@@ -27,7 +27,7 @@
       <category>Multilevel Modeling</category>
       <category>Statistics</category>
       <guid>https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared</guid>
-      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      <pubDate>2022-05-10</pubDate>
       <media:content url="https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/confidence-intervals-for-multilevel-r-squared_files/figure-html5/r2mlm-fm1-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
@@ -38,7 +38,7 @@
       <category>Julia</category>
       <category>Statistics</category>
       <guid>https://mmmlab.rbind.io/posts/2021-03-09-julia-mle</guid>
-      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      <pubDate>2021-03-09</pubDate>
     </item>
     <item>
       <title>Multilevel Models in Julia</title>
@@ -49,7 +49,7 @@
       <category>Multilevel Modeling</category>
       <category>Statistics</category>
       <guid>https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia</guid>
-      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      <pubDate>2021-02-23</pubDate>
     </item>
     <item>
       <title>Regression with Julia!</title>
@@ -60,7 +60,7 @@
       <category>Regression</category>
       <category>Visualization</category>
       <guid>https://mmmlab.rbind.io/posts/2021-02-09-julia-regression</guid>
-      <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
+      <pubDate>2021-02-11</pubDate>
     </item>
     <item>
       <title>Welcome to Measurement &amp; Multilevel Modeling Lab</title>
@@ -69,7 +69,7 @@
       <description>Welcome to our blog. We hope you enjoy 
 reading what we have to say!</description>
       <guid>https://mmmlab.rbind.io/posts/welcome</guid>
-      <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>2020-12-17</pubDate>
     </item>
     <item>
       <title>Exploring the UAS Survey Part 1: Data exploration (Demography and Risk Items)</title>
@@ -81,7 +81,7 @@ reading what we have to say!</description>
       <category>Exploratory Data Analysis</category>
       <category>Applied</category>
       <guid>https://mmmlab.rbind.io/posts/2020-07-25-part-1-covid-19</guid>
-      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>2020-07-25</pubDate>
       <media:content url="https://mmmlab.rbind.io/posts/2020-07-25-part-1-covid-19/covid_p1_files/figure-html5/gender-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>
