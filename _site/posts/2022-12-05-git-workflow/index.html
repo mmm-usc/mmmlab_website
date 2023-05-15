@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -49,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -72,11 +74,11 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -84,49 +86,49 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
+
   <!--radix_placeholder_meta_tags-->
-<title>Measurement &amp; Multilevel Modeling Lab: Welcome to Measurement &amp; Multilevel Modeling Lab</title>
+<title>Measurement &amp; Multilevel Modeling Lab: Git Workflow</title>
 
-<meta property="description" itemprop="description" content="Welcome to our blog. We hope you enjoy &#10;reading what we have to say!"/>
+<meta property="description" itemprop="description" content="A brief overview of the git workflow and a demonstration of the git workflow for collaboration."/>
 
-<link rel="canonical" href="https://mmmlab.rbind.io/posts/welcome/"/>
+<link rel="canonical" href="https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2020-12-17"/>
-<meta property="article:created" itemprop="dateCreated" content="2020-12-17"/>
-<meta name="article:author" content="MMM Lab"/>
+<meta property="article:published" itemprop="datePublished" content="2022-11-28"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-11-28"/>
+<meta name="article:author" content="Meltem Ozcan"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Welcome to Measurement &amp; Multilevel Modeling Lab"/>
+<meta property="og:title" content="Measurement &amp; Multilevel Modeling Lab: Git Workflow"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Welcome to our blog. We hope you enjoy &#10;reading what we have to say!"/>
-<meta property="og:url" content="https://mmmlab.rbind.io/posts/welcome/"/>
+<meta property="og:description" content="A brief overview of the git workflow and a demonstration of the git workflow for collaboration."/>
+<meta property="og:url" content="https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Measurement &amp; Multilevel Modeling Lab"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Welcome to Measurement &amp; Multilevel Modeling Lab"/>
-<meta property="twitter:description" content="Welcome to our blog. We hope you enjoy &#10;reading what we have to say!"/>
-<meta property="twitter:url" content="https://mmmlab.rbind.io/posts/welcome/"/>
+<meta property="twitter:title" content="Measurement &amp; Multilevel Modeling Lab: Git Workflow"/>
+<meta property="twitter:description" content="A brief overview of the git workflow and a demonstration of the git workflow for collaboration."/>
+<meta property="twitter:url" content="https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Measurement &amp; Multilevel Modeling Lab: Welcome to Measurement &amp; Multilevel Modeling Lab"/>
-<meta name="citation_fulltext_html_url" content="https://mmmlab.rbind.io/posts/welcome/"/>
-<meta name="citation_online_date" content="2020/12/17"/>
-<meta name="citation_publication_date" content="2020/12/17"/>
-<meta name="citation_author" content="MMM Lab"/>
-<meta name="citation_author_institution" content="University of Southern California"/>
+<meta name="citation_title" content="Measurement &amp; Multilevel Modeling Lab: Git Workflow"/>
+<meta name="citation_fulltext_html_url" content="https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/"/>
+<meta name="citation_online_date" content="2022/11/28"/>
+<meta name="citation_publication_date" content="2022/11/28"/>
+<meta name="citation_author" content="Meltem Ozcan"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Welcome to Measurement & Multilevel Modeling Lab"]},{"type":"character","attributes":{},"value":["Welcome to our blog. We hope you enjoy \nreading what we have to say!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["MMM Lab"]},{"type":"character","attributes":{},"value":["University of Southern California"]}]}]},{"type":"character","attributes":{},"value":["12-17-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/welcome/"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/welcome/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Git Workflow"]},{"type":"character","attributes":{},"value":["A brief overview of the git workflow and a demonstration of the git workflow for collaboration."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Meltem Ozcan"]},{"type":"character","attributes":{},"value":["https://quantscience.rbind.io"]}]}]},{"type":"character","attributes":{},"value":["2022-11-28"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["git","version control"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/"]},{"type":"character","attributes":{},"value":["https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["welcome_files/anchor-4.2.2/anchor.min.js","welcome_files/bowser-1.9.3/bowser.min.js","welcome_files/distill-2.2.21/template.v2.js","welcome_files/header-attrs-2.6/header-attrs.js","welcome_files/jquery-1.11.3/jquery.min.js","welcome_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"NULL"}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2089,8 +2091,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.17/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -2106,7 +2112,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Welcome to Measurement & Multilevel Modeling Lab","description":"Welcome to our blog. We hope you enjoy \nreading what we have to say!","authors":[{"author":"MMM Lab","authorURL":"#","affiliation":"University of Southern California","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-12-17T00:00:00.000-08:00","citationText":"Lab, 2020"}
+{"title":"Git Workflow","description":"A brief overview of the git workflow and a demonstration of the git workflow for collaboration.","authors":[{"author":"Meltem Ozcan","authorURL":"https://quantscience.rbind.io","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-11-28T00:00:00.000-08:00","citationText":"Ozcan, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2149,19 +2155,200 @@ Applications
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Welcome to Measurement &amp; Multilevel Modeling Lab</h1>
+<h1>Git Workflow</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../index.html#category:git" class="dt-tag">git</a>
+  <a href="../../index.html#category:version_control" class="dt-tag">version control</a>
+</div>
 <!--/radix_placeholder_categories-->
-<p><p>Welcome to our blog. We hope you enjoy reading what we have to say!</p></p>
+<p><p>A brief overview of the git workflow and a demonstration of the git workflow for collaboration.</p></p>
 </div>
 
 <div class="d-byline">
-  MMM Lab  (University of Southern California)
+  Meltem Ozcan <a href="https://quantscience.rbind.io" class="uri">https://quantscience.rbind.io</a> 
   
-<br/>12-17-2020
+<br/>2022-11-28
 </div>
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#git-concepts" id="toc-git-concepts">Git concepts</a>
+<ul>
+<li><a href="#commits" id="toc-commits">Commits</a></li>
+<li><a href="#branches" id="toc-branches">Branches</a></li>
+<li><a href="#pull-requests" id="toc-pull-requests">Pull Requests</a></li>
+<li><a href="#projects" id="toc-projects">Projects</a></li>
+</ul></li>
+<li><a href="#demo" id="toc-demo">Demo</a>
+<ul>
+<li><a href="#references-and-helpful-git-resources" id="toc-references-and-helpful-git-resources">References and helpful Git resources:</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<p>The goal for this demonstration is to equip the readers with a basic understanding
+of concepts relevant to version control with git, and to demonstrate how git can be
+used for collaboration among multiple team members.</p>
+<h2 id="git-concepts">Git concepts</h2>
+<p>Git allows multiple users to synchronously write and edit code locally, fix bugs
+and resolve any conflicts with others’ work before accepting (or rejecting) and
+propagating the changes. Users can go back to previous versions of their work as
+needed, allowing for an relatively risk free coding environment. Version control
+is made possible through the use of tree-like data structures, and the distinction
+between the local and remote repositories. The <strong>remote repository</strong> contains the
+version(s) of the project hosted on the internet and can be accessed by collaborators.
+All changes to code remain <em>local</em> until they are <em>pushed</em> to the remote. The
+<strong>local repository</strong> refers to versions of the project on someone’s local
+computer, and consists of 3 ‘trees’: 1. <em>working directory</em> (the files), 2. <em>index</em>
+(the staging area), 3. <em>HEAD</em> (the pointer to the most recent commit).</p>
+<h3 id="commits">Commits</h3>
+<p>A <strong>commit</strong> is a snapshot/copy/state of the local project at a specific point
+in time, and commits can be thought of as periodic checkpoints that make it easier
+to backtrack/understand previous work and to troubleshoot. See <a href="https://sethrobertson.github.io/GitBestPractices/">Git best practices about commits</a>
+for more details and tips. Committing early and often is strongly recommended.</p>
+<p>First, the file is staged for commit and added to
+the index by calling <code>git add &lt;filename&gt;</code> in the terminal. Multiple files can be
+staged at once by specifying file names with spaces in between:
+<code>git add &lt;filename1&gt; &lt;filename2&gt;</code>, and all files can be staged using <code>git *</code>.
+Once files are staged, the changes can be committed as below:</p>
+<p><code>git commit -m “&lt;meaningful message here&gt;”</code>.</p>
+<p>Once the commit is completed, HEAD moves up to match the newest commit. A history
+of commits and commit messages can be viewed using <code>git log</code>, which pulls up the
+latest commits in chronological order. A more readable list of commits can be
+produced using: <code>git log --pretty=format:"%h - %an, %ar : %s"</code>.</p>
+<h3 id="branches">Branches</h3>
+<p>A <strong>branch</strong> is a pointer to a specific commit. Commonly, three types of branches
+are used:</p>
+<p><strong>Main/master branch</strong>: the primary branch automatically created when the
+repository is cloned from the origin, which is a <em>remote</em> repository. The main/master
+branch can be thought of as “production-ready” and is only updated when the develop branch
+is stable with new version updates. As such, it contains an abridged history of commits.</p>
+<p><strong>Develop (dev) branch</strong>: the secondary branch that contains full history of
+commits. Supporting branches are created from and merged into dev. The separation
+between main/master and dev branches functions as a check against unstable/buggy commits
+being prematurely pushed to the main/master branch.</p>
+<p><strong>Supporting branches</strong>: the short-lived snapshots created to build or test new
+features, fix glitches etc. and are deleted after a merge. Ideally each
+supporting branch is used for an isolated task or feature.</p>
+<p>The current branch and its status (in terms of modified files and in comparison
+with origin/<branch>) can be checked with <code>git status</code>. Any staged files will
+appear in green.</p>
+<p>The user can list all branches with <code>git branch -a</code>, and all remote branches
+with <code>git branch -r</code>. The current branch is marked with an asterisk.</p>
+<p>In order to create a new branch, the user can navigate to the branch to build from
+(e.g., dev), and use</p>
+<p><code>git checkout -b &lt;new branch name&gt;</code></p>
+<p>As with commits, a new branch is local until it is pushed to the remote repository.
+When pushing a branch for the first time, <code>git push</code> will give an error as the
+new local branch does not have an upstream branch. This error is solvable by using</p>
+<p><code>git push --set-upstream origin &lt;name of the new branch&gt;</code></p>
+<p>Or, the user can directly push to the origin by</p>
+<p><code>git push origin &lt;name of the new branch&gt;</code></p>
+<p>After the first commit, <code>git push</code> is sufficient to push commits to the remote.</p>
+<p><code>git branch -d &lt;branch name&gt;</code> can be used to delete a local branch that has been
+pushed and merged with the remote branch. Use <code>-D</code> to force delete a branch that
+hasn’t been merged into the remote.</p>
+<p><code>git push &lt;remote name&gt; -- delete &lt;branch name&gt;</code> deletes the remote branch.</p>
+<p><code>git fetch --all --prune</code> grabs all changes from remotes and locally deletes the
+files/branches that were deleted remotely.</p>
+<p><code>git fetch</code> grabs all the changes from remotes. This command does not delete
+local files.</p>
+<p><code>git pull</code> downloads the most recent version of the branch from the remote.
+Remember to pull first before any edits, as there may have been modifications to
+code by others.</p>
+<p><code>git diff</code> illustrates changes since the last commit, <code>git diff &lt;filename&gt;</code>
+shows changes to a particular file.</p>
+<h3 id="pull-requests">Pull Requests</h3>
+<p>When changes from a supporting branch are ready to be merged into dev, a pull
+request can be put in from the browser. The user can specify a topic and an
+optional description to explain to the reader what the PR is about. It is important
+to double check which branch the PR is set to merge the supporting branch into,
+as the browser might default to main rather than dev. The following summarizes
+the main steps of a pull request: pull -&gt; edit -&gt; commit with message -&gt; push -&gt; put in a pull request (PR) through the browser.</p>
+<p>If there are no conflicts and the user has no suggestions/edits, the user can
+automatically merge and delete the supporting branch.</p>
+<p>If there are conflicts, the user can view and solve these either via the browser
+or in RStudio. Through the browser, the user can check which files have conflicts
+under the ‘files changed’ tab for the pull request.</p>
+<p>The browser has two helpful viewing options that make it easier to sort through
+multiple changes: <em>split view</em> or <em>unified view</em>.</p>
+<p>If a user would like a code review on the changes made or would like collaborators
+to review and accept/reject their changes, a pull review can be requested from
+specific individuals who will receive a notification to view, comment on, or
+merge the pull request. If multiple individuals need to weigh in before the merge,
+each individual can click ‘approve’ to show that they are comfortable with the
+changes/edits (or request edits/reject otherwise).</p>
+<p>While reviewing a PR with multiple files, progress can be tracked by clicking ‘Viewed’.</p>
+<p>If the user sees errors/has suggestions, they can <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request">leave comments</a> on specific lines or chunks of code by
+clicking on the blue comment icon on the left side. If the task is substantial,
+an issue can be created for it and specific individuals can be assigned to the task.</p>
+<h3 id="projects">Projects</h3>
+<p>Each issue can be assigned to a <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects">project</a>, which makes it easier to keep track of different ongoing projects’ progress.</p>
+<p>Depending on the priority and status of the issues (‘cards’) within a project,
+they can be moved under different headings for easier management as well as
+tracking of ideas: backlog, to-do, in progress, on hold/blocked, done, won’t do, etc.</p>
+<p>For bigger tasks, it is helpful to write a description/comment for the card to
+provide some scaffolding/reminders for the assignee.</p>
+<h4 id="if-setting-up-new-repository">If setting up new repository:</h4>
+<p>Navigate to Github profile -&gt; Repositories tab -&gt; New -&gt; fill in repository name and click ‘add a README file’ -&gt; Create repository</p>
+<p>Navigate to the new repository -&gt; copy the HTTPS or SSH link from under the Code tab -&gt; pull up RStudio (or VSCode) terminal -&gt; clone repository to local machine by typing <code>&lt;username&gt;$ git clone &lt;URL&gt;</code>
+in the terminal.</p>
+<p>Note that the project will be cloned into the current working directory, which
+can be checked in the terminal with the <code>pwd</code> command.</p>
+<p>In the terminal, navigate to the repository with command <code>cd &lt;name or path to repo&gt;</code>.</p>
+<h2 id="demo">Demo</h2>
+<p>This is a quick demo that can be worked on as a group to get familiar with the
+git workflow for collaboration. It was created with four collaborators in mind
+but can be modified as needed.</p>
+<p>First, one person creates a new repo and creates a dev branch from main.</p>
+<p>Everyone else clones the new repo to their local machine.</p>
+<p>One person creates a git project in the browser for the demo with tabs “to do”,
+“done”, “won’t do”.</p>
+<p>Each person adds a card for a task from the list below to the “to do” column of
+the new project. The fifth task should alsp be added to the “to do” column, but
+will not be worked on.</p>
+<p>Task 1. Create an R file “string.R” which has one function “split_list” that
+takes in a single argument. split_list splits a given long string into a list
+of words (e.g., “heavy rain” to list(“heavy”, “rain”) and returns this list.</p>
+<p>Task 2. Create an R file “main.R” that sources an R file “string.R”. Assign the
+returned list from split_list(“Measurement and Multilevel Modeling Lab”) to an
+object. Write a for loop that loops over each element in the object and prints it.</p>
+<p>Task 3. Create an R file “and.R” which has one function “checkifand” which takes
+in one argument. Returns TRUE if the argument provided is “and” and FALSE if
+there is no match.</p>
+<p>Task 4. Modify main.R to also source add.R. Edit the for loop such that any
+matches to “and” are not printed.</p>
+<p>Task 5. Create an R file “reorder.R” that takes in a list and reorders the
+elements such that the first element is now the last element and so on.</p>
+<p>Once the cards have been created on the browser project, the first four tasks
+are split between the individuals. The cards can be converted into issues and
+assigned to specific individuals.</p>
+<p>Each person creates a supporting branch from dev with a suitable name and
+checks out the branch on their local machine.</p>
+<p>Everyone takes 5 minutes to make some progress on their designated task and
+pull, commit, pushes their changes to the remote following the best practices
+discussed above. When a task is complete and the change has been pushed to the
+remote, each person can create a pull request from their branch to dev, and assign
+one other person from the group to review their pull request (PR).</p>
+<p>While the updates are being made, experiment with <code>git fetch</code>, <code>git status</code>,
+<code>git branch -a</code> and <code>git branch -r</code> to see how each commit changes the repositories.</p>
+<p>Each person reviews a PR, either approves edits or suggests a simple change.
+If everything works as expected, the branch can be merged into dev from the browser
+and the supporting branch can be deleted.</p>
+<p>Again, everyone experiments with commands like <code>git fetch</code>, <code>git status</code>,
+<code>git branch -a</code> and <code>git branch -r</code>.</p>
+<p>Finally, fetch with pruning to delete local versions of deleted branches.</p>
+<p>Each person moves their git project card to the appropriate tab, and one
+person moves the fifth task card to the “won’t do” tab.</p>
+<h3 id="references-and-helpful-git-resources">References and helpful Git resources:</h3>
+<p><a href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a></p>
+<p><a href="https://think-like-a-git.net/">Think like (a) Git - a guide for the perplexed</a></p>
+<p><a href="https://gist.github.com/davfre/8313299">Cheatsheet</a></p>
+<p><a href="https://docs.github.com/en/get-started/quickstart/hello-world">Hello world tutorial</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2177,13 +2364,13 @@ Applications
 <div class="appendix-bottom">
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Lab (2020, Dec. 17). Measurement &amp; Multilevel Modeling Lab: Welcome to Measurement &amp; Multilevel Modeling Lab. Retrieved from https://mmmlab.rbind.io/posts/welcome/</pre>
+  <pre class="citation-appendix short">Ozcan (2022, Nov. 28). Measurement &amp; Multilevel Modeling Lab: Git Workflow. Retrieved from https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{lab2020welcome,
-  author = {Lab, MMM},
-  title = {Measurement &amp; Multilevel Modeling Lab: Welcome to Measurement &amp; Multilevel Modeling Lab},
-  url = {https://mmmlab.rbind.io/posts/welcome/},
-  year = {2020}
+  <pre class="citation-appendix long">@misc{ozcan2022git,
+  author = {Ozcan, Meltem},
+  title = {Measurement &amp; Multilevel Modeling Lab: Git Workflow},
+  url = {https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/},
+  year = {2022}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->

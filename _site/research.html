@@ -785,6 +785,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1857,15 +1858,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2064,7 +2071,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2111,7 +2118,7 @@ Applications
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="https://partinvmmm.shinyapps.io/partinvshinyui/">PartInv Shiny App</a>
+<a href="https://mmmlabusc.shinyapps.io/partinvshinyui/">PartInv Shiny App</a>
 <a href="https://winnie-wy-tse.shinyapps.io/hcb_shiny/">HCBR Shiny App</a>
 </div>
 </div>
@@ -2136,43 +2143,26 @@ Applications
 
 <div class="d-article">
 <h2 id="measurement">Measurement</h2>
-<p>Measurement is the foundation of quantitative science, and it’s
-especially important in psychological and social sciences. If a variable
-was not measured with good precision and validity, any research results
-based on it is like picking out patterns from random noise, or even
-highly misleading when systematic biases are present.</p>
+<p>Measurement is the foundation of quantitative science, and it’s especially important in psychological and social sciences. If a variable was not measured with good precision and validity, any research results based on it is like picking out patterns from random noise, or even highly misleading when systematic biases are present.</p>
 <h3 id="current-projects">Current projects</h3>
 <ul>
-<li>New algorithms for adjusting parameter estimates for measurement
-noninvariance (Mark Lai &amp; Winnie Tse)</li>
+<li>New algorithms for adjusting parameter estimates for measurement noninvariance (Mark Lai &amp; Winnie Tse)</li>
 <li>Measurement invariance with categorical data (Winnie Tse)</li>
-<li>Quantifying measurement noninvariance in a meaningful way (Yichi
-Zhang)</li>
-<li>Bias-correction methods for heterogeneous measurement errors (Mark
-Lai)</li>
-<li>Developing a Multidimensional Psychometric Framework on the Impact
-of Item Bias on Classification (Mark Lai &amp; Yichi Zhang &amp; Meltem
-Ozcan, Contract with Army Research Institute)</li>
+<li>Quantifying measurement noninvariance in a meaningful way (Yichi Zhang)</li>
+<li>Two-stage path analysis to adjust for measurement errors and measurement bias in data harmonization and integrative data analysis (Mark Lai, Winnie Tse, Jimmy Zhang, &amp; Yixiao Li, funded by the National Science Foundation)</li>
+<li>Developing a Multidimensional Psychometric Framework on the Impact of Item Bias on Classification (Mark Lai &amp; Yichi Zhang &amp; Meltem Ozcan, Contract with Army Research Institute)</li>
 <li>Synthesis of invariance research (Jimmy Zhang &amp; Haley Yue)</li>
 </ul>
 <h2 id="multilevel-modeling">Multilevel Modeling</h2>
-<p>Multilevel modeling, also called mixed-effect models, is an extremely
-powerful framework with very broad applications for quantitative
-science. It makes efficient use of data by adaptively pooling
-information across clusters (i.e., schools, states, companies, persons,
-or any continuous groups, including continuous ones).</p>
+<p>Multilevel modeling, also called mixed-effect models, is an extremely powerful framework with very broad applications for quantitative science. It makes efficient use of data by adaptively pooling information across clusters (i.e., schools, states, companies, persons, or any continuous groups, including continuous ones).</p>
 <h3 id="current-projects-1">Current projects</h3>
 <ul>
 <li>Reliability for clustered and longitudinal data (Mark Lai)</li>
-<li>Bias-correction for contextual and between-level effects (Mark Lai
-&amp; Yichi Zhang)</li>
-<li>The Impact of Ignoring Parameter Uncertainty on Sample-Size Planning
-for Cluster-Randomized and Multisite Randomized Trials (Winnie Tse &amp;
-Mark Lai, funded by Spencer Foundation)
+<li>Bias-correction for contextual and between-level effects (Mark Lai &amp; Yichi Zhang)</li>
+<li>The Impact of Ignoring Parameter Uncertainty on Sample-Size Planning for Cluster-Randomized and Multisite Randomized Trials (Winnie Tse &amp; Mark Lai, funded by Spencer Foundation)
 <!-- - Harmonization of multiwave daily diary data (Grace Mak, Haley Yue, Mark Lai) --></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

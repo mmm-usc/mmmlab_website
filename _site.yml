@@ -20,11 +20,13 @@ navbar:
       href: research.html
     - text: "Publications"
       href: publications.html
+    - text: "Lab News"
+      href: Labnews.html
     - text: "Applications"
       menu:
-        - text: "PartInv Shiny App"
+        - text: "Unbiasr Shiny App"
           href: https://mmmlabusc.shinyapps.io/partinvshinyui/
-        - text: "HCBR Shiny App"
+        - text: "HCB Shiny App"
           href: https://winnie-wy-tse.shinyapps.io/hcb_shiny/
     - icon: fab fa-github
       href: https://github.com/mmm-usc

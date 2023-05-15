@@ -786,6 +786,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1858,15 +1859,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2065,7 +2072,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2112,7 +2119,7 @@ Applications
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="https://partinvmmm.shinyapps.io/partinvshinyui/">PartInv Shiny App</a>
+<a href="https://mmmlabusc.shinyapps.io/partinvshinyui/">PartInv Shiny App</a>
 <a href="https://winnie-wy-tse.shinyapps.io/hcb_shiny/">HCBR Shiny App</a>
 </div>
 </div>
@@ -2262,6 +2269,26 @@ function init_posts_list() {
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="Measurement &amp; Multilevel Modeling Lab">Measurement &amp; Multilevel Modeling Lab</h1>
+<a href="posts/2022-12-05-git-workflow/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["git","version control"]}</script>
+<div class="metadata">
+<div class="publishedDate">Nov. 28, 2022</div>
+<div class="dt-authors">
+<div class="dt-author">Meltem Ozcan</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Git Workflow</h2>
+<div class="dt-tags">
+<div class="dt-tag">git</div>
+<div class="dt-tag">version control</div>
+</div>
+<p>A brief overview of the git workflow and a demonstration of the git workflow for collaboration.</p>
+</div>
+</a>
 <a href="posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["Bootstrap","Multilevel Modeling","Statistics"]}</script>
 <div class="metadata">
@@ -2311,7 +2338,9 @@ function init_posts_list() {
 <div class="dt-author">Yichi Zhang</div>
 </div>
 </div>
-<div class="thumbnail"></div>
+<div class="thumbnail">
+<img/>
+</div>
 <div class="description">
 <h2>Multilevel Models in Julia</h2>
 <div class="dt-tags">
@@ -2390,7 +2419,7 @@ reading what we have to say!</p>
 <ul>
 <li>
 <a href="#category:Articles">Articles</a>
-<span class="category-count">(6)</span>
+<span class="category-count">(7)</span>
 </li>
 <li>
 <a href="#category:Applied">Applied</a>
@@ -2409,6 +2438,10 @@ reading what we have to say!</p>
 <span class="category-count">(1)</span>
 </li>
 <li>
+<a href="#category:git">git</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
 <a href="#category:Julia">Julia</a>
 <span class="category-count">(3)</span>
 </li>
@@ -2423,6 +2456,10 @@ reading what we have to say!</p>
 <li>
 <a href="#category:Statistics">Statistics</a>
 <span class="category-count">(3)</span>
+</li>
+<li>
+<a href="#category:version_control">version control</a>
+<span class="category-count">(1)</span>
 </li>
 <li>
 <a href="#category:Visualization">Visualization</a>
@@ -2446,8 +2483,7 @@ reading what we have to say!</p>
 
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
