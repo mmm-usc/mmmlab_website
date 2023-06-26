@@ -24,19 +24,18 @@ library(mnormt)
 set.seed(2229)
 ```
 
-(A helper function: p.d.f of bivariate normal random variables)
-
 ```{r bivariate normal function}
-# helper function for integrating bivariate normal density
+#| include: false
+# helper function for integrating bivariate normal density (not used here)
 pbnorm <- function(lo1, up1, lo2, up2, mu1, mu2, sigma1, sigma2, rho) {
   cubature::cuhre(
     function(arg) {
       y1 <- arg[1]
       y2 <- arg[2]
       # bivariate normal density function
-      ((1/(2*pi*sigma1*sigma2*sqrt(1 - rho^2))) *
-          exp(- ((y1-mu1)^2/sigma1^2 - 2*rho*(y1-mu1)*(y2-mu2)/(sigma1*sigma2) +
-                   (y2-mu2)^2/sigma2^2) / (2*(1 - rho^2))))*y1
+      ((1 / (2 * pi * sigma1 * sigma2 * sqrt(1 - rho^2))) *
+        exp(-((y1 - mu1)^2 / sigma1^2 - 2 * rho * (y1 - mu1) * (y2 - mu2) / (sigma1 * sigma2) +
+          (y2 - mu2)^2 / sigma2^2) / (2 * (1 - rho^2)))) * y1
     },
     lowerLimit = c(lo1, lo2), upperLimit = c(up1, up2)
   )$integral
@@ -67,16 +66,22 @@ rho <- 0.5
 # Assume X and Y*~N(0,1) for now
 sd_x <- 1
 sd_y <- 1
-cov_xy <- rho*sd_x*sd_y
+cov_xy <- rho * sd_x * sd_y
 
 # Simulate correlated X and Y*
 df <- as.data.frame(
-  mvrnorm(n = 1e4,
-          mu = c(0, 0),
-          Sigma = matrix(c(sd_x^2, cov_xy,
-                           cov_xy, sd_y^2),
-                         ncol = 2))
+  mvrnorm(
+    n = 1e4,
+    mu = c(0, 0),
+    Sigma = matrix(
+      c(
+        sd_x^2, cov_xy,
+        cov_xy, sd_y^2
+      ),
+      ncol = 2
+    )
   )
+)
 names(df) <- c("X", "Y*")
 
 # Manually dichotomize Y* to 0 and 1
@@ -84,14 +89,15 @@ df <- df %>%
   mutate(Y = ifelse(`Y*` > qnorm(0.7, mean(`Y*`), sd(`Y*`)), 1, 0))
 
 # Show proportion of Y
-knitr::kable(table(df$Y)/nrow(df),
-             col.names = c("Label", "Proportion"),
-             align = "c")
+knitr::kable(table(df$Y) / nrow(df),
+  col.names = c("Label", "Proportion"),
+  align = "c"
+)
 
 # Show correlations between X and Y*, and X and Y
 knitr::kable(
   cbind(cor(df$X, df$`Y*`), cor(df$X, df$Y)),
-  col.names = c("$\\rho_{(X, Y*)}$", "$\\rho_{(X, Y)}$") 
+  col.names = c("$\\rho_{(X, Y*)}$", "$\\rho_{(X, Y)}$")
 )
 ```
 
@@ -104,12 +110,7 @@ Now we can use the derived formula instead of simulated dataset to calculate the
 # Analytic calculation
 thres <- qnorm(0.3)
 var_ystar <- 1
-var_y <- 0.7*(1-0.7)  # HL: This has not been discussed
-# HL: If you're integrating one of the variables in the bivariate normal out, you just need the marginal distribution (Y* in this case)
-# HL: You can verify that the one below is just the mean of a truncated normal and does not depend on rho. This can be discussed.
-# JZ: I think maybe it's a good idea to keep both calculation methods and discuss they are equivalent?
-# attenuation_bi <- pbnorm(-Inf, Inf, thres, Inf, 0, 0, sd_x, sd_y, rho)/rho * sqrt(var_ystar/var_y)
-# HL: I'm not sure they're 100% equivalent, as I recall trying some values with your function and the results seemed off. Perhaps I made a mistake, but you can use pbnorm() just as a check that the analytic simplication is correct.
+var_y <- 0.7 * (1 - 0.7)
 attenuation_bi <- dnorm(thres) * sqrt(var_ystar / var_y)
 cor_xy_bi <- attenuation_bi * rho
 
@@ -117,20 +118,23 @@ cor_xy_bi <- attenuation_bi * rho
 lat_cor <- cor(df$X, df$`Y*`)
 obs_cor <- cor(df$X, df$Y)
 
-att_fac <- (cov(df$X, df$Y)/cov(df$X, df$`Y*`))*sqrt(var(df$`Y*`)/var(df$Y))
-cal_cor <- att_fac*lat_cor
+att_fac <- (cov(df$X, df$Y) / cov(df$X, df$`Y*`)) * sqrt(var(df$`Y*`) / var(df$Y))
+cal_cor <- att_fac * lat_cor
 ```
 
 Then we can compare the results from analytic calculation and simulated results:
 
 ```{r}
 summary_1 <- round(c(rho, attenuation_bi, cor_xy_bi, att_fac, cal_cor), 3)
-names(summary_1) <- c("Correlation_XY*", "Attenuation_Formula", 
-                      "Correlation_Formula", "Attenuation_Data", 
-                      "Correlation_Data")
+names(summary_1) <- c(
+  "Correlation_XY*", "Attenuation_Formula",
+  "Correlation_Formula", "Attenuation_Data",
+  "Correlation_Data"
+)
 knitr::kable(summary_1,
-             align = "c",
-             col.names = " ")
+  align = "c",
+  col.names = " "
+)
 ```
 
 In the table, "Attenuation_Formula" and "Correlation_Formula" represent the attenuated amount and correlation from the analytic formula, wheres "Attenuation_Data" and "Correlation_Data" represent those from simulated data.
@@ -154,9 +158,6 @@ One important formula we need is the probability density function (p.d.f.) of a 
 
 $$f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[x^2 + {y^*}^2 - 2\rho x y^*]}$$
 
-<!-- HL: Is this XY or XY^* ? -->
-<!-- JZ: This should be XY^*. Sorry for the mistake -->
-
 and the expected value of $XY^*$ is: 
 
 $$E(XY^*) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*)$$
@@ -166,11 +167,7 @@ $$E(XY) = E(X | Y^* > \tau),$$
 while $E(XY) = E(X | Y^* < \tau) = E(X*0) = 0$. 
 Further, the formula can be expanded as:
 
-<!-- HL: This part is not clear to me; I think a step is missing from E(XY) = E(X | Y^* > tau) -->
-
 $$E(X | Y^* > \tau) = \int_{-\infty}^{\infty}\int_{\tau}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*) = \int_{-\infty}^{\infty}\int_{\tau}^{\infty}x,y^{*}\frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[x^2 + y^{*^2} - 2\rho x y^*]} d(x) d(y^*)$$
-
-<!-- HL: I don't think the following derivation is correct. At the end, E(XY) should the rho * dnorm(tau). Note that it is dnorm, not pnorm, which you show below. One possibility is to consider E(X | Y^* = a) and its distribution, and then integrate the conditional expectation from tau to infinity. -->
 
 We can see that the cumulative probability is determined by the density value, or marginal distribution, of $Y^*$. Specifically, it is determined by the threshold $\tau$. Note that the marginal distribution of one variable in a bivariate normal distribution is a [normal distribution](http://www1.maths.leeds.ac.uk/~sta6ajb/math2715/lec19-20.pdf). Now we think of $E(X | Y^* = a)$. It can be thought of the marginal distribution of X at $Y^* = a$ and $E(X)$ does not depend on $\rho$.
 
@@ -222,16 +219,20 @@ p_thres1_thres2 <- pnorm(thres_2) - pnorm(thres_1)
 p_thres2_thres3 <- pnorm(thres_3) - pnorm(thres_2)
 p_larger_than_thres3 <- pnorm(thres_3, lower.tail = F)
 
-e_y2 <- 0*p_less_than_thres1 + 1^2*p_thres1_thres2 + 2^2*p_thres2_thres3 + 3^2*p_larger_than_thres3
-e_y <- 1*p_thres1_thres2 + 2*p_thres2_thres3 + 3*p_larger_than_thres3
+e_y2 <- 0 * p_less_than_thres1 +
+  1^2 * p_thres1_thres2 +
+  2^2 * p_thres2_thres3 +
+  3^2 * p_larger_than_thres3
+e_y <- 1 * p_thres1_thres2 + 2 * p_thres2_thres3 + 3 * p_larger_than_thres3
 var_y <- e_y2 - e_y^2
-# HL: Verify you can simplify to the following (based on the binary results):
-attenuation_cat <- 1 * (dnorm(thres_1) - dnorm(thres_2)) + 2 * (dnorm(thres_2) - dnorm(thres_3)) + 3 * dnorm(thres_3) * sqrt(var_ystar / var_y)
+attenuation_cat <- 1 * (dnorm(thres_1) - dnorm(thres_2)) +
+  2 * (dnorm(thres_2) - dnorm(thres_3)) +
+  3 * dnorm(thres_3) * sqrt(var_ystar / var_y)
 # attenuation_cat <- (0*pbnorm(-Inf, Inf, -Inf, thres_1, 0, 0, 1, 1, 0.5) +
 #   1*pbnorm(-Inf, Inf, thres_1, thres_2, 0, 0, 1, 1, 0.5) +
 #   2*pbnorm(-Inf, Inf, thres_2, thres_3, 0, 0, 1, 1, 0.5) +
 #   3*pbnorm(-Inf, Inf, thres_3, Inf, 0, 0, 1, 1, 0.5))/rho * sqrt(var_ystar/var_y)
-cor_xy_cat <- attenuation_cat*rho
+cor_xy_cat <- attenuation_cat * rho
 ```
 
 # Verification with simulated data
@@ -240,48 +241,57 @@ cor_xy_cat <- attenuation_cat*rho
 rho <- 0.5
 sd_x <- 1
 sd_y <- 1
-cov_xy <- rho*sd_x*sd_y
+cov_xy <- rho * sd_x * sd_y
 
-df3 <- as.data.frame(mvrnorm(n = 1e4,
-                             mu = c(0, 0),
-                             Sigma = matrix(c(sd_x^2, cov_xy,
-                                              cov_xy, sd_y^2),
-                                            ncol = 2)))
+df3 <- as.data.frame(mvrnorm(
+  n = 1e4,
+  mu = c(0, 0),
+  Sigma = matrix(
+    c(
+      sd_x^2, cov_xy,
+      cov_xy, sd_y^2
+    ),
+    ncol = 2
+  )
+))
 
 
 names(df3) <- c("y1", "y2")
 
 df3 <- df3 %>%
   mutate(y2_mul = ifelse(y2 < qnorm(0.5, mean(df3$y2), sd(df3$y2)), 0,
-                         ifelse(qnorm(0.5, mean(df3$y2), sd(df3$y2)) < y2 & y2 < qnorm(0.5 + 0.3, mean(df3$y2), sd(df3$y2)), 1,
-                                ifelse(qnorm(0.5 + 0.3, mean(df3$y2), sd(df3$y2)) < y2 & y2 < qnorm(0.5 + 0.3 + 0.1, mean(df3$y2), sd(df3$y2)), 2,
-                                       ifelse(y2 > qnorm(0.5 + 0.3 + 0.1, mean(df3$y2), sd(df3$y2)), 3, NA)))))
+    ifelse(qnorm(0.5, mean(df3$y2), sd(df3$y2)) < y2 & y2 < qnorm(0.5 + 0.3, mean(df3$y2), sd(df3$y2)), 1,
+      ifelse(qnorm(0.5 + 0.3, mean(df3$y2), sd(df3$y2)) < y2 & y2 < qnorm(0.5 + 0.3 + 0.1, mean(df3$y2), sd(df3$y2)), 2,
+        ifelse(y2 > qnorm(0.5 + 0.3 + 0.1, mean(df3$y2), sd(df3$y2)), 3, NA)
+      )
+    )
+  ))
 
 lat_cor <- cor(df3$y1, df3$y2)
 obs_cor <- cor(df3$y1, df3$y2_mul)
 
-att_fac <- (cov(df3$y1, df3$y2_mul)/cov(df3$y1, df3$y2))*sqrt(var(df3$y2)/var(df3$y2_mul))
-cal_cor <- att_fac*lat_cor
+att_fac <- (cov(df3$y1, df3$y2_mul) / cov(df3$y1, df3$y2)) * sqrt(var(df3$y2) / var(df3$y2_mul))
+cal_cor <- att_fac * lat_cor
 ```
 
 ```{r}
 summary_2 <- round(c(rho, attenuation_cat, cor_xy_cat, att_fac, cal_cor), 3)
-names(summary_2) <- c("Correlation_XY*", "Attenuation_Formula", 
-                      "Correlation_Formula", "Attenuation_Data", 
-                      "Correlation_Data")
+names(summary_2) <- c(
+  "Correlation_XY*", "Attenuation_Formula",
+  "Correlation_Formula", "Attenuation_Data",
+  "Correlation_Data"
+)
 knitr::kable(summary_2,
-             align = "c",
-             col.names = " ")
+  align = "c",
+  col.names = " "
+)
 ```
 
 # Reasoning of Generalization to X and Y* with Any Means and Variances
 
 We would like to prove that the attenuation of correlation based on standard normal $X$ and $Y^*$ is generalizeable to $X$ and $Y^*$ with any means and variances when $Y^*$ is categorized with any numbers of categories.
 
-<!-- HL: Unclear why there two 'c's below -->
-<!-- JZ: I deleted the second c -->
-
-let's say $Y^{*}$ is categorized to Y (c = 4; \[0, 1, 2, 3\]),
+Let's say $Y^{*}$ is categorized to Y (c = 4; \[0, 1, 2, 3\]),
 
 $$E(X,Y) = 
   \begin{cases}
@@ -327,13 +337,19 @@ Now it's time to verify if our reasoning works with any means and variances for 
 rho <- 0.5
 sd_x <- rnorm(1, 1, 0.5)
 sd_y <- rnorm(1, 1.5, 0.3)
-cov_xy <- rho*sd_x*sd_y
+cov_xy <- rho * sd_x * sd_y
 
-df2 <- as.data.frame(mvrnorm(n = 1e7,
-                              mu = c(rnorm(1, 10, 2.1), rnorm(1, 8, 1.1)),
-                              Sigma = matrix(c(sd_x^2, cov_xy,
-                                               cov_xy, sd_y^2),
-                                             ncol = 2)))
+df2 <- as.data.frame(mvrnorm(
+  n = 1e7,
+  mu = c(rnorm(1, 10, 2.1), rnorm(1, 8, 1.1)),
+  Sigma = matrix(
+    c(
+      sd_x^2, cov_xy,
+      cov_xy, sd_y^2
+    ),
+    ncol = 2
+  )
+))
 
 names(df2) <- c("y1", "y2")
 df2 <- df2 %>%
@@ -342,56 +358,71 @@ df2 <- df2 %>%
 lat_cor <- cor(df2$y1, df2$y2)
 obs_cor <- cor(df2$y1, df2$y2_cat)
 
-att_fac <- (cov(df2$y1, df2$y2_cat)/cov(df2$y1, df2$y2))*sqrt(var(df2$y2)/var(df2$y2_cat))
-cal_cor <- att_fac*lat_cor
+att_fac <- (cov(df2$y1, df2$y2_cat) / cov(df2$y1, df2$y2)) * sqrt(var(df2$y2) / var(df2$y2_cat))
+cal_cor <- att_fac * lat_cor
 ```
 
 ```{r}
 summary_3 <- round(c(rho, attenuation_bi, cor_xy_bi, att_fac, cal_cor), 3)
-names(summary_3) <- c("Correlation_XY*", "Attenuation_Formula", 
-                      "Correlation_Formula", "Attenuation_Data", 
-                      "Correlation_Data")
+names(summary_3) <- c(
+  "Correlation_XY*", "Attenuation_Formula",
+  "Correlation_Formula", "Attenuation_Data",
+  "Correlation_Data"
+)
 knitr::kable(summary_3,
-             align = "c",
-             col.names = " ")
+  align = "c",
+  col.names = " "
+)
 ```
 
 ```{r}
 rho <- 0.5
 sd_x <- rnorm(1, 1, 0.5)
 sd_y <- rnorm(1, 1.5, 0.3)
-cov_xy <- rho*sd_x*sd_y
+cov_xy <- rho * sd_x * sd_y
 
-df3 <- as.data.frame(mvrnorm(n = 1e7,
-                             mu = c(rnorm(1, 10, 2.1), rnorm(1, 8, 1.1)),
-                             Sigma = matrix(c(sd_x^2, cov_xy,
-                                              cov_xy, sd_y^2),
-                                            ncol = 2)))
+df3 <- as.data.frame(mvrnorm(
+  n = 1e7,
+  mu = c(rnorm(1, 10, 2.1), rnorm(1, 8, 1.1)),
+  Sigma = matrix(
+    c(
+      sd_x^2, cov_xy,
+      cov_xy, sd_y^2
+    ),
+    ncol = 2
+  )
+))
 
 
 names(df3) <- c("y1", "y2")
 
 df3 <- df3 %>%
   mutate(y2_mul = ifelse(y2 < qnorm(0.5, mean(df3$y2), sd(df3$y2)), 0,
-                         ifelse(qnorm(0.5, mean(df3$y2), sd(df3$y2)) < y2 & y2 < qnorm(0.5 + 0.3, mean(df3$y2), sd(df3$y2)), 1,
-                                ifelse(qnorm(0.5 + 0.3, mean(df3$y2), sd(df3$y2)) < y2 & y2 < qnorm(0.5 + 0.3 + 0.1, mean(df3$y2), sd(df3$y2)), 2,
-                                       ifelse(y2 > qnorm(0.5 + 0.3 + 0.1, mean(df3$y2), sd(df3$y2)), 3, NA)))))
+    ifelse(qnorm(0.5, mean(df3$y2), sd(df3$y2)) < y2 & y2 < qnorm(0.5 + 0.3, mean(df3$y2), sd(df3$y2)), 1,
+      ifelse(qnorm(0.5 + 0.3, mean(df3$y2), sd(df3$y2)) < y2 & y2 < qnorm(0.5 + 0.3 + 0.1, mean(df3$y2), sd(df3$y2)), 2,
+        ifelse(y2 > qnorm(0.5 + 0.3 + 0.1, mean(df3$y2), sd(df3$y2)), 3, NA)
+      )
+    )
+  ))
 
 lat_cor <- cor(df3$y1, df3$y2)
 obs_cor <- cor(df3$y1, df3$y2_mul)
 
-att_fac <- (cov(df3$y1, df3$y2_mul)/cov(df3$y1, df3$y2))*sqrt(var(df3$y2)/var(df3$y2_mul))
-cal_cor <- att_fac*lat_cor
+att_fac <- (cov(df3$y1, df3$y2_mul) / cov(df3$y1, df3$y2)) * sqrt(var(df3$y2) / var(df3$y2_mul))
+cal_cor <- att_fac * lat_cor
 ```
 
 ```{r}
 summary_4 <- round(c(rho, attenuation_cat, cor_xy_cat, att_fac, cal_cor), 3)
-names(summary_4) <- c("Correlation_XY*", "Attenuation_Formula", 
-                      "Correlation_Formula", "Attenuation_Data", 
-                      "Correlation_Data")
+names(summary_4) <- c(
+  "Correlation_XY*", "Attenuation_Formula",
+  "Correlation_Formula", "Attenuation_Data",
+  "Correlation_Data"
+)
 knitr::kable(summary_4,
-             align = "c",
-             col.names = " ")
+  align = "c",
+  col.names = " "
+)
 ```
 
 It seems that the comparison of attenuated $R^2$ values calculated by the formula and from the simulated results are highly similar. 
