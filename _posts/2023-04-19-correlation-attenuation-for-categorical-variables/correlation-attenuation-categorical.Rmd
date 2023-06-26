@@ -162,10 +162,12 @@ and the expected value of $XY^*$ is:
 
 $$E(XY^*) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*)$$
 
-When $Y^*$ is dichotomized into $Y$ with a threshold (i.e., $\tau$), it means that $Y^*$ is truncated because 30% of $Y^*$ is 0. The expected value of $EY$ becomes a conditional expected value when $Y^* > \tau$:
+When $Y^*$ is dichotomized into $Y$ with a threshold (i.e., $\tau$), it means that $Y^*$ is truncated because 30% of $Y^*$ is 0. The expected value of $XY$ becomes a conditional expected value when $Y^* > \tau$:
 $$E(XY) = E(X | Y^* > \tau),$$
 while $E(XY) = E(X | Y^* < \tau) = E(X*0) = 0$. 
 Further, the formula can be expanded as:
+
+<!-- HL: Try using the $$\begin{aligned*}...$$ environment to separate the equations into multiple lines -->
 
 $$E(X | Y^* > \tau) = \int_{-\infty}^{\infty}\int_{\tau}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*) = \int_{-\infty}^{\infty}\int_{\tau}^{\infty}x,y^{*}\frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[x^2 + y^{*^2} - 2\rho x y^*]} d(x) d(y^*)$$
 
@@ -173,7 +175,7 @@ We can see that the cumulative probability is determined by the density value, o
 
 $$E(X | Y^* = a) = \int_{-\infty}^{\infty} xf_{X|Y^*}(x|Y^* = y^*)d(x) = \rho a, $$
 
-given that $f_{X|Y^*}(x|Y^* = y^*) = \frac{f_{X,Y^*}(x, y^*)}{f_{Y^*}(y^*)}, $ and $\rho$ is the correlation between $X$ and $Y^*$. 
+given that $f_{X|Y^*}(x|Y^* = y^*) = \frac{f_{X,Y^*}(x, y^*)}{f_{Y^*}(y^*)}$, and $\rho$ is the correlation between $X$ and $Y^*$. 
 
 Now we think of $E(X | Y^* > a)$. 
 
@@ -193,6 +195,8 @@ $$E(Y^*|Y^* > a) = \int_{a}^{\infty} y^*\phi_{0}(y^*)d(y^*) = \frac{e^{-\frac{a^
 Note that $\phi_{0}$ is the p.d.f. of standard normal distribution. 
 
 The `dnorm()` function in `R` calculates the p.d.f. of the normal distribution. For standard normal distribution, the values of `dnorm(a)` is $\frac{e^{-\frac{a^2}{2}}}{\sqrt{2\pi}}$, which is the value of $E(Y^*|Y^* > a)$. Thus, we are able to show that:
+
+<!-- HL: Is there a difference between $\phi_0(a)$ and dnorm(a)? If not, avoid too many symbols. -->
 
 $$E(X | Y^* > a) = \rho*dnorm(a)$$
 
@@ -258,6 +262,21 @@ df3 <- as.data.frame(mvrnorm(
 
 names(df3) <- c("y1", "y2")
 
+# HL: An easier way to do the categorization:
+# findInterval(
+#   df3$y2,
+#   rightmost.closed = TRUE,
+#   quantile(df3$y2, c(0, 0.5, 0.5 + 0.3, 0.5 + 0.3 + 0.1, 1))
+# ) - 1  # if starting from 0
+# The above is based on the sample quantiles without
+# assuming normality. If you want to assume normality, try
+# findInterval(
+#   df3$y2,
+#   rightmost.closed = TRUE,
+#   qnorm(c(0, 0.5, 0.5 + 0.3, 0.5 + 0.3 + 0.1, 1),
+#         mean = mean(df3$y2), sd = sd(df3$y2))
+# ) - 1
+# Could you update the following accordingly? Thanks.
 df3 <- df3 %>%
   mutate(y2_mul = ifelse(y2 < qnorm(0.5, mean(df3$y2), sd(df3$y2)), 0,
     ifelse(qnorm(0.5, mean(df3$y2), sd(df3$y2)) < y2 & y2 < qnorm(0.5 + 0.3, mean(df3$y2), sd(df3$y2)), 1,
@@ -290,6 +309,10 @@ knitr::kable(summary_2,
 # Reasoning of Generalization to X and Y* with Any Means and Variances
 
 We would like to prove that the attenuation of correlation based on standard normal $X$ and $Y^*$ is generalizeable to $X$ and $Y^*$ with any means and variances when $Y^*$ is categorized with any numbers of categories.
+
+<!-- It's unclear what c means below. If c takes on a value from 1 to 4, you just need to use Y instead of c.
+If c is the number of categories or number of thresholds
+(the two are different), please clarify. -->
 
 Let's say $Y^{*}$ is categorized to Y (c = 4; \[0, 1, 2, 3\]),
 
