@@ -46,9 +46,8 @@ pbnorm <- function(lo1, up1, lo2, up2, mu1, mu2, sigma1, sigma2, rho) {
 
 |           Correlation is the degree to which two variables associate with one another. The correlation formula between two random variables (i.e., X and Y) is:
 
-\begin{align}
-  \rho(x,y) = \frac{COV(X, Y)}{\sigma_{X}\sigma_{Y}},
-\end{align}
+
+$$\rho(x,y) = \frac{COV(X, Y)}{\sigma_{X}\sigma_{Y}},$$
 
 where $\sigma$ is the standard deviation. 
 
@@ -105,9 +104,7 @@ knitr::kable(
 
 |           In this example, we can see the correlation is attenuated when one of the continuous variables is dichotomized. According to the correlation formula and expectation of covariance formula, we can derive the attenuation factor due to categorization. Note that the value of dichotomozing $Y^*$ for desired proportion is called "threshold."
 
-\begin{align}
-  \text{Attenuation Factor} = \frac{COV(X, Y)}{COV(X, Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}},
-\end{align}
+$$\text{Attenuation Factor} = \frac{COV(X, Y)}{COV(X, Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}},$$
 
 |           Now we can use the derived formula instead of simulated dataset to calculate the attenuated $R^2$. (A quick review of how to compute variance, e.g., $\sigma^2_{Y}$, of a binary variable: $\sigma^2_{Y} = \mu_{Y}*[1 - \mu _{Y}]$).
 
@@ -147,9 +144,8 @@ knitr::kable(
 
 |           We can see that the covariances between $X$ and $Y^*$ are needed to compute the attenuation factor, which requires raw data. Sometimes, however, researchers may have difficulties obtaining raw data or they only have the correlation between $X$ and $Y$ reported in published articles.
 
-\begin{align}
-  \text{Attenuation Factor} = \frac{E(XY) - E(X)E(Y)}{E(XY^*) - E(X)E(Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}},
-\end{align}
+
+$$\text{Attenuation Factor} = \frac{E(XY) - E(X)E(Y)}{E(XY^*) - E(X)E(Y^*)}*\sqrt{\frac{\sigma^2_{Y^*}}{\sigma^2_{Y}}},$$
 
 |           If we further expand the covariance terms, they can be computed as long as we are able to obtain the information of each part (e.g., $E[XY]$). 
 
@@ -157,88 +153,97 @@ knitr::kable(
 
 |           For $E(XY^*)$, we can use the correlation and covariance formula to prove that:
 
+$$
 \begin{aligned}
   \rho(X, Y^*) &= \frac{E(XY^*)}{\sqrt{\sigma^2_{X} \sigma^2_{Y^*}}} \\
                &= E\left[\left(\frac{X - \mu_{x}}{\sigma_{X}}\right)\left(\frac{Y^* -        \mu_{Y^*}}{\sigma_{Y^*}}\right)\right] \\
                &= E(XY^*), \\
 \end{aligned}
+$$
 
 given that the correlation of $X$ and $Y^*$ is their standardized covariance. Then $E(XY)$ can be calculated using thresholds of the categorical variable. 
 
 |           Before we move forward, I would like to discuss two ways of calculating the $E(XY)$ in the example of binary variable. One important formula we need is the probability density function (p.d.f.) of a standard bivariate normal distribution:
 
-\begin{align}
-  f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[x^2 + {y^*}^2 - 2\rho x y^*]},
-\end{align}
+$$f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[x^2 + {y^*}^2 - 2\rho x y^*]},$$
+
 
 and the expected value of $XY^*$ is: 
 
-\begin{align}
-  E(XY^*) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*),
-\end{align}
+$$E(XY^*) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*),$$
 
 |           When $Y^*$ is dichotomized into $Y$ with a threshold (i.e., $\tau$), it means that $Y^*$ is truncated because 30% of $Y^*$ is 0. The expected value of $XY$ becomes a conditional expected value when $Y^* > \tau$:
 
-\begin{align}
-  E(XY) = E(X | Y^* > \tau),
-\end{align}
+$$E(XY) = E(X | Y^* > \tau),$$
 
 while $E(XY) = E(X | Y^* < \tau) = E(X*0) = 0$. 
 Further, the formula can be expanded as:
 
 <!-- HL: Try using the $$\begin{aligned*}...$$ environment to separate the equations into multiple lines -->
 
+$$
 \begin{aligned}
   E(X | Y^* > \tau) &= \int_{-\infty}^{\infty}\int_{\tau}^{\infty}xy^{*}f_{x,y^{*}}(x,y^{*}) d(x) d(y^*) \\
   &= \int_{-\infty}^{\infty}\int_{\tau}^{\infty}x,y^{*}\frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 -              \rho^2)}*[x^2 + y^{*^2} - 2\rho x y^*]} d(x) d(y^*), \\
 \end{aligned}
+$$
 
 |           We can see that the cumulative probability is determined by the density value, or marginal distribution, of $Y^*$. Specifically, it is determined by the threshold $\tau$. Note that the marginal distribution of one variable in a bivariate normal distribution is a [normal distribution](http://www1.maths.leeds.ac.uk/~sta6ajb/math2715/lec19-20.pdf). Now we think of $E(X | Y^* = a)$. It can be thought of the marginal distribution of X at $Y^* = a$ and $E(X)$ does not depend on $\rho$.
 
-
-\begin{align}
+$$
+\begin{aligned}
   E(X | Y^* = a) &= \int_{-\infty}^{\infty} xf_{X|Y^*}(x|Y^* = y^*)d(x) \\
   &= \rho*a, \\
-\end{align}
+\end{aligned}
+$$
 
 
 given that $f_{X|Y^*}(x|Y^* = y^*) = \frac{f_{X,Y^*}(x, y^*)}{f_{Y^*}(y^*)}$, and $\rho$ is the correlation between $X$ and $Y^*$. 
 
 Now we think of $E(X | Y^* > a)$:
 
+$$
 \begin{aligned}
   E(X | Y^* > a) &= E(X - rY^* + rY^* | Y^* > a) \\
   COV(X - rY^*, Y^*) &= E[(X - rY^*)Y^*] - E(X - rY^*)E(Y^*) \\
   COV(X - rY^*, Y^*) &= E(XY^*) - rE(Y^*Y^*) - E(X)E(Y^*) + rE(Y^*)E(Y^*), \\
 \end{aligned}
+$$
 
 since we assume that $X$ and $Y^*$ both follow $N ~ (0,1)$, therefore $COV(X, Y^*) = E(XY^*) - E(X)E(Y^*) = r$ and $VAR(Y^*) = E(Y^*)E(Y^*) - E(Y^*Y^*) = 1$. Then,
 
+$$
 \begin{aligned}
   COV(X - rY^*, Y^*) &= COV(X, Y^*) - r*1 \\
   &= r - r \\
   &= 0, \\
 \end{aligned}
-
+$$
+$$
 \begin{aligned}
   E(X | Y^* > a) &= E(X - rY^* + rY^* | Y^* > a) \\
-  &= E(X - rY^*|Y^* > a) + rE(Y^*|Y^* > a), \\
+  &= E(X - rY^*|Y^* > a) + r*E(Y^*|Y^* > a), \\
 \end{aligned}
+$$
 
 We have shown that the correlation between $X - rY^*$ and $Y^*$ is 0, and thus $E(X - rY^*)$ is independent of $Y^*$. Furthermore,
 
+$$
 \begin{aligned}
-  E(X | Y^* > a) &= E(X - rY^*) + rE(Y^*|Y^* > a) \\
-  &= E(X) - rE(Y^*) + rE(Y^*|Y^* > a) \\
+  E(X | Y^* > a) &= E(X - rY^*) + r*E(Y^*|Y^* > a) \\
+  &= E(X) - r*E(Y^*) + r*E(Y^*|Y^* > a) \\
   &= r*E(Y^*|Y^* > a), \\
 \end{aligned}
+$$
 
 According to the definition of conditional expectation,
 
+$$
 \begin{aligned}
   E(Y^*|Y^* > a) &= \int_{a}^{\infty} y^*\phi_{0}(y^*)d(y^*) \\
   &= \frac{e^{-\frac{a^2}{2}}}{\sqrt{2\pi}}, \\
 \end{aligned}
+$$
 
 note that $\phi_{0}$ is the p.d.f. of standard normal distribution. 
 
@@ -246,9 +251,9 @@ note that $\phi_{0}$ is the p.d.f. of standard normal distribution.
 
 <!-- HL: Is there a difference between $\phi_0(a)$ and dnorm(a)? If not, avoid too many symbols. -->
 
-\begin{aligned}
-  E(X | Y^* > a) = \rho*\phi_0(a)
-\end{aligned}
+
+$$E(X | Y^* > a) = \rho*\phi_0(a)$$
+
 
 |           In the following sections, I'll use an example of 4-category variable to show how $E(XY)$ can be computed for each response category using the probability density function of bivariate normal random variables and their cumulative probabilities.
 
@@ -364,7 +369,8 @@ If c is the number of categories or number of thresholds
 
 |           Let's say $Y^{*}$ is categorized to $Y$ with $c$ categories (c = 4; [0, 1, 2, 3]),
 
-\begin{align}
+$$
+\begin{aligned}
 E(X,Y) = 
   \begin{cases}
     0, & \text{if } Y^{*} \le \tau_{1} \\  
@@ -372,7 +378,8 @@ E(X,Y) =
     E(X | Y = 2), & \text{if } \tau_{2} \le Y^{*} \le \tau_{3} \\
     E(X | Y = 3), & \text{if } Y^{*} > \tau_{3}
   \end{cases}
-\end{align}
+\end{aligned}
+$$
 
 Take one category as one example, for $E(X | Y = 1)$ with $\tau_{1} \le Y^{*} \le \tau_{2}$ and $c = 1$: $E(X | Y = 1) = \int_{-\infty}^{\infty} \int_{\tau_{1}}^{\tau_{2}} \text{x} y^{*} f_{(x, y^{\ast})} d_{x} d_{y^{*}}$
 
@@ -380,30 +387,30 @@ Take one category as one example, for $E(X | Y = 1)$ with $\tau_{1} \le Y^{*} \l
 
 |           Let $z_{x} = \frac{x - \mu_{x}}{\sigma_{x}}$ and $z_{y^{*}} = \frac{y^{*} - \mu_{y^{*}}}{\sigma_{y^{*}}}$, then,
 
-\begin{align}
-f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sigma_{x}\sigma_{y^{*}}\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[z_{x}^2 + z_{y^{*}}^2 - 2\rho z_{x} z_{y^{*}}]},
-\end{align}
+
+$$f_{x,y^{*}}(x,y^{*}) = \frac{1}{2\pi\sigma_{x}\sigma_{y^{*}}\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[z_{x}^2 + z_{y^{*}}^2 - 2\rho z_{x} z_{y^{*}}]},$$
+
 
 and transform the formula to: 
 
-\begin{align}
-E(X | Y = 1) = \int_{-\infty}^{\infty}\int_{\tau_{1}}^{\tau_{2}}xy^{*}\frac{d_{x}d_{y^{*}}}{2\pi\sigma_{x}\sigma_{y^{*}}\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[z_{x}^2 + z_{y^{*}}^2 - 2\rho z_{x} z_{y^{*}}]} d(x) d(y^*)
-\end{align}
+
+$$E(X | Y = 1) = \int_{-\infty}^{\infty}\int_{\tau_{1}}^{\tau_{2}}xy^{*}\frac{d_{x}d_{y^{*}}}{2\pi\sigma_{x}\sigma_{y^{*}}\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[z_{x}^2 + z_{y^{*}}^2 - 2\rho z_{x} z_{y^{*}}]} d(x) d(y^*),$$
 
 Because of the property of derivation,
 
-\begin{align}
+$$
+\begin{aligned}
   \frac{d(x)}{\sigma_{x}} &= d(\frac{x - \mu_{x}}{\sigma_{x}}) \\
   &= d(z_{x}),
-\end{align}
+\end{aligned}
+$$
 
 and it is the same for $d(z_{y^{*}})$.
 
 |           Thus, the equation of $E(X | Y = 1)$ becomes:
 
-\begin{align}
-E(X | Y = 1) = \int_{-\infty}^{\infty}\int_{\frac{\tau_{1} - \mu_{y^{*}}}{\sigma_{y^{*}}}}^{\frac{\tau_{2} - \mu_{y^{*}}}{\sigma_{y^{*}}}}xy^{*}\frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[z_{x}^2 + z_{y^{*}}^2 - 2\rho z_{x} z_{y^{*}}]}d(z_{x})d(z_{y^{*}})
-\end{align}
+
+$$E(X | Y = 1) = \int_{-\infty}^{\infty}\int_{\frac{\tau_{1} - \mu_{y^{*}}}{\sigma_{y^{*}}}}^{\frac{\tau_{2} - \mu_{y^{*}}}{\sigma_{y^{*}}}}xy^{*}\frac{1}{2\pi\sqrt{1 - \rho^2}}*e^{-\frac{1}{2(1 - \rho^2)}*[z_{x}^2 + z_{y^{*}}^2 - 2\rho z_{x} z_{y^{*}}]}d(z_{x})d(z_{y^{*}})$$
 
 |           The "new" values of limits, e.g., $\frac{\tau_{1} - \mu_{y^{*}}}{\sigma_{y^{*}}}$, are linear tranformed using the mean and variance of $Y^{*}$. It means that no matter how threshold values change due to mean and variance of $Y^{*}$, we can always z-tranform them back so that X and $Y^{*}$ always follow a standard bivariate normal distribution. In other words, as long as we know the threshold values and proportion of categories of the categorized variable, and X and $Y^{*}$ follow normal distributions, we should be able to compute the attenuated $R^2$ no matter the mean and variance of $Y^{*}$.
 
