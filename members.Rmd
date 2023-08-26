@@ -44,7 +44,7 @@ slickR::slickR(obj = paths_w_alt_text, height = 400) +
 ### Hok Chio (Mark) Lai
 
 ```{r}
-knitr::include_graphics("https://quantscience.rbind.io/author/hok-chio-mark-lai-%E9%BB%8E%E5%AD%B8%E6%98%AD/avatar_hu5fee5d8532847d51fbb6966683aaaac0_71984_270x270_fill_q90_lanczos_center.jpg")
+knitr::include_graphics("https://quantscience.rbind.io/profile.jpg")
 ```
 
 I am an Assistant Professor of Psychology (Quantitative Methods) in the Department of Psychology at the University of Southern California. I am from Macau and speaks Cantonese as my native language. Mathematics has always been a favorite subject to me, but my growing interest in understanding the human mind lead me to pursue a bachelor degree in Psychology at the University of Macau, where I discovered that a career of developing and applying quantitative methods in the social sciences would be a very good fit to me.
