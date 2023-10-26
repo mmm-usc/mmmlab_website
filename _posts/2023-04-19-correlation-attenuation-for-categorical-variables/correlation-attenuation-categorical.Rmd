@@ -10,7 +10,6 @@ categories:
   - statistics
   - correlation
   - categorical
-draft: yes
 ---
 
 ```{r setup, include=FALSE}

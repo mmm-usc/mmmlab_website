@@ -4,6 +4,11 @@ date: '2023-04-17'
 ---
 
 ## 2023
+
+### August
+
+- Mark Lai is promoted to Associate Professor of Psychology at USC with tenure.
+
 ### April 
 
 - Winnie presented a paper titled "Addressing Uncertainty in Power Analysis for Designing Cluster Randomized Trials" at the American Educational Research Association (AERA) 2023 Annual Meeting in Chicago. 
