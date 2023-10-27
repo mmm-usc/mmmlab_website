@@ -1,5 +1,7 @@
 ---
 title: Correlation Attenuation for Categorical Variables
+description: |
+  An illustration of correlation attenuation when discretizing a continuous variable to an ordered categorical variable.
 author: Gengrui (Jimmy) Zhang
 date: '2023-04-19'
 output:
