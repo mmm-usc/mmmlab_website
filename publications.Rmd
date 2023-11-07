@@ -51,6 +51,30 @@ for (yeari in as.character(2022:2019)) {
 
 ## Conference Presentations
 
+### 2023
+
+Zhang, G., & Lai, M. H. C. (2023, July 25-28). A Two-Stage Path Analysis Approach to Model Interaction Effects for Congeneric Measures [Oral presentation]. European Congress of Methodology (EAM), Ghent, Belgium. https://eam2023.ugent.be/images/eam2023_abstracts_book.pdf
+
+Zhang, Y., & Lai, M. H. C. (2023, July 25-28). Alignment with Bayesian Region of Measurement Equivalence (ABROME) approach for multiple groups comparisons [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://modeling.uconn.edu/2023-preliminary-program/
+
+Tse, W. W. Y., & Lai, M. H. C. (2023, July 25-28). Addressing publication bias and uncertainty for power analysis: A hybrid classical-Bayesian approach [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://modeling.uconn.edu/2023-preliminary-program/
+
+Tse, W. W. Y., & Lai, M. H. C. (2023, July 25-28). Addressing publication bias and uncertainty for power analysis: A hybrid classical-Bayesian approach [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://modeling.uconn.edu/2023-preliminary-program/
+
+Liu, Y., & Lai, M. H. C. (2023, July 25-28). Examining SEM Trees for Investigating Measurement Invariance Concerning Multiple Violators [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://modeling.uconn.edu/2023-preliminary-program/
+
+Blozis, S., & Lai, M. H. C. (2023, July 25-28). A two-stage approach to a latent variable mixed-effects location scale model [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2023-abstracts.pdf
+
+Blozis, S., & Lai, M. H. C. (2023, July 25-28). A two-stage approach to a latent variable mixed-effects location scale model [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2023-abstracts.pdf
+
+Liu, Y., & Lai, M. H. C. (2023, June 26-28). Examining SEM Trees for Investigating Measurement Invariance Concerning Multiple Violators [Paper session]. Modern Modeling Methods Conference, Storrs, CT, United States. https://modeling.uconn.edu/2023-preliminary-program/
+
+Ji, Y., Luo, W., Lai, M. H. C., Kwok. O., & Yoon, M. (2023, April 13-16). An Eigenvalues-Based Approaches to Identifying the Optimal Number of Factors in Multilevel Exploratory Factor Analysis [Roundtable presentation]. AERA Annual Meeting, Chicago, IL, United States. https://convention2.allacademic.com/one/aera/aera23
+
+Lai, M. H. C., Zhang, Y., & Ji, F. (2023, April 13-16). An Empirical Bayes Cluster-Mean Approach to Correct for Sampling Error in Between-Cluster Effects [Poster presentation]. AERA Annual Meeting, Chicago, IL, United States. https://convention2.allacademic.com/one/aera/aera23
+
+Tse, W. W. Y., & Lai, M. H. C. (2023, April 13-16). Addressing Uncertainty in Power Analysis for Designing Cluster Randomized Trials. [Paper session]. AERA Annual Meeting, Chicago, IL, United States. https://convention2.allacademic.com/one/aera/aera23
+
 ### 2022
 
 Lai, M. H. C., Tse, W. W. Y., Zhang, G., Li, Y., & Hsiao, Y. Y. (2022, September 21-24). *Correcting for unreliability and partial invariance: A two-stage path analysis approach* [Symposium presentation]. Society for Research on Educational Effectiveness 2022 Conference, Arlington, VA, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf
