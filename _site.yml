@@ -28,6 +28,8 @@ navbar:
           href: https://mmmlabusc.shinyapps.io/partinvshinyui/
         - text: "HCB Shiny App"
           href: https://winnie-wy-tse.shinyapps.io/hcb_shiny/
+        - text: "R2spa"
+          href: https://github.com/Gengrui-Zhang/R2spa
     - icon: fab fa-github
       href: https://github.com/mmm-usc
 output: distill::distill_article
