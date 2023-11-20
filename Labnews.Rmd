@@ -4,6 +4,18 @@ date: '2023-04-17'
 ---
 
 ## 2023
+### August
+
+- Yichi completed an internship at Pearson on evaluation of reliability indices for automated scoring algorithms.
+- Meltem completed an Data and Statistical Sciences internship at Genentech in which she explored the interval level treatment of ordinal patient reported outcome (survey) data in clinical trials.
+-Meltem received her MA in Psychology from USC.
+
+### July
+
+- Yichi presented a project titled "Alignment with Bayesian Region of Measurement Equivalence (ABROME) Approach for Multiple Groups Comparisons" in IMPS.
+- Winnie presented a project titled "Addressing Publication Bias and Uncertainty for Power Analysis: A Hybrid Classical-Bayesian Approach" in IMPS.
+- Jimmy presented "Modeling Latent Interaction Effects: A Two-Stage Path Analysis Approach (2S-PA)" in EAM.
+
 ### April 
 
 - Winnie presented a paper titled "Addressing Uncertainty in Power Analysis for Designing Cluster Randomized Trials" at the American Educational Research Association (AERA) 2023 Annual Meeting in Chicago. 
