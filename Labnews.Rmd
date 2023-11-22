@@ -1,14 +1,31 @@
 ---
 title: "Lab News"
-date: '2023-04-17'
 ---
 
 ## 2023
+
+### November
+
+- Winnie and Mark are co-authors of the paper ["Prenatal testosterone synchrony in first-time parents predicts fathers' postpartum relationship quality"](https://www.sciencedirect.com/science/article/abs/pii/S0018506X23001381) in press in *Hormones and Behavior*. The first author, Sofi Cardenas, who is a graduate researcher at USC, applies Bayesian multilevel modeling in this work.
+
+### October
+
+- Mark is a co-author of the paper ["Parent Aggression Exposure and Negative Expectancies in Couple Conversation: Rejection Sensitivity as a Mediator"](https://link.springer.com/article/10.1007/s10896-023-00635-2) in press in the *Journal of Family Violence*. The first author, Lexy Beale, who is a graduate researcher at USC, applies multilevel analysis in this work.
+
+### September
+
+- Mark co-authored the article titled ["Comparing MIMIC and MIMIC-interaction to Alignment Methods for Investigating Measurement Invariance concerning a Continuous Violator"](https://www.tandfonline.com/doi/abs/10.1080/10705511.2023.2240517) in the journal *Structural Equation Modeling*. The first author, Yuanfang Liu, a former Ph.D. student of Mark's, is currently a post doc at Purdue University.
+
+- Yichi and Mark are co-authors of the paper ["Measurement Invariance of the Neurobehavioral Symptom Inventory in Male and Female Million Veteran Program Enrollees Completing the Comprehensive Traumatic Brain Injury Evaluation"](https://journals.sagepub.com/doi/abs/10.1177/10731911231198214) in press in *Hormones and Behavior*. This paper applies measurement invariance analysis and quantifies the impact of gender on classification accuracy.
+
+- Mark co-authored the article titled ["Sedentary Behavior and Incident Dementia Among Older Adults"](https://jamanetwork.com/journals/jama/article-abstract/2809418) in *JAMA*.
+
 ### August
 
+- Mark is promoted to Associate Professor of Psychology at USC with tenure.
 - Yichi completed an internship at Pearson on evaluation of reliability indices for automated scoring algorithms.
 - Meltem completed an Data and Statistical Sciences internship at Genentech in which she explored the interval level treatment of ordinal patient reported outcome (survey) data in clinical trials.
--Meltem received her MA in Psychology from USC.
+- Meltem received her MA in Psychology from USC.
 
 ### July
 
@@ -26,7 +43,7 @@ date: '2023-04-17'
 
 ### February 
 
-- Mark has a co-authored article titled "The Impacts of the COVID-19 Pandemic on Therapy Utilization Among Racially/Ethnically and Socio-Economically Diverse Autistic Children," in press in the Journal of Autism and Developmental Disorders. The first author is Cassie Gonzalez who is a graduate researcher at USC, and she applies multilevel modeling in this work.
+- Mark has a co-authored article titled ["The Impacts of the COVID-19 Pandemic on Therapy Utilization Among Racially/Ethnically and Socio-Economically Diverse Autistic Children,"](https://link.springer.com/article/10.1007/s10803-023-05905-y) in press in the *Journal of Autism and Developmental Disorders*. The first author is Cassie Gonzalez who is a graduate researcher at USC, and she applies multilevel modeling in this work.
 
 ## 2022
 ### November 
