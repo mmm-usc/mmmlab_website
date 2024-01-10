@@ -60,7 +60,7 @@ I am interested in all kinds of statistical methods, but currently my research a
 ### Winnie Wing-Yee Tse
 
 ```{r}
-knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/322110/wizard/ydyzulev.jpg")
+knitr::include_graphics("https://dornsife.usc.edu/psyc/wp-content/uploads/sites/81/2023/03/ww.jpeg")
 ```
 
 I am a fifth-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my research interests are in measurement, multilevel modeling, structural equation modeling, and Bayesian statistics. My primary research area centers on incorporating uncertainty in parameter values (e.g., effect size and intraclass correlation) for designing multilevel studies. My secondary research direction focuses on topics related to measurement and latent variable modeling, such as determining the necessary measurement conditions for valid group comparisons in observed and factor means and developing a two-stage approach that adjusts for measurement bias and unreliability in modeling relationships among latent variables.
@@ -82,7 +82,7 @@ I am a fifth-year Ph.D. student in Quantitative Methods and Computational Psycho
 ### Jimmy Zhang
 
 ```{r}
-knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/322110/wizard/ewunerik.jpg")
+knitr::include_graphics("https://dornsife.usc.edu/psyc/wp-content/uploads/sites/81/2023/03/gz.jpeg")
 ```
 
 I am a third-year Ph.D. student in Quantitative Methods and Computational Psychology (QMCP) area at USC. My advisor is Dr. Hok Chio (Mark) Lai. I'm generally interested in how researchers can meta-analytic techniques to synthesize research information from their areas of interests and figure out broad and overarching effects. Specifically, researchers look into questions cross-sectionally and longitudinally with complex hypotheses formalized through various statistical models. For example, I'm interested in how structural equation modeling (SEM), longitudinal models, and moderation models can be applied in meta-analysis to synthesize the effects from different angles. My main project focuses on a meta-analysis of measurement invariance of the CES-D scale across gender groups.

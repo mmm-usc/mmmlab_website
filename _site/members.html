@@ -21,7 +21,7 @@
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -826,9 +826,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     display: none !important;
   }
 
+  hr.section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0px;
+  }
+
+
+  d-byline {
+    border-top: none;
+  }
+
   d-article {
     padding-top: 2.5rem;
     padding-bottom: 30px;
+    border-top: none;
   }
 
   d-appendix {
@@ -923,6 +935,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article div.sourceCode pre {
     padding-left: 18px;
     font-size: 14px;
+  }
+
+  /* tweak for Pandoc numbered line within distill */
+  d-article pre.numberSource code > span {
+      left: -2em;
   }
 
   d-article pre {
@@ -1684,6 +1701,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // create d-title
     $('.d-title').changeElementType('d-title');
 
+    // separator
+    var separator = '<hr class="section-separator" style="clear: both"/>';
+    // prepend separator above appendix
+    $('.d-byline').before(separator);
+    $('.d-article').before(separator);
+
     // create d-byline
     var byline = $('<d-byline></d-byline>');
     $('.d-byline').replaceWith(byline);
@@ -1761,8 +1784,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     $('.distill-force-highlighting-css').parent().remove();
 
     // remove empty line numbers inserted by pandoc when using a
-    // custom syntax highlighting theme
-    $('code.sourceCode a:empty').remove();
+    // custom syntax highlighting theme, except when numbering line
+    // in code chunk
+    $('pre:not(.numberLines) code.sourceCode a:empty').remove();
 
     // load distill framework
     load_distill_framework();
@@ -1788,12 +1812,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       // add orcid ids
       $('.authors-affiliations').find('.author').each(function(i, el) {
         var orcid_id = front_matter.authors[i].orcidID;
+        var author_name = front_matter.authors[i].author
         if (orcid_id) {
           var a = $('<a></a>');
           a.attr('href', 'https://orcid.org/' + orcid_id);
           var img = $('<img></img>');
           img.addClass('orcid-id');
-          img.attr('alt', 'ORCID ID');
+          img.attr('alt', author_name ? 'ORCID ID for ' + author_name : 'ORCID ID');
           img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
           a.append(img);
           $(this).append(a);
@@ -2148,6 +2173,7 @@ Applications
 
 <div class="d-title">
 <h1>Lab Members</h1>
+
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2156,8 +2182,8 @@ Applications
 
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
-<div id="htmlwidget-c915580ad48a3fe38ad6" style="width:95%;height:384px;" class="slickR html-widget "></div>
-<script type="application/json" data-for="htmlwidget-c915580ad48a3fe38ad6">{"x":[{"obj":"<div class=\"baseDiv_bump_817674722988158\">\n  <div>\n    <img src=\"static/images/slickr_files/2spa_team_lunch.jpg\" title=\"2spa team lunch 2022\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/bologna group picture 2.jpg\" title=\"Bologna group picture\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/FirstLabMeetingofFall21.jpg\" title=\"First lab meeting of Fall 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/LabMeetingSpring23.jpeg\" title=\"Celebration of Mark&#39;s tenure, March 2023\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/MidAutumnPicnic21.jpg\" title=\"Mid-Autumn picnic at Elysian Park, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_1.jpg\" title=\"Point Dume hike, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_2.jpg\" title=\"Point Dume hike, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/SpringBBQ22.jpeg\" title=\"Spring BBQ, 2022\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/Summer21.jpg\" title=\"Summer gathering, Aug 21\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/SummerHike22.jpeg\" title=\"Summer hike, 2022\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/ThanksgivingPicnic21.jpg\" title=\"Thanksgiving picnic at Kenneth Hahn, 2021\" height=\"400\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_817674722988158","slideh":400,"slidew":"95%","slickOpts":{"autoplay":true,"autoplaySpeed":4000}}],"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a19b1f1cfac3797eebb1" style="width:95%;height:384px;" class="slickR html-widget "></div>
+<script type="application/json" data-for="htmlwidget-a19b1f1cfac3797eebb1">{"x":[{"obj":"<div class=\"baseDiv_bump_340924917720258\">\n  <div>\n    <img src=\"static/images/slickr_files/2spa_team_lunch.jpg\" title=\"2spa team lunch 2022\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/bologna group picture 2.jpg\" title=\"Bologna group picture\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/FirstLabMeetingofFall21.jpg\" title=\"First lab meeting of Fall 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/LabMeetingSpring23.jpeg\" title=\"Celebration of Mark&#39;s tenure, March 2023\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/MidAutumnPicnic21.jpg\" title=\"Mid-Autumn picnic at Elysian Park, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_1.jpg\" title=\"Point Dume hike, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/PointDumeHike21_2.jpg\" title=\"Point Dume hike, 2021\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/SpringBBQ22.jpeg\" title=\"Spring BBQ, 2022\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/Summer21.jpg\" title=\"Summer gathering, Aug 21\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/SummerHike22.jpeg\" title=\"Summer hike, 2022\" height=\"400\"/>\n  <\/div>\n  <div>\n    <img src=\"static/images/slickr_files/ThanksgivingPicnic21.jpg\" title=\"Thanksgiving picnic at Kenneth Hahn, 2021\" height=\"400\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_340924917720258","slideh":400,"slidew":"95%","slickOpts":{"autoplay":true,"autoplaySpeed":4000}}],"evals":[],"jsHooks":[]}</script>
 </div>
 <h2 id="principal-investigator">Principal Investigator</h2>
 <h3 id="hok-chio-mark-lai">Hok Chio (Mark) Lai</h3>
@@ -2174,7 +2200,7 @@ Applications
 <h2 id="graduate-students">Graduate Students</h2>
 <h3 id="winnie-wing-yee-tse">Winnie Wing-Yee Tse</h3>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="https://dornsife.usc.edu/assets/img/content/322110/wizard/ydyzulev.jpg" width="250px" /></p>
+<p><img src="https://dornsife.usc.edu/psyc/wp-content/uploads/sites/81/2023/03/ww.jpeg" width="250px" /></p>
 </div>
 <p>I am a fifth-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my research interests are in measurement, multilevel modeling, structural equation modeling, and Bayesian statistics. My primary research area centers on incorporating uncertainty in parameter values (e.g., effect size and intraclass correlation) for designing multilevel studies. My secondary research direction focuses on topics related to measurement and latent variable modeling, such as determining the necessary measurement conditions for valid group comparisons in observed and factor means and developing a two-stage approach that adjusts for measurement bias and unreliability in modeling relationships among latent variables.</p>
 <ul>
@@ -2192,7 +2218,7 @@ Applications
 </ul>
 <h3 id="jimmy-zhang">Jimmy Zhang</h3>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="https://dornsife.usc.edu/assets/img/content/322110/wizard/ewunerik.jpg" width="250px" /></p>
+<p><img src="https://dornsife.usc.edu/psyc/wp-content/uploads/sites/81/2023/03/gz.jpeg" width="250px" /></p>
 </div>
 <p>I am a third-year Ph.D. student in Quantitative Methods and Computational Psychology (QMCP) area at USC. My advisor is Dr. Hok Chio (Mark) Lai. I’m generally interested in how researchers can meta-analytic techniques to synthesize research information from their areas of interests and figure out broad and overarching effects. Specifically, researchers look into questions cross-sectionally and longitudinally with complex hypotheses formalized through various statistical models. For example, I’m interested in how structural equation modeling (SEM), longitudinal models, and moderation models can be applied in meta-analysis to synthesize the effects from different angles. My main project focuses on a meta-analysis of measurement invariance of the CES-D scale across gender groups.</p>
 <ul>
