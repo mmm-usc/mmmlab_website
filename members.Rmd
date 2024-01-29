@@ -51,9 +51,9 @@ I am an Associate Professor of Psychology (Quantitative Methods and Computationa
 
 I am interested in all kinds of statistical methods, but currently my research areas include multilevel modeling, structural equation modeling, effect size statistics, and measurement invariance. I also have collaborations on projects studying the prevalence, antecedents and consequences of gambling disorder, and in other areas such as evolutionary psychology, social psychology, developmental sciences, health sciences, etc.
 
-- [CV](https://quantscience.rbind.io/files/Vita_Lai.pdf)
-- [Personal website](https://quantscience.rbind.io)
-- Email: [hokchiol\@usc.edu](mailto:hokchiol@usc.edu){.email}
+-   [CV](https://quantscience.rbind.io/files/Vita_Lai.pdf)
+-   [Personal website](https://quantscience.rbind.io)
+-   Email: [hokchiol\@usc.edu](mailto:hokchiol@usc.edu){.email}
 
 ## Graduate Students
 
@@ -65,9 +65,9 @@ knitr::include_graphics("https://dornsife.usc.edu/assets/img/content/322110/wiza
 
 I am a fifth-year Ph.D. quantitative psychology student, working under the supervision of Dr. Hok Chio (Mark) Lai. Broadly speaking, my research interests are in measurement, multilevel modeling, structural equation modeling, and Bayesian statistics. My primary research area centers on incorporating uncertainty in parameter values (e.g., effect size and intraclass correlation) for designing multilevel studies. My secondary research direction focuses on topics related to measurement and latent variable modeling, such as determining the necessary measurement conditions for valid group comparisons in observed and factor means and developing a two-stage approach that adjusts for measurement bias and unreliability in modeling relationships among latent variables.
 
-- [CV](https://winniewytse.rbind.io/cv/winniewytse_cv.pdf)
-- [Personal website](https://winniewytse.rbind.io/)
-- Email: [wingyeet\@usc.edu](mailto:wingyeet@usc.edu){.email}
+-   [CV](https://winniewytse.rbind.io/cv/winniewytse_cv.pdf)
+-   [Personal website](https://winniewytse.rbind.io/)
+-   Email: [wingyeet\@usc.edu](mailto:wingyeet@usc.edu){.email}
 
 ### Yichi Zhang
 
@@ -75,9 +75,9 @@ I am a fifth-year Ph.D. quantitative psychology student, working under the super
 
 I am a fifth-year Ph.D. student in Quantitative Methods and Computational Psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement bias in surveys/questionnaires and robust statistical models, such as hierarchical linear model(linear mixed effects model), latent variable model (structural equation modeling), etc. I hope to use psychometric methods and statistical models to explore research questions related to fair and accurate psychological measurement. My main project focuses on quantifying the practical impact of item bias(noninvariance) on total scale scores. My secondary project evaluates the impact of two-level heteroscedasticity on small sample corrections for fixed-effects inferences. In addition, I am involved in projects on bootstrapping for multilevel models, multilevel regression and poststratification on subnational predictions with language data.
 
-- [CV](static/cv/Yichi.Zhang.CV.20231107.pdf)
-- Email: [yzhang97\@usc.edu](mailto:yzhang97@usc.edu){.email}
-- Personal website: <https://yichiyczhang.rbind.io/about.html>
+-   [CV](static/cv/Yichi.Zhang.CV.20231107.pdf)
+-   Email: [yzhang97\@usc.edu](mailto:yzhang97@usc.edu){.email}
+-   Personal website: <https://yichiyczhang.rbind.io/about.html>
 
 ### Jimmy Zhang
 
@@ -116,6 +116,8 @@ I am a third-year undergraduate student majoring in Cognitive Science with a min
 -   Email: [keleung\@usc.edu](mailto:keleung@usc.edu){.email}
 
 ### Nellie (Yinuo) Chen
+
+![](static/images/Yinuo_Chen_20240129.jpg){width="50%"}
 
 I'm currently a third-year undergraduate student majoring in Psychology and Economics & Data Science. As the website maintainer of the MMM lab, I was offered great opportunities to be familiar with R Studio and Github. During my spare time, I enjoy dancing, reading, and singing Chinese traditional dramas.
 
