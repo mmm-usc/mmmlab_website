@@ -829,9 +829,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     display: none !important;
   }
 
+  hr.section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0px;
+  }
+
+
+  d-byline {
+    border-top: none;
+  }
+
   d-article {
     padding-top: 2.5rem;
     padding-bottom: 30px;
+    border-top: none;
   }
 
   d-appendix {
@@ -926,6 +938,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article div.sourceCode pre {
     padding-left: 18px;
     font-size: 14px;
+  }
+
+  /* tweak for Pandoc numbered line within distill */
+  d-article pre.numberSource code > span {
+      left: -2em;
   }
 
   d-article pre {
@@ -1687,6 +1704,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // create d-title
     $('.d-title').changeElementType('d-title');
 
+    // separator
+    var separator = '<hr class="section-separator" style="clear: both"/>';
+    // prepend separator above appendix
+    $('.d-byline').before(separator);
+    $('.d-article').before(separator);
+
     // create d-byline
     var byline = $('<d-byline></d-byline>');
     $('.d-byline').replaceWith(byline);
@@ -1764,8 +1787,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     $('.distill-force-highlighting-css').parent().remove();
 
     // remove empty line numbers inserted by pandoc when using a
-    // custom syntax highlighting theme
-    $('code.sourceCode a:empty').remove();
+    // custom syntax highlighting theme, except when numbering line
+    // in code chunk
+    $('pre:not(.numberLines) code.sourceCode a:empty').remove();
 
     // load distill framework
     load_distill_framework();
@@ -1791,12 +1815,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       // add orcid ids
       $('.authors-affiliations').find('.author').each(function(i, el) {
         var orcid_id = front_matter.authors[i].orcidID;
+        var author_name = front_matter.authors[i].author
         if (orcid_id) {
           var a = $('<a></a>');
           a.attr('href', 'https://orcid.org/' + orcid_id);
           var img = $('<img></img>');
           img.addClass('orcid-id');
-          img.attr('alt', 'ORCID ID');
+          img.attr('alt', author_name ? 'ORCID ID for ' + author_name : 'ORCID ID');
           img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
           a.append(img);
           $(this).append(a);
@@ -2124,6 +2149,10 @@ Applications
 <div class="nav-dropdown-content">
 <a href="https://mmmlabusc.shinyapps.io/partinvshinyui/">Unbiasr Shiny App</a>
 <a href="https://winnie-wy-tse.shinyapps.io/hcb_shiny/">HCB Shiny App</a>
+<a href="https://github.com/Gengrui-Zhang/R2spa">R2spa</a>
+<a href="https://marklhc.github.io/pinsearch/articles/pinsearch.html">pinsearch</a>
+<a href="https://github.com/winniewytse/hcbr">hcbr</a>
+<a href="https://github.com/mmm-usc/unbiasr">unbiasr</a>
 </div>
 </div>
 <a href="https://github.com/mmm-usc">
@@ -2139,6 +2168,7 @@ Applications
 
 <div class="d-title">
 <h1>Publications</h1>
+
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 <p><p>Recent publications and conference presentations.</p></p>
@@ -2153,34 +2183,41 @@ Applications
 and MIMIC-interaction to Alignment Methods for Investigating
 Measurement Invariance concerning a Continuous Violator”. In:
 <em>Structural Equation Modeling: A Multidisciplinary Journal</em>,
-pp. 1-14. DOI:
+p. 1–14. ISSN: 1532-8007. DOI:
 <a href="https://doi.org/10.1080%2F10705511.2023.2240517">10.1080/10705511.2023.2240517</a>.</p>
 <p>Ozturk, E. D., Y. Zhang, M. H. C. Lai, et al. (2023).
 “Measurement Invariance of the Neurobehavioral Symptom
 Inventory in Male and Female Million Veteran Program Enrollees
 Completing the Comprehensive Traumatic Brain Injury
-Evaluation”. In: <em>Assessment</em>. DOI:
+Evaluation”. In: <em>Assessment</em>. ISSN: 1552-3489. DOI:
 <a href="https://doi.org/10.1177%2F10731911231198214">10.1177/10731911231198214</a>.</p>
+<p>Tse, W. W., M. H. C. Lai, and Y. Zhang (2023). “Does strict
+invariance matter? Valid group mean comparisons with
+ordered-categorical items”. In: <em>Behavior Research Methods</em>.
+ISSN: 1554-3528. DOI:
+<a href="https://doi.org/10.3758%2Fs13428-023-02247-6">10.3758/s13428-023-02247-6</a>.</p>
 <p>Zhang, Y., M. H. C. Lai, and G. J. Palardy (2023). “A Bayesian
 region of measurement equivalence (ROME) approach for
 establishing measurement invariance.” In: <em>Psychological
-Methods</em> 28.4, pp. 993-1004. DOI:
+Methods</em> 28.4, p. 993–1004. ISSN: 1082-989X. DOI:
 <a href="https://doi.org/10.1037%2Fmet0000455">10.1037/met0000455</a>.</p>
 <h3 id="section-1">2022</h3>
 <p>Lai, M. H. C. and Y. Hsiao (2022). “Two-stage path analysis
 with definition variables: An alternative framework to account
-for measurement error.” In: <em>Psychological Methods</em> 27.4, pp.
-568-588. DOI:
+for measurement error.” In: <em>Psychological Methods</em> 27.4, p.
+568–588. ISSN: 1082-989X. DOI:
 <a href="https://doi.org/10.1037%2Fmet0000410">10.1037/met0000410</a>.</p>
 <p>Lai, M. H. C., W. W. Tse, G. Zhang, et al. (2022). “Correcting
 for Unreliability and Partial Invariance: A Two-Stage Path
 Analysis Approach”. In: <em>Structural Equation Modeling: A
-Multidisciplinary Journal</em> 30.2, pp. 258-271. DOI:
+Multidisciplinary Journal</em> 30.2, p. 258–271. ISSN: 1532-8007.
+DOI:
 <a href="https://doi.org/10.1080%2F10705511.2022.2125397">10.1080/10705511.2022.2125397</a>.</p>
 <p>Lai, M. H. C. and Y. Zhang (2022). “Classification Accuracy of
 Multidimensional Tests: Quantifying the Impact of
 Noninvariance”. In: <em>Structural Equation Modeling: A
-Multidisciplinary Journal</em> 29.4, pp. 620-629. DOI:
+Multidisciplinary Journal</em> 29.4, p. 620–629. ISSN: 1532-8007.
+DOI:
 <a href="https://doi.org/10.1080%2F10705511.2021.1977936">10.1080/10705511.2021.1977936</a>.</p>
 <p>Lai, M. H. C., Y. Zhang, and F. Ji (2022). “Correcting for
 sampling error in between-cluster effects: An empirical Bayes
@@ -2191,53 +2228,67 @@ cluster-mean approach with finite population corrections”.</p>
 “Associations between public and self-stigma of help-seeking
 with help-seeking attitudes and intention: A meta-analytic
 structural equation modeling approach.” In: <em>Journal of
-Counseling Psychology</em>. DOI:
+Counseling Psychology</em>. ISSN: 0022-0167. DOI:
 <a href="https://doi.org/10.1037%2Fcou0000637">10.1037/cou0000637</a>.</p>
 <h3 id="section-2">2021</h3>
 <p>Ji, Y., W. Luo, M. H. Lai, et al. (2021).
 “Model-Selection-Based Approaches to Identifying the Optimal
 Number of Factors in Multilevel Exploratory Factor Analysis”.
 In: <em>Structural Equation Modeling: A Multidisciplinary
-Journal</em> 28.5, pp. 763-777. DOI:
+Journal</em> 28.5, p. 763–777. ISSN: 1532-8007. DOI:
 <a href="https://doi.org/10.1080%2F10705511.2021.1916394">10.1080/10705511.2021.1916394</a>.</p>
 <p>Lai, M. H. C. (2021a). “Adjusting for Measurement
 Noninvariance with Alignment in Growth Modeling”. In:
-<em>Multivariate Behavioral Research</em> 58.1, pp. 30-47. DOI:
+<em>Multivariate Behavioral Research</em> 58.1, p. 30–47. ISSN:
+1532-7906. DOI:
 <a href="https://doi.org/10.1080%2F00273171.2021.1941730">10.1080/00273171.2021.1941730</a>.</p>
 <p>Lai, M. H. C. (2021b). “Composite reliability of multilevel
 data: It’s about observed scores and construct meanings.” In:
-<em>Psychological Methods</em> 26.1, pp. 90-102. DOI:
+<em>Psychological Methods</em> 26.1, p. 90–102. ISSN: 1082-989X. DOI:
 <a href="https://doi.org/10.1037%2Fmet0000287">10.1037/met0000287</a>.</p>
 <p>Lai, M. H. C., Y. Liu, and W. W. Tse (2021). “Adjusting for
 partial invariance in latent parameter estimation: Comparing
 forward specification search and approximate invariance
-methods”. In: <em>Behavior Research Methods</em> 54.1, pp. 414-434.
-DOI:
+methods”. In: <em>Behavior Research Methods</em> 54.1, p. 414–434.
+ISSN: 1554-3528. DOI:
 <a href="https://doi.org/10.3758%2Fs13428-021-01560-2">10.3758/s13428-021-01560-2</a>.</p>
 <h3 id="section-3">2020</h3>
 <p>Hsiao, Y., O. Kwok, and M. H. C. Lai (2020). “Modeling
 Measurement Errors of the Exogenous Composites From Congeneric
 Measures in Interaction Models”. In: <em>Structural Equation
-Modeling: A Multidisciplinary Journal</em> 28.2, pp. 250-260. DOI:
+Modeling: A Multidisciplinary Journal</em> 28.2, p. 250–260. ISSN:
+1532-8007. DOI:
 <a href="https://doi.org/10.1080%2F10705511.2020.1782206">10.1080/10705511.2020.1782206</a>.</p>
 <p>Lai, M. H. C. (2020). “Bootstrap Confidence Intervals for
 Multilevel Standardized Effect Size”. In: <em>Multivariate
-Behavioral Research</em> 56.4, pp. 558-578. DOI:
+Behavioral Research</em> 56.4, p. 558–578. ISSN: 1532-7906. DOI:
 <a href="https://doi.org/10.1080%2F00273171.2020.1746902">10.1080/00273171.2020.1746902</a>.</p>
 <h3 id="section-4">2019</h3>
 <p>Lai, M. H. C. (2019). “Correcting Fixed Effect Standard Errors
 When a Crossed Random Effect Was Ignored for Balanced and
 Unbalanced Designs”. In: <em>Journal of Educational and
-Behavioral Statistics</em> 44.4, pp. 448-472. DOI:
+Behavioral Statistics</em> 44.4, p. 448–472. ISSN: 1935-1054. DOI:
 <a href="https://doi.org/10.3102%2F1076998619843168">10.3102/1076998619843168</a>.</p>
 <p>Lai, M. H., G. B. Richardson, and H. W. Mak (2019).
 “Quantifying the impact of partial measurement invariance in
 diagnostic research: An application to addiction research”.
-In: <em>Addictive Behaviors</em> 94, pp. 50-56. DOI:
+In: <em>Addictive Behaviors</em> 94, p. 50–56. ISSN: 0306-4603. DOI:
 <a href="https://doi.org/10.1016%2Fj.addbeh.2018.11.029">10.1016/j.addbeh.2018.11.029</a>.</p>
 </div>
 <h2 id="conference-presentations">Conference Presentations</h2>
-<h3 id="section-5">2022</h3>
+<h3 id="section-5">2023</h3>
+<p>Zhang, G., &amp; Lai, M. H. C. (2023, July 25-28). A Two-Stage Path Analysis Approach to Model Interaction Effects for Congeneric Measures [Oral presentation]. European Congress of Methodology (EAM), Ghent, Belgium. <a href="https://eam2023.ugent.be/images/eam2023_abstracts_book.pdf" class="uri">https://eam2023.ugent.be/images/eam2023_abstracts_book.pdf</a></p>
+<p>Zhang, Y., &amp; Lai, M. H. C. (2023, July 25-28). Alignment with Bayesian Region of Measurement Equivalence (ABROME) approach for multiple groups comparisons [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. <a href="https://modeling.uconn.edu/2023-preliminary-program/" class="uri">https://modeling.uconn.edu/2023-preliminary-program/</a></p>
+<p>Tse, W. W. Y., &amp; Lai, M. H. C. (2023, July 25-28). Addressing publication bias and uncertainty for power analysis: A hybrid classical-Bayesian approach [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. <a href="https://modeling.uconn.edu/2023-preliminary-program/" class="uri">https://modeling.uconn.edu/2023-preliminary-program/</a></p>
+<p>Tse, W. W. Y., &amp; Lai, M. H. C. (2023, July 25-28). Addressing publication bias and uncertainty for power analysis: A hybrid classical-Bayesian approach [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. <a href="https://modeling.uconn.edu/2023-preliminary-program/" class="uri">https://modeling.uconn.edu/2023-preliminary-program/</a></p>
+<p>Liu, Y., &amp; Lai, M. H. C. (2023, July 25-28). Examining SEM Trees for Investigating Measurement Invariance Concerning Multiple Violators [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. <a href="https://modeling.uconn.edu/2023-preliminary-program/" class="uri">https://modeling.uconn.edu/2023-preliminary-program/</a></p>
+<p>Blozis, S., &amp; Lai, M. H. C. (2023, July 25-28). A two-stage approach to a latent variable mixed-effects location scale model [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2023-abstracts.pdf" class="uri">https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2023-abstracts.pdf</a></p>
+<p>Blozis, S., &amp; Lai, M. H. C. (2023, July 25-28). A two-stage approach to a latent variable mixed-effects location scale model [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2023-abstracts.pdf" class="uri">https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2023-abstracts.pdf</a></p>
+<p>Liu, Y., &amp; Lai, M. H. C. (2023, June 26-28). Examining SEM Trees for Investigating Measurement Invariance Concerning Multiple Violators [Paper session]. Modern Modeling Methods Conference, Storrs, CT, United States. <a href="https://modeling.uconn.edu/2023-preliminary-program/" class="uri">https://modeling.uconn.edu/2023-preliminary-program/</a></p>
+<p>Ji, Y., Luo, W., Lai, M. H. C., Kwok. O., &amp; Yoon, M. (2023, April 13-16). An Eigenvalues-Based Approaches to Identifying the Optimal Number of Factors in Multilevel Exploratory Factor Analysis [Roundtable presentation]. AERA Annual Meeting, Chicago, IL, United States. <a href="https://convention2.allacademic.com/one/aera/aera23" class="uri">https://convention2.allacademic.com/one/aera/aera23</a></p>
+<p>Lai, M. H. C., Zhang, Y., &amp; Ji, F. (2023, April 13-16). An Empirical Bayes Cluster-Mean Approach to Correct for Sampling Error in Between-Cluster Effects [Poster presentation]. AERA Annual Meeting, Chicago, IL, United States. <a href="https://convention2.allacademic.com/one/aera/aera23" class="uri">https://convention2.allacademic.com/one/aera/aera23</a></p>
+<p>Tse, W. W. Y., &amp; Lai, M. H. C. (2023, April 13-16). Addressing Uncertainty in Power Analysis for Designing Cluster Randomized Trials. [Paper session]. AERA Annual Meeting, Chicago, IL, United States. <a href="https://convention2.allacademic.com/one/aera/aera23" class="uri">https://convention2.allacademic.com/one/aera/aera23</a></p>
+<h3 id="section-6">2022</h3>
 <p>Lai, M. H. C., Tse, W. W. Y., Zhang, G., Li, Y., &amp; Hsiao, Y. Y. (2022, September 21-24). <em>Correcting for unreliability and partial invariance: A two-stage path analysis approach</em> [Symposium presentation]. Society for Research on Educational Effectiveness 2022 Conference, Arlington, VA, United States. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf" class="uri">https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf</a></p>
 <p>Zhang, G., &amp; Lai, M. H. C. (2022, July 11-15). <em>A systematic review of measurement invariance research of the CES-D across gender: calculation and report of effect size</em> [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), Bologna, Italy. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf" class="uri">https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf</a></p>
 <p>Tse, W. W., &amp; Lai, M. H. C. (2022, July 11-15). <em>Incorporating information from historical data for power analysis: A hybrid classical-Bayesian approach for multilevel studies </em>[Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), Bologna, Italy. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf" class="uri">https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2022-version-7-abstract.pdf</a></p>
@@ -2245,7 +2296,7 @@ In: <em>Addictive Behaviors</em> 94, pp. 50-56. DOI:
 <p>Tse, W. W., &amp; Lai, M. H. C. (2022, June 27-29). <em>Incorporating Uncertainty in power analysis to more realistically determine sample size</em> [Workshop]. Meeting of the Society for the Improvement of Psychological Science (SIPS), Victoria, B. C., Canada. <a href="https://docs.google.com/document/d/1Rka3f0ZY9BBZVIlZoVINrpyaJYeitpq1yKXBLukeMng" class="uri">https://docs.google.com/document/d/1Rka3f0ZY9BBZVIlZoVINrpyaJYeitpq1yKXBLukeMng</a></p>
 <p>Zhang, Y., &amp; Lai, M. H. C. (2022, April 21-26). <em>Evaluating standard error estimators and resampling method for multilevel models on small samples with heteroscedasticity and unbalanced cluster sizes </em>[Poster presentation]. AERA Annual Meeting, San Diego, CA, United States. <a href="https://convention2.allacademic.com/one/aera/aera22" class="uri">https://convention2.allacademic.com/one/aera/aera22</a></p>
 <p>Palardy, G. J., Zhang, Y., &amp; Lai, M. H. C. (2022, April 21-26). <em>Measurement invariance testing via the alignment method: Intersectional grouping and multiple cohorts</em> [oral presentation]. AERA Annual Meeting, San Diego, CA, United States. <a href="https://convention2.allacademic.com/one/aera/aera22" class="uri">https://convention2.allacademic.com/one/aera/aera22</a></p>
-<h3 id="section-6">2021</h3>
+<h3 id="section-7">2021</h3>
 <p>Zhang, G., Yue, H., &amp; Lai, M. H. C. (2021, July 19-23). <em>A systematic review of measurement invariance research of the CES-D across gender</em> [Poster presentation]. Virtual conference of the Psychometric Society (IMPS) due to covid-19. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf" class="uri">https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf</a></p>
 <p>Zhang, Y. &amp; Lai, M. H. C. (2021, July 19-23). <em>Classification Accuracy of multidimensional tests: Quantifying the impact of noninvariance</em> [Oral presentation]. Virtual conference of the Psychometric Society (IMPS) due to covid-19. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf" class="uri">https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf</a></p>
 <p>Tse, W. W. &amp; Lai, M. H. C. (2021, July 19-23). <em>Incorporating uncertainty in design parameters: A hybrid classical-Bayesian power analysis approach for two-level cluster randomized trials</em> [Oral presentation]. Virtual conference of the Psychometric Society (IMPS) due to covid-19. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf" class="uri">https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2021_virtual_schedule.pdf</a></p>
@@ -2253,7 +2304,7 @@ In: <em>Addictive Behaviors</em> 94, pp. 50-56. DOI:
 <p>Hsiao, Y., Kwok, O., &amp; Lai, M. H. C. (2021, April 8-12). <em>Improving estimation accuracy of the tnteraction effects in models with composite scores</em> [Structured poster session]. AERA Annual Meeting, Orlando, FL, United States. <a href="https://convention2.allacademic.com/one/aera/aera21" class="uri">https://convention2.allacademic.com/one/aera/aera21</a></p>
 <p>Lai, M. H. C. &amp; Hsiao, Y. (2021, April). <em>Two-stage path analysis with definition variables: A general framework for modeling with categorical indicators</em> [Structured Poster Session]. AERA Annual Meeting, Orlando, FL, United States.</p>
 <p>Wen, L., &amp; Lai, M. H. C. (2021, April 8-12). <em>A multilevel weighted bootstrap procedure to handle sampling weights</em> [Paper session]. AERA Annual Meeting, Orlando, FL, United States. <a href="https://convention2.allacademic.com/one/aera/aera21" class="uri">https://convention2.allacademic.com/one/aera/aera21</a></p>
-<h3 id="section-7">2020</h3>
+<h3 id="section-8">2020</h3>
 <p>Lai, M. H. C. (2020, July). <em>Multilevel bootstrap confidence intervals for standardized effect size</em> [Paper Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842">Schedule</a></p>
 <p>Tse, W. W. &amp; Lai, M. H. C. (2020, July 14-17). <em>Measurement Invariance for Ordered Categorical Variables: The Necessity of Strict Invariance for Valid Group Comparisons</em> [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842">Schedule</a></p>
 <p>Zhang, Y. &amp; Lai, M. H. C. (2020, July 14-17). <em>A Bayesian Region of Measurement Equivalence (ROME) Approach for Establishing Measurement Invariance</em> [Poster Session]. Annual Meeting of the Psychometric Society (IMPS), College Park, MD, United States. <a href="https://www.psychometricsociety.org/sites/main/files/file-attachments/imps_2020_virtual_schedule_g1.pdf?1594692842">Schedule</a></p>
