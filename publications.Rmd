@@ -43,7 +43,7 @@ myBib <- ReadBib(here::here("pubs.bib"), check = FALSE)
 ## Peer-Reviewed Articles (Selected)
 
 ```{r, results = "asis"}
-for (yeari in as.character(2023:2019)) {
+for (yeari in as.character(2024:2019)) {
   cat(paste("\n###", yeari), "\n")
   print(myBib[date = yeari])
 }
