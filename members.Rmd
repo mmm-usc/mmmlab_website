@@ -7,38 +7,29 @@ knitr::opts_chunk$set(echo = FALSE,
                       out.width = "250px")
 ```
 
-```{r}
+```{r photo slideshow}
+library(htmltools)
+library(slickR)
 
-# Alt text that will appear for each image for accessibility. When adding new 
-# images, ensure that the alt text for the new image is added in the correct
-# order in the list below (the ordering should match the alphabetical ordering
-# of the images listed in the path. For example, if adding an image named 
-# 'aaa.jpg' with alt text "really fun event 2022", "really fun event 2022" 
-# should appear as the first element in alt_text as 'aaa.jpg' is the fist image
-# alphabetically.
-alt_text <- c('2spa team lunch 2022',
-              'Bologna group picture',
-              'Celebration for passing qual',
-              'Chinese New Year gathering 2023',
-              'Chinese New Year gathering 2024',
-              'First lab meeting of Fall 2021',
-              'Celebration of Mark\'s tenure, March 2023',
-              'Mercado la Paloma Gathering',
-              'Mid-Autumn picnic at Elysian Park, 2021',
-              'Point Dume hike, 2021', 
-              'Point Dume hike, 2021', 
-              'Spring BBQ, 2022',
-              'Summer gathering, Aug 21',
-              'Summer hike, 2022',
-              'Thanksgiving picnic at Kenneth Hahn, 2021')
+lines <- readLines("photo_titles_descriptions.txt")
+
+photo_info <- strsplit(lines, "\\|", fixed = TRUE)
+photo_titles <- sapply(photo_info, function(x) trimws(x[1]))
+photo_descriptions <- sapply(photo_info, function(x) trimws(x[2]))
+
+# generate filenames
+photo_filenames <- gsub(" ", "_", photo_titles)  # replace spaces with underscores
+photo_filenames <- tolower(photo_filenames)      # to lowercase
+photo_filenames <- paste0(photo_filenames, ".jpg")  # all images are .jpg
 
 img_path <-'static/images/slickr_files/'
 
-paths_w_alt_text <- mapply(function(x,txt,h){
-  htmltools::tags$img(src = x, title = txt, height = h)},
-  x = paste0(img_path, unlist(list.files(img_path))),
-  txt = alt_text, h = 400, SIMPLIFY = FALSE)
+# generate paths with alt text and descriptions
+paths_w_alt_text <- mapply(function(filename, title, description) {
+  tags$img(src = paste0(img_path, filename), title = description, alt = title, height = 400)
+}, filename = photo_filenames, title = photo_titles, description = photo_descriptions, SIMPLIFY = FALSE)
 
+# slideshow 
 slickR::slickR(obj = paths_w_alt_text, height = 400) + 
   slickR::settings(autoplay = TRUE, autoplaySpeed = 4000)
 ```
