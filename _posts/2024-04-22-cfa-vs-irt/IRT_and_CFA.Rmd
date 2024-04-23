@@ -36,8 +36,6 @@ library(psych)
 library(semTools)
 library(TAM)
 library(tidyverse)
-
-
 ```
 
 ## The Data
@@ -77,7 +75,7 @@ For the initial analysis, I opted to dichotomize the data by having any value ab
 # https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire&CycleBeginYear=2015
 
 ds <- haven::read_xpt("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DPQ_I.XPT")
-ds <- ds[- 11]
+ds <- ds[-11]
 
 
 names(ds) <- c("id", paste0("q", 1:9))
@@ -85,15 +83,14 @@ names(ds) <- c("id", paste0("q", 1:9))
 ds$id <- NULL
 
 ds <- ds %>%
-  mutate_at(vars(q1:q9), ~ifelse(. > 3, NA, .))
+  mutate_at(vars(q1:q9), ~ ifelse(. > 3, NA, .))
 
 ds_dich <- ds %>%
-  mutate_at(vars(q1:q9), ~ifelse(. > 0, 1, 0))
+  mutate_at(vars(q1:q9), ~ ifelse(. > 0, 1, 0))
 
 qmeans <- apply(ds_dich, 2, mean, na.rm = TRUE)
 
 barplot(qmeans)
-
 ```
 
 This graph shows the mean number of endorsements an answer received. Here, we can see that q4 ("Feeling tired or having little energy") had the most positive answers, while q9 ("Thought you would be better off dead") had very few endorsements.
@@ -107,10 +104,12 @@ screep <- fa.parallel(ds_dich, cor = "tet")
 
 ```{r}
 x <- seq_along(screep$fa.values)
-plot(x, screep$fa.values, type = "b", pch = 16, col = "blue", 
-     xlab = "Factor Number", 
-     ylab = "eigenvalues of factor analysis", 
-     main = "Scree Plot")
+plot(x, screep$fa.values,
+  type = "b", pch = 16, col = "blue",
+  xlab = "Factor Number",
+  ylab = "eigenvalues of factor analysis",
+  main = "Scree Plot"
+)
 ```
 
 As shown, the scree plot suggests there is only 1 underlying factor. We can now proceed to fit the IRT models.
@@ -120,10 +119,8 @@ As shown, the scree plot suggests there is only 1 underlying factor. We can now 
 Here, I fitted a 1PL (1-parameter logistic) model to estimate item difficulty based on how many people answered the items.
 
 ```{r}
-
 pl1 <- ltm::rasch(ds_dich)
 kable(summary(pl1)$coefficients, digits = 2)
-
 ```
 
 Q1 has a difficulty score of 0.84. This refers to the fact that an individual with the "depression level" of 0.84 would have a 0.5 probability of endorsing Q1. Every item was fixed to have the same discrimination, which will be explained further on.
@@ -133,13 +130,9 @@ Q1 has a difficulty score of 0.84. This refers to the fact that an individual wi
 Next, I fitted a 2PL model to estimate each item's discrimination parameter. I will later graph this information, to better show what it means.
 
 ```{r}
-
-
 pl2 <- ltm(ds_dich ~ z1)
 
 kable(summary(pl2)$coefficients, digits = 2)
-
-
 ```
 
 Here, I test to see if 2PL model has a significantly better fit than 1PL model, by evaluating their model characteristics within an ANOVA. 2PL model has many more parameters, as seen by each question's discrimination parameter. The ANOVA will compare the AIC's of the two models, to see if the more complex model fits the data better.
@@ -155,7 +148,6 @@ The significant p-value in this chart tells us that the 2PL is a better fit to t
 Below, I plotted the item characteristic curves of the 10 items to better see the discriminability across items.
 
 ```{r}
-
 plot(pl2, type = c("ICC"))
 ```
 
@@ -172,7 +164,6 @@ The IICs demonstrate that items range in how much information they provide about
 ## Sum of all IIC Curves
 
 ```{r}
-
 plot(pl2, type = c("IIC"), items = c(0))
 ```
 
@@ -184,20 +175,21 @@ The test information function shows that the items as a whole provide the most i
 mod <-
   "depression =~ q1 + q2 + q3 + q4 + q5 +
                  q6 + q7 + q8 + q9
-   
+
 "
 
 
-cfafit <- cfa(mod, data = ds_dich,
-              ordered = c("q1", "q2", "q3", "q4", "q5",
-                          "q6", "q7", "q8", "q9"),
-              estimator = "WLSMV",
-              check.gradient = TRUE
-              )
+cfafit <- cfa(mod,
+  data = ds_dich,
+  ordered = c(
+    "q1", "q2", "q3", "q4", "q5",
+    "q6", "q7", "q8", "q9"
+  ),
+  estimator = "WLSMV",
+  check.gradient = TRUE
+)
 
 summary(cfafit, fit.measures = TRUE, standardized = TRUE)
-
-
 ```
 
 The thresholds of the CFA have a similar pattern to that of the difficulty ability of each item. Similarly, the factor loadings of the CFA seem similar to the discrimination parameters from the IRT.
@@ -207,9 +199,9 @@ The thresholds of the CFA have a similar pattern to that of the difficulty abili
 Next, I checked the modification indices for the assumption of *local independence* for any theoretical justification of adding covariances to the model.
 
 ```{r}
-modindices(cfafit) %>% dplyr::arrange(desc(mi)) %>% head()
-
-
+modindices(cfafit) %>%
+  dplyr::arrange(desc(mi)) %>%
+  head()
 ```
 
 Some of the modification indices are high (e.g., `q2~~q6`), and the SEPC's are moderate.
@@ -241,17 +233,23 @@ discrims <- pl2$coefficients[, 2]
 
 D <- 1.7
 
-df_loadings <- cbind(loadings = model_loadings,
-                     discrims_to_loadings = (discrims / D)
-                     / (sqrt(1 + ((discrims / D)^2))))
+df_loadings <- cbind(
+  loadings = model_loadings,
+  discrims_to_loadings = (discrims / D)
+  / (sqrt(1 + ((discrims / D)^2)))
+)
 
 
-df_loadings <- df_loadings %>% 
-  as.data.frame() %>% 
+df_loadings <- df_loadings %>%
+  as.data.frame() %>%
   dplyr::rename(cfa_loadings = depression)
 
-df_loadings %>% as.data.frame() %>% 
-  dplyr::mutate(dif = cfa_loadings-discrims_to_loadings, rat = cfa_loadings/discrims_to_loadings)
+df_loadings %>%
+  as.data.frame() %>%
+  dplyr::mutate(
+    dif = cfa_loadings - discrims_to_loadings,
+    rat = cfa_loadings / discrims_to_loadings
+  )
 ```
 
 Close! The values are close enough to have shown that for dichotomous data, CFA and 2PL IRT models are theoretically equivalent. The slight differences may be due to that this is only an approximation, and have slight rounding / computation errors; see Forero & Maydeu-Olivares (2009).
@@ -261,18 +259,17 @@ Everything done previously was on a dichotomized version of the data set. Next, 
 ## Graded Response Model
 
 ```{r}
-suppressWarnings({ 
+suppressWarnings({
   # Code generates "Warning: Nans produced" for every missing item
   grm1 <- ltm::grm(ds, IRT.param = TRUE)
 })
-grm1_coefs <- summary(grm1)$coefficients %>% 
+grm1_coefs <- summary(grm1)$coefficients %>%
   as.data.frame() %>%
   t() %>%
   as.data.frame()
 row.names(grm1_coefs) <- paste("Q", seq_len(nrow(grm1_coefs)))
 
 kable(grm1_coefs, digits = 2)
-
 ```
 
 Examining the output, two things are immediately apparent. There are 3 extremity parameters; one for each of the 3 possible levels of endorsement of 1, 2, or 3. The *Extrmt1* values are roughly equivalent to the 2PL model's difficulty parameter values. This is expected, as the *Extrmt1* scores refer to the "depression level" an individual would need to have a 50/50 chance of selecting a 1 (In the dichotomous IRT, an endorsement) for that item. Extrt3 scores refer to the trait level an individual would need to have a 50/50 chance of selecting not only a 1, but also a 2 or 3. Polytomous IRT models give more information than dichotomous, where we discard these other probabilities. Because the GRM has more information, it's discrimination parameters are sightly different to the discrimination parameters of the 2PL model.
@@ -283,10 +280,14 @@ Much the same as with the 2PL Model, I plotted the ICCs to get a better view of 
 
 ```{r}
 plot(grm1, type = "IIC", zrange = c(-5, 5))
-plot(grm1, type = "ICC", items = 2, zrange = c(-5, 5), 
-     main = "Item Characteristic Curves - Item: q2")
-plot(grm1, type = "ICC", items = 5, zrange = c(-5, 5),
-     main = "Item Characteristic Curves - Item: q5")
+plot(grm1,
+  type = "ICC", items = 2, zrange = c(-5, 5),
+  main = "Item Characteristic Curves - Item: q2"
+)
+plot(grm1,
+  type = "ICC", items = 5, zrange = c(-5, 5),
+  main = "Item Characteristic Curves - Item: q5"
+)
 ```
 
 The discrimination parameter acts as the slope of the curves, so the response categories of item 2 (with a very high discrimination) all have a very steep slope. The response categories of item 5 (a low discrimination) have a very shallow slope.
@@ -298,12 +299,13 @@ For each item: As ability (level of depression) increases, the probability of se
 The Test Information Function best shows what information was lost when I dichotomized the data for the 2PL
 
 ```{r}
-
-pl2_TIF <- plot(pl2, type = c("IIC"), 
-                items = c(0), 
-                col = "red", 
-                ylim=c(0,15),
-                xlab = "Depression")
+pl2_TIF <- plot(pl2,
+  type = c("IIC"),
+  items = c(0),
+  col = "red",
+  ylim = c(0, 15),
+  xlab = "Depression"
+)
 grm_TIF <- plot(grm1, type = "IIC", items = 0, plot = FALSE)
 lines(grm_TIF, col = "blue")
 
@@ -316,10 +318,9 @@ Up until a low-moderate depression level, both the dichotomous and polytomous IR
 ## Rating Scale Model
 
 ```{r}
-rsm1 <-TAM::tam.mml(ds,irtmodel ="RSM", verbose = FALSE)
+rsm1 <- TAM::tam.mml(ds, irtmodel = "RSM", verbose = FALSE)
 
 kable(rsm1$item[1:7], digits = 2)
-
 ```
 
 The difficulties, from the "AXsi\_.Cat1, AXsi\_.Cat2, and AXsi\_.Cat3" columns, while seemingly scaled differently, show the expected values. Q9 has the highest difficulty, and Q4 has the lowest. There are no discrimination parameters, which lowers the complexity of the model quite a bit. Next, I will graph the Item Characteristic Curves to better see what this constrained discriminatory parameter looks like.
@@ -328,14 +329,14 @@ The difficulties, from the "AXsi\_.Cat1, AXsi\_.Cat2, and AXsi\_.Cat3" columns, 
 
 ```{r}
 plot(rsm1,
-     type = "items",
-     export = FALSE,
-     package = "graphics",
-     observed = FALSE,
-     low = -6,
-     high = 6,
-     items = c(2, 5))
-
+  type = "items",
+  export = FALSE,
+  package = "graphics",
+  observed = FALSE,
+  low = -6,
+  high = 6,
+  items = c(2, 5)
+)
 ```
 
 Interesting! The RSM would have us believe that Q2 and Q5 are extremely similar, even while they differ wildly in how discriminating they are. Next, I plot it's test information curve with the 2PL and GRM models.
@@ -343,23 +344,25 @@ Interesting! The RSM would have us believe that Q2 and Q5 are extremely similar,
 ## RSM: Test Information Curve
 
 ```{r}
-rsm1_TIF <- plot(IRT.informationCurves(rsm1), 
-                col = "green", 
-                xlim = c(-4, 6),
-                ylim = c(0,15),
-                ylab = "Information",
-                xlab = "Depression")
-pl2_TIF <- plot(pl2,  type = "IIC", items = 0, zrange = c(-4, 6), plot = FALSE)
+rsm1_TIF <- plot(IRT.informationCurves(rsm1),
+  col = "green",
+  xlim = c(-4, 6),
+  ylim = c(0, 15),
+  ylab = "Information",
+  xlab = "Depression"
+)
+pl2_TIF <- plot(pl2, type = "IIC", items = 0, zrange = c(-4, 6), plot = FALSE)
 grm_TIF <- plot(grm1, type = "IIC", items = 0, zrange = c(-4, 6), plot = FALSE)
 
 
 lines(grm_TIF, col = "blue")
 lines(pl2_TIF, col = "red")
 
-legend("topleft", 
-       legend = c("GRM", "2PL", "RSM"), 
-       col = c("blue", "red", "green"), 
-       lty = 1)
+legend("topleft",
+  legend = c("GRM", "2PL", "RSM"),
+  col = c("blue", "red", "green"),
+  lty = 1
+)
 ```
 
 This may not be accurate, as I don't know how the TAM package creates the Test Information Curve. With that, it's noteworthy how much more information the GRM gives compared to the RSM. Again, this may be different if the discrimination parameters of the questions weren't so different.
@@ -372,7 +375,6 @@ Because GRM is the more complex model, I expect it to have a larger Log-likeliho
 comparison <- IRT.compareModels(grm1, rsm1)
 
 summary(comparison, extended = FALSE)
-
 ```
 
 Comparing the AIC's of each model, the Graded Response Model is the better fit. If the discriminatory parameters of the GRM were all very similar, then the RSM may have been a better fit due to the lower complexity.
@@ -388,31 +390,28 @@ mod2 <-
 "
 
 
-cfafit2 <- cfa(mod2, data = ds,
-              ordered = c("q1", "q2", "q3", "q4", "q5",
-                          "q6", "q7", "q8", "q9"),
-              estimator = "WLSMV",
-              check.gradient = TRUE
-              )
+cfafit2 <- cfa(mod2,
+  data = ds,
+  ordered = c(
+    "q1", "q2", "q3", "q4", "q5",
+    "q6", "q7", "q8", "q9"
+  ),
+  estimator = "WLSMV",
+  check.gradient = TRUE
+)
 
 summary(cfafit2, fit.measures = TRUE, standardized = TRUE)
-
-
-
-
-
-
 ```
 
 ## Compare Discrimination Parameter of GRM and Factor Loadings of Polytomous CFA
 
 ```{r}
-
 model_loadings_poly <- inspect(cfafit2, what = "std")[["lambda"]]
 
 discrims_poly <- list()
 for (i in 1:9) {
-  discrims_poly[[paste0("q", i)]] <- summary(grm1)$coefficients[[paste0("q", i)]][4]
+  discrims_poly[[paste0("q", i)]] <-
+    summary(grm1)$coefficients[[paste0("q", i)]][4]
 }
 
 discrims_poly <- unlist(discrims_poly)
@@ -420,20 +419,24 @@ names(discrims_poly) <- names(discrims_poly)
 
 D <- 1.7
 
-df_loadings_poly <- cbind(loadings = model_loadings_poly,
-                     discrims_to_loadings = (discrims_poly / D) 
-                     / 
-                     (sqrt(1 + ((discrims_poly / D)^2))))
+df_loadings_poly <- cbind(
+  loadings = model_loadings_poly,
+  discrims_to_loadings = (discrims_poly / D)
+  /
+    (sqrt(1 + ((discrims_poly / D)^2)))
+)
 
-df_loadings_poly <- df_loadings_poly %>% 
-  as.data.frame() %>% 
+df_loadings_poly <- df_loadings_poly %>%
+  as.data.frame() %>%
   dplyr::rename(cfa_loadings = depression)
 
 
-df_loadings_poly %>% 
-  as.data.frame() %>% 
-  dplyr::mutate(dif = cfa_loadings-discrims_to_loadings, 
-                rat = cfa_loadings/discrims_to_loadings)
+df_loadings_poly %>%
+  as.data.frame() %>%
+  dplyr::mutate(
+    dif = cfa_loadings - discrims_to_loadings,
+    rat = cfa_loadings / discrims_to_loadings
+  )
 ```
 
 Almost equivalent. The values are close enough to have shown that for unidimensional polytomous data, CFA and the GRM are theoretically equivalent.\
@@ -446,7 +449,7 @@ The factor analysis gave extremely similar results to the IRT analysis, theoreti
 
 Also, the fact that I can add covariances to the CFA leads me to believe that CFA is the more flexible model. The IRT models did however yield more interpretable results, and in that way seem specialized for uni-dimensional testing. CFA has a much wider application of uses (i.e., multivariate systems) and seems to focus on the relationship between variables.
 
-I wanted to try running a CFA using Maximum Likelihood, however the model would not converge when the estimator was "MML". This would have allowed me to use the AIC() function to compare my CFA models to the IRT models. Instead, I compared the factor loadings and discrimination parameters. This showed that the CFA is largely equivalent to an IRT model when using the same data.
+I wanted to try running a CFA using Maximum Likelihood, however the model would not converge when the estimator was "MML". This would have allowed me to use the `AIC()` function to compare my CFA models to the IRT models. Instead, I compared the factor loadings and discrimination parameters. This showed that the CFA is largely equivalent to an IRT model when using the same data.
 
 Comparing the RSM and the GRM, the GRM was a better fit. This was due to the fact that the questions all had different discriminatory parameters, something that the RSM does not calculate (and for that reason, took much less time to run).
 
