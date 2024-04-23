@@ -1,17 +1,22 @@
 ---
-title: "IRT and CFA"
-format: 
-  pdf: default
-  gfm: default
-execute:
-  cache: false
-  
-editor: visual
+title: IRT and CFA
+description: |
+  A comparison of Item Response Theory (IRT) and Confirmatory Factor Analysis (CFA)
+author: Alex Miles
+date: '2024-04-22'
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+categories:
+  - psychometrics
+  - item response theory
+  - factor analysis
 ---
 
-This analysis was written in Quarto, and the source file can be found at
+This analysis was originally written in Quarto and edited by Mark Lai in R Markdown format, and the source file can be found at
 
-https://github.com/alexm123/CFAvsIRT
+<https://github.com/alexm123/CFAvsIRT>
 
 Below, I will analyze the same dataset using both Item Response Theory (IRT) and Confirmatory Factor Analysis (CFA) to compare and contrast between the two.
 
@@ -101,7 +106,7 @@ screep <- fa.parallel(ds_dich, cor = "tet")
 ```
 
 ```{r}
-x <- 1:length(screep$fa.values)
+x <- seq_along(screep$fa.values)
 plot(x, screep$fa.values, type = "b", pch = 16, col = "blue", 
      xlab = "Factor Number", 
      ylab = "eigenvalues of factor analysis", 
@@ -207,7 +212,7 @@ modindices(cfafit) %>% dplyr::arrange(desc(mi)) %>% head()
 
 ```
 
-Some of the modification indices are high (e.g., q2\~\~q6), and the SEPC's are moderate.
+Some of the modification indices are high (e.g., `q2~~q6`), and the SEPC's are moderate.
 
 For example:
 
@@ -264,13 +269,13 @@ grm1_coefs <- summary(grm1)$coefficients %>%
   as.data.frame() %>%
   t() %>%
   as.data.frame()
-row.names(grm1_coefs) <- paste("Q", 1:nrow(grm1_coefs))
+row.names(grm1_coefs) <- paste("Q", seq_len(nrow(grm1_coefs)))
 
-kable(grm1_coefs)
+kable(grm1_coefs, digits = 2)
 
 ```
 
-Examining the output, two things are immediately apparent. There are 3 extremity parameters; one for each of the 3 possible levels of endorsement of 1, 2, or 3). The *Extrmt1* values are roughly equivalent to the 2PL model's difficulty parameter values. This is expected, as the *Extrmt1* scores refer to the "depression level" an individual would need to have a 50/50 chance of selecting a 1 (In the dichotomous IRT, an endorsement) for that item. Extrt3 scores refer to the trait level an individual would need to have a 50/50 chance of selecting not only a 1, but also a 2 or 3. Polytomous IRT models give more information than dichotomous, where we discard these other probabilities. Because the GRM has more information, it's discrimination parameters are sightly different to the discrimination parameters of the 2PL model.
+Examining the output, two things are immediately apparent. There are 3 extremity parameters; one for each of the 3 possible levels of endorsement of 1, 2, or 3. The *Extrmt1* values are roughly equivalent to the 2PL model's difficulty parameter values. This is expected, as the *Extrmt1* scores refer to the "depression level" an individual would need to have a 50/50 chance of selecting a 1 (In the dichotomous IRT, an endorsement) for that item. Extrt3 scores refer to the trait level an individual would need to have a 50/50 chance of selecting not only a 1, but also a 2 or 3. Polytomous IRT models give more information than dichotomous, where we discard these other probabilities. Because the GRM has more information, it's discrimination parameters are sightly different to the discrimination parameters of the 2PL model.
 
 ## Item Characteristic and Item Information Curves
 
@@ -313,7 +318,7 @@ Up until a low-moderate depression level, both the dichotomous and polytomous IR
 ```{r}
 rsm1 <-TAM::tam.mml(ds,irtmodel ="RSM", verbose = FALSE)
 
-kable(rsm1$item[1:7])
+kable(rsm1$item[1:7], digits = 2)
 
 ```
 
