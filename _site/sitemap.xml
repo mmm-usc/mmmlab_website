@@ -2,58 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://mmmlab.rbind.io/about.html</loc>
-    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
+    <lastmod>2023-06-09T14:19:22-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/</loc>
-    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
+    <lastmod>2023-06-09T14:19:22-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/Labnews.html</loc>
-    <lastmod>2024-01-10T10:21:12-08:00</lastmod>
+    <lastmod>2023-11-21T21:54:00-08:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/members.html</loc>
-    <lastmod>2024-01-10T10:23:46-08:00</lastmod>
+    <lastmod>2024-01-23T20:37:51-08:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/publications.html</loc>
-    <lastmod>2024-01-10T10:21:38-08:00</lastmod>
+    <lastmod>2024-01-23T20:42:53-08:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/research.html</loc>
-    <lastmod>2024-01-10T10:21:12-08:00</lastmod>
+    <lastmod>2023-06-09T14:19:22-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2023-04-19-correlation-attenuation-for-categorical-variables/</loc>
-    <lastmod>2024-01-10T10:21:12-08:00</lastmod>
+    <lastmod>2023-10-26T19:38:27-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2022-12-05-git-workflow/</loc>
-    <lastmod>2024-01-10T10:21:12-08:00</lastmod>
+    <lastmod>2023-06-09T14:19:22-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2022-05-10-confidence-intervals-for-multilevel-r-squared/</loc>
-    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
+    <lastmod>2023-06-09T14:19:22-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2021-03-09-julia-mle/</loc>
-    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
+    <lastmod>2023-06-09T14:19:22-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2021-02-23-multilevel-models-in-julia/</loc>
-    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
+    <lastmod>2023-06-09T14:19:22-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2021-02-09-julia-regression/</loc>
-    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
+    <lastmod>2023-06-09T14:19:22-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/welcome/</loc>
-    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
+    <lastmod>2023-06-09T14:19:22-07:00</lastmod>
   </url>
   <url>
     <loc>https://mmmlab.rbind.io/posts/2020-07-25-part-1-covid-19/</loc>
-    <lastmod>2022-10-05T13:38:14-07:00</lastmod>
+    <lastmod>2023-06-09T14:19:21-07:00</lastmod>
   </url>
 </urlset>
