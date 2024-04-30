@@ -12,6 +12,7 @@ categories:
   - psychometrics
   - item response theory
   - factor analysis
+bibliography: references.bib
 ---
 
 This analysis was originally written in Quarto and edited by Mark Lai in R Markdown format, and the source file can be found at
@@ -22,7 +23,6 @@ Below, I will analyze the same dataset using both Item Response Theory (IRT) and
 
 ```{r setup, echo = FALSE}
 #| output: FALSE
-#| cache: TRUE
 set.seed(42)
 library(corrplot)
 library(dplyr)
@@ -220,11 +220,11 @@ q6: "Feeling bad about yourself"
 
 Not closely related.
 
-## Compare discrimination's with factor loadings
+## Compare discriminations with factor loadings
 
-Below I take a better look at the difference between my CFA's factor loadings and 2PL's discrimination abilities. To do this, I use a formula to transform IRT discrimination parameter estimates to standardized factor loadings (Cho, 2023): $$\lambda = \frac{\alpha / D}{\sqrt{1 + (\alpha / D)}}  $$
+Below I take a better look at the difference between my CFA's factor loadings and 2PL's discrimination abilities. To do this, I use a formula to transform IRT discrimination parameter estimates to standardized factor loadings [@cho2023]: $$\lambda = \frac{\alpha / D}{\sqrt{1 + (\alpha / D)}}  $$
 
-Where alpha is the discrimination parameter, and *D* is a scaling constant which the author of the ltm package has chosen to be 1.702 (Rizopoulos, 2006).
+Where alpha is the discrimination parameter, and *D* is a scaling constant which the author of the ltm package has chosen to be 1.702 [@rizopoulos2006].
 
 ```{r}
 model_loadings <- inspect(cfafit, what = "std")[["lambda"]]
@@ -252,7 +252,7 @@ df_loadings %>%
   )
 ```
 
-Close! The values are close enough to have shown that for dichotomous data, CFA and 2PL IRT models are theoretically equivalent. The slight differences may be due to that this is only an approximation, and have slight rounding / computation errors; see Forero & Maydeu-Olivares (2009).
+Close! The values are close enough to have shown that for dichotomous data, CFA and 2PL IRT models are theoretically equivalent. The slight differences may be due to that this is only an approximation, and have slight rounding / computation errors; [see @forero2009].
 
 Everything done previously was on a dichotomized version of the data set. Next, I will compare two polytomous IRT models using the original data: the Graded Response Model (GRM) and Rating Scale Model (RSM).
 
@@ -453,10 +453,3 @@ I wanted to try running a CFA using Maximum Likelihood, however the model would 
 
 Comparing the RSM and the GRM, the GRM was a better fit. This was due to the fact that the questions all had different discriminatory parameters, something that the RSM does not calculate (and for that reason, took much less time to run).
 
-## References
-
-Cho, E. (2023). Interchangeability between factor analysis, logistic IRT, and normal Ogive IRT. *Frontiers in Psychology*, *14*. https://doi.org/10.3389/fpsyg.2023.1267219
-
-Forero, C. G., & Maydeu-Olivares, A. (2009). Estimation of IRT graded response models: Limited versus full information methods. *Psychological Methods*, *14*(3), 275--299. https://doi.org/10.1037/a0015825
-
-Rizopoulos, D. (2006). ltm: An R package for latent variable modeling and item response theory analyses. *Journal of Statistical Software*, *17*(5). https://doi.org/10.18637/jss.v017.i05
