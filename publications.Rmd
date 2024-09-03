@@ -48,7 +48,7 @@ postprint_text <- ifelse(
   yes = paste0("[[postprint]](", postprint_url, ")"),
   no = "")
 bib_years <- unlist(lapply(myBib, FUN = \(x) x$year))
-for (yeari in as.character(2023:2019)) {
+for (yeari in as.character(2024:2019)) {
   cat(paste("\n###", yeari), "\n")
   # print(myBib[date = yeari])
   for (j in which(bib_years == yeari)) {
