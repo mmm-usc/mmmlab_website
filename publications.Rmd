@@ -11,10 +11,9 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r write_refs, include = FALSE, cache = FALSE}
 library(RefManageR)
 # Grab bibTeX using DOIs, and save to pubs.bib
+pub_dat <- read.csv("pub_doi.csv")
 RefManageR::GetBibEntryWithDOI(
-  unique(
-    c(readLines("pub_doi.txt"))
-  ), 
+  unique(pub_dat$doi), 
   temp.file = "pubs.bib", 
   delete.file = FALSE)
 # Manual bibTeX for articles without DOIs
@@ -43,9 +42,22 @@ myBib <- ReadBib(here::here("pubs.bib"), check = FALSE)
 ## Peer-Reviewed Articles (Selected)
 
 ```{r, results = "asis"}
-for (yeari in as.character(2024:2019)) {
+postprint_url <- gsub(" ", replacement = "", x = pub_dat$postprint)
+postprint_text <- ifelse(
+  nchar(postprint_url) > 0,
+  yes = paste0("[[postprint]](", postprint_url, ")"),
+  no = "")
+bib_years <- unlist(lapply(myBib, FUN = \(x) x$year))
+for (yeari in as.character(2023:2019)) {
   cat(paste("\n###", yeari), "\n")
-  print(myBib[date = yeari])
+  # print(myBib[date = yeari])
+  for (j in which(bib_years == yeari)) {
+    cat(
+      paste(capture.output(myBib[[j]]), collapse = " "), " ",
+      postprint_text[j], "\n\n"
+    )
+  }
+  # print(myBib[which(bib_years == yeari)])
 }
 ```
 
@@ -59,11 +71,7 @@ Zhang, Y., & Lai, M. H. C. (2023, July 25-28). Alignment with Bayesian Region of
 
 Tse, W. W. Y., & Lai, M. H. C. (2023, July 25-28). Addressing publication bias and uncertainty for power analysis: A hybrid classical-Bayesian approach [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://modeling.uconn.edu/2023-preliminary-program/
 
-Tse, W. W. Y., & Lai, M. H. C. (2023, July 25-28). Addressing publication bias and uncertainty for power analysis: A hybrid classical-Bayesian approach [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://modeling.uconn.edu/2023-preliminary-program/
-
 Liu, Y., & Lai, M. H. C. (2023, July 25-28). Examining SEM Trees for Investigating Measurement Invariance Concerning Multiple Violators [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://modeling.uconn.edu/2023-preliminary-program/
-
-Blozis, S., & Lai, M. H. C. (2023, July 25-28). A two-stage approach to a latent variable mixed-effects location scale model [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2023-abstracts.pdf
 
 Blozis, S., & Lai, M. H. C. (2023, July 25-28). A two-stage approach to a latent variable mixed-effects location scale model [Oral presentation]. Annual Meeting of the Psychometric Society (IMPS), College Park, Maryland, United States. https://www.psychometricsociety.org/sites/main/files/file-attachments/imps2023-abstracts.pdf
 
