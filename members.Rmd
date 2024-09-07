@@ -63,7 +63,7 @@ I am interested in all kinds of statistical methods, but currently my research a
 knitr::include_graphics("https://dornsife.usc.edu/psyc/wp-content/uploads/sites/81/2023/03/gz.jpeg")
 ```
 
-I am a third-year Ph.D. student in Quantitative Methods and Computational Psychology (QMCP) area at USC. My advisor is Dr. Hok Chio (Mark) Lai. I'm generally interested in how researchers can meta-analytic techniques to synthesize research information from their areas of interests and figure out broad and overarching effects. Specifically, researchers look into questions cross-sectionally and longitudinally with complex hypotheses formalized through various statistical models. For example, I'm interested in how structural equation modeling (SEM), longitudinal models, and moderation models can be applied in meta-analysis to synthesize the effects from different angles. My main project focuses on a meta-analysis of measurement invariance of the CES-D scale across gender groups.
+I am a fifth-year Ph.D. student in Quantitative Methods and Computational Psychology (QMCP) area at USC. My advisor is Dr. Hok Chio (Mark) Lai. I'm generally interested in how researchers can meta-analytic techniques to synthesize research information from their areas of interests and figure out broad and overarching effects. Specifically, researchers look into questions cross-sectionally and longitudinally with complex hypotheses formalized through various statistical models. For example, I'm interested in how structural equation modeling (SEM), longitudinal models, and moderation models can be applied in meta-analysis to synthesize the effects from different angles. My main project focuses on a meta-analysis of measurement invariance of the CES-D scale across gender groups.
 
 -   Email: [gengruiz\@usc.edu](mailto:gengruiz@usc.edu){.email}
 
@@ -71,7 +71,7 @@ I am a third-year Ph.D. student in Quantitative Methods and Computational Psycho
 
 ![](static/images/MeltemOzcan_imgage_20210512.jpg){width="50%"}
 
-I am a third-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in developing and applying advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and harnessing advances in machine learning and Bayesian statistics to improve upon traditional methods in psychology. My research interests include measurement invariance, fairness and accuracy in psychometric tests, Bayesian statistical methods, effect size statistics, and the measurement of and prediction with time-dependent variables. At UC Santa Cruz, where I completed my M.S. in statistics, I investigated the performance of changepoint detection techniques for time series under various correlation structures. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics like politics, and linguistic patterns in trauma narratives. I enjoy learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
+I am a fourth-year Ph.D. student in quantitative psychology at USC advised by Dr. Hok Chio (Mark) Lai. Broadly, I am interested in developing and applying advanced quantitative methods to assess and model dynamic and complex psychological phenomena, and harnessing advances in machine learning and Bayesian statistics to improve upon traditional methods in psychology. My research interests include measurement invariance, fairness and accuracy in psychometric tests, Bayesian statistical methods, effect size statistics, and multilevel modeling. At UC Santa Cruz, where I completed my M.S. in statistics, I investigated the performance of changepoint detection techniques for time series under various correlation structures. Previously, I conducted research on an eclectic set of topics I find fascinating, including self-disclosure, intimacy, (skipping the) small talk, influence attempts in friendships on topics like politics, and linguistic patterns in trauma narratives. I enjoy learning languages (Korean or Python), writing (stories or code), and skipping the small talk.
 
 -   Email: [ozcan\@usc.edu](mailto:ozcan@usc.edu){.email}
 -   Personal website: <https://www.linkedin.com/in/meltemozcan/>
@@ -81,13 +81,13 @@ I am a third-year Ph.D. student in quantitative psychology at USC advised by Dr.
 
 ## Undergraduate Students
 
+### Alex Miles
+
 ### Nellie (Yinuo) Chen
 
 I'm currently a third-year undergraduate student majoring in Psychology and Economics & Data Science. As the website maintainer of the MMM lab, I was offered great opportunities to be familiar with R Studio and Github. During my spare time, I enjoy dancing, reading, and singing Chinese traditional dramas.
 
 -   Email: [yinuoche\@usc.edu](mailto:yinuoche@usc.edu){.email}
-
-### Alexandar Miles
 
 ## Collaborators
 
@@ -99,7 +99,9 @@ I'm currently a third-year undergraduate student majoring in Psychology and Econ
 
 ## Lab Alumni
 
-### Winnie Wing-Yee Tse, Ph.D.
+### Graduates
+
+#### Winnie Wing-Yee Tse, Ph.D.
 
 ```{r}
 knitr::include_graphics("https://dornsife.usc.edu/psyc/wp-content/uploads/sites/81/2023/03/ww.jpeg")
@@ -111,7 +113,7 @@ knitr::include_graphics("https://dornsife.usc.edu/psyc/wp-content/uploads/sites/
 - [Personal website](https://winniewytse.rbind.io/)
 <!-- - Email: [wingyeet\@usc.edu](mailto:wingyeet@usc.edu){.email} -->
 
-### Yichi Zhang, Ph.D.
+#### Yichi Zhang, Ph.D.
 
 <!-- ![](static/images/YichiZhang_image_20210326.jpg){width="50%"}
 
@@ -121,17 +123,19 @@ I am a fifth-year Ph.D. student in Quantitative Methods and Computational Psycho
 <!-- - Email: [yzhang97\@usc.edu](mailto:yzhang97@usc.edu){.email} -->
 - Personal website: <https://yichiyczhang.rbind.io/about.html>
 
-### Yuting Wang
+### Undergraduates
 
-### Hailin Yue (Haley)
+#### Yuting Wang
+
+#### Hailin Yue (Haley)
 
 -   [Linkedin page](https://www.linkedin.com/in/hailin-haley-yue-65535219b/)
 
-### Clay Cantrell
+#### Clay Cantrell
 
 -   [Linkedin page](https://www.linkedin.com/in/clay-cantrell-808676202/)
 
-### Alyssa Delarosa
+#### Alyssa Delarosa
 
 -   [Linkedin page](https://www.linkedin.com/in/alyssa-delarosa-49272b163/)
 

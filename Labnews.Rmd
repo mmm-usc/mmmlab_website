@@ -2,6 +2,19 @@
 title: "Lab News"
 ---
 
+## 2024
+
+### July
+
+- Meltem delivered an invited presentation titled "A Battle of Wits: Comparing the Capabilities of Generative AI and Humans in Scale Development" as a finalist in the IMPS 2024 Graduate Research Competition in Prague, showcasing the collaborative research proposed with Winnie and Jimmy.
+
+- Meltem presented two posters at IMPS 2024, titled "Comparing traditional measurement invariance and alignment approaches to data harmonization" and "Does deleting biased items make selection fairer and more accurate?"
+
+
+### June
+
+- Meltem, Winnie, and Jimmy's submission for the IMPS 2024 [Graduate Research Competition on the use of generative AI to advance psychometric research](https://www.psychometricsociety.org/imps2024-graduate-research-call-for-proposals) was selected as one of the top three proposals.
+
 ## 2023
 
 ### November
