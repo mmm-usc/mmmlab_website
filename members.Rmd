@@ -115,9 +115,9 @@ knitr::include_graphics("https://dornsife.usc.edu/psyc/wp-content/uploads/sites/
 
 #### Yichi Zhang, Ph.D.
 
-<!-- ![](static/images/YichiZhang_image_20210326.jpg){width="50%"}
+![](static/images/YichiZhang_image_20210326.jpg){width="50%"}
 
-I am a fifth-year Ph.D. student in Quantitative Methods and Computational Psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement bias in surveys/questionnaires and robust statistical models, such as hierarchical linear model(linear mixed effects model), latent variable model (structural equation modeling), etc. I hope to use psychometric methods and statistical models to explore research questions related to fair and accurate psychological measurement. My main project focuses on quantifying the practical impact of item bias(noninvariance) on total scale scores. My secondary project evaluates the impact of two-level heteroscedasticity on small sample corrections for fixed-effects inferences. In addition, I am involved in projects on bootstrapping for multilevel models, multilevel regression and poststratification on subnational predictions with language data.
+<!-- I am a fifth-year Ph.D. student in Quantitative Methods and Computational Psychology. I am co-advised by Dr. Hok Chio (Mark) Lai and Dr. Rand Wilcox. My current research interests are measurement bias in surveys/questionnaires and robust statistical models, such as hierarchical linear model(linear mixed effects model), latent variable model (structural equation modeling), etc. I hope to use psychometric methods and statistical models to explore research questions related to fair and accurate psychological measurement. My main project focuses on quantifying the practical impact of item bias(noninvariance) on total scale scores. My secondary project evaluates the impact of two-level heteroscedasticity on small sample corrections for fixed-effects inferences. In addition, I am involved in projects on bootstrapping for multilevel models, multilevel regression and poststratification on subnational predictions with language data.
 
 - [CV](static/cv/Yichi.Zhang.CV.20231107.pdf) -->
 <!-- - Email: [yzhang97\@usc.edu](mailto:yzhang97@usc.edu){.email} -->
@@ -139,13 +139,13 @@ I am a fifth-year Ph.D. student in Quantitative Methods and Computational Psycho
 
 -   [Linkedin page](https://www.linkedin.com/in/alyssa-delarosa-49272b163/)
 
-### Yixiao Li
+#### Yixiao Li
 
 <!-- I am currently a forth-year undergraduate student majoring in computer science. Personally, I am interested in quantitative analysis and data science, and am passionate about applying statistical methods in solving real-life problems. Previously, at MMM Lab, I have worked on projects including building R software package for a 2SPA model. Additionally, I love skateboard, basketball (I've played for several years), hang out with friends, and travel.
 
 -   Email: [likather\@usc.edu](mailto:likather@usc.edu){.email} -->
 
-### Kezia Leung
+#### Kezia Leung
 
 <!-- I am a third-year undergraduate student majoring in Cognitive Science with a minor in Computer Programming. I'm very interested in user experience and using quantitative data to better understand the way we think in order to improve products. I want to apply quantitative methods to understand the human mind more. In my free time, I enjoy cooking, drawing, going to beaches, exploring the city, and eating food!
 
