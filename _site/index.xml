@@ -7,7 +7,19 @@
     <description>Measurement &amp; Multilevel Modeling Lab
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 19 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>IRT and CFA</title>
+      <dc:creator>Alex Miles</dc:creator>
+      <link>https://mmmlab.rbind.io/posts/2024-04-22-cfa-vs-irt</link>
+      <description>A comparison of Item Response Theory (IRT) and Confirmatory Factor Analysis (CFA)</description>
+      <category>psychometrics</category>
+      <category>item response theory</category>
+      <category>factor analysis</category>
+      <guid>https://mmmlab.rbind.io/posts/2024-04-22-cfa-vs-irt</guid>
+      <pubDate>Mon, 22 Apr 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://mmmlab.rbind.io/posts/2024-04-22-cfa-vs-irt/IRT_and_CFA_files/figure-html5/loadData-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Correlation Attenuation for Categorical Variables</title>
       <dc:creator>Gengrui (Jimmy) Zhang</dc:creator>

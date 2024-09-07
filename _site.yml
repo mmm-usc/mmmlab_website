@@ -30,6 +30,13 @@ navbar:
           href: https://winnie-wy-tse.shinyapps.io/hcb_shiny/
         - text: "R2spa"
           href: https://github.com/Gengrui-Zhang/R2spa
+        - text: "pinsearch (R package)"
+          href: https://marklhc.github.io/pinsearch/articles/pinsearch.html
+        - text: "hcbr (R package)"
+          href: https://github.com/winniewytse/hcbr
+        - text: "unbiasr (R package)"
+          href: https://github.com/mmm-usc/unbiasr
+          
     - icon: fab fa-github
       href: https://github.com/mmm-usc
 output: distill::distill_article
