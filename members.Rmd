@@ -14,16 +14,17 @@ library(slickR)
 img_path <- "static/images/slickr_files/"
 
 # generate paths with alt text and descriptions
-paths_w_alt_text <- mapply(
-  function(x, txt, h) {
-    htmltools::tags$img(src = x, title = txt, height = h)
-  },
-  x = paste0(img_path, list.files(img_path)),
-  txt = "", h = 400, SIMPLIFY = FALSE
+paths_w_alt_text <- lapply(
+  dir(img_path, full.names = TRUE),
+  function(x) {
+    htmltools::tags$img(src = x,
+      title = tools::file_path_sans_ext(basename(x)),
+      height = 400)
+  }
 )
 
-# slideshow 
-slickR::slickR(obj = paths_w_alt_text, height = 400) + 
+# slideshow
+slickR::slickR(obj = paths_w_alt_text, height = 400) +
   slickR::settings(autoplay = TRUE, autoplaySpeed = 4000)
 ```
 
