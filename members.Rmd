@@ -7,35 +7,24 @@ knitr::opts_chunk$set(echo = FALSE,
                       out.width = "250px")
 ```
 
-```{r}
+```{r photo slideshow}
+library(htmltools)
+library(slickR)
 
-# Alt text that will appear for each image for accessibility. When adding new 
-# images, ensure that the alt text for the new image is added in the correct
-# order in the list below (the ordering should match the alphabetical ordering
-# of the images listed in the path. For example, if adding an image named 
-# 'aaa.jpg' with alt text "really fun event 2022", "really fun event 2022" 
-# should appear as the first element in alt_text as 'aaa.jpg' is the fist image
-# alphabetically.
-alt_text <- c('2spa team lunch 2022',
-              'Bologna group picture',
-              'First lab meeting of Fall 2021',
-              'Celebration of Mark\'s tenure, March 2023',
-              'Mid-Autumn picnic at Elysian Park, 2021',
-              'Point Dume hike, 2021', 
-              'Point Dume hike, 2021', 
-              'Spring BBQ, 2022',
-              'Summer gathering, Aug 21',
-              'Summer hike, 2022',
-              'Thanksgiving picnic at Kenneth Hahn, 2021')
+img_path <- "static/images/slickr_files/"
 
-img_path <-'static/images/slickr_files/'
+# generate paths with alt text and descriptions
+paths_w_alt_text <- lapply(
+  dir(img_path, full.names = TRUE),
+  function(x) {
+    htmltools::tags$img(src = x,
+      title = tools::file_path_sans_ext(basename(x)),
+      height = 400)
+  }
+)
 
-paths_w_alt_text <- mapply(function(x,txt,h){
-  htmltools::tags$img(src = x, title = txt, height = h)},
-  x = paste0(img_path, unlist(list.files(img_path))),
-  txt = alt_text, h = 400, SIMPLIFY = FALSE)
-
-slickR::slickR(obj = paths_w_alt_text, height = 400) + 
+# slideshow
+slickR::slickR(obj = paths_w_alt_text, height = 400) +
   slickR::settings(autoplay = TRUE, autoplaySpeed = 4000)
 ```
 
@@ -51,9 +40,9 @@ I am an Associate Professor of Psychology (Quantitative Methods and Computationa
 
 I am interested in all kinds of statistical methods, but currently my research areas include multilevel modeling, structural equation modeling, effect size statistics, and measurement invariance. I also have collaborations on projects studying the prevalence, antecedents and consequences of gambling disorder, and in other areas such as evolutionary psychology, social psychology, developmental sciences, health sciences, etc.
 
-- [CV](https://quantscience.rbind.io/files/Vita_Lai.pdf)
-- [Personal website](https://quantscience.rbind.io)
-- Email: [hokchiol\@usc.edu](mailto:hokchiol@usc.edu){.email}
+-   [CV](https://quantscience.rbind.io/files/Vita_Lai.pdf)
+-   [Personal website](https://quantscience.rbind.io)
+-   Email: [hokchiol\@usc.edu](mailto:hokchiol@usc.edu){.email}
 
 ## Graduate Students
 
@@ -84,6 +73,8 @@ I am a fourth-year Ph.D. student in quantitative psychology at USC advised by Dr
 ### Alex Miles
 
 ### Nellie (Yinuo) Chen
+
+![](static/images/Yinuo_Chen_20240129.jpg){width="50%"}
 
 I'm currently a third-year undergraduate student majoring in Psychology and Economics & Data Science. As the website maintainer of the MMM lab, I was offered great opportunities to be familiar with R Studio and Github. During my spare time, I enjoy dancing, reading, and singing Chinese traditional dramas.
 

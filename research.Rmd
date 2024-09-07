@@ -13,9 +13,10 @@ Measurement is the foundation of quantitative science, and it's especially impor
 ### Current projects
 
 - New algorithms for adjusting parameter estimates for measurement noninvariance (Mark Lai & Winnie Tse)
-- Measurement invariance with categorical data (Winnie Tse)
+- Measurement invariance with categorical data (Winnie Tse & Meltem Ozcan )
 - Quantifying measurement noninvariance in a meaningful way (Yichi Zhang)
 - Two-stage path analysis to adjust for measurement errors and measurement bias in data harmonization and integrative data analysis (Mark Lai, Winnie Tse, Jimmy Zhang, & Yixiao Li, funded by the National Science Foundation)
+- Development of a robust and efficient to data harmonization framework for data harmonization that simultaneously links incompatible measures and adjusts for noninvariance across demographic subgroups (Mark Lai, Meltem Ozcan, & Winnie Tse, funded by the National Science Foundation)
 - Developing a Multidimensional Psychometric Framework on the Impact of Item Bias on Classification (Mark Lai & Yichi Zhang & Meltem Ozcan, Contract with Army Research Institute)
 - Synthesis of invariance research (Jimmy Zhang & Haley Yue)
 
@@ -28,4 +29,5 @@ Multilevel modeling, also called mixed-effect models, is an extremely powerful f
 - Reliability for clustered and longitudinal data (Mark Lai)
 - Bias-correction for contextual and between-level effects (Mark Lai & Yichi Zhang)
 - The Impact of Ignoring Parameter Uncertainty on Sample-Size Planning for Cluster-Randomized and Multisite Randomized Trials (Winnie Tse & Mark Lai, funded by Spencer Foundation)
+- The impact of heteroscedasticity on standard error estimation for small, unbalanced, clustered data (Yichi Zhang & Mark Lai)
 <!-- - Harmonization of multiwave daily diary data (Grace Mak, Haley Yue, Mark Lai) -->
