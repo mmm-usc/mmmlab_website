@@ -72,6 +72,8 @@ I am a fourth-year Ph.D. student in quantitative psychology at USC advised by Dr
 
 ### Alex Miles
 
+I am currently a fourth-year undergraduate student majoring in psychology with a minor in statistics. I've always been interested in quantitative analysis and data science, and enjoy working on different analyses at the MMM Lab. In my free time, I enjoy reading science fiction, playing boardgames, and hanging out with friends!
+
 ### Nellie (Yinuo) Chen
 
 ![](static/images/Yinuo_Chen_20240129.jpg){width="50%"}
