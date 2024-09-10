@@ -20,6 +20,7 @@ title: "Lab News"
 ### November
 
 - Winnie and Mark are co-authors of the paper ["Prenatal testosterone synchrony in first-time parents predicts fathers' postpartum relationship quality"](https://www.sciencedirect.com/science/article/abs/pii/S0018506X23001381) in press in *Hormones and Behavior*. The first author, Sofi Cardenas, who is a graduate researcher at USC, applies Bayesian multilevel modeling in this work.
+- Winnie published an article titled "Does Strict Invariance Matter? Valid Group Mean Comparisons With Ordered-Categorical Items" at Behavioral Research Methods.
 
 ### October
 
@@ -39,6 +40,7 @@ title: "Lab News"
 - Yichi completed an internship at Pearson on evaluation of reliability indices for automated scoring algorithms.
 - Meltem completed an Data and Statistical Sciences internship at Genentech in which she explored the interval level treatment of ordinal patient reported outcome (survey) data in clinical trials.
 - Meltem received her MA in Psychology from USC.
+- Winnie completed a Psychometrics Internship at Pearson on computer adaptive testing.
 
 ### July
 
@@ -57,6 +59,10 @@ title: "Lab News"
 ### February 
 
 - Mark has a co-authored article titled ["The Impacts of the COVID-19 Pandemic on Therapy Utilization Among Racially/Ethnically and Socio-Economically Diverse Autistic Children,"](https://link.springer.com/article/10.1007/s10803-023-05905-y) in press in the *Journal of Autism and Developmental Disorders*. The first author is Cassie Gonzalez who is a graduate researcher at USC, and she applies multilevel modeling in this work.
+
+### January
+
+- Congratulations to Meltem on receiving the Excellence in Scientific Writing 2024 from the Department of Psychology!
 
 ## 2022
 ### November 
