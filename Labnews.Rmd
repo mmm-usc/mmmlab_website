@@ -4,6 +4,14 @@ title: "Lab News"
 
 ## 2024
 
+### December
+
+- Meltem and Mark published an article titled “Exploring the Impact of Deleting (or Retaining) a Biased Item: A Procedure Based on Classification Accuracy” at Assessment
+
+### September
+
+- Mark, Winnie, and Meltem gave a [workshop](https://www.sree.org/2024-workshops) on Data Harmonization in the 2024 SREE conference (workshop materials: https://github.com/marklhc/ida_workshop)
+
 ### July
 
 - Meltem delivered an invited presentation titled "A Battle of Wits: Comparing the Capabilities of Generative AI and Humans in Scale Development" as a finalist in the IMPS 2024 Graduate Research Competition in Prague, showcasing the collaborative research proposed with Winnie and Jimmy.
@@ -14,6 +22,7 @@ title: "Lab News"
 ### June
 
 - Meltem, Winnie, and Jimmy's submission for the IMPS 2024 [Graduate Research Competition on the use of generative AI to advance psychometric research](https://www.psychometricsociety.org/imps2024-graduate-research-call-for-proposals) was selected as one of the top three proposals.
+- Meltem, Winnie, and Jimmy's proposal titled "A Battle of Wits: Comparing the Capabilities of Generative AI and Humans in Scale Development" was selected as a finalist in the IMPS 2024 Graduate Student Research Competition, and  was invited for a presentation at IMPS 2024. Meltem delivered the [talk](https://www.psychometricsociety.org/imps2024-graduate-research-finalists) at the conference in Prague, Czechia.
 
 ## 2023
 
@@ -62,6 +71,10 @@ title: "Lab News"
 ### November 
 
 - Winnie and Yichi passed their qualifying exams and defended their dissertation proposals. Congratulations to Winnie and Yichi!
+
+### October
+
+- Mark, Winnie, Jimmy, and Yixiao co-authored an article titled "Correcting for Unreliability and Partial Invariance: A Two-Stage Path Analysis Approach," appeared in the journal *Structural Equation Modeling*
 
 ### September
 
