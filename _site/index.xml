@@ -7,7 +7,18 @@
     <description>Measurement &amp; Multilevel Modeling Lab
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 22 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Introducing Machine Learning Models for Psychologists---Random Forest</title>
+      <dc:creator>Francisco N. Ramos</dc:creator>
+      <link>https://mmmlab.rbind.io/posts/2025-03-25-random-forest</link>
+      <description>An example of applying random forest</description>
+      <category>machine learning</category>
+      <category>predictive modeling</category>
+      <guid>https://mmmlab.rbind.io/posts/2025-03-25-random-forest</guid>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://mmmlab.rbind.io/posts/2025-03-25-random-forest/RandomForest_files/figure-html/fig-arith-perf-1.png" medium="image" type="image/png" width="1344" height="960"/>
+    </item>
     <item>
       <title>IRT and CFA</title>
       <dc:creator>Alex Miles</dc:creator>
