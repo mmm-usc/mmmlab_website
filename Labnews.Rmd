@@ -6,7 +6,7 @@ title: "Lab News"
 
 ### December
 
-- Meltem and Mark published an article titled “Exploring the Impact of Deleting (or Retaining) a Biased Item: A Procedure Based on Classification Accuracy” at Assessment
+- Meltem and Mark published an article titled ["Exploring the Impact of Deleting (or Retaining) a Biased Item: A Procedure Based on Classification Accuracy"](https://journals.sagepub.com/doi/abs/10.1177/10731911241298081) at *Assessment*.
 
 ### September
 
@@ -23,6 +23,12 @@ title: "Lab News"
 
 - Meltem, Winnie, and Jimmy's submission for the IMPS 2024 [Graduate Research Competition on the use of generative AI to advance psychometric research](https://www.psychometricsociety.org/imps2024-graduate-research-call-for-proposals) was selected as one of the top three proposals.
 - Meltem, Winnie, and Jimmy's proposal titled "A Battle of Wits: Comparing the Capabilities of Generative AI and Humans in Scale Development" was selected as a finalist in the IMPS 2024 Graduate Student Research Competition, and  was invited for a presentation at IMPS 2024. Meltem delivered the [talk](https://www.psychometricsociety.org/imps2024-graduate-research-finalists) at the conference in Prague, Czechia.
+- Yichi, Winnie, and Mark published a book chapter titled ["Bootstrap Methods for Robust Multilevel Analysis"](https://link.springer.com/chapter/10.1007/978-3-031-56318-8_13) in the book *Dependent Data in Social Sciences Research*.
+
+### February
+
+- Mark, Yichi, and Dr. Feng Ji published an article titled ["Correcting for Sampling Error in between-Cluster Effects: An Empirical Bayes Cluster-Mean Approach with Finite Population Corrections"](https://www.tandfonline.com/doi/abs/10.1080/00273171.2024.2307034) in *Multivariate Behavioral Research*.
+- Mark and Winnie published an article titled ["Are factor scores measurement invariant?"](https://doi.org/10.1037/met0000658) in *Psychological Methods*.
 
 ## 2023
 
