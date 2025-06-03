@@ -22,7 +22,7 @@ Random forest models usually do well in describing nonlinear/complex relationshi
 
 This is the first part of a set of documents walking through building simple random forest models for psychological data, including the forthcoming addenda `Methods of Variable Selection`, `LASSO (Least absolute shrinkage and selection operator)`, and finally `Predictions`.
 
-All references (including the dataset) are at the end of the `LASSO` addendum to this document.
+All references (including the dataset) are at the end of the document.
 
 ## The Task at Hand
 
@@ -260,13 +260,18 @@ ggplot(
 # won't include it again after this.
 ```
 
-::: {.cell-output-display}
-![Distribution of response variable: Arithmetic Math Performance](RandomForest_files/figure-html/fig-arith-perf-1.png){#fig-arith-perf width=672}
-:::
+```{r}
+#| echo: false
+#| label: arith-perf
+#| fig-pos: 'p'
+#| fig-cap: "Distribution of response variable: Arithmetic Math Performance"
+knitr::include_graphics("RandomForest_files/figure-html/fig-arith-perf-1.png")
+```
+
 :::
 
 
-This distribution is clearly skewed right (@fig-arith-perf). This indicates that most people scored around the "low" end of all possible values.
+This distribution is clearly skewed right (Figure \@ref(fig:arith-perf)). This indicates that most people scored around the "low" end of all possible values.
 
 Let's look at the distributions of our predictor variables.
 
@@ -307,9 +312,14 @@ facet_distribution_plots <- ggplot2::ggplot(
 facet_distribution_plots
 ```
 
-::: {.cell-output-display}
-![Distribution of predictors](RandomForest_files/figure-html/fig-predictors-1.png){#fig-predictors fig-pos='h' width=672}
-:::
+```{r}
+#| echo: false
+#| label: predictors
+#| fig-pos: 'h'
+#| fig-cap: "Distribution of predictors"
+knitr::include_graphics("RandomForest_files/figure-html/fig-predictors-1.png")
+```
+
 :::
 
 
@@ -344,12 +354,15 @@ facet_bivariate_plots <- ggplot2::ggplot(
 facet_bivariate_plots
 ```
 
-::: {.cell-output-display}
-![Distribution of predictors against the DV (sum_arith_perf)](RandomForest_files/figure-html/fig-preds_DV-1.png){#fig-preds_DV fig-pos='p' width=672}
-:::
-:::
+```{r}
+#| echo: false
+#| label: preds-DV
+#| fig-pos: 'p'
+#| fig-cap: "Distribution of predictors against the DV (sum_arith_perf)"
+knitr::include_graphics("RandomForest_files/figure-html/fig-preds_DV-1.png")
+```
 
-The graphs created in the code above are shown on the next page, Page 11, in @fig-preds_DV.
+:::
 
 Like most psychological data, most of our predictors (and our DV) are not truly continuous. Our DV `sum_arith_perf` takes a wide range of values, but it is clear from its distribution that it is technically ordinal because its values are discrete. Some readers may wonder if random forests are valid models of such a DV - in fact, some may also wonder if we need to check for a monotonic relationship between the levels of each of our ordinal predictors and the dependent variable, as one would when validating the assumptions of linear regression, for example. Thankfully, this isn't the case - because decision trees simply choose "splitting points" to group participants in such a way that the mean squared error is minimized, they handle ordinal features and mildly discrete dependent variables very well. However, if your DV is an ordinal variable that only takes a few values, like 1-5, you might want to look into ordinal forests [here's a link to an implementation in R](https://cran.r-project.org/web/packages/ordinalForest/ordinalForest.pdf).
 
@@ -566,7 +579,10 @@ print(rf_rangertunedmodel)
 ## Ranger result
 ## 
 ## Call:
-##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,      num.trees = 8000, mtry = 20, min.node.size = 38, sample.fraction = 0.267,      importance = "permutation", replace = FALSE, splitrule = "variance",      write.forest = TRUE, verbose = TRUE) 
+##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,
+##      num.trees = 8000, mtry = 20, min.node.size = 38, sample.fraction = 0.267,
+##      importance = "permutation", replace = FALSE, splitrule = "variance",
+##      write.forest = TRUE, verbose = TRUE) 
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  8000 
@@ -598,7 +614,10 @@ print(rf_rangertunedmodel2)
 ## Ranger result
 ## 
 ## Call:
-##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,      num.trees = 8000, mtry = 16, min.node.size = 38, sample.fraction = 0.311,      importance = "permutation", replace = FALSE, splitrule = "variance",      verbose = TRUE) 
+##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,
+##      num.trees = 8000, mtry = 16, min.node.size = 38, sample.fraction = 0.311,
+##      importance = "permutation", replace = FALSE, splitrule = "variance",
+##      verbose = TRUE) 
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  8000 
@@ -714,7 +733,9 @@ print(rf_default_model)
 ## Ranger result
 ## 
 ## Call:
-##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,      num.trees = 8000, mtry = 4.47, importance = "permutation",      splitrule = "variance", verbose = TRUE) 
+##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,
+##      num.trees = 8000, mtry = 4.47, importance = "permutation",
+##      splitrule = "variance", verbose = TRUE) 
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  8000 
@@ -774,7 +795,9 @@ print(rf_default_model2)
 ## Ranger result
 ## 
 ## Call:
-##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,      num.trees = 8000, mtry = 6.666, importance = "permutation",      splitrule = "variance", verbose = TRUE) 
+##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,
+##      num.trees = 8000, mtry = 6.666, importance = "permutation",
+##      splitrule = "variance", verbose = TRUE) 
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  8000 

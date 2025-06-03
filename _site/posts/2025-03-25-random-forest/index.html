@@ -172,7 +172,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["RandomForest_files/figure-commonmark/fig-arith-perf-1.png","RandomForest_files/figure-commonmark/fig-predictors-1.png","RandomForest_files/figure-commonmark/fig-preds_DV-1.png","RandomForest_files/figure-html/fig-arith-perf-1.png","RandomForest_files/figure-html/fig-predictors-1.png","RandomForest_files/figure-html/fig-preds_DV-1.png","RandomForest_files/libs/bootstrap/bootstrap-cb47e636485c7bba9b4b6085443d7ade.min.css","RandomForest_files/libs/bootstrap/bootstrap-icons.css","RandomForest_files/libs/bootstrap/bootstrap-icons.woff","RandomForest_files/libs/bootstrap/bootstrap.min.css","RandomForest_files/libs/bootstrap/bootstrap.min.js","RandomForest_files/libs/clipboard/clipboard.min.js","RandomForest_files/libs/quarto-html/anchor.min.js","RandomForest_files/libs/quarto-html/popper.min.js","RandomForest_files/libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css","RandomForest_files/libs/quarto-html/quarto-syntax-highlighting.css","RandomForest_files/libs/quarto-html/quarto.js","RandomForest_files/libs/quarto-html/tabsets/tabsets.js","RandomForest_files/libs/quarto-html/tippy.css","RandomForest_files/libs/quarto-html/tippy.umd.min.js","randomforestrefs.bib"]}
+  {"type":"character","attributes":{},"value":["RandomForest_files/anchor-4.2.2/anchor.min.js","RandomForest_files/bowser-1.9.3/bowser.min.js","RandomForest_files/distill-2.2.21/template.v2.js","RandomForest_files/figure-commonmark/fig-arith-perf-1.png","RandomForest_files/figure-commonmark/fig-predictors-1.png","RandomForest_files/figure-commonmark/fig-preds_DV-1.png","RandomForest_files/figure-html/fig-arith-perf-1.png","RandomForest_files/figure-html/fig-predictors-1.png","RandomForest_files/figure-html/fig-preds_DV-1.png","RandomForest_files/header-attrs-2.25/header-attrs.js","RandomForest_files/jquery-3.6.0/jquery-3.6.0.js","RandomForest_files/jquery-3.6.0/jquery-3.6.0.min.js","RandomForest_files/jquery-3.6.0/jquery-3.6.0.min.map","RandomForest_files/libs/bootstrap/bootstrap-cb47e636485c7bba9b4b6085443d7ade.min.css","RandomForest_files/libs/bootstrap/bootstrap-icons.css","RandomForest_files/libs/bootstrap/bootstrap-icons.woff","RandomForest_files/libs/bootstrap/bootstrap.min.css","RandomForest_files/libs/bootstrap/bootstrap.min.js","RandomForest_files/libs/clipboard/clipboard.min.js","RandomForest_files/libs/quarto-html/anchor.min.js","RandomForest_files/libs/quarto-html/popper.min.js","RandomForest_files/libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css","RandomForest_files/libs/quarto-html/quarto-syntax-highlighting.css","RandomForest_files/libs/quarto-html/quarto.js","RandomForest_files/libs/quarto-html/tabsets/tabsets.js","RandomForest_files/libs/quarto-html/tippy.css","RandomForest_files/libs/quarto-html/tippy.umd.min.js","RandomForest_files/popper-2.6.0/popper.min.js","RandomForest_files/tippy-6.2.7/tippy-bundle.umd.min.js","RandomForest_files/tippy-6.2.7/tippy-light-border.css","RandomForest_files/tippy-6.2.7/tippy.css","RandomForest_files/tippy-6.2.7/tippy.umd.min.js","RandomForest_files/webcomponents-2.0.0/webcomponents.js","randomforestrefs.bib"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2279,7 +2279,7 @@ Applications
 <p>Although the workings of random forest models are explained in depth elsewhere (<a href="https://einsteinmed.edu/uploadedfiles/centers/ictr/new/intro-to-random-forest.pdf">click here for a more detailed but digestible explanation</a>), to be brief, random forest models are built from single decision trees, which predict a response variable/dependent variable (DV) based on binary answers to other questions, which are selected in order to create as homologous of groups as possible. For example, a tree might first decide to check “Is the social anxiety score over or under 10.5?” and divide the data based on each record’s “answer.” Then, it will continuously repeat the process with new questions designed to improve the decisions, like “Is sex male or female?” until it has finalized its prediction and new questions do not improve its output. A random forest model is built from averaging the observations of thousands or more trees, all of which ask different “questions” and may assess different variables <span class="citation" data-cites="breiman_random_2001">(<a href="#ref-breiman_random_2001" role="doc-biblioref">Breiman 2001</a>)</span>.</p>
 <p>Random forest models usually do well in describing nonlinear/complex relationships between predictor and response variables, are robust (though can technically overfit), and can handle missing and categorical data. However, they are more difficult to interpret than other models like linear regression. Random forests are popular in fields such as biostatistics because they are excellent for problems where the number of predictors <em>p</em> exceeds the number of samples/participants <em>n</em>. Such problems are not as common in psychology, but random forests still model <em>n</em>&gt;<em>p</em> problems well, as should be expected.</p>
 <p>This is the first part of a set of documents walking through building simple random forest models for psychological data, including the forthcoming addenda <code>Methods of Variable Selection</code>, <code>LASSO (Least absolute shrinkage and selection operator)</code>, and finally <code>Predictions</code>.</p>
-<p>All references (including the dataset) are at the end of the <code>LASSO</code> addendum to this document.</p>
+<p>All references (including the dataset) are at the end of the document.</p>
 <h2 id="the-task-at-hand">The Task at Hand</h2>
 <p>Importantly, I am conducting a <strong>regression</strong> task (predicting a continuous variable), not a <strong>classification</strong> task (predicting a dichotomous or polytomous variable).</p>
 <p>The <strong>first</strong> main objective I’ll be attempting to address, and the <strong>only one addressed in this specific document</strong> (the other tasks are addressed in addendum posts, which I link to at the top and bottom of this document as well as throughout), is that I would like to build a suitable predictive model that generalizes well to unseen data of arithmetic performance score in German students from a set of predictor variables including age, sex, self-reported math anxiety, and others. Testing on unseen data is specifically performed in my <code>Predictions</code> addendum.</p>
@@ -2463,13 +2463,16 @@ The package required for each function in this document is specified in the func
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># I set up the theme for all plots in hidden code, so I</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># won&#39;t include it again after this.</span></span></code></pre></div>
-<div class="cell-output-display">
-<figure>
-<img src="RandomForest_files/figure-html/fig-arith-perf-1.png" id="fig-arith-perf" width="672" alt="Distribution of response variable: Arithmetic Math Performance" /><figcaption aria-hidden="true">Distribution of response variable: Arithmetic Math Performance</figcaption>
-</figure>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:arith-perf"></span>
+<img src="RandomForest_files/figure-html/fig-arith-perf-1.png" alt="Distribution of response variable: Arithmetic Math Performance" width="672" />
+<p class="caption">
+Figure 1: Distribution of response variable: Arithmetic Math Performance
+</p>
 </div>
 </div>
-<p>This distribution is clearly skewed right (<span class="citation" data-cites="fig-arith-perf">(<a href="#ref-fig-arith-perf" role="doc-biblioref"><strong>fig-arith-perf?</strong></a>)</span>). This indicates that most people scored around the “low” end of all possible values.</p>
+</div>
+<p>This distribution is clearly skewed right (Figure <a href="#fig:arith-perf">1</a>). This indicates that most people scored around the “low” end of all possible values.</p>
 <p>Let’s look at the distributions of our predictor variables.</p>
 <h3 id="predictor-distributions">Predictor Distributions</h3>
 <div class="cell">
@@ -2502,10 +2505,13 @@ The package required for each function in this document is specified in the func
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>facet_distribution_plots</span></code></pre></div>
-<div class="cell-output-display">
-<figure>
-<img src="RandomForest_files/figure-html/fig-predictors-1.png" id="fig-predictors" data-fig-pos="h" width="672" alt="Distribution of predictors" /><figcaption aria-hidden="true">Distribution of predictors</figcaption>
-</figure>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:predictors"></span>
+<img src="RandomForest_files/figure-html/fig-predictors-1.png" alt="Distribution of predictors" width="1344" />
+<p class="caption">
+Figure 2: Distribution of predictors
+</p>
+</div>
 </div>
 </div>
 <p>Some predictors are approximately normal, others clearly aren’t. Luckily, distribution of predictors doesn’t matter that much for random forest models. For fun, we’ll also look at some continuous predictors graphed against our DV.</p>
@@ -2533,13 +2539,15 @@ The package required for each function in this document is specified in the func
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>facet_bivariate_plots</span></code></pre></div>
-<div class="cell-output-display">
-<figure>
-<img src="RandomForest_files/figure-html/fig-preds_DV-1.png" id="fig-preds_DV" data-fig-pos="p" width="672" alt="Distribution of predictors against the DV (sum_arith_perf)" /><figcaption aria-hidden="true">Distribution of predictors against the DV (sum_arith_perf)</figcaption>
-</figure>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:preds-DV"></span>
+<img src="RandomForest_files/figure-html/fig-preds_DV-1.png" alt="Distribution of predictors against the DV (sum_arith_perf)" width="1344" />
+<p class="caption">
+Figure 3: Distribution of predictors against the DV (sum_arith_perf)
+</p>
 </div>
 </div>
-<p>The graphs created in the code above are shown on the next page, Page 11, in <span class="citation" data-cites="fig-preds_DV">(<a href="#ref-fig-preds_DV" role="doc-biblioref"><strong>fig-preds_DV?</strong></a>)</span>.</p>
+</div>
 <p>Like most psychological data, most of our predictors (and our DV) are not truly continuous. Our DV <code>sum_arith_perf</code> takes a wide range of values, but it is clear from its distribution that it is technically ordinal because its values are discrete. Some readers may wonder if random forests are valid models of such a DV - in fact, some may also wonder if we need to check for a monotonic relationship between the levels of each of our ordinal predictors and the dependent variable, as one would when validating the assumptions of linear regression, for example. Thankfully, this isn’t the case - because decision trees simply choose “splitting points” to group participants in such a way that the mean squared error is minimized, they handle ordinal features and mildly discrete dependent variables very well. However, if your DV is an ordinal variable that only takes a few values, like 1-5, you might want to look into ordinal forests <a href="https://cran.r-project.org/web/packages/ordinalForest/ordinalForest.pdf">here’s a link to an implementation in R</a>.</p>
 <p><a href="https://imgur.com/a/yX6rj7t">Click here for a link to an image of the correlation table</a> provided by the original authors of the dataset, which contains the DV and most of the predictors I am evaluating. Many of the continuous predictors depicted are decently intercorrelated, which is fine because random forest handles this better than many other models (and there aren’t any correlations over .8 or .9, which would sound alarm bells). Furthermore, correlations go in the “expected” directions - e.g., arithmetic performance correlates positively with liking math and math self-efficacy correlates negatively with all anxiety measures.</p>
 <p>This exploratory data analysis is light, but that is only because I want to focus on the model building and tuning. For a real project, graph all of your variables, transform predictor or outcome variables if needed, and use alternatives to omitting missing data in order to keep statistical power as high as possible (such as multiple imputation).</p>
@@ -2715,50 +2723,56 @@ In reality, <em>this</em> is the point where you would want to perform variable 
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Ranger result</span></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="do">##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,      num.trees = 8000, mtry = 20, min.node.size = 38, sample.fraction = 0.267,      importance = &quot;permutation&quot;, replace = FALSE, splitrule = &quot;variance&quot;,      write.forest = TRUE, verbose = TRUE) </span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Type:                             Regression </span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of trees:                  8000 </span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="do">## Sample size:                      515 </span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of independent variables:  20 </span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="do">## Mtry:                             20 </span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="do">## Target node size:                 38 </span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="do">## Variable importance mode:         permutation </span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="do">## Splitrule:                        variance </span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="do">## OOB prediction error (MSE):       37.2472 </span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="do">## R squared (OOB):                  0.1449143</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="do">##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="do">##      num.trees = 8000, mtry = 20, min.node.size = 38, sample.fraction = 0.267,</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="do">##      importance = &quot;permutation&quot;, replace = FALSE, splitrule = &quot;variance&quot;,</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="do">##      write.forest = TRUE, verbose = TRUE) </span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Type:                             Regression </span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of trees:                  8000 </span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="do">## Sample size:                      515 </span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of independent variables:  20 </span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="do">## Mtry:                             20 </span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="do">## Target node size:                 38 </span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="do">## Variable importance mode:         permutation </span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="do">## Splitrule:                        variance </span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="do">## OOB prediction error (MSE):       37.2472 </span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="do">## R squared (OOB):                  0.1449143</span></span>
 <span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>rf_rangertunedmodel2 <span class="ot">&lt;-</span> ranger<span class="sc">::</span><span class="fu">ranger</span>(</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> sum_arith_perf <span class="sc">~</span> .,</span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> training_subset,</span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">num.trees =</span> <span class="dv">8000</span>,</span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">mtry =</span> <span class="dv">16</span>,</span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">min.node.size =</span> <span class="dv">38</span>,</span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">sample.fraction =</span> .<span class="dv">311</span>,</span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>,</span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">replace =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">splitrule =</span> <span class="st">&quot;variance&quot;</span>,</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">TRUE</span></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(rf_rangertunedmodel2)</span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="do">## Ranger result</span></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="do">##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,      num.trees = 8000, mtry = 16, min.node.size = 38, sample.fraction = 0.311,      importance = &quot;permutation&quot;, replace = FALSE, splitrule = &quot;variance&quot;,      verbose = TRUE) </span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>rf_rangertunedmodel2 <span class="ot">&lt;-</span> ranger<span class="sc">::</span><span class="fu">ranger</span>(</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> sum_arith_perf <span class="sc">~</span> .,</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> training_subset,</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">num.trees =</span> <span class="dv">8000</span>,</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">mtry =</span> <span class="dv">16</span>,</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">min.node.size =</span> <span class="dv">38</span>,</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">sample.fraction =</span> .<span class="dv">311</span>,</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>,</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">replace =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  <span class="at">splitrule =</span> <span class="st">&quot;variance&quot;</span>,</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">TRUE</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(rf_rangertunedmodel2)</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="do">## Ranger result</span></span>
 <span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="do">## Type:                             Regression </span></span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of trees:                  8000 </span></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="do">## Sample size:                      515 </span></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of independent variables:  20 </span></span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="do">## Mtry:                             16 </span></span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="do">## Target node size:                 38 </span></span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="do">## Variable importance mode:         permutation </span></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="do">## Splitrule:                        variance </span></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="do">## OOB prediction error (MSE):       37.27892 </span></span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="do">## R squared (OOB):                  0.144186</span></span></code></pre></div>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="do">##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="do">##      num.trees = 8000, mtry = 16, min.node.size = 38, sample.fraction = 0.311,</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="do">##      importance = &quot;permutation&quot;, replace = FALSE, splitrule = &quot;variance&quot;,</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="do">##      verbose = TRUE) </span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="do">## Type:                             Regression </span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of trees:                  8000 </span></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="do">## Sample size:                      515 </span></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of independent variables:  20 </span></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="do">## Mtry:                             16 </span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="do">## Target node size:                 38 </span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="do">## Variable importance mode:         permutation </span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="do">## Splitrule:                        variance </span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="do">## OOB prediction error (MSE):       37.27892 </span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="do">## R squared (OOB):                  0.144186</span></span></code></pre></div>
 </div>
 <p>Fairly similar results from the two models, which is expected given that one is likely just a bit more refined given extra iterations and trees. The tuned value for node size is pretty high, which means the trees are not fitting too deeply. Similarly, the <code>mtry</code> values are relatively high, indicating that my models seem to fit better when more variables are being sampled at each split. High values of <code>mtry</code> appear to be better for datasets containing a few relevant variables out of many <span class="citation" data-cites="goldstein_random_2011">(<a href="#ref-goldstein_random_2011" role="doc-biblioref">Goldstein, Polley, and Briggs 2011</a>)</span>, which may be the case here. Lastly, a lower sample size means the individual trees are more diverse and the out of the bag predictions should be solid in terms of estimating the optimal parameter.</p>
 <p>You will also notice that the out-of-bag r-squared for each model is not great - 0.146 and 0.145, respectively. This is likely for a few reasons - first, there are undoubtedly some noise variables in the predictors (possibly even constituting a majority). This means the model will train in part on random noise and a more parsimonious model would likely produce more accurate predictions, especially with tuned parameters (more on that in my <code>Methods for Variable Selection</code> addendum).
@@ -2844,108 +2858,112 @@ Furthermore, this actually probably isn’t actually too far from a usable R-squ
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Ranger result</span></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,      num.trees = 8000, mtry = 4.47, importance = &quot;permutation&quot;,      splitrule = &quot;variance&quot;, verbose = TRUE) </span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Type:                             Regression </span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of trees:                  8000 </span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Sample size:                      515 </span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of independent variables:  20 </span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Mtry:                             4 </span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Target node size:                 5 </span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="do">## Variable importance mode:         permutation </span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Splitrule:                        variance </span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="do">## OOB prediction error (MSE):       37.91545 </span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="do">## R squared (OOB):                  0.1295733</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>default_importance_scores <span class="ot">&lt;-</span> rf_default_model<span class="sc">$</span>variable.importance</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>importance_scores3 <span class="ot">&lt;-</span> rf_default_model<span class="sc">$</span>variable.importance</span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>default_importance_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">names</span>(importance_scores3), <span class="at">Importance =</span> importance_scores3</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>default_importance_df <span class="ot">&lt;-</span> default_importance_df[</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">order</span>(<span class="sc">-</span>default_importance_df<span class="sc">$</span>Importance),</span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(default_importance_df)</span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="do">##                                        Variable  Importance</span></span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="do">## score_PISA_ME                     score_PISA_ME  2.51328497</span></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="do">## score_SDQ_M                         score_SDQ_M  1.90908320</span></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_math                         liking_math  1.82710779</span></span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="do">## score_AMAS_total               score_AMAS_total  1.62588953</span></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_math               persistence_math  1.62057479</span></span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a><span class="do">## sex                                         sex  1.44758351</span></span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="do">## math_grade                           math_grade  1.40644473</span></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a><span class="do">## total_time_minutes           total_time_minutes  0.89556928</span></span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_humanities             liking_humanities  0.71807700</span></span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_science                   liking_science  0.70677146</span></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="do">## score_STAI_state_short   score_STAI_state_short  0.55877379</span></span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_science         persistence_science  0.55098174</span></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="do">## score_GAD                             score_GAD  0.50474035</span></span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a><span class="do">## math_load                             math_load  0.49594901</span></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_humanities   persistence_humanities  0.48448754</span></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="do">## score_TAI_short                 score_TAI_short  0.37271568</span></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="do">## score_BFI_N                         score_BFI_N  0.26945352</span></span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="do">## age                                         age  0.19016531</span></span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="do">## score_SDQ_L                         score_SDQ_L  0.12553939</span></span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="do">## math_inf_program_choice math_inf_program_choice -0.06239927</span></span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">44</span>)</span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>rf_default_model2 <span class="ot">&lt;-</span> ranger<span class="sc">::</span><span class="fu">ranger</span>(</span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> sum_arith_perf <span class="sc">~</span> ., <span class="co"># Target variable and features</span></span>
-<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> training_subset, <span class="co"># Training dataset</span></span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>  <span class="at">num.trees =</span> <span class="dv">8000</span>, <span class="co"># Number of trees</span></span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>  <span class="at">mtry =</span> <span class="fl">6.666</span>, <span class="co"># Number of variables randomly sampled at each split</span></span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>, <span class="co"># Computes feature importance</span></span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>  <span class="at">splitrule =</span> <span class="st">&quot;variance&quot;</span>, <span class="co"># For regression (use &quot;gini&quot; for classification)</span></span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">TRUE</span> <span class="co"># Show training details</span></span>
-<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(rf_default_model2)</span>
-<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a><span class="do">## Ranger result</span></span>
-<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="do">##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,      num.trees = 8000, mtry = 6.666, importance = &quot;permutation&quot;,      splitrule = &quot;variance&quot;, verbose = TRUE) </span></span>
-<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a><span class="do">## Type:                             Regression </span></span>
-<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of trees:                  8000 </span></span>
-<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a><span class="do">## Sample size:                      515 </span></span>
-<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of independent variables:  20 </span></span>
-<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a><span class="do">## Mtry:                             6 </span></span>
-<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a><span class="do">## Target node size:                 5 </span></span>
-<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a><span class="do">## Variable importance mode:         permutation </span></span>
-<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a><span class="do">## Splitrule:                        variance </span></span>
-<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a><span class="do">## OOB prediction error (MSE):       38.13215 </span></span>
-<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a><span class="do">## R squared (OOB):                  0.1245984</span></span>
-<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>importance_scores4 <span class="ot">&lt;-</span> rf_default_model2<span class="sc">$</span>variable.importance</span>
-<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>default_importance_df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">names</span>(importance_scores4), <span class="at">Importance =</span> importance_scores4</span>
-<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>default_importance_df2 <span class="ot">&lt;-</span> default_importance_df2[</span>
-<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">order</span>(<span class="sc">-</span>default_importance_df2<span class="sc">$</span>Importance),</span>
-<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(default_importance_df2)</span>
-<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a><span class="do">##                                        Variable Importance</span></span>
-<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a><span class="do">## score_PISA_ME                     score_PISA_ME  2.9694578</span></span>
-<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a><span class="do">## score_SDQ_M                         score_SDQ_M  2.0349790</span></span>
-<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_math                         liking_math  2.0164968</span></span>
-<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a><span class="do">## score_AMAS_total               score_AMAS_total  1.6318012</span></span>
-<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_math               persistence_math  1.4887467</span></span>
-<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="do">## math_grade                           math_grade  1.4580993</span></span>
-<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a><span class="do">## sex                                         sex  1.3523584</span></span>
-<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a><span class="do">## total_time_minutes           total_time_minutes  0.9944156</span></span>
-<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a><span class="do">## score_STAI_state_short   score_STAI_state_short  0.6497164</span></span>
-<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_humanities             liking_humanities  0.6349223</span></span>
-<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a><span class="do">## score_GAD                             score_GAD  0.5834100</span></span>
-<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_science                   liking_science  0.5820154</span></span>
-<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_science         persistence_science  0.5255029</span></span>
-<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a><span class="do">## score_BFI_N                         score_BFI_N  0.4305484</span></span>
-<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a><span class="do">## math_load                             math_load  0.4261550</span></span>
-<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_humanities   persistence_humanities  0.3958836</span></span>
-<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a><span class="do">## score_TAI_short                 score_TAI_short  0.3944095</span></span>
-<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a><span class="do">## age                                         age  0.2304098</span></span>
-<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a><span class="do">## score_SDQ_L                         score_SDQ_L  0.0717001</span></span>
-<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a><span class="do">## math_inf_program_choice math_inf_program_choice -0.2221544</span></span></code></pre></div>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="do">##      num.trees = 8000, mtry = 4.47, importance = &quot;permutation&quot;,</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="do">##      splitrule = &quot;variance&quot;, verbose = TRUE) </span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Type:                             Regression </span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of trees:                  8000 </span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Sample size:                      515 </span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of independent variables:  20 </span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="do">## Mtry:                             4 </span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Target node size:                 5 </span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="do">## Variable importance mode:         permutation </span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="do">## Splitrule:                        variance </span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="do">## OOB prediction error (MSE):       37.91545 </span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="do">## R squared (OOB):                  0.1295733</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>default_importance_scores <span class="ot">&lt;-</span> rf_default_model<span class="sc">$</span>variable.importance</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>importance_scores3 <span class="ot">&lt;-</span> rf_default_model<span class="sc">$</span>variable.importance</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>default_importance_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">names</span>(importance_scores3), <span class="at">Importance =</span> importance_scores3</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>default_importance_df <span class="ot">&lt;-</span> default_importance_df[</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">order</span>(<span class="sc">-</span>default_importance_df<span class="sc">$</span>Importance),</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(default_importance_df)</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="do">##                                        Variable  Importance</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="do">## score_PISA_ME                     score_PISA_ME  2.51328497</span></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="do">## score_SDQ_M                         score_SDQ_M  1.90908320</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_math                         liking_math  1.82710779</span></span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a><span class="do">## score_AMAS_total               score_AMAS_total  1.62588953</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_math               persistence_math  1.62057479</span></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a><span class="do">## sex                                         sex  1.44758351</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a><span class="do">## math_grade                           math_grade  1.40644473</span></span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a><span class="do">## total_time_minutes           total_time_minutes  0.89556928</span></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_humanities             liking_humanities  0.71807700</span></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_science                   liking_science  0.70677146</span></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="do">## score_STAI_state_short   score_STAI_state_short  0.55877379</span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_science         persistence_science  0.55098174</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="do">## score_GAD                             score_GAD  0.50474035</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="do">## math_load                             math_load  0.49594901</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_humanities   persistence_humanities  0.48448754</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="do">## score_TAI_short                 score_TAI_short  0.37271568</span></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="do">## score_BFI_N                         score_BFI_N  0.26945352</span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="do">## age                                         age  0.19016531</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="do">## score_SDQ_L                         score_SDQ_L  0.12553939</span></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a><span class="do">## math_inf_program_choice math_inf_program_choice -0.06239927</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">44</span>)</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>rf_default_model2 <span class="ot">&lt;-</span> ranger<span class="sc">::</span><span class="fu">ranger</span>(</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> sum_arith_perf <span class="sc">~</span> ., <span class="co"># Target variable and features</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> training_subset, <span class="co"># Training dataset</span></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>  <span class="at">num.trees =</span> <span class="dv">8000</span>, <span class="co"># Number of trees</span></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>  <span class="at">mtry =</span> <span class="fl">6.666</span>, <span class="co"># Number of variables randomly sampled at each split</span></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>, <span class="co"># Computes feature importance</span></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>  <span class="at">splitrule =</span> <span class="st">&quot;variance&quot;</span>, <span class="co"># For regression (use &quot;gini&quot; for classification)</span></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">TRUE</span> <span class="co"># Show training details</span></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(rf_default_model2)</span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="do">## Ranger result</span></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a><span class="do">##  ranger::ranger(formula = sum_arith_perf ~ ., data = training_subset,</span></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="do">##      num.trees = 8000, mtry = 6.666, importance = &quot;permutation&quot;,</span></span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a><span class="do">##      splitrule = &quot;variance&quot;, verbose = TRUE) </span></span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a><span class="do">## Type:                             Regression </span></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of trees:                  8000 </span></span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a><span class="do">## Sample size:                      515 </span></span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of independent variables:  20 </span></span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a><span class="do">## Mtry:                             6 </span></span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a><span class="do">## Target node size:                 5 </span></span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a><span class="do">## Variable importance mode:         permutation </span></span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a><span class="do">## Splitrule:                        variance </span></span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a><span class="do">## OOB prediction error (MSE):       38.13215 </span></span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a><span class="do">## R squared (OOB):                  0.1245984</span></span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>importance_scores4 <span class="ot">&lt;-</span> rf_default_model2<span class="sc">$</span>variable.importance</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>default_importance_df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">names</span>(importance_scores4), <span class="at">Importance =</span> importance_scores4</span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>default_importance_df2 <span class="ot">&lt;-</span> default_importance_df2[</span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">order</span>(<span class="sc">-</span>default_importance_df2<span class="sc">$</span>Importance),</span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(default_importance_df2)</span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a><span class="do">##                                        Variable Importance</span></span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a><span class="do">## score_PISA_ME                     score_PISA_ME  2.9694578</span></span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="do">## score_SDQ_M                         score_SDQ_M  2.0349790</span></span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_math                         liking_math  2.0164968</span></span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a><span class="do">## score_AMAS_total               score_AMAS_total  1.6318012</span></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_math               persistence_math  1.4887467</span></span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a><span class="do">## math_grade                           math_grade  1.4580993</span></span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a><span class="do">## sex                                         sex  1.3523584</span></span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a><span class="do">## total_time_minutes           total_time_minutes  0.9944156</span></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a><span class="do">## score_STAI_state_short   score_STAI_state_short  0.6497164</span></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_humanities             liking_humanities  0.6349223</span></span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a><span class="do">## score_GAD                             score_GAD  0.5834100</span></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a><span class="do">## liking_science                   liking_science  0.5820154</span></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_science         persistence_science  0.5255029</span></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a><span class="do">## score_BFI_N                         score_BFI_N  0.4305484</span></span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a><span class="do">## math_load                             math_load  0.4261550</span></span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a><span class="do">## persistence_humanities   persistence_humanities  0.3958836</span></span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a><span class="do">## score_TAI_short                 score_TAI_short  0.3944095</span></span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a><span class="do">## age                                         age  0.2304098</span></span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a><span class="do">## score_SDQ_L                         score_SDQ_L  0.0717001</span></span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a><span class="do">## math_inf_program_choice math_inf_program_choice -0.2221544</span></span></code></pre></div>
 </div>
 <p>The End
 Links to other Documents:
